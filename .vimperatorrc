@@ -1,0 +1,256 @@
+" .vimperatorrc
+" for 2.0pre (created: 2008/12/10 07:30:02)
+" Last Change: 2009/01/03 13:37:05.
+
+" set ---------------------------------------------------------------------
+" title bar
+set titlestring="Firefox with Vimperator"
+
+" default search/suggest engine: google
+set defsearch=google
+set suggestengines=google
+
+" completion priority in :[tab]open
+" bookmarks, suggestions, awesome bar
+set complete=bSl
+
+" don't focus automatically
+" why not allowed me to set none!?
+"set activate=
+set activate=homepage
+
+" scroll height of <C-d> / <C-u>
+set scroll=3
+
+" use custom matching feature (XUL/Migemo by migemo_hint.js) in hints mode
+set hintmatching=custom
+
+" need <CR> anytime in hints mode
+set followhints=1
+
+" all type pages are opened in new tab
+" addons + downloads + help + javascript + prefs
+set newtab=all
+
+" show completions automatically
+set wildoptions=auto
+
+" don't focus any "input" elements automatically when open pages.
+set focuscontent
+
+" HTTP header(request/response), cookie
+" move to autocmd (below)
+"set pageinfo=gmchH
+
+" show right and bottom scroll bar
+set go=rb
+
+"set noloadplugins
+
+
+" set! ------------------------------------------------------------------
+" case-sensitive when find
+set! accessibility.typeaheadfind.casesensitive=1
+
+" don't resize when open images
+set! browser.enabel_automatic_image_resizing=false
+
+" don't animate tab-bar when fullscreen
+set! browser.fullscreen.animateUp=0
+
+" the number of URL-completions is 20
+set! browser.urlbar.maxRichResults=20
+
+" the number of popups is 100
+set! dom.popup_maximum=100
+set! browser.tabs.loadDivertedInBackground=true
+
+" activate spell-check textarea/input
+set! layout.spellcheckDefault=2
+set! spellchecker.dictionary=en-US
+
+" don't select trailing spaces, when select words.
+set! layout.word_select.eat_space_to_next_word=false
+
+" display tab-bar anytime
+set! browser.tabs.autoHide=false
+" hide close buttons
+set! browser.tabs.closeButtons=2
+" tab width is 24px
+set! browser.tabs.tabMaxWidth=24
+set! browser.tabs.tabMinWidth=24
+
+" don't show download-manager
+set! browser.download.manager.showWhenStarting=false
+
+
+" Variables ---------------------------------------------------------------
+" this must be set before map operation, otherwise use default value.
+let mapleader=','
+
+
+" Mappings ----------------------------------------------------------------
+" tab operation
+noremap <C-h> gT
+noremap <C-l> gt
+noremap <C-p> :tabmove! -1<CR>
+noremap <C-n> :tabmove! +1<CR>
+
+" I で pageinfo
+noremap I :pageinfo<CR>
+
+" scrooooooooll
+noremap J <C-d>
+noremap K <C-u>
+
+" fuckups
+noremap p <Nop>
+noremap <C-k> <Nop>
+" move to .vimperatorrc.js
+"map A <Nop>
+
+" escape <C-a> / <C-x>
+noremap <C-w> <C-a>
+noremap <C-e> <C-x>
+
+" Windows keybind
+noremap <C-a> <C-v><C-a>
+noremap <C-c> <C-v><C-c>
+noremap <C-s> <C-v><C-s>
+
+inoremap <C-a> <C-v><C-a>
+inoremap <C-c> <C-v><C-c>
+inoremap <C-s> <C-v><C-s>
+inoremap <C-x> <C-v><C-x>
+inoremap <C-v> <C-v><C-v>
+inoremap <C-z> <C-v><C-z>
+inoremap <C-y> <C-v><C-y>
+
+cnoremap <C-a> <C-v><C-a>
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-s> <C-v><C-s>
+cnoremap <C-x> <C-v><C-x>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-z> <C-v><C-z>
+cnoremap <C-y> <C-v><C-y>
+
+" fullscreen
+noremap <F11> <C-v><F11>
+
+" better safe than sorry
+inoremap <C-h> <BS>
+noremap <Leader>B :js content.document.body.focus();<CR>
+
+" sourcing .vimperatorrc
+noremap <Leader>r :so ~/.vimperatorrc<CR>
+noremap <Leader>R :mapc<CR>:cmapc<CR>:imapc<CR>:so ~/.vimperatorrc<CR>
+
+" we love echo
+noremap e :echo<Space>
+
+" simple
+noremap <Leader>l :toggleldrizecooperation<CR>
+
+noremap <Leader>d :redraw<CR>
+
+" Plugins -----------------------------------------------------------------
+" plugin: direct_bookmark.js
+" move to .vimperatorrc.js
+"map a :sbm<Space>
+
+" plugin: sbmcommentsviewer.js
+" move to .vimperatorrc.js
+"map v :viewSBMComments -t hd
+
+" plugin: copy.js
+noremap <Leader>c :copy title<CR>
+
+" plugin: blinkelement.js
+noremap <Leader>b :bl content.document.getElement
+noremap <Leader>e :bl buffer.evaluateXPath
+
+" plugin: noscript.js
+noremap <Leader>s :noscript toggletemp<CR>
+noremap <Leader>S :noscript toggleperm<CR>
+
+" plugin: direct_bookmark.js
+" use service: delicious, はてなブックマーク
+let direct_sbm_use_services_by_post='dh'
+let direct_sbm_use_services_by_tag='dh'
+
+" plugin: matanico.js
+let matanico_watch_servicename='またニコ'
+let matanico_watch_format='$SERVICENAME : $COMMENT [$SUBJECT]($PLAYTIME) - $URL'
+let matanico_tag_servicename='またニコタグ'
+let matanico_tag_format='$SERVICENAME : $COMMENT [$TAG]($NUMOFVIDEOS件) - $URL'
+let matanico_related_tag_servicename='またニコタグ(キーワード)'
+let matanico_related_tag_format='$SERVICENAME : $COMMENT [$KEYWORD]($NUMOFTAGS件) - $URL'
+
+" plugin: reading.js
+let reading_servicename='reading'
+let reading_format='$SERVICENAME : $COMMENT [$TITLE] $URL $SELECTED'
+
+" plugin: nnp_cooperation.js
+let nnp_coop_numoflist='7'
+
+" plugin: ime_controller.js
+let ex_ime_mode='inactive'
+let textarea_ime_mode='inactive'
+
+" plugin: clock.js
+let clock_format='[%t %d]'
+
+" plugin: imageextender.js
+let image_extender_skip_prompt='false'
+
+" plugin: hidecritter.js
+let hidecritter_mapping='H'
+let hatena_star_hint_mapping='h'
+
+
+" JavaScript ------------------------------------------------------------
+source ~/.vimperatorrc.js
+
+
+" CSS -------------------------------------------------------------------
+"source ~/.vimperatorrc.css
+
+
+" autocmd ---------------------------------------------------------------
+" fmap ---
+" all clear
+autocmd LocationChange .* :fmapc
+
+" Fastladder
+" pass through default keybinds
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r J,<Space> K,<S-Space>
+" LDR Full Feed
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap v,g V,G
+" LDR + Tombloo
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap B,T
+" Hatena Star
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap H
+
+" Remember the Milk
+" add / complete / edit / delete tasks
+autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap C,t c V,p v,d w,f q,g s Q,u W,l S,y I,r U,z <C-1>,1 <C-2>,2 <C-3>,3 <C-0>,4 <Del>
+" select tasks / tab switch / multiple mode
+autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap a n k j i h m
+" list switch
+autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap <C-H>,<C-S-Left> <C-L>,<C-S-Right>
+
+" Mitter
+" w/q for Mitter kbd raging changer
+autocmd LocationChange http://mitter\\.jp/edit :fmap w q
+
+
+" set ---
+" option c/h/H is defined by plugin,
+" the timing ':set pageinfo' is at the ready of vimperator
+autocmd VimperatorEnter .* :set pageinfo=gmchH
+
+
+" finish ----------------------------------------------------------------
+echo "GET READY!!"
+
+" vim: ft=vimperator sw=4 sts=4 ts=4 et
