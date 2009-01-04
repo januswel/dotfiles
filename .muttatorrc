@@ -1,16 +1,11 @@
 " muttatorrc
 " author janus_wel<janus.wel.3@gmail.com>
 " for 0.5pre (created: 2009/01/03 18:39:53)
-" Last Change: 2009/01/04 17:36:17.
+" Last Change: 2009/01/04 19:22:44.
 
 " Settings --------------------------------------------------------------
-"set "runtimepath=C:\\Documents and Settings\\Janus\\My Documents\\Config\\muttator"
-
 " show completions automatically
 set wildoptions=auto
-
-" don't focus any "input" elements automatically when open pages.
-set focuscontent
 
 " need <CR> anytime in hints mode
 set followhints=1
@@ -23,6 +18,9 @@ set scroll=3
 
 " always display tab-bar
 set showtabline=2
+
+" don't focus any "input" elements automatically when open pages.
+set focuscontent
 
 
 " Variables ---------------------------------------------------------------
@@ -81,8 +79,6 @@ noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:mmapclear<CR>:so ~/.
 
 
 " Source ----------------------------------------------------------------
-" local settings
-"source! ~/.muttatorrc.local
 
 
 " vim: ft=vimperator sw=4 sts=4 ts=4 et
