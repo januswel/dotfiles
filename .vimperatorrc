@@ -1,8 +1,12 @@
 " .vimperatorrc
+" author janus_wel<janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/01/03 13:37:05.
+" Last Change: 2009/01/04 19:30:20.
 
-" set ---------------------------------------------------------------------
+" Settings --------------------------------------------------------------
+" safe mode
+"set noloadplugins
+
 " title bar
 set titlestring="Firefox with Vimperator"
 
@@ -32,6 +36,9 @@ set followhints=1
 " addons + downloads + help + javascript + prefs
 set newtab=all
 
+" display tab-bar anytime
+set showtabline=2
+
 " show completions automatically
 set wildoptions=auto
 
@@ -43,27 +50,39 @@ set focuscontent
 "set pageinfo=gmchH
 
 " show right and bottom scroll bar
-set go=rb
-
-"set noloadplugins
+set guioptions=rb
 
 
-" set! ------------------------------------------------------------------
+" Settings ( Firefox about:config ) --------------------------------------
+" tabs ---
+" display tab-bar anytime
+set! browser.tabs.autoHide=false
+
+" don't animate tab-bar when switch to fullscreen
+set! browser.fullscreen.animateUp=0
+
+" hide close buttons
+set! browser.tabs.closeButtons=2
+
+" open tab in the background
+set! browser.tabs.loadDivertedInBackground=true
+
+" tab width is 24px
+set! browser.tabs.tabMaxWidth=24
+set! browser.tabs.tabMinWidth=24
+
+" miscs ---
 " case-sensitive when find
 set! accessibility.typeaheadfind.casesensitive=1
 
 " don't resize when open images
 set! browser.enabel_automatic_image_resizing=false
 
-" don't animate tab-bar when fullscreen
-set! browser.fullscreen.animateUp=0
-
 " the number of URL-completions is 20
 set! browser.urlbar.maxRichResults=20
 
 " the number of popups is 100
 set! dom.popup_maximum=100
-set! browser.tabs.loadDivertedInBackground=true
 
 " activate spell-check textarea/input
 set! layout.spellcheckDefault=2
@@ -71,14 +90,6 @@ set! spellchecker.dictionary=en-US
 
 " don't select trailing spaces, when select words.
 set! layout.word_select.eat_space_to_next_word=false
-
-" display tab-bar anytime
-set! browser.tabs.autoHide=false
-" hide close buttons
-set! browser.tabs.closeButtons=2
-" tab width is 24px
-set! browser.tabs.tabMaxWidth=24
-set! browser.tabs.tabMinWidth=24
 
 " don't show download-manager
 set! browser.download.manager.showWhenStarting=false
@@ -96,7 +107,10 @@ noremap <C-l> gt
 noremap <C-p> :tabmove! -1<CR>
 noremap <C-n> :tabmove! +1<CR>
 
-" I で pageinfo
+" we love echo
+noremap e :echo<Space>
+
+" pageinfo short-cut
 noremap I :pageinfo<CR>
 
 " scrooooooooll
@@ -140,18 +154,12 @@ noremap <F11> <C-v><F11>
 " better safe than sorry
 inoremap <C-h> <BS>
 noremap <Leader>B :js content.document.body.focus();<CR>
+noremap <Leader>d :redraw<CR>
 
 " sourcing .vimperatorrc
 noremap <Leader>r :so ~/.vimperatorrc<CR>
-noremap <Leader>R :mapc<CR>:cmapc<CR>:imapc<CR>:so ~/.vimperatorrc<CR>
+noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:so ~/.vimperatorrc<CR>
 
-" we love echo
-noremap e :echo<Space>
-
-" simple
-noremap <Leader>l :toggleldrizecooperation<CR>
-
-noremap <Leader>d :redraw<CR>
 
 " Plugins -----------------------------------------------------------------
 " plugin: direct_bookmark.js
@@ -172,6 +180,9 @@ noremap <Leader>e :bl buffer.evaluateXPath
 " plugin: noscript.js
 noremap <Leader>s :noscript toggletemp<CR>
 noremap <Leader>S :noscript toggleperm<CR>
+
+" plugin: ldrize_cooperation.js
+noremap <Leader>l :toggleldrizecooperation<CR>
 
 " plugin: direct_bookmark.js
 " use service: delicious, はてなブックマーク
@@ -208,11 +219,11 @@ let hidecritter_mapping='H'
 let hatena_star_hint_mapping='h'
 
 
-" JavaScript ------------------------------------------------------------
+" Source ----------------------------------------------------------------
+" javascript
 source ~/.vimperatorrc.js
 
-
-" CSS -------------------------------------------------------------------
+" css
 "source ~/.vimperatorrc.css
 
 
