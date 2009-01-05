@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel<janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/01/04 19:30:20.
+" Last Change: 2009/01/06 01:02:05.
 
 " Settings --------------------------------------------------------------
 " safe mode
@@ -153,12 +153,12 @@ noremap <F11> <C-v><F11>
 
 " better safe than sorry
 inoremap <C-h> <BS>
-noremap <Leader>B :js content.document.body.focus();<CR>
+noremap <Leader>B :javascript content.document.body.focus();<CR>
 noremap <Leader>d :redraw<CR>
 
 " sourcing .vimperatorrc
-noremap <Leader>r :so ~/.vimperatorrc<CR>
-noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:so ~/.vimperatorrc<CR>
+noremap <Leader>r :source ~/.vimperatorrc<CR>
+noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:source ~/.vimperatorrc<CR>
 
 
 " Plugins -----------------------------------------------------------------
