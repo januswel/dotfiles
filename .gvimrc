@@ -1,5 +1,5 @@
 " .gvimrc
-" Last Change: 2009/01/03 14:16:12.
+" Last Change: 2009/01/05 21:33:48.
 
 " set ---------------------------------------------------------------------
 " Compatible mode off
@@ -76,35 +76,41 @@ set fileformats=unix,dos,mac
 
 " let ---------------------------------------------------------------------
 " very important
-let maplocalleader='.'
+let mapleader=','
 
+" plugin: autodate.vim
 " date format to insert automatically
 let autodate_format='%Y/%m/%d %H:%M:%S'
 
 
 " map ---------------------------------------------------------------------
 " tabnew は補完が聞きづらいので定義しとく
-map t :tabnew<Space>
+nnoremap t :tabnew<Space>
 
 " タブ移動
-nnoremap <special> <C-h> gT
-nnoremap <special> <C-l> gt
+nnoremap <special><C-h> gT
+nnoremap <special><C-l> gt
 
 " タブ入れ替え
 " TabShift.vim plugin
-nnoremap <silent> <special> <C-p> :call TabShift(-1)<CR>
-nnoremap <silent> <special> <C-n> :call TabShift(+1)<CR>
+nnoremap <silent><special><C-p> :call TabShift(-1)<CR>
+nnoremap <silent><special><C-n> :call TabShift(+1)<CR>
 
 " カーソルの位置で改行
-nmap <silent> <special> <S-k> i<CR><Esc>
+nnoremap <silent><special><S-k> i<CR><Esc>
 
 " 検索語が画面の真ん中に来るようにする
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+nnoremap <Leader>r :source ~/.gvimrc<CR>
+nnoremap <Leader>M :mapclear<CR>
+nmap <Leader>R :normal <Leader>M<CR>:source ~/.gvimrc<CR>
+nnoremap e :echo<Space>
 
 
 " abbreviation ------------------------------------------------------------
