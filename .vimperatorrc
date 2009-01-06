@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel<janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/01/06 01:02:05.
+" Last Change: 2009/01/06 20:59:18.
 
 " Settings --------------------------------------------------------------
 " safe mode
@@ -234,13 +234,23 @@ autocmd LocationChange .* :fmapc
 
 " Fastladder
 " pass through default keybinds
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r J,<Space> K,<S-Space>
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r <Del>
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap J,<Space> K,<S-Space> <,> >,< /,f
 " LDR Full Feed
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap v,g V,G
 " LDR + Tombloo
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap B,T
-" Hatena Star
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap H
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap g,t G,b z,Z
+
+" livedoor Reader
+" pass through default keybinds
+autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap j k s a p o q w r <Del>
+autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap J,<Space> K,<S-Space> <,> >,< /,f
+" LDR Full Feed
+autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap v,g V,G
+" LDR + Tombloo
+autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap B,T
+autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap g,t G,b z,Z
 
 " Remember the Milk
 " add / complete / edit / delete tasks
