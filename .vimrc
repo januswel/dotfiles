@@ -1,88 +1,232 @@
 " .vimrc
-" Last Change: 2009/01/03 14:15:27.
+" Last Change: 2009/01/31 01:50:04.
 
-" set ---------------------------------------------------------------------
-" Display & Information
-set number            " 行番号表示
-set noruler           " カーソルの行,列数を非表示 ( statusline を設定するので )
-set title             " 処理ファイル名をタイトルバーに表示
-set laststatus=2      " 常にステータスラインを表示する
-set showmode          " モード表示
-set cmdheight=1       " コマンドラインは 1 行で
-set nolist            " 非表示文字は表示しないまま
-set showmatch         " 対になるカッコを強調表示
-set scrolloff=3       " カーソルの周りは常に 3 行表示
+" initialization ----------------------------------------------------------
+" get vim runtime directory and set environment variable
+" for compatibility between Windows and Linux
+let $VIM_RUNTIME_DIR = $HOME . "/.vim"
+if has("win32")
+    let $VIM_RUNTIME_DIR = $HOME . "/vimfiles"
+endif
 
-" ファイル名、モード、文字コード、改行コード、読み取り専用フラグ、変更フラグ、列数 : 行数 / 全行数 [ カーソル位置の % ]
+
+" options -----------------------------------------------------------------
+" compatible mode off
+set nocompatible
+
+" path setting
+" add path to my bin
+set path="~/bin",path
+
+" timing to write
+set noautowrite     " set off writing a file automatically
+set noautowriteall  " completely
+
+" backup
+" backup directory
+let &backupdir = $VIM_RUNTIME_DIR . "/backup/"
+set backup          " backup feature on
+set writebackup     " make a backup file before overwriting a file
+set backupcopy=auto " how backup files are created, best one
+set backupext=~     " tail character to add a backup file
+
+" display & information
+set number          " show line numbers
+set noruler         " not show row and column number of cursor
+set title           " display file name to edit
+set laststatus=2    " show status line always
+set showmode        " show mode name
+set cmdheight=1     " height of command-line is 1 row
+set background=dark " low impact for eye
+set nolist          " not show space characters (tab, line break)
+set showmatch       " show pair parenthesis, bracket
+set scrolloff=3     " above and below cursor number is 3 line
+" filename [filetype][fileencoding:fileformat][RO]?[+]?    column:line/all-line[ percentage-of-buffer%]
 set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L[%3p%%]
 
-" Tab & Space
-set tabstop=4      " タブ幅
-set shiftwidth=4   " cindent や << / >> のインデント幅
-set softtabstop=0  " tab キーを押したときに挿入される幅。 0 は tabstop の設定
-set autoindent     " auto indent on
-set expandtab      " タブを空白文字に置換する
+" tab & space
+set tabstop=4       " tab width
+set shiftwidth=4    " tab width (cindent and <<, >>)
+set softtabstop=0   " tab width (<Tab>), when this is 0, use tabstop
+set autoindent      " auto indent on
+set expandtab       " replace tab to space
 
-" Search
+" search
 set incsearch   " incremental search on
-set hlsearch    " 検索語のハイライト
-set ignorecase  " 大文字小文字を区別しない
-set smartcase   " 大文字が含まれていた場合は区別する
-set wrapscan    " ファイル終端までいったら最初に戻る
+set hlsearch    " highlight matched word
+set ignorecase  " pattern is performed as case insensitive normally
+set smartcase   " but as case sensitive if capital character is contained
+set wrapscan    " wrap
 
-" Cursor
-set backspace=2  " indent,eol,start
+" backspacing
+set backspace=indent,eol,start  " allow backspacing over autoindent, line breakes, start of insert
 
-" Wild card
-set wildmenu               " 補完候補表示
-set wildmode=longest:full  " wildmenu + 共通する最長の文字列まで補完
+" command-line completion
+set wildmenu            " command-line completion on
+set wildmode=list:full  " list all candidates and full completion
 
-" Tab Feature
-set showtabline=2   " 常にタブバーを表示する
+" tab
+set showtabline=2   " show tab bar always
+
+" character encoding
+set encoding=utf-8      " inside Vim
+set fileencoding=utf-8  " buffer default (for new file)
+" character encodings for exist files
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,utf-16,ucs-2-internal,ucs-2
+
+" end-of-line format
+set fileformat=unix             " buffer default (for new file)
+set fileformats=unix,dos,mac    " EOL format for exist files
 
 
-" syntax & colorscheme ----------------------------------------------------
-syntax enable
-colorscheme Janus
+" filetype ----------------------------------------------------------------
+filetype on         " filetype detection on
+filetype plugin on  " for omni completion
+filetype indent on  " each filetype indent on
+
+
+" syntax highlight --------------------------------------------------------
+syntax enable       " use syntax highlight
+
+" color scheme: Janus.vim
+colorscheme Janus   " my color scheme
 
 
 " let ---------------------------------------------------------------------
-" very important
-let maplocalleader='.'
+" <Leader>
+let mapleader=','
 
+" plugin: autodate.vim
 " date format to insert automatically
 let autodate_format='%Y/%m/%d %H:%M:%S'
 
 
-" abbreviation ------------------------------------------------------------
-abbr retrun return
+" autocmd -----------------------------------------------------------------
+" open QuickFix window automatically
+autocmd QuickFixCmdPost make cwindow    " make
+autocmd QuickFixCmdPost vimgrep cwindow " internal grep
+
+" for [x]html
+" I will write xhtml only
+autocmd BufNewFile,BufRead *.html :set filetype=xhtml
+" load xhtml template automatically
+autocmd BufNewFile *.html 0r $VIM_RUNTIME_DIR/templates/xhtml_template.html
+" ftplugin: html.vim
+" complete closing tab
+autocmd Syntax html,xhtml :inoremap <buffer><special><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
+" modify by HTML Tidy
+autocmd Syntax html,xhtml :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 
 
 " map ---------------------------------------------------------------------
-" tabnew は補完が聞きづらいので定義しとく
-map t :tabnew<Space>
+" move cursor as it looks
+nnoremap j gj
+nnoremap k gk
 
-" タブ移動
-nnoremap <special> <C-h> gT
-nnoremap <special> <C-l> gt
+" tabnew is hard to complete
+nnoremap t :tabnew<Space>
 
-" タブ入れ替え
+" switch tab
+nnoremap <special><C-h> gT
+nnoremap <special><C-l> gt
+
+" move tab
 " TabShift.vim plugin
-nnoremap <silent> <special> <C-p> :call TabShift(-1)<CR>
-nnoremap <silent> <special> <C-n> :call TabShift(+1)<CR>
+nnoremap <silent><special><C-p> :call TabShift(-1)<CR>
+nnoremap <silent><special><C-n> :call TabShift(+1)<CR>
 
-" カーソルの位置で改行
-nmap <silent> <special> <S-k> i<CR><Esc>
+" line break
+nnoremap <silent><special><S-k> i<CR><Esc>
 
-" 検索語が画面の真ん中に来るようにする
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
+" set matched word to middle of screen
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" source
+nnoremap <Leader>r :source ~/.gvimrc<CR>
+nnoremap <Leader>R :mapclear<CR>:source ~/.gvimrc<CR>
+
+" make
+nnoremap <silent><Leader>m :update<CR>:make<CR>
+
+" activate smart (keywords or omni) completion
+" plugin: InsertTabWrapper.vim
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+
+
+" abbreviation ------------------------------------------------------------
+" fix typo
+abbreviate retrun return
+abbreviate cosnt  const
+
 
 " script ------------------------------------------------------------------
+" detection character encoding automatically
+" refer : http://www.kawaz.jp/pukiwiki/?vim#cb691f26
+if &encoding !=# 'utf-8'
+    set encoding=japan
+    set fileencoding=japan
+endif
+if has('iconv')
+    let s:enc_euc = 'euc-jp'
+    let s:enc_jis = 'iso-2022-jp'
+    " check which iconv can perform eucJP-ms
+    if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'eucjp-ms'
+        let s:enc_jis = 'iso-2022-jp-3'
+    " check which iconv can perform JISX0213
+    elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'euc-jisx0213'
+        let s:enc_jis = 'iso-2022-jp-3'
+    endif
+    " build fileencodings
+    if &encoding ==# 'utf-8'
+        let s:fileencodings_default = &fileencodings
+        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+        unlet s:fileencodings_default
+    else
+        let &fileencodings = &fileencodings .','. s:enc_jis
+        set fileencodings+=utf-8,ucs-2le,ucs-2
+        if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+            set fileencodings+=cp932
+            set fileencodings-=euc-jp
+            set fileencodings-=euc-jisx0213
+            set fileencodings-=eucjp-ms
+            let &encoding = s:enc_euc
+            let &fileencoding = s:enc_euc
+        else
+            let &fileencodings = &fileencodings .','. s:enc_euc
+        endif
+    endif
+    " clear variables
+    unlet s:enc_euc
+    unlet s:enc_jis
+endif
+
+" if Japanese is not contained, set fileencoding to value of encoding
+if has('autocmd')
+    function! AU_ReCheck_FENC()
+        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+            let &fileencoding=&encoding
+        endif
+    endfunction
+    autocmd BufReadPost * call AU_ReCheck_FENC()
+endif
+
+" for East Asia double width characters
+if exists('&ambiwidth')
+    set ambiwidth=double
+endif
+
+" change cursor color to red on IME mode
+if has('multi_byte_ime') || has('xim')
+    highlight CursorIM guibg=Red guifg=NONE
+endif
 
 
-" vim: ft=vimperator sw=4 sts=4
+" vim: sw=4 sts=4
