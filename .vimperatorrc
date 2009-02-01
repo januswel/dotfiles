@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel<janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/01/28 05:00:05.
+" Last Change: 2009/02/01 12:50:41.
 
 " Settings --------------------------------------------------------------
 " safe mode
@@ -240,7 +240,7 @@ autocmd LocationChange .* :fmapc
 
 " Fastladder
 " pass through default keybinds
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r c <Del>
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r <Del>
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap J,<Space> K,<S-Space> <,> >,< /,f
 " LDR Full Feed
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap v,g V,G
