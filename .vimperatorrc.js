@@ -30,9 +30,9 @@ liberator.plugins.nicomap = function() {
     const defMaps = [
         {
             command:        'a',
-            action:         function() { liberator.execute('normal :sbm<Space>'); },
-            description:    'ready social bookmark command',
-            extra:          { rhs: ':sbm<Space>', },
+            action:         function() {},
+            description:    'Nop',
+            extra:          {},
         },
         {
             command:        'v',
@@ -169,7 +169,7 @@ liberator.plugins.nicomap = function() {
                     // 指定なしの場合 10 秒前。
                     command:        '-',
                     action:         function(count) {
-                        if(count === -1) count = 20;
+                        if(count === -1) count = 10;
                         liberator.execute(':nicoseek! ' + '-' + count);
                     },
                     description:    'seek by count backward',
@@ -181,7 +181,7 @@ liberator.plugins.nicomap = function() {
                     // 指定なしの場合 10 秒後。
                     command:        '+',
                     action:         function(count) {
-                        if(count === -1) count = 20;
+                        if(count === -1) count = 10;
                         liberator.execute(':nicoseek! ' + count);
                     },
                     description:    'seek by count forward',
@@ -268,7 +268,7 @@ liberator.plugins.nicomap = function() {
         : registMaps(defMaps);
 };
 
-liberator.modules.autocommands.add('LocationChange', '.*', 'js liberator.plugins.nicomap()');
+liberator.modules.autocommands.add('LocationChange', '.*', liberator.plugins.nicomap);
 
 
 // colors

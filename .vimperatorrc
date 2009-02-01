@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel<janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/01/06 20:59:18.
+" Last Change: 2009/01/28 05:00:05.
 
 " Settings --------------------------------------------------------------
 " safe mode
@@ -22,6 +22,7 @@ set complete=bSl
 " why not allowed me to set none!?
 "set activate=
 set activate=homepage
+set activate-=homepage
 
 " scroll height of <C-d> / <C-u>
 set scroll=3
@@ -39,8 +40,8 @@ set newtab=all
 " display tab-bar anytime
 set showtabline=2
 
-" show completions automatically
-set wildoptions=auto
+" show sorted completions automatically
+set wildoptions=auto,sort
 
 " don't focus any "input" elements automatically when open pages.
 set focuscontent
@@ -51,6 +52,9 @@ set focuscontent
 
 " show right and bottom scroll bar
 set guioptions=rb
+
+" use the edit mode like vim in textareas
+set noinsertmode
 
 
 " Settings ( Firefox about:config ) --------------------------------------
@@ -120,8 +124,6 @@ noremap K <C-u>
 " fuckups
 noremap p <Nop>
 noremap <C-k> <Nop>
-" move to .vimperatorrc.js
-"map A <Nop>
 
 " escape <C-a> / <C-x>
 noremap <C-w> <C-a>
@@ -164,18 +166,18 @@ noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:source ~/.vimperator
 " Plugins -----------------------------------------------------------------
 " plugin: direct_bookmark.js
 " move to .vimperatorrc.js
-"map a :sbm<Space>
+noremap B :sbm<Space>
 
 " plugin: sbmcommentsviewer.js
 " move to .vimperatorrc.js
-"map v :viewSBMComments -t hd
+"noremap v :viewSBMComments -t hd
 
 " plugin: copy.js
 noremap <Leader>c :copy title<CR>
 
 " plugin: blinkelement.js
 noremap <Leader>b :bl content.document.getElement
-noremap <Leader>e :bl buffer.evaluateXPath
+noremap <Leader>e :bl buffer.evaluateXPath('
 
 " plugin: noscript.js
 noremap <Leader>s :noscript toggletemp<CR>
@@ -218,6 +220,10 @@ let image_extender_skip_prompt='false'
 let hidecritter_mapping='H'
 let hatena_star_hint_mapping='h'
 
+" plugin: PMWriter.js
+let pmwriter_plugin_dir = '~\vimperator\plugin'
+let pmwriter_output_dir = '~\vimperator\plugin\help\'
+
 
 " Source ----------------------------------------------------------------
 " javascript
@@ -234,13 +240,15 @@ autocmd LocationChange .* :fmapc
 
 " Fastladder
 " pass through default keybinds
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r <Del>
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r c <Del>
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap J,<Space> K,<S-Space> <,> >,< /,f
 " LDR Full Feed
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap v,g V,G
 " LDR + Tombloo
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap B,T
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap g,t G,b z,Z
+" Hatena Bookmark Comment
+autocmd LocationChange http://fastladder\\.com/reader/ :fmap c,C C,F S
 
 " livedoor Reader
 " pass through default keybinds
@@ -251,6 +259,8 @@ autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap v,g V,G
 " LDR + Tombloo
 autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap B,T
 autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap g,t G,b z,Z
+" Hatena Bookmark Comment
+autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap c,C C,F S
 
 " Remember the Milk
 " add / complete / edit / delete tasks
