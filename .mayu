@@ -1,78 +1,93 @@
-# ‘‹g‚¢‚Ì—JŸT—pİ’èƒtƒ@ƒCƒ‹
+# .mayu
+# setting file for çª“ä½¿ã„ã®æ†‚é¬±
 #
-# written by
-#   janus_wel<janus@fb3.so-net.ne.jp>
-#
-# history
-#   2008/07/30 initial written
-#
+# author janus_wel <janus.wel.3@gmail.com>
+# initial written 2008/07/30
+# Last Change: 2009/02/01 19:54:30.
 
-# include files ---------------------------------------------------------
+# include files -----------------------------------------------------------
 include "109.mayu"
 
-# Global keymaps --------------------------------------------------------
+# global key mappings -----------------------------------------------------
 keymap Global
 
-# Caps Lock ‚ğ Ctrl ‚É‚·‚é
-# “¯‚É one shot modifire ‚Å Esc ‚ğİ’è
-mod ctrl += !!‰p”
-key *‰p” = *Esc
+# add "Caps Lock" to modifier as "ctrl"
+# set one-shot-modifire "Esc"
+mod ctrl += !!è‹±æ•°
+key *è‹±æ•° = *Esc
 
-# ¶‚Ì Ctrl ‚ğ Caps Lock ‚É‚·‚é
+# set left ctrl to "Caps Lock"
 mod ctrl -= LeftControl
-key *LeftControl = *‰p”
+key *LeftControl = *è‹±æ•°
 
-# ƒJƒ^ƒJƒi/‚Ğ‚ç‚ª‚È ( Space ‚Ì 2 ŒÂ‰E ) ‚Å IME Ø‚è‘Ö‚¦
-key ‚Ğ‚ç‚ª‚È = Applications
-key IL-*IC-‚Ğ‚ç‚ª‚È = Applications
+# open context menu with "ã‚«ã‚¿ã‚«ãƒŠ/ã²ã‚‰ãŒãª"
+key ã²ã‚‰ãŒãª = Applications
+key IL-*IC-ã²ã‚‰ãŒãª = Applications
 
-# –³•ÏŠ· ( Space ‚Ì¶ ) ‚ğ Esc ‚É
-#key *–³•ÏŠ· = $ToggleIME
-#key IL-*IC-–³•ÏŠ· = $ToggleIME
-key *–³•ÏŠ· = ”¼Šp/‘SŠp
-key IL-*IC-–³•ÏŠ· = ”¼Šp/‘SŠp
+# toggle IME with "ç„¡å¤‰æ›"
+key *ç„¡å¤‰æ› = åŠè§’/å…¨è§’
+key IL-*IC-ç„¡å¤‰æ› = åŠè§’/å…¨è§’
 
-# •ÏŠ· ( Space ‚Ì‰E ) ‚ğ Tab ‚É‚·‚é
-key *•ÏŠ· = *Tab
-key IL-*IC-•ÏŠ· = *Tab
+# set "å¤‰æ›" to "Tab"
+key *å¤‰æ› = *Tab
+key IL-*IC-å¤‰æ› = *Tab
 
-# ƒEƒBƒ“ƒhƒE‘€ìŠÖŒW
-key C-A-i = &WindowMinimize     # m(I)nimize - ƒEƒBƒ“ƒhƒE‚ğÅ¬‰»
-key C-A-a = &WindowMaximize     # m(A)ximize - ƒEƒBƒ“ƒhƒEƒTƒCƒYÅ‘å‰» <-> •’Ê‚ğ toggle
-#key C-A-p = &WindowClose        # ƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚é
+# Window operation
+key C-A-i = &WindowMinimize     # m(I)nimize
+key C-A-a = &WindowMaximize     # m(A)ximize
+#key C-A-p = &WindowClose        # close
 
-key C-A-n = &WindowMoveVisibly  # (N)ormalize       - ƒEƒBƒ“ƒhƒE‚ğŒ©‚¦‚éˆÊ’u‚ÉˆÚ“®
-key C-A-t = &WindowRaise        # to (T)op          - ƒEƒBƒ“ƒhƒE‚ğˆê”Ôã‚ÖˆÚ“®
-key C-A-b = &WindowLower        # to (B)ottom       - ƒEƒBƒ“ƒhƒE‚ğˆê”Ô‰º‚ÖˆÚ“®
-key C-A-o = &WindowSetAlpha(50) # toggle (O)pacity  - ƒEƒBƒ“ƒhƒE‚ğ”¼“§–¾‰»
+key C-A-n = &WindowMoveVisibly  # (N)ormalize
+key C-A-t = &WindowRaise        # to (T)op
+key C-A-b = &WindowLower        # to (B)ottom
+key C-A-o = &WindowSetAlpha(50) # toggle (O)pacity
 
-# vim •—‚ÉƒEƒBƒ“ƒhƒEˆÚ“®
-key C-A-k = &WindowMove(0, -16) # ª‚Ö 16 ƒhƒbƒgˆÚ“®
-key C-A-j = &WindowMove(0, 16)  # «‚Ö 16 ƒhƒbƒgˆÚ“®
-key C-A-h = &WindowMove(-16, 0) # ©‚Ö 16 ƒhƒbƒgˆÚ“®
-key C-A-l = &WindowMove(16, 0)  # ¨‚Ö 16 ƒhƒbƒgˆÚ“®
+# vim é¢¨ã«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ç§»å‹•
+key C-A-k = &WindowMove(0, -16) # move up 16 dots
+key C-A-j = &WindowMove(0, 16)  # move down 16 dots
+key C-A-h = &WindowMove(-16, 0) # move left 16 dots
+key C-A-l = &WindowMove(16, 0)  # move right 16 dots
 
 
-# ‘‹g‚¢‚Ì—JŸT—p
-# (R)eload - İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ
+# çª“ä½¿ã„ã®æ†‚é¬±ç”¨
+# (R)eload
 key C-A-r = &LoadSetting &HelpMessage(Mayu, "loading has succeeded!!")
-# (W)indow research - ƒEƒBƒ“ƒhƒE‚Ìî•ñ‚ğƒƒO‚É•\¦
+# (W)indow research
 key C-A-w = &WindowIdentify
 
 
 # specific settings -----------------------------------------------------
-# GoogleDocs ‚Ì Ctrl+h ‚ğ BackSpace ‚É‚·‚é
-window GoogleDocs (/firefox\.exe:MozillaUIWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass/ && /(Google ƒhƒLƒ…ƒƒ“ƒg|Docs & Spreadsheets)/) : Global
-key C-H = BackSpace
+# Google Docs
+window GoogleDocs (/firefox\.exe:MozillaUIWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass/ && /(Google ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ|Docs & Spreadsheets)/) : Global
+key C-h     = BackSpace
+key C-i     = â†‘
+key C-m     = â†“
+key C-k     = â†
+key C-l     = â†’
+key C-u     = Home
+key C-o     = End
+key C-S-i   = S-â†‘
+key C-S-m   = S-â†“
+key C-S-k   = S-â†
+key C-S-l   = S-â†’
+key C-S-u   = S-Home
+key C-S-o   = S-End
 
+# Gmail
+window Gmail (/firefox\.exe:MozillaUIWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass/ && /Gmail/) : Global
+key C-h = BackSpace
 
-# Explorer(desktop) ‚ğ vim •—‚É‚·‚é
+# Firefox XUL dialogs
+window XULDialog /firefox\.exe:(?:Mozilla[a-zA-Z]+:)*MozillaDialogClass:MozillaWindowClass$/ : Global
+key C-h = BackSpace
+
+# Explorer(desktop)
 # after 'g' pressed (2 stroke key map)
 keymap2 Explorerg
-key g = Home    # Å‰‚Ìƒtƒ@ƒCƒ‹‚Ö”ò‚Ô
+key g = Home    # jump first file
 
 # after '/' pressed (2 stroke key map)
-# / ‚Ì‚ ‚Æ‚ÉƒAƒ‹ƒtƒ@ƒxƒbƒg‚ğ‰Ÿ‚·‚Æ‚»‚Ìš‚Ån‚Ü‚éƒtƒ@ƒCƒ‹‚É”ò‚Ô
+# quick jump
 keymap2 ExplorerSolidus
 key j = j
 key k = k
@@ -85,32 +100,31 @@ key i = i
 key r = r
 
 window Explorer /Explorer\.EXE:(CabinetWClass:SHELLDLL_DefView:SysListView32|Progman:SHELLDLL_DefView:SysListView32)$/ : Global
-key *j = *«
-key *k = *ª
-key *h = *©
-key *l = *¨
-key u = Backspace                       # ˆê‚Âã‚ÌƒtƒHƒ‹ƒ_‚Ö
-key d = Delete                          # ƒtƒ@ƒCƒ‹‚ğƒSƒ~” ‚Ö
-key S-d = S-Delete                      # ƒtƒ@ƒCƒ‹‚ğŠ®‘S‚ÉÁ‹
-key S-g = End                           # ÅŒã‚Ìƒtƒ@ƒCƒ‹‚Ö”ò‚Ô
-key i = F2                              # ƒtƒ@ƒCƒ‹ / ƒfƒBƒŒƒNƒgƒŠ–¼•ÒW
-key S-i = F2 Home                       # ƒtƒ@ƒCƒ‹ / ƒfƒBƒŒƒNƒgƒŠ–¼•ÒWÅ‰‚©‚ç
-key S-a = F2 End                        # ƒtƒ@ƒCƒ‹ / ƒfƒBƒŒƒNƒgƒŠ–¼•ÒWÅŒã‚©‚ç
-key r = F5                              # ÅV‚Ìî•ñ‚ÉXV
-key g = &Prefix(Explorerg)              # jump keymap2 Explorerg
+key *j      = *â†“
+key *k      = *â†‘
+key *h      = *â†
+key *l      = *â†’
+key u       = Backspace                 # upper directory
+key d       = Delete                    # delete files
+key S-d     = S-Delete                  # delete files completely
+key S-g     = End                       # jump last file
+key i       = F2                        # edit file / directory name
+key S-i     = F2 Home                   # edit file / directory name (at first character)
+key S-a     = F2 End                    # edit file / directory name (at last character)
+key r       = F5                        # reload
+key g       = &Prefix(Explorerg)        # jump keymap2 Explorerg
 key Solidus = &Prefix(ExplorerSolidus)  # jump keymap2 ExplorerSolidus
 
-# path edit •”•ª‚Å ctrl+h ‚Å•¶š‚ğÁ‚¹‚é‚æ‚¤‚É‚·‚é
 window ExplorerPath /Explorer\.EXE:CabinetWClass:WorkerW:ReBarWindow32:ComboBoxEx32:ComboBox:Edit$/ : Global
 key C-h = Backspace
 
 
-# IrfanView ‚ğ vim •—‚É‚·‚é
+# IrfanView
 window IrfanView /i_view32\.exe:IrfanView($|:FullScreenClass$|:#\d+:SysListView32$)/ : Global
-key j = «
-key k = ª
-key h = ©
-key l = ¨
+key j = â†“
+key k = â†‘
+key h = â†
+key l = â†’
 key d = Delete
 
 
@@ -124,29 +138,29 @@ keymap2 STEPg
 key g = Home
 
 window STEP /SuperTagEditor\.exe:Afx:[\da-f]{6}:[\da-f]:[\da-f]{5}:[\da-f]:[\da-f]+:AfxFrameOrView42s:SysListView32$/ : Global
-key *j = *«
-key *k = *ª
-key *h = *©
-key *l = *¨
-key d = Delete
-key i = F2
+key *j  = *â†“
+key *k  = *â†‘
+key *h  = *â†
+key *l  = *â†’
+key d   = Delete
+key i   = F2
 key S-i = F2 Home
 key S-a = F2 End
-key g = &Prefix(STEPg)
+key g   = &Prefix(STEPg)
 key S-g = End
 
 
 # foobar2000
 keymap2 foobar2000g
-key g = Home    # ƒvƒŒƒCƒŠƒXƒg‚ÌÅ‰‚Ö”ò‚Ô
+key g = Home    # jump first of playlist
 
 window foobar2000 /foobar2000\.exe/ : Global
-key j = «
-key k = ª
-key S-g = End   # ƒvƒŒƒCƒŠƒXƒg‚ÌÅŒã‚Ö”ò‚Ô
-key g = &Prefix(foobar2000g)
+key j   = â†“
+key k   = â†‘
+key S-g = End   # jump last of playlist
+key g   = &Prefix(foobar2000g)
 
-# ƒƒ‚’ 
+# notepad.exe
 window notepad /notepad\.exe:Notepad:Edit$/ : Global
 key C-h = Backspace
 
@@ -155,13 +169,13 @@ keymap2 AdobeReaderg
 key g = Home
 
 window AdobeReader /AcroRd32\.exe:AcrobatSDIWindow:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView/ : Global
-key j = «
-key k = ª
-key h = ©
-key l = ¨
+key j   = â†“
+key k   = â†‘
+key h   = â†
+key l   = â†’
 key S-j = PageDown
 key S-k = PageUp
-key g = &Prefix(AdobeReaderg)
+key g   = &Prefix(AdobeReaderg)
 key S-g = End
 
 # slide show on Power Point
@@ -169,11 +183,11 @@ keymap2 PowerPointSlideShowg
 key g = Home
 
 window PowerPointSlideShow /POWERPNT\.EXE:screenClass:paneClassDC/ : Global
-key j = «
-key k = ª
-key h = ©
-key l = ¨
-key g = &Prefix(PowerPointSlideShowg)
+key j   = â†“
+key k   = â†‘
+key h   = â†
+key l   = â†’
+key g   = &Prefix(PowerPointSlideShowg)
 key S-g = End
 
 # comment textarea on commit dialog of TortoiseSVN
@@ -182,26 +196,32 @@ key C-h = BackSpace
 
 # Tween
 window TweenOpenURL /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a/ : Global
-key j = «
-key k = ª
+key j = â†“
+key k = â†‘
 
 window TweenCommandLine /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.EDIT\.app\.0\.378734a/ : Global
 key C-h = BackSpace
-key j = j
-key k = k
+key j   = j
+key k   = k
 
 keymap2 TweenExtendedHintMode
 key h = C-s
 key p = C-e
 
 window TweenLogList /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.SysTabControl32\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.SysListView32\.app\.0\.378734a/ : Global
-key y = S-C-c
-key S-y = C-c
-key Solidus = C-f
-key n = F3
-key S-n = S-F3
-key r = F5
-key d = C-d
-key Semicolon = &Prefix(TweenExtendedHintMode)
+key y           = S-C-c
+key S-y         = C-c
+key Solidus     = C-f
+key n           = F3
+key S-n         = S-F3
+key r           = F5
+key d           = C-d
+key Semicolon   = &Prefix(TweenExtendedHintMode)
+
+# cmd.exe
+window CMD /ConsoleWindowClass/ : Global
+key Tab     = C-f
+key å¤‰æ›    = C-f
+
 
 # vim: ft=mayu sw=4 sts=4 et
