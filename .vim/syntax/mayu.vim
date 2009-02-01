@@ -1,47 +1,80 @@
 " .mayu syntax file
-" Language:		mayu setting file
-" Maintainer:		AOYAMA Shotaro (super-onigiri / mm)
-" Last Change:		2005 May 22
+" Language:     mayu setting file
+" Maintainer:   janus_wel <janus.wel.3@gmail.com>
+" Last Change:  2009/02/01 19:46:51.
 
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 if version < 600
-  syntax clear
+    syntax clear
 elseif exists("b:current_syntax")
-  finish
+    finish
 endif
 
-syn keyword mayuKey	key
-syn keyword mayuKeyseq	keyseq
-syn keyword mayuMod	mod
-syn keyword mayuWindow	window
-syn keyword mayuKeymap	keymap
-syn keyword mayuInclude	include
-syn keyword mayuFunction Default KeymapParent KeymapWindow KeymapPrevPrefix OtherWindowClass Prefix Keymap Sync Toggle     EditNextModifier Variable Repeat Undefined Ignore PostMessage     ShellExecute SetForegroundWindow LoadSetting VK Wait InvestigateCommand     MayuDialog DescribeBindings HelpMessage HelpVariable WindowRaise WindowLower     WindowMinimize WindowMaximize WindowHMaximize WindowVMaximize WindowHVMaximize WindowMove     WindowMoveTo WindowMoveVisibly WindowClingToLeft WindowClingToRight WindowClingToTop WindowClingToBottom     WindowClose WindowToggleTopMost WindowIdentify WindowSetAlpha WindowRedraw WindowResizeTo     WindowMonitor WindowMonitorTo MouseMove MouseWheel ClipboardChangeCase ClipboardUpcaseWord     ClipboardDowncaseWord ClipboardCopy EmacsEditKillLinePred EmacsEditKillLineFunc LogClear DirectSSTP     PlugIn Recenter SetImeStatus    
-syn match   mayuComment	"^#.*"
-syn match   mayuOperator "="
+" definitions
+syntax keyword  mayuDefine
+\ keymap keymap2 window key event mod def keyseq sync alias subst define
 
-" Default highlighting
+" options
+syntax keyword  mayuOption option
+syntax match    mayuOption "\(KL-\|delay-of !!!\|sts4mayu\|cts4mayu\)"
+
+" conditionals
+syntax keyword  mayuConditional if else endif
+
+" includes
+syntax keyword  mayuInclude include
+
+" functions
+syntax match    mayuFunction "&\(WindowVMaximize\|WindowToggleTopMost\|WindowSetAlpha\|WindowResizeTo\|WindowRedraw\|WindowRaise\|WindowMoveVisibly\|WindowMoveTo\|WindowMove\|WindowMonitorTo\|WindowMonitor\|WindowMinimize\|WindowMaximize\|WindowLower\|WindowIdentify\|WindowHVMaximize\|WindowHMaximize\|WindowClose\|WindowClingToTop\|WindowClingToRight\|WindowClingToLeft\|WindowClingToBottom\|Wait\|Variable\|VK\|Undefined\|Toggle\|Sync\|ShellExecute\|SetImeStatus\|SetForegroundWindow\|Repeat\|Recenter\|Prefix\|PostMessage\|PlugIn\|OtherWindowClass\|MouseWheel\|MouseMove\|MayuDialog\|LogClear\|LoadSetting\|KeymapWindow\|KeymapPrevPrefix\|KeymapParent\|Keymap\|InvestigateCommand\|Ignore\|HelpVariable\|HelpMessage\|EmacsEditKillLinePred\|EmacsEditKillLineFunc\|EditNextModifier\|DirectSSTP\|DescribeBindings\|Default\|ClipboardUpcaseWord\|ClipboardDowncaseWord\|ClipboardCopy\|ClipboardChangeCase\)"
+"
+
+" key sequenses
+syntax match    mayuKeySequense "\$\I\i*"
+
+" parenthesis
+syntax region   javaScriptParen transparent start="("  end=")"
+
+" comments
+syntax match    mayuComment "^#.*"
+syntax region   mayuComment start="\(^\|\s\+\)#" end="$" keepend oneline
+
+" operators
+syntax match    mayuOperator "\(=\|:\|+=\|-=\)"
+
+" strings
+syntax region   mayuStringD start=+"+ skip=+\\\\\|\\$"+ end=+"+
+syntax region   mayuStringS start=+'+ skip=+\\\\\|\\$'+ end=+'+
+
+" regular expression
+syntax region   mayuRegexpString start=+/\(\*\|/\)\@!+ skip=+\\\\\|\\/+ end=+/[gim]\{-,3}+ oneline
+
+" special keys
+syntax match    mayuSpecialKeys "\([*~]\=\(C\|M\|A\|S\|NL\|CL\|SL\|KL\|IL\|IC\|MAX\|MIN\|MMAX\|MMIN\|T\|TS\)-\)\+\*\=\S\+"
+
+" highlighting
 if version >= 508 || !exists("did_mayu_syntax_inits")
-  if version < 508
-    let did_mayu_syntax_inits = 1
-    command -nargs=+ HiLink hi link <args>
-  else
-    command -nargs=+ HiLink hi def link <args>
-  endif
-  HiLink mayuKey	Type
-  HiLink mayuKeyseq	Define
-  HiLink mayuMod	Number
-  HiLink mayuFunction	Function
-  HiLink mayuInclude	PreProc
-  HiLink mayuComment	Comment
-  HiLink mayuWindow	Special
-  HiLink mayuOperator	Operator
-  HiLink mayuKeymap	Constant
-  delcommand HiLink
+    if version < 508
+        let did_mayu_syntax_inits = 1
+        command -nargs=+ HiLink hi link <args>
+    else
+        command -nargs=+ HiLink hi def link <args>
+    endif
+    HiLink mayuDefine       Define
+    HiLink mayuFunction     Function
+    HiLink mayuInclude      PreProc
+    HiLink mayuComment      Comment
+    HiLink mayuOperator     Operator
+    HiLink mayuStringD      String
+    HiLink mayuStringS      String
+    HiLink mayuRegexpString String
+    HiLink mayuKeySequense  Identifier
+    HiLink mayuOption       Keyword
+    HiLink mayuSpecialKeys  Special
+    delcommand HiLink
 endif
 
 let b:current_syntax = "mayu"
 
-" vim: ts=8
+" vim: ts=4 sts=4 sw=4 et
