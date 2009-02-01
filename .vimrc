@@ -1,5 +1,8 @@
 " .vimrc
-" Last Change: 2009/02/01 15:10:42.
+" setting file for vim
+"
+" author janus_wel <janus.wel.3@gmail.com>
+" Last Change: 2009/02/01 18:25:26.
 
 " initialization ----------------------------------------------------------
 " get vim runtime directory and set environment variable
@@ -120,6 +123,8 @@ autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call Modi
 " move cursor as it looks
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " tabnew is hard to complete
 nnoremap t :tabnew<Space>
