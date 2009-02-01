@@ -1,5 +1,9 @@
 " .gvimrc
-" Last Change: 2009/02/01 14:17:41.
+" setting file for gvim
+" this contains visual settings only, use with .vimrc
+"
+" author janus_wel <janus.wel.3@gmail.com>
+" Last Change: 2009/02/01 16:32:38.
 
 " options -----------------------------------------------------------------
 " display & information
