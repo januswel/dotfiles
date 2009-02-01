@@ -1,5 +1,5 @@
 " .vimrc
-" Last Change: 2009/01/31 01:50:04.
+" Last Change: 2009/02/01 15:10:42.
 
 " initialization ----------------------------------------------------------
 " get vim runtime directory and set environment variable
@@ -31,6 +31,7 @@ set backupcopy=auto " how backup files are created, best one
 set backupext=~     " tail character to add a backup file
 
 " display & information
+set showtabline=2   " show tab bar always
 set number          " show line numbers
 set noruler         " not show row and column number of cursor
 set title           " display file name to edit
@@ -64,9 +65,6 @@ set backspace=indent,eol,start  " allow backspacing over autoindent, line breake
 " command-line completion
 set wildmenu            " command-line completion on
 set wildmode=list:full  " list all candidates and full completion
-
-" tab
-set showtabline=2   " show tab bar always
 
 " character encoding
 set encoding=utf-8      " inside Vim
@@ -113,9 +111,9 @@ autocmd BufNewFile,BufRead *.html :set filetype=xhtml
 autocmd BufNewFile *.html 0r $VIM_RUNTIME_DIR/templates/xhtml_template.html
 " ftplugin: html.vim
 " complete closing tab
-autocmd Syntax html,xhtml :inoremap <buffer><special><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
+autocmd BufNewFile,BufRead *.html :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
 " modify by HTML Tidy
-autocmd Syntax html,xhtml :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
+autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 
 
 " map ---------------------------------------------------------------------
@@ -155,7 +153,7 @@ nnoremap <silent><Leader>m :update<CR>:make<CR>
 
 " activate smart (keywords or omni) completion
 " plugin: InsertTabWrapper.vim
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <C-n> <c-r>=InsertTabWrapper()<cr>
 
 
 " abbreviation ------------------------------------------------------------
