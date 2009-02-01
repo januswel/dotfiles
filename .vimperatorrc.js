@@ -1,7 +1,9 @@
 // .vimperator.js
-// author: janus_wel<janus@fb3.so-net.ne.jp>
+// author: janus_wel <janus.wel.3@gmail.com>
+// for 2.0pre
+// Last Change: 2009/02/01 16:10:35.
 
-// 動画サイトの操作用 map
+// key mappings for video services
 // plugin : nnp_cooperation.js
 // plugin : nicontroller.js
 // plugin : youtubeamp.js
@@ -140,8 +142,8 @@ liberator.plugins.nicomap = function() {
                 },
                 {
                     // [N]n
-                    // N 番目の動画を再生する。
-                    // 指定なしの場合次の動画が再生される。
+                    // play N th video.
+                    // if N is not specified, next video will be played.
                     command:        'n',
                     action:         function(count) {
                         if(count === -1) count = 1;
@@ -152,8 +154,8 @@ liberator.plugins.nicomap = function() {
                 },
                 {
                     // [N]w
-                    // 上から N 個の動画を削除する。
-                    // 指定なしの場合一番上の動画が削除される。
+                    // delete N th video.
+                    // if N is not specified, next video will be deleted.
                     command:        'w',
                     action:         function(count) {
                         if(count === -1) count = 1;
@@ -165,8 +167,8 @@ liberator.plugins.nicomap = function() {
                 },
                 {
                     // [N]-
-                    // N 秒前にシークする。
-                    // 指定なしの場合 10 秒前。
+                    // seek to minus N seconds.
+                    // if N is not specified, minus 10 seconds.
                     command:        '-',
                     action:         function(count) {
                         if(count === -1) count = 10;
@@ -177,8 +179,8 @@ liberator.plugins.nicomap = function() {
                 },
                 {
                     // [N]+
-                    // N 秒後にシークする。
-                    // 指定なしの場合 10 秒後。
+                    // seek to plus N seconds.
+                    // if N is not specified, plus 10 seconds.
                     command:        '+',
                     action:         function(count) {
                         if(count === -1) count = 10;
@@ -225,8 +227,8 @@ liberator.plugins.nicomap = function() {
                 },
                 {
                     // [N]-
-                    // N 秒前にシークする。
-                    // 指定なしの場合 10 秒前。
+                    // seek to minus N seconds.
+                    // if N is not specified, minus 10 seconds.
                     command:        '-',
                     action:         function(count) {
                         if(count === -1) count = 10;
@@ -237,8 +239,8 @@ liberator.plugins.nicomap = function() {
                 },
                 {
                     // [N]+
-                    // N 秒後にシークする。
-                    // 指定なしの場合 10 秒後。
+                    // seek to plus N seconds.
+                    // if N is not specified, plus 10 seconds.
                     command:        '+',
                     action:         function(count) {
                         if(count === -1) count = 10;
@@ -271,24 +273,14 @@ liberator.plugins.nicomap = function() {
 liberator.modules.autocommands.add('LocationChange', '.*', liberator.plugins.nicomap);
 
 
-// colors
-(function(){
-    let colorDir = io.getRuntimeDirectories('colors')[0];
-    io.readDirectory(colorDir).forEach( function (file) {
-        if (/\.vimp$/i.test(file.path)) {
-            io.source(file.path, false);
-            liberator.echo(file.path + ' sourced.');
-        }
-    });
-})();
-
-// multi_requester.js
+// plugin: multi_requester.js
 liberator.globalVariables.multi_requester_mappings = [
     ['E', 'alc'],
     ['W', 'goo'],
     ['A', 'answers'],
 ];
 
+// plugin: migratestatusbar.js
 liberator.globalVariables.migrate_elements = [
     {
         // star button of awesome bar

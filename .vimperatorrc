@@ -1,9 +1,9 @@
 " .vimperatorrc
-" author janus_wel<janus.wel.3@gmail.com>
+" author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/01 12:50:41.
+" Last Change: 2009/02/01 16:10:11.
 
-" Settings --------------------------------------------------------------
+" options -----------------------------------------------------------------
 " safe mode
 "set noloadplugins
 
@@ -57,7 +57,7 @@ set guioptions=rb
 set noinsertmode
 
 
-" Settings ( Firefox about:config ) --------------------------------------
+" preferences ( Firefox about:config ) ------------------------------------
 " tabs ---
 " display tab-bar anytime
 set! browser.tabs.autoHide=false
@@ -99,12 +99,12 @@ set! layout.word_select.eat_space_to_next_word=false
 set! browser.download.manager.showWhenStarting=false
 
 
-" Variables ---------------------------------------------------------------
+" variables ---------------------------------------------------------------
 " this must be set before map operation, otherwise use default value.
 let mapleader=','
 
 
-" Mappings ----------------------------------------------------------------
+" mappings ----------------------------------------------------------------
 " tab operation
 noremap <C-h> gT
 noremap <C-l> gt
@@ -163,7 +163,7 @@ noremap <Leader>r :source ~/.vimperatorrc<CR>
 noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:source ~/.vimperatorrc<CR>
 
 
-" Plugins -----------------------------------------------------------------
+" plugins -----------------------------------------------------------------
 " plugin: direct_bookmark.js
 " move to .vimperatorrc.js
 noremap B :sbm<Space>
@@ -225,7 +225,7 @@ let pmwriter_plugin_dir = '~\vimperator\plugin'
 let pmwriter_output_dir = '~\vimperator\plugin\help\'
 
 
-" Source ----------------------------------------------------------------
+" source extra resources --------------------------------------------------
 " javascript
 source ~/.vimperatorrc.js
 
@@ -233,7 +233,7 @@ source ~/.vimperatorrc.js
 "source ~/.vimperatorrc.css
 
 
-" autocmd ---------------------------------------------------------------
+" autocmd -----------------------------------------------------------------
 " fmap ---
 " all clear
 autocmd LocationChange .* :fmapc
@@ -281,7 +281,7 @@ autocmd LocationChange http://mitter\\.jp/edit :fmap w q
 autocmd VimperatorEnter .* :set pageinfo=gmchH
 
 
-" finish ----------------------------------------------------------------
+" finish ------------------------------------------------------------------
 echo "GET READY!!"
 
 " vim: ft=vimperator sw=4 sts=4 ts=4 et
