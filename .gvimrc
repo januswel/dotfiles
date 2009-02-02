@@ -3,7 +3,7 @@
 " this contains visual settings only, use with .vimrc
 "
 " author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/01 16:32:38.
+" Last Change: 2009/02/03 04:56:20.
 
 " options -----------------------------------------------------------------
 " display & information
@@ -22,11 +22,19 @@ set scrolloff=3     " above and below cursor number is 3 line
 " filename [filetype][fileencoding:fileformat][RO]?[+]?    column:line/all-line[ percentage-of-buffer%]
 set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L[%3p%%]
 
+
 " syntax highlight --------------------------------------------------------
 syntax enable       " use syntax highlight
 
 " color scheme: Janus.vim
 colorscheme Janus   " my color scheme
+
+
+" script ------------------------------------------------------------------
+" change cursor color to red on IME mode
+if has('multi_byte_ime') || has('xim')
+    highlight CursorIM guibg=Red guifg=NONE
+endif
 
 
 " vim: sw=4 sts=4 ts=4 et

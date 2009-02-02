@@ -1,14 +1,17 @@
 " wrapper function for keywords in 'complete' and omni completion
-function InsertTabWrapper()
+function! InsertTabWrapper()
+    " select next item if completion window is exist
     if pumvisible()
-        return "\<c-n>"
+        return "\<C-n>"
     endif
+
+    " previous column of the cursor
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k\|<\|/'
-        return "\<tab>"
+        return ""
     elseif exists('&omnifunc') && &omnifunc == ''
-        return "\<c-n>"
+        return "\<C-n>"
     else
-        return "\<c-x>\<c-o>"
+        return "\<C-x>\<C-o>"
     endif
 endfunction

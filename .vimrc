@@ -2,7 +2,7 @@
 " setting file for vim
 "
 " author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/02 19:13:20.
+" Last Change: 2009/02/03 05:12:17.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -42,7 +42,6 @@ set title           " display file name to edit
 set laststatus=2    " show status line always
 set showmode        " show mode name
 set cmdheight=1     " height of command-line is 1 row
-set background=dark " low impact for eye
 set nolist          " not show space characters (tab, line break)
 set showmatch       " show pair parenthesis, bracket
 set scrolloff=3     " above and below cursor number is 3 line
@@ -105,22 +104,34 @@ let autodate_format='%Y/%m/%d %H:%M:%S'
 
 " autocmd -----------------------------------------------------------------
 " open QuickFix window automatically
-autocmd QuickFixCmdPost make cwindow    " make
-autocmd QuickFixCmdPost vimgrep cwindow " internal grep
+augroup showQuickFixWindow
+    autocmd! showQuickFixWindow
+
+    autocmd QuickFixCmdPost make cwindow    " make
+    autocmd QuickFixCmdPost vimgrep cwindow " internal grep
+augroup END
 
 " for [x]html
-" I will write xhtml only
-autocmd BufNewFile,BufRead *.html :set filetype=xhtml
-" load xhtml template automatically
-autocmd BufNewFile *.html 0r $VIMPERSONAL/templates/xhtml_template.html
-" ftplugin: html.vim
-" complete closing tab
-autocmd BufNewFile,BufRead *.html :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
-" modify by HTML Tidy
-autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
+augroup xhtml
+    autocmd! xhtml
+
+    " I will write xhtml only
+    autocmd BufNewFile,BufRead *.html :setfiletype xhtml
+    " load xhtml template automatically
+    autocmd BufNewFile *.html 0r $VIMPERSONAL/templates/xhtml.html
+    " ftplugin: html.vim
+    " complete closing tab
+    autocmd BufNewFile,BufRead *.html :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
+    " modify by HTML Tidy
+    autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
+augroup END
 
 
 " map ---------------------------------------------------------------------
+" clear mappings
+mapclear
+mapclear!
+
 " move cursor as it looks
 nnoremap j gj
 nnoremap k gk
@@ -142,7 +153,7 @@ nnoremap <silent><C-n> :call TabShift(+1)<CR>
 " line break
 nnoremap <silent><S-k> i<CR><Esc>
 
-" set matched word to middle of screen
+" scroll matched word to middle of screen
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -152,7 +163,6 @@ nnoremap g# g#zz
 
 " source
 nnoremap <Leader>r :source ~/.gvimrc<CR>
-nnoremap <Leader>R :mapclear<CR>:source ~/.gvimrc<CR>
 
 " make
 nnoremap <silent><Leader>m :update<CR>:make<CR>
@@ -214,12 +224,35 @@ endif
 
 " if Japanese is not contained, set fileencoding to value of encoding
 if has('autocmd')
-    function! AU_ReCheck_FENC()
+    function! ReCheckFileEncoding()
         if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
             let &fileencoding=&encoding
         endif
     endfunction
-    autocmd BufReadPost * call AU_ReCheck_FENC()
+    autocmd BufReadPost * call ReCheckFileEncoding()
+endif
+
+" show invisible characters
+if has('autocmd') && has('syntax')
+    syntax on
+    function! ShowInvisibleCharacters()
+        " double width space
+        syntax match DoubleWidthSpace "\%u3000" display containedin=ALL
+        " trailing whitespace characters
+        syntax match TrailingWhitespace "\s\+$" display containedin=ALL
+        " tab space
+        syntax match TabSpace "\t" display containedin=ALL
+
+        " these are performed as error
+        highlight default link DoubleWidthSpace   Error
+        highlight default link TrailingWhitespace Error
+        highlight default link TabSpace           Todo
+    endf
+
+    augroup showInvisible
+        autocmd! showInvisible
+        autocmd BufNew,BufRead * call ShowInvisibleCharacters()
+    augroup END
 endif
 
 " for East Asia double width characters
@@ -227,10 +260,5 @@ if exists('&ambiwidth')
     set ambiwidth=double
 endif
 
-" change cursor color to red on IME mode
-if has('multi_byte_ime') || has('xim')
-    highlight CursorIM guibg=Red guifg=NONE
-endif
 
-
-" vim: sw=4 sts=4
+" vim: ts=4 sw=4 sts=0 et
