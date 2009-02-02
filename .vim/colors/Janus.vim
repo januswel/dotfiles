@@ -2,7 +2,7 @@
 " color scheme for [g]vim
 "
 " auther janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/03 05:09:18.
+" Last Change: 2009/02/03 05:29:25.
 
 " restore default colors
 hi clear
@@ -44,4 +44,5 @@ hi Search     ctermbg=LightBlue ctermfg=Black     cterm=none    guibg=LightSkyBl
 hi IncSearch  ctermbg=Blue      ctermfg=Yellow    cterm=bold    guibg=Blue          guifg=Yellow         gui=bold
 hi WarningMsg ctermbg=White     ctermfg=Red       cterm=bold    guibg=GhostWhite    guifg=Red            gui=bold
 hi Error      ctermbg=Red                                       guibg=Red3
+hi Todo       ctermbg=Yellow    ctermfg=Blue                    guibg=Yellow        guifg=Blue
 hi Folded     ctermbg=LightGray ctermfg=DarkGray                guibg=Gray45        guifg=Gray90
