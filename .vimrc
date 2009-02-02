@@ -2,14 +2,15 @@
 " setting file for vim
 "
 " author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/02 18:13:11.
+" Last Change: 2009/02/02 19:13:20.
 
 " initialization ----------------------------------------------------------
-" get vim runtime directory and set environment variable
+" get the personal directory for initialization
+" and set it to environment variable $VIMPERSONAL
 " for compatibility between Windows and Linux
-let $VIMPERSONAL = $HOME . "/.vim"
-if has("win32")
-    let $VIMPERSONAL = $HOME . "/vimfiles"
+let $VIMPERSONAL = $HOME . '/.vim'
+if has('win32')
+    let $VIMPERSONAL = $HOME . '/vimfiles'
 endif
 
 
@@ -19,7 +20,7 @@ set nocompatible
 
 " path setting
 " add path to my bin
-set path="~/bin",path
+set path='~/bin',path
 
 " timing to write
 set noautowrite     " set off writing a file automatically
@@ -27,7 +28,7 @@ set noautowriteall  " completely
 
 " backup
 " backup directory
-let &backupdir = $VIMPERSONAL . "/backup/"
+let &backupdir=$VIMPERSONAL.'/backup/'
 set backup          " backup feature on
 set writebackup     " make a backup file before overwriting a file
 set backupcopy=auto " how backup files are created, best one
@@ -130,16 +131,16 @@ vnoremap k gk
 nnoremap t :tabnew<Space>
 
 " switch tab
-nnoremap <special><C-h> gT
-nnoremap <special><C-l> gt
+nnoremap <C-h> gT
+nnoremap <C-l> gt
 
 " move tab
 " TabShift.vim plugin
-nnoremap <silent><special><C-p> :call TabShift(-1)<CR>
-nnoremap <silent><special><C-n> :call TabShift(+1)<CR>
+nnoremap <silent><C-p> :call TabShift(-1)<CR>
+nnoremap <silent><C-n> :call TabShift(+1)<CR>
 
 " line break
-nnoremap <silent><special><S-k> i<CR><Esc>
+nnoremap <silent><S-k> i<CR><Esc>
 
 " set matched word to middle of screen
 nnoremap n nzz
@@ -158,7 +159,7 @@ nnoremap <silent><Leader>m :update<CR>:make<CR>
 
 " activate smart (keywords or omni) completion
 " plugin: InsertTabWrapper.vim
-inoremap <C-n> <c-r>=InsertTabWrapper()<cr>
+inoremap <C-n> <C-r>=InsertTabWrapper()<CR>
 
 
 " abbreviation ------------------------------------------------------------
