@@ -2,14 +2,14 @@
 " setting file for vim
 "
 " author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/01 18:25:26.
+" Last Change: 2009/02/02 18:13:11.
 
 " initialization ----------------------------------------------------------
 " get vim runtime directory and set environment variable
 " for compatibility between Windows and Linux
-let $VIM_RUNTIME_DIR = $HOME . "/.vim"
+let $VIMPERSONAL = $HOME . "/.vim"
 if has("win32")
-    let $VIM_RUNTIME_DIR = $HOME . "/vimfiles"
+    let $VIMPERSONAL = $HOME . "/vimfiles"
 endif
 
 
@@ -27,7 +27,7 @@ set noautowriteall  " completely
 
 " backup
 " backup directory
-let &backupdir = $VIM_RUNTIME_DIR . "/backup/"
+let &backupdir = $VIMPERSONAL . "/backup/"
 set backup          " backup feature on
 set writebackup     " make a backup file before overwriting a file
 set backupcopy=auto " how backup files are created, best one
@@ -111,7 +111,7 @@ autocmd QuickFixCmdPost vimgrep cwindow " internal grep
 " I will write xhtml only
 autocmd BufNewFile,BufRead *.html :set filetype=xhtml
 " load xhtml template automatically
-autocmd BufNewFile *.html 0r $VIM_RUNTIME_DIR/templates/xhtml_template.html
+autocmd BufNewFile *.html 0r $VIMPERSONAL/templates/xhtml_template.html
 " ftplugin: html.vim
 " complete closing tab
 autocmd BufNewFile,BufRead *.html :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
