@@ -34,7 +34,7 @@ syntax match    mayuFunction "&\(WindowVMaximize\|WindowToggleTopMost\|WindowSet
 syntax match    mayuKeySequense "\$\I\i*"
 
 " parenthesis
-syntax region   javaScriptParen transparent start="("  end=")"
+syntax region   mayuParen transparent start="("  end=")"
 
 " comments
 syntax match    mayuComment "^#.*"

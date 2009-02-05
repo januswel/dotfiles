@@ -40,7 +40,7 @@ hi! default link    MatchParen  Search
 
 " colors not part of the original set:
 hi Visual     ctermbg=fg        ctermfg=DarkGreen cterm=reverse guibg=fg            guifg=darkoliveGreen gui=reverse
-hi Search     ctermbg=LightBlue ctermfg=Black     cterm=none    guibg=LightSkyBlue3 guifg=Black          gui=none
+hi Search     ctermbg=Yellow    ctermfg=White     cterm=none    guibg=Yellow        guifg=Black          gui=none
 hi IncSearch  ctermbg=Blue      ctermfg=Yellow    cterm=bold    guibg=Blue          guifg=Yellow         gui=bold
 hi WarningMsg ctermbg=White     ctermfg=Red       cterm=bold    guibg=GhostWhite    guifg=Red            gui=bold
 hi Error      ctermbg=Red                                       guibg=Red3
