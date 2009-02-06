@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/01 16:10:11.
+" Last Change: 2009/02/06 21:30:55.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -18,11 +18,8 @@ set suggestengines=google
 " bookmarks, suggestions, awesome bar
 set complete=bSl
 
-" don't focus automatically
-" why not allowed me to set none!?
-"set activate=
-set activate=homepage
-set activate-=homepage
+" don't focus the new opend tab automatically
+set activate=
 
 " scroll height of <C-d> / <C-u>
 set scroll=3
