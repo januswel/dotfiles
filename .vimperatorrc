@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/06 21:30:55.
+" Last Change: 2009/02/08 07:46:01.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -18,7 +18,7 @@ set suggestengines=google
 " bookmarks, suggestions, awesome bar
 set complete=bSl
 
-" don't focus the new opend tab automatically
+" don't focus the new opened tab automatically
 set activate=
 
 " scroll height of <C-d> / <C-u>
@@ -102,6 +102,12 @@ let mapleader=','
 
 
 " mappings ----------------------------------------------------------------
+" clear all key mappings
+" to avoid troubles from loading rc file several times
+mapclear
+cmapclear
+imapclear
+
 " tab operation
 noremap <C-h> gT
 noremap <C-l> gt
@@ -157,7 +163,6 @@ noremap <Leader>d :redraw<CR>
 
 " sourcing .vimperatorrc
 noremap <Leader>r :source ~/.vimperatorrc<CR>
-noremap <Leader>R :mapclear<CR>:cmapclear<CR>:imapclear<CR>:source ~/.vimperatorrc<CR>
 
 
 " plugins -----------------------------------------------------------------
@@ -231,6 +236,9 @@ source ~/.vimperatorrc.js
 
 
 " autocmd -----------------------------------------------------------------
+" clear all autocmds to avoid troubles from loading rc fle several times
+autocmd!
+
 " fmap ---
 " all clear
 autocmd LocationChange .* :fmapc
