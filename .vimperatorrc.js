@@ -1,7 +1,7 @@
 // .vimperator.js
 // author: janus_wel <janus.wel.3@gmail.com>
 // for 2.0pre
-// Last Change: 2009/02/01 16:10:35.
+// Last Change: 2009/02/08 07:57:09.
 
 // key mappings for video services
 // plugin : nnp_cooperation.js
@@ -272,13 +272,6 @@ liberator.plugins.nicomap = function() {
 
 liberator.modules.autocommands.add('LocationChange', '.*', liberator.plugins.nicomap);
 
-
-// plugin: multi_requester.js
-liberator.globalVariables.multi_requester_mappings = [
-    ['E', 'alc'],
-    ['W', 'goo'],
-    ['A', 'answers'],
-];
 
 // plugin: migratestatusbar.js
 liberator.globalVariables.migrate_elements = [

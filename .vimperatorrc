@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/08 07:46:01.
+" Last Change: 2009/02/08 07:56:37.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -187,6 +187,11 @@ noremap <Leader>S :noscript toggleperm<CR>
 
 " plugin: ldrize_cooperation.js
 noremap <Leader>l :toggleldrizecooperation<CR>
+
+" plugin: multi_requester.js
+noremap E :mr<Space>alc<Space>
+noremap W :mr<Space>goo<Space>
+noremap A :mr<Space>answers<Space>
 
 " plugin: direct_bookmark.js
 " use service: delicious, はてなブックマーク
