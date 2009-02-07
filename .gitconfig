@@ -1,10 +1,10 @@
 [user]
 	name = janus_wel
 	email = janus.wel.3@gmail.com
-[sendmail]
-	smtpserver = /usr/bin/msmtp
 [color]
 	pager = true
 	status = auto
 	branch = auto
 	diff = auto
+[sendemail]
+	smtpserver = /usr/bin/msmtp
