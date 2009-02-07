@@ -2,7 +2,7 @@
 " setting file for vim
 "
 " author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/03 05:12:17.
+" Last Change: 2009/02/08 05:29:24.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -246,7 +246,7 @@ if has('autocmd') && has('syntax')
         " these are performed as error
         highlight default link DoubleWidthSpace   Error
         highlight default link TrailingWhitespace Error
-        highlight default link TabSpace           Todo
+        highlight default link TabSpace           Search
     endf
 
     augroup showInvisible
