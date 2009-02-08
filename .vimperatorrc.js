@@ -270,8 +270,6 @@ liberator.plugins.nicomap = function() {
         : registMaps(defMaps);
 };
 
-liberator.modules.autocommands.add('LocationChange', '.*', liberator.plugins.nicomap);
-
 
 // plugin: migratestatusbar.js
 liberator.globalVariables.migrate_elements = [

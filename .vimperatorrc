@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/08 07:56:37.
+" Last Change: 2009/02/08 10:04:27.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -243,6 +243,10 @@ source ~/.vimperatorrc.js
 " autocmd -----------------------------------------------------------------
 " clear all autocmds to avoid troubles from loading rc fle several times
 autocmd!
+
+" define key mappings for video sites
+" defined by .vimperatorrc.js
+autocmd LocationChange .* :js liberator.plugins.nicomap()
 
 " fmap ---
 " all clear
