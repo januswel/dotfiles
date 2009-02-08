@@ -1,30 +1,31 @@
 // .vimperator.js
 // author: janus_wel <janus.wel.3@gmail.com>
 // for 2.0pre
-// Last Change: 2009/02/08 07:57:09.
+// Last Change: 2009/02/08 10:56:06.
 
 // key mappings for video services
 // plugin : nnp_cooperation.js
 // plugin : nicontroller.js
 // plugin : youtubeamp.js
 liberator.plugins.nicomap = function() {
+    let add = mappings.addUserMap;
+    let remove = mappings.remove;
+    let normal = modes.NORMAL;
     // stuff functions
     function registMaps(maps) {
-        for (let i=0, max=maps.length ; i<max ; ++i) {
-            liberator.modules.mappings.addUserMap(
-                [liberator.modules.modes.NORMAL],
-                [maps[i].command],
-                maps[i].description,
-                maps[i].action,
-                maps[i].extra
+        for (let [, m] in Iterator(maps)) {
+            add(
+                [normal],
+                [m.command],
+                m.description,
+                m.action,
+                m.extra
             );
         }
         return true;
     }
     function removeMaps(maps) {
-        for (let i=0 ; i<maps.length ; ++i) {
-            liberator.modules.mappings.remove(liberator.modules.modes.NORMAL, maps[i].command);
-        }
+        for (let [, m] in Iterator(maps)) remove(normal, m.command);
         return true;
     }
 
@@ -255,13 +256,13 @@ liberator.plugins.nicomap = function() {
 
     // main
     let applyMaps;
-    for (let i=0, max=maps.length ; i<max ; ++i) {
-        if (buffer.URL.match(maps[i].url)) {
-            liberator.log(maps[i].url, 9);
-            applyMaps = maps[i].maps;
+    for (let [, m] in Iterator(maps)) {
+        if (buffer.URL.match(m.url)) {
+            liberator.log(m.url, 9);
+            applyMaps = m.maps;
         }
         else {
-            removeMaps(maps[i].maps);
+            removeMaps(m.maps);
         }
     }
 
