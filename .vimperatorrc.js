@@ -69,13 +69,13 @@ liberator.plugins.nicomap = function() {
             url:    '^http://www\\.nicovideo\\.jp/(watch|ranking|mylist)',
             maps:   [
                 {
-                    command:        'a',
+                    command:        '<Leader>a',
                     action:         function() { liberator.execute('nnppushallvideos'); },
                     description:    'push all video in current tab to NicoNicoPlaylist',
                     extra:          { rhs: ':nnppushallvideos<CR>', },
                 },
                 {
-                    command:        'q',
+                    command:        '<Leader>q',
                     action:         function() { liberator.execute('nnpclear'); },
                     description:    'clear NicoNicoPlaylist buffers',
                     extra:          { rhs: ':nnpclear<CR>', },
@@ -87,7 +87,7 @@ liberator.plugins.nicomap = function() {
                     extra:          { rhs: ':nnpgetlist<CR>', },
                 },
                 {
-                    command:        'i',
+                    command:        '<Leader>i',
                     action:         function() { liberator.execute('nicoinfo') },
                     description:    'display "nicontroller.js" information',
                     extra:          { rhs: ':nicoinfo<CR>', },
@@ -156,7 +156,7 @@ liberator.plugins.nicomap = function() {
                     // [N]w
                     // delete N th video.
                     // if N is not specified, next video will be deleted.
-                    command:        'w',
+                    command:        'D',
                     action:         function(count) {
                         if(count === -1) count = 1;
                         for(let i=0 ; i<count ; ++i) liberator.execute(':nnpremove');
@@ -196,7 +196,7 @@ liberator.plugins.nicomap = function() {
             url:    '^http://[^\\.]+\\.youtube\\.com/watch',
             maps:   [
                 {
-                    command:        'i',
+                    command:        '<Leader>i',
                     action:         function() { liberator.execute('ytinfo') },
                     description:    'display "youtubeamp.js" information',
                     extra:          { rhs: ':ytinfo<CR>', },
