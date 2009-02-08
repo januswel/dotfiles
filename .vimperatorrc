@@ -175,7 +175,7 @@ noremap B :sbm<Space>
 "noremap v :viewSBMComments -t hd
 
 " plugin: copy.js
-noremap <Leader>c :copy title<CR>
+noremap C :copy title<CR>
 
 " plugin: blinkelement.js
 noremap <Leader>b :bl content.document.getElement
