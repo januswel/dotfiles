@@ -126,6 +126,11 @@ augroup xhtml
     autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 augroup END
 
+augroup gitSendEmailCompose
+    autocmd! gitSendEmailCompose
+
+    autocmd BufRead .msg.* :setfiletype mail
+augroup END
 
 " map ---------------------------------------------------------------------
 " clear mappings
