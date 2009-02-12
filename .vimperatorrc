@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/08 10:04:27.
+" Last Change: 2009/02/12 19:54:24.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -49,9 +49,6 @@ set focuscontent
 
 " show right and bottom scroll bar
 set guioptions=rb
-
-" use the edit mode like vim in textareas
-set noinsertmode
 
 
 " preferences ( Firefox about:config ) ------------------------------------
