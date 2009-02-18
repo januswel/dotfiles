@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/19 02:40:50.
+" Last Change:  2009/02/19 03:40:51.
 
 
 " For version 5.x: Clear all syntax items
@@ -24,8 +24,7 @@ syntax match    avsLineContinuation     /\\/ contained
 syntax keyword  avsBoolean true false yes no
 
 " number
-syntax match    avsNumberSigned         /[+-]\=\<\d\+\%(\.\d\+\)\=\>/ display
-syntax match    avsNumberUnsigned       /\<\d\+\%(\.\d+\)\>/ display
+syntax match    avsNumberDecimal        /[+-]\=\<\d\+\%(\.\d\+\)\=\>/ display
 syntax match    avsNumberHexadecimal    /\<0x\x\+\>/ display
 
 " string
@@ -142,7 +141,7 @@ syntax match    avsColorHexadecimal /\$\x\{8}\>/ display
 
 " comment
 syntax keyword  avsCommentTodo          TODO FIXME XXX TBD contained
-syntax region   avsCommentLine          start=/\(^\|\s\+\)#/ end=/$/ contains=avsCommentTodo keepend oneline
+syntax region   avsCommentLine          start=/\%(^\|\s\+\)#/ end=/$/ contains=avsCommentTodo keepend oneline
 syntax region   avsCommentBlock         start="/\*" end="\*/" contains=avsCommentTodo
 syntax region   avsCommentNestedBlock   start=/\[\*/ end=/\*\]/ contains=avsCommentTodo,avsCommentNestedBlock
 syntax region   avsCommentEndDelimiter  start=/__END__/ skip=/./ end=/./ contains=avsCommentTodo
@@ -169,8 +168,7 @@ if version >= 508 || !exists("did_avs_syntax_inits")
 
   HiLink avsBoolean                 Boolean
 
-  HiLink avsNumberSigned            Number
-  HiLink avsNumberUnsigned          Number
+  HiLink avsNumberDecimal           Number
   HiLink avsNumberHexadecimal       Number
 
   HiLink avsStringDoubleQuote       String
