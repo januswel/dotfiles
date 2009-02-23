@@ -2,7 +2,7 @@
 " setting file for vim
 "
 " author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/08 05:29:24.
+" Last Change: 2009/02/23 14:40:31.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -126,10 +126,19 @@ augroup xhtml
     autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 augroup END
 
+" for git send-email --compose
 augroup gitSendEmailCompose
     autocmd! gitSendEmailCompose
 
     autocmd BufRead .msg.* :setfiletype mail
+augroup END
+
+" for AviSynth
+augroup avisynth
+    autocmd! avisynth
+
+    autocmd BufNewFile,BufRead *.avs :set fileencoding=cp932
+    autocmd BufNewFile,BufRead *.avs :set fileformat=dos
 augroup END
 
 " map ---------------------------------------------------------------------
