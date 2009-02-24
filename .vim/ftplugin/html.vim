@@ -1,4 +1,8 @@
-" for [x]html
+" Vim ftplugin file
+" Language:     [x]html
+" Maintainer:   janus_wel <janus.wel.3@gmail.com>
+" Last Change:  2009/02/23 21:44:58.
+" Version:      0.30
 
 " about tabs
 " always possibility that indent is deep
@@ -6,7 +10,7 @@ setlocal shiftwidth=2
 setlocal tabstop=2
 
 " for make
-" double quotation for % ("%") is needed for Windows
+" double quotations for % ("%") are needed for Windows
 setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
 
 " check, fix, form document and write it back
