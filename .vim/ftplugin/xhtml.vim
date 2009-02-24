@@ -1,13 +1,17 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 15:09:20.
+" Last Change:  2009/02/24 15:22:34.
 " Version:      0.40
 
 if exists("b:did_ftplugin")
     finish
 endif
 let b:did_ftplugin = 1
+
+" reindent by <C-b>
+" this don't work in gvim (bug?)
+"setlocal indentkeys& indentkeys+=!
 
 " about tabs
 " always possibility that indent is deep
