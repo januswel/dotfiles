@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 10:36:41.
+" Last Change:  2009/02/24 10:44:04.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -113,8 +113,6 @@ augroup END
 augroup xhtml
     autocmd! xhtml
 
-    " I will write xhtml only
-    autocmd BufNewFile,BufRead *.html :setfiletype xhtml
     " load xhtml template automatically
     autocmd BufNewFile *.html 0r $VIMPERSONAL/templates/xhtml.html
     " ftplugin: html.vim
