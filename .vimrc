@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 10:14:12.
+" Last Change:  2009/02/24 10:36:41.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -122,13 +122,6 @@ augroup xhtml
     autocmd BufNewFile,BufRead *.html :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>b2hi
     " modify by HTML Tidy
     autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
-augroup END
-
-" for git send-email --compose
-augroup gitSendEmailCompose
-    autocmd! gitSendEmailCompose
-
-    autocmd BufRead .msg.* :setfiletype mail
 augroup END
 
 
