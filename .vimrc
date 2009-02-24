@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 15:31:12.
+" Last Change:  2009/02/24 15:33:50.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -122,9 +122,9 @@ augroup xhtml
     " key mappings
     " ftplugin: html.vim
     " complete closing tab
-    autocmd BufNewFile,BufRead *.html :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
+    autocmd FileType html,xhtml :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
     " modify by HTML Tidy
-    autocmd BufNewFile,BufRead *.html :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
+    autocmd FileType html,xhtml :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 augroup END
 
 
