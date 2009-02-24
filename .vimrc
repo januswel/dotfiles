@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 10:09:20.
+" Last Change:  2009/02/24 10:14:12.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -131,13 +131,6 @@ augroup gitSendEmailCompose
     autocmd BufRead .msg.* :setfiletype mail
 augroup END
 
-" for AviSynth
-augroup avisynth
-    autocmd! avisynth
-
-    autocmd BufNewFile,BufRead *.avs :set fileencoding=cp932
-    autocmd BufNewFile,BufRead *.avs :set fileformat=dos
-augroup END
 
 " map ---------------------------------------------------------------------
 " clear mappings
