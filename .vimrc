@@ -1,8 +1,6 @@
 " .vimrc
-" setting file for vim
-"
-" author janus_wel <janus.wel.3@gmail.com>
-" Last Change: 2009/02/23 14:40:31.
+" Maintainer:   janus_wel <janus.wel.3@gmail.com>
+" Last Change:  2009/02/24 10:09:20.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
