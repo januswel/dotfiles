@@ -1,8 +1,13 @@
 " Vim ftplugin file
-" Language:     [x]html
+" Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/23 21:44:58.
-" Version:      0.30
+" Last Change:  2009/02/24 15:09:20.
+" Version:      0.40
+
+if exists("b:did_ftplugin")
+    finish
+endif
+let b:did_ftplugin = 1
 
 " about tabs
 " always possibility that indent is deep
