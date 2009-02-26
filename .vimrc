@@ -1,15 +1,12 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 17:00:11.
+" Last Change:  2009/02/26 17:24:50.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
 " and set it to environment variable $VIMPERSONAL
-" for compatibility between Windows and Linux
-let $VIMPERSONAL = $HOME . '/.vim'
-if has('win32')
-    let $VIMPERSONAL = $HOME . '/vimfiles'
-endif
+" for compatibility between various operating systems
+let $VIMPERSONAL = substitute(&runtimepath, ',.*', '', '')
 
 
 " options -----------------------------------------------------------------
