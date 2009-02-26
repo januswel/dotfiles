@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 01:55:25.
+" Last Change:  2009/02/27 01:57:01.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -164,7 +164,7 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " source
-nnoremap <Leader>r :source ~/.gvimrc<CR>
+nnoremap <silent><Leader>r :source ~/.vimrc<CR>
 
 " make
 nnoremap <silent><Leader>m :update<CR>:make<CR>
