@@ -1,7 +1,7 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/25 20:56:34.
+" Last Change:  2009/02/26 21:28:10.
 " Version:      0.41
 
 if exists("b:did_ftplugin")
@@ -22,12 +22,7 @@ setlocal tabstop=2
 
 
 " for make
-" double quotations for % ("%") are needed for Windows
-if has('win32')
-    setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
-else
-    setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ %
-endif
+compiler xhtml
 
 
 " check, fix, form document and write it back
@@ -97,3 +92,6 @@ function! InsertHTMLCloseTag()
     endif " check on filetype
 
 endfunction " InsertHTMLCloseTag()
+
+
+" vim: ts=4 sw=4 sts=0 et
