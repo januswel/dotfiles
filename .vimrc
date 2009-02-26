@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 18:57:46.
+" Last Change:  2009/02/27 01:50:53.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -126,14 +126,6 @@ augroup xhtml
     autocmd FileType html,xhtml     inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
     " modify by HTML Tidy
     autocmd FileType html,xhtml     nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
-augroup END
-
-" load templates along with ext automatically
-augroup AutoLoadTemplate
-    autocmd! AutoLoadTemplate
-
-    autocmd BufNewFile *.html       execute '0read ' . s:templatepath . '/xhtml.html'
-    autocmd BufNewFile *.vim        execute '0read ' . s:templatepath . '/vim.vim'
 augroup END
 
 
