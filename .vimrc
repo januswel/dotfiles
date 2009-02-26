@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 18:55:32.
+" Last Change:  2009/02/26 18:57:46.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -189,28 +189,6 @@ abbreviate cosnt  const
 
 
 " script ------------------------------------------------------------------
-" show invisible characters
-if has('autocmd') && has('syntax')
-    syntax on
-    function! ShowInvisibleCharacters()
-        " double width space
-        syntax match DoubleWidthSpace "\%u3000" display containedin=ALL
-        " trailing whitespace characters
-        syntax match TrailingWhitespace "\s\+$" display containedin=ALL
-        " tab space
-        syntax match TabSpace "\t" display containedin=ALL
-
-        " these are performed as error
-        highlight default link DoubleWidthSpace   Error
-        highlight default link TrailingWhitespace Error
-        highlight default link TabSpace           Search
-    endf
-
-    augroup showInvisible
-        autocmd! showInvisible
-        autocmd BufNew,BufRead * call ShowInvisibleCharacters()
-    augroup END
-endif
 
 
 " vim: ts=4 sw=4 sts=0 et
