@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 01:57:01.
+" Last Change:  2009/02/27 01:58:38.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -169,6 +169,16 @@ nnoremap <silent><Leader>r :source ~/.vimrc<CR>
 " make
 nnoremap <silent><Leader>m :update<CR>:make<CR>
 
+" path operation ---
+" change directory
+nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
+
+" open explorer and select editing file
+if has('win32')
+    nnoremap <silent><Leader>e :!start explorer /select,%:p<CR>
+endif
+
+" settings with plugin ---
 " activate smart (keywords or omni) completion
 " plugin: SmartComplete.vim
 inoremap <C-n> <C-r>=SmartComplete()<CR>
