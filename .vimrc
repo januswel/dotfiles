@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 15:33:50.
+" Last Change:  2009/02/26 15:52:08.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -98,6 +98,9 @@ let mapleader=','
 " plugin: autodate.vim
 " date format to insert automatically
 let autodate_format='%Y/%m/%d %H:%M:%S'
+
+" setting for bash (:help sh.vim)
+let g:is_bash=1
 
 
 " autocmd -----------------------------------------------------------------
