@@ -1,8 +1,6 @@
-# .tidyrc
 # config file of HTML Tidy
-#
-# author janus_wel <janus.wel.3@gmail.com>
-# Last Change: 2009/02/01 20:03:56.
+# Maintainer:   janus_wel <janus.wel.3@gmail.com>
+# Last Change:  2009/02/26 21:06:42.
 
 bare:yes
 char-encoding:raw
@@ -14,7 +12,9 @@ indent-cdata:no
 indent-spaces:2
 indent:auto
 newline:LF
+output-xhtml:yes
 replace-color:yes
+tidy-mark:no
 wrap-asp:no
 wrap-attributes:no
 wrap-jste:no
