@@ -1,12 +1,15 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 17:24:50.
+" Last Change:  2009/02/26 17:31:29.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
-" and set it to environment variable $VIMPERSONAL
+" and set it to script local variable 'vimpersonal'
 " for compatibility between various operating systems
-let $VIMPERSONAL = substitute(&runtimepath, ',.*', '', '')
+let s:vimpersonal = substitute(&runtimepath, ',.*', '', '')
+
+" set path to template files
+let s:templatepath = s:vimpersonal . '/template'
 
 
 " options -----------------------------------------------------------------
@@ -23,7 +26,7 @@ set noautowriteall  " completely
 
 " backup
 " backup directory
-let &backupdir=$VIMPERSONAL.'/backup/'
+let &backupdir = s:vimpersonal . '/backup/'
 set backup          " backup feature on
 set writebackup     " make a backup file before overwriting a file
 set backupcopy=auto " how backup files are created, best one
@@ -114,7 +117,7 @@ augroup xhtml
     autocmd! xhtml
 
     " load xhtml template automatically
-    autocmd BufNewFile *.html       0read $VIMPERSONAL/templates/xhtml.html
+    autocmd BufNewFile *.html       execute '0read ' . s:templatepath . '/xhtml.html'
     " reindent by <C-b>
     " cludge: setting 'indentkeys' at ftplugin don't work in gvim
     autocmd FileType html,xhtml     setlocal indentkeys& indentkeys+=!
