@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 17:53:49.
+" Last Change:  2009/02/26 18:00:21.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -116,8 +116,6 @@ augroup END
 augroup xhtml
     autocmd! xhtml
 
-    " load xhtml template automatically
-    autocmd BufNewFile *.html       execute '0read ' . s:templatepath . '/xhtml.html'
     " reindent by <C-b>
     " cludge: setting 'indentkeys' at ftplugin don't work in gvim
     autocmd FileType html,xhtml     setlocal indentkeys& indentkeys+=!
@@ -128,6 +126,13 @@ augroup xhtml
     autocmd FileType html,xhtml     inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
     " modify by HTML Tidy
     autocmd FileType html,xhtml     nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
+augroup END
+
+" load templates along with ext automatically
+augroup AutoLoadTemplate
+    autocmd! AutoLoadTemplate
+
+    autocmd BufNewFile *.html       execute '0read ' . s:templatepath . '/xhtml.html'
 augroup END
 
 
