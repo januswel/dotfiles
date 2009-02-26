@@ -1,26 +1,34 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/24 15:22:34.
-" Version:      0.40
+" Last Change:  2009/02/25 20:56:34.
+" Version:      0.41
 
 if exists("b:did_ftplugin")
     finish
 endif
 let b:did_ftplugin = 1
 
+
 " reindent by <C-b>
 " this don't work in gvim (bug?)
 "setlocal indentkeys& indentkeys+=!
+
 
 " about tabs
 " always possibility that indent is deep
 setlocal shiftwidth=2
 setlocal tabstop=2
 
+
 " for make
 " double quotations for % ("%") are needed for Windows
-setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+if has('win32')
+    setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+else
+    setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ %
+endif
+
 
 " check, fix, form document and write it back
 setlocal autoread
@@ -28,6 +36,7 @@ function! ModifyByHTMLTidy()
     update
     !tidy  -config ~/.tidyrc -quiet -modify "%"
 endfunction
+
 
 " function to close tag
 function! InsertHTMLCloseTag()
