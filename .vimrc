@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 15:55:05.
+" Last Change:  2009/02/26 17:00:11.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -108,7 +108,7 @@ let g:is_bash=1
 augroup showQuickFixWindow
     autocmd! showQuickFixWindow
 
-    autocmd QuickFixCmdPost make cwindow    " make
+    autocmd QuickFixCmdPost make    cwindow " make
     autocmd QuickFixCmdPost vimgrep cwindow " internal grep
 augroup END
 
@@ -117,17 +117,17 @@ augroup xhtml
     autocmd! xhtml
 
     " load xhtml template automatically
-    autocmd BufNewFile *.html 0r $VIMPERSONAL/templates/xhtml.html
+    autocmd BufNewFile *.html       0read $VIMPERSONAL/templates/xhtml.html
     " reindent by <C-b>
     " cludge: setting 'indentkeys' at ftplugin don't work in gvim
-    autocmd FileType html,xhtml :setlocal indentkeys& indentkeys+=!
+    autocmd FileType html,xhtml     setlocal indentkeys& indentkeys+=!
 
     " key mappings
     " ftplugin: html.vim
     " complete closing tab
-    autocmd FileType html,xhtml :inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
+    autocmd FileType html,xhtml     inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
     " modify by HTML Tidy
-    autocmd FileType html,xhtml :nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
+    autocmd FileType html,xhtml     nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 augroup END
 
 
