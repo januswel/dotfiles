@@ -8,3 +8,5 @@
 	diff = auto
 [sendemail]
 	smtpserver = /usr/bin/msmtp
+[alias]
+	co = checkout
