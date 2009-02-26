@@ -1,7 +1,8 @@
 " Vim syntax file
-" Language:     mayu setting file
+" Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/19 03:38:28.
+" Last Change:  2009/02/25 21:16:02.
+" Version:      0.22
 
 
 " For version 5.x: Clear all syntax items
@@ -11,6 +12,7 @@ if version < 600
 elseif exists("b:current_syntax")
     finish
 endif
+let b:current_syntax = "mayu"
 
 " includes
 syntax keyword  mayuInclude include
@@ -73,6 +75,8 @@ syntax keyword  mayuSpecialKeysPrefix
 syntax keyword  mayuCommentTodo TODO FIXME XXX TBD contained
 syntax region   mayuComment     start=/\%(^\|\s\+\)#/ end=/$/ contains=mayuCommentTodo keepend oneline
 
+" all
+syntax cluster  mayuAll contains=mayuInclude,mayuConditional,mayuOperator,mayuNumberDecimal,mayuNumberHexadecimal,mayuStringDoubleQuote,mayuStringSingleQuote,mayuRegexpString,mayuFunction,mayuFunctionName,mayuDefine,mayuOption,mayuOption,mayuKeySequense,mayuSpecialKeys,mayuSpecialKeysPrefix,mayuCommentTodo,mayuComment
 
 " highlighting
 if version >= 508 || !exists("did_mayu_syntax_inits")
@@ -107,7 +111,5 @@ if version >= 508 || !exists("did_mayu_syntax_inits")
 
     delcommand HiLink
 endif
-
-let b:current_syntax = "mayu"
 
 " vim: ts=4 sts=4 sw=4 et
