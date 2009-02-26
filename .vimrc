@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 18:00:21.
+" Last Change:  2009/02/26 18:52:42.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -133,6 +133,7 @@ augroup AutoLoadTemplate
     autocmd! AutoLoadTemplate
 
     autocmd BufNewFile *.html       execute '0read ' . s:templatepath . '/xhtml.html'
+    autocmd BufNewFile *.vim        execute '0read ' . s:templatepath . '/vim.vim'
 augroup END
 
 
