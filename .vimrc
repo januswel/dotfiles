@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 17:31:29.
+" Last Change:  2009/02/26 17:53:49.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -18,7 +18,7 @@ set nocompatible
 
 " path setting
 " add path to my bin
-set path='~/bin',path
+set path^=~/bin/
 
 " timing to write
 set noautowrite     " set off writing a file automatically
