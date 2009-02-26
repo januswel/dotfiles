@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 15:52:08.
+" Last Change:  2009/02/26 15:55:05.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -172,8 +172,8 @@ nnoremap <Leader>r :source ~/.gvimrc<CR>
 nnoremap <silent><Leader>m :update<CR>:make<CR>
 
 " activate smart (keywords or omni) completion
-" plugin: InsertTabWrapper.vim
-inoremap <C-n> <C-r>=InsertTabWrapper()<CR>
+" plugin: SmartComplete.vim
+inoremap <C-n> <C-r>=SmartComplete()<CR>
 
 
 " abbreviation ------------------------------------------------------------
