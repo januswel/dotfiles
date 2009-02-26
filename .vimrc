@@ -1,12 +1,12 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 01:50:53.
+" Last Change:  2009/02/27 01:55:25.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
 " and set it to script local variable 'vimpersonal'
 " for compatibility between various operating systems
-let s:vimpersonal = substitute(&runtimepath, ',.*', '', '')
+let s:vimpersonal = split(&runtimepath, ',')[0]
 
 " set path to template files
 let s:templatepath = s:vimpersonal . '/template'
