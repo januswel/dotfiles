@@ -1,7 +1,8 @@
 " Vim syntax file
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/19 03:40:51.
+" Last Change:  2009/02/25 21:16:00.
+" Version:      0.12
 
 
 " For version 5.x: Clear all syntax items
@@ -11,6 +12,7 @@ if version < 600
 elseif exists("b:current_syntax")
     finish
 endif
+let b:current_syntax = "avisynth"
 
 " case insensitive
 syntax case ignore
@@ -18,7 +20,7 @@ syntax case ignore
 " line continuation
 syntax match    avsLineContinuationFrom /\\\n/ contains=avsLineContinuation
 syntax match    avsLineContinuationTo   /^\s*\\/ contains=avsLineContinuation
-syntax match    avsLineContinuation     /\\/ contained
+syntax match    avsLineContinuation     /\\/ display contained
 
 " boolean
 syntax keyword  avsBoolean true false yes no
@@ -124,7 +126,7 @@ syntax keyword  avsFilterDebug
             \ ShowTime StackHorizontal StackVertical Subtitle Tone Version
 
 " statements
-syntax keyword  avsControll return
+syntax keyword  avsControl return
 syntax keyword  avsVariableStatement global
 
 " special variables
@@ -148,7 +150,7 @@ syntax region   avsCommentEndDelimiter  start=/__END__/ skip=/./ end=/./ contain
 
 
 " all
-"syntax cluster avsAll contains=
+syntax cluster avsAll contains=avsLineContinuationFrom,avsLineContinuationTo,avsLineContinuation,avsBoolean,avsNumberDecimal,avsNumberHexadecimal,avsStringDoubleQuote,avsStringMultiLine,avsException,avsFunctionNumeric,avsFunctionString,avsFunctionBoolean,avsFunctionConvertion,avsFunctionControll,avsFunctionVersion,avsFunctionRuntime,avsPropertyClip,avsPlugin,avsFilterMediaFile,avsFilterColor,avsFilterOverlay,avsFilterGeometric,avsFilterPixel,avsFilterTimeline,avsFilterInterlace,avsFilterAudio,avsFilterConditional,avsFilterDebug,avsControl,avsVariableStatement,avsSpecialVariable,avsDefineFunction,avsDefineFunctionStart,avsDefineFunctionType,avsColorHexadecimal,avsColorHexadecimal,avsCommentTodo,avsCommentLine,avsCommentBlock,avsCommentNestedBlock,avsCommentEndDelimiter
 
 
 syntax case match
@@ -200,7 +202,7 @@ if version >= 508 || !exists("did_avs_syntax_inits")
 
   HiLink avsDefineFunctionStart     Statement
   HiLink avsDefineFunctionType      Type
-  HiLink avsControll                Statement
+  HiLink avsControl                 Statement
   HiLink avsVariableStatement       Statement
   HiLink avsSpecialVariable         SpecialChar
   HiLink avsColorHexadecimal        Special
@@ -213,7 +215,5 @@ if version >= 508 || !exists("did_avs_syntax_inits")
 
   delcommand HiLink
 endif
-
-let b:current_syntax = "avisynth"
 
 " vim: ts=4 sts=4 sw=4 et
