@@ -3,7 +3,7 @@
 #
 # author janus_wel <janus.wel.3@gmail.com>
 # initial written 2008/07/30
-# Last Change: 2009/02/01 19:54:30.
+# Last Change: 2009/02/26 12:29:44.
 
 # include files -----------------------------------------------------------
 include "109.mayu"
@@ -100,10 +100,18 @@ key i = i
 key r = r
 
 window Explorer /Explorer\.EXE:(CabinetWClass:SHELLDLL_DefView:SysListView32|Progman:SHELLDLL_DefView:SysListView32)$/ : Global
-key *j      = *↓
-key *k      = *↑
-key *h      = *←
-key *l      = *→
+key j       = ↓
+key k       = ↑
+key h       = ←
+key l       = →
+key C-j     = C-↓
+key C-k     = C-↑
+key C-h     = C-←
+key C-l     = C-→
+key S-j     = S-↓
+key S-k     = S-↑
+key S-h     = S-←
+key S-l     = S-→
 key u       = Backspace                 # upper directory
 key d       = Delete                    # delete files
 key S-d     = S-Delete                  # delete files completely
