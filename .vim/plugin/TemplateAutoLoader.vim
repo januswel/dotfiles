@@ -1,12 +1,21 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 01:44:14.
+" Last Change:  2009/02/28 00:36:50.
 " Version:      0.10
-" Remark:       load template along with ext automatically
+" Remark:       load template along with ext automatically.
+"               the position of template files can be seted
+"               by g:templateautoloader_path. default is
+"                   UNIX / Linux: ~/.vim/template
+"                   Windows     : ~/vimfiles/template
 
 if has('autocmd')
-    " TODO: use global variable (e.g. g:templateautoloader_path)
+    " path to template files
+    " default
     let s:templatepath = split(&runtimepath, ',')[0] . '/template/*'
+    " load setting from global variable
+    if exists('g:templateautoloader_path')
+        let s:templatepath = g:templateautoloader_path . '/*'
+    endif
 
     " define functions
     function! TemplateAutoLoader()
