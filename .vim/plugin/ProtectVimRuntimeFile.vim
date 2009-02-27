@@ -1,17 +1,23 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 00:06:07.
-" Version:      0.10
+" Last Change:  2009/02/28 00:03:48.
+" Version:      0.11
 
 " set readonly at opening vim runtime file
 if has('autocmd') && exists('&readonly')
     function! ProtectRuntimeFile()
+        let s:path = '^' . $VIMRUNTIME
+
         if has('win32')
-            if bufname('') =~ '^' . escape($VIMRUNTIME, '\')
+            if !(exists('+shellslash') && &shellslash == 1)
+                let s:path = '^' . escape($VIMRUNTIME, '\')
+            endif
+
+            if bufname('') =~ s:path
                 setlocal readonly
             endif
         else
-            if bufname('') =~# '^' . $VIMRUNTIME
+            if bufname('') =~# s:path
                 setlocal readonly
             endif
         endif
