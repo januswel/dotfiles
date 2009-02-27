@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/28 00:36:50.
+" Last Change:  2009/02/28 00:52:14.
 " Version:      0.10
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
@@ -17,10 +17,19 @@ if has('autocmd')
         let s:templatepath = g:templateautoloader_path . '/*'
     endif
 
-    " define functions
-    function! TemplateAutoLoader()
-        " get buffer extension name
-        " :help filename-modifiers
+    " get path separator
+    let s:separator = '/'
+    if has('win32') && !(exists('+shellslash') && &shellslash == 1)
+        let s:separator = '\\'
+    endif
+
+    " along with ext
+    function! TemplateAutoLoadExt()
+        if !(line('$') == 1 && getline(1) == '')
+            return 1
+        endif
+
+        " get extension name of buffer
         let s:ext = split(bufname(''), '\.')[-1]
 
         " get list of template files
@@ -33,10 +42,30 @@ if has('autocmd')
         endfor
     endfunction
 
+    " along with filetype
+    function! TemplateAutoLoadFileType()
+        if !(line('$') == 1 && getline(1) == '')
+            return 1
+        endif
+
+        " get filetype of buffer
+        let s:ft = &l:filetype
+
+        " get list of template files
+        let s:templates = split(expand(s:templatepath), '\n')
+        " load template if ext has matched
+        for s:t in s:templates
+            if s:ft == split(split(s:t, s:separator)[-1], '\.')[0]
+                execute '0read ' . s:t
+            endif
+        endfor
+    endfunction
+
     " autocmd
     augroup TemplateAutoLoader
         autocmd! TemplateAutoLoader
-        autocmd BufNewFile *    call TemplateAutoLoader()
+        autocmd BufNewFile *    call TemplateAutoLoadExt()
+        autocmd FileType *      call TemplateAutoLoadFileType()
     augroup TemplateAutoLoader
 endif
 
