@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 01:58:38.
+" Last Change:  2009/03/01 20:35:04.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -101,6 +101,10 @@ let autodate_format='%Y/%m/%d %H:%M:%S'
 
 " setting for bash (:help sh.vim)
 let g:is_bash=1
+
+" plugin: ProtectFile.vim
+let g:autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
+"let g:autoprotectfile_nomodifiable_paths = "$VIMRUNTIME/*"
 
 
 " autocmd -----------------------------------------------------------------
