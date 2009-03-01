@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/02/12 19:54:24.
+" Last Change: 2009/03/01 02:28:26.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -49,6 +49,9 @@ set focuscontent
 
 " show right and bottom scroll bar
 set guioptions=rb
+
+" don't start new vim
+set editor=gvim\ -f\ --remote-tab-wait-silent
 
 
 " preferences ( Firefox about:config ) ------------------------------------
