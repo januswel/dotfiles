@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/01 20:15:41.
-" Version:      0.12
+" Last Change:  2009/03/01 20:29:25.
+" Version:      0.13
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:templateautoloader_path. default is
@@ -17,12 +17,6 @@ if has('autocmd')
         let s:templatepath = g:templateautoloader_path . '/*'
     endif
 
-    " get path separator
-    let s:separator = '/'
-    if has('win32') && !(exists('+shellslash') && &shellslash == 1)
-        let s:separator = '\\'
-    endif
-
     " along with ext
     function! AutoLoadTemplateExt()
         if !(line('$') == 1 && getline(1) == '')
@@ -30,13 +24,13 @@ if has('autocmd')
         endif
 
         " get extension name of buffer
-        let s:ext = split(bufname(''), '\.')[-1]
+        let s:ext = fnamemodify(bufname(''), ':e')
 
         " get list of template files
         let s:templates = split(expand(s:templatepath), '\n')
         " load template if ext has matched
         for s:t in s:templates
-            if s:ext == split(s:t, '\.')[-1]
+            if s:ext == fnamemodify(s:t, ':e')
                 execute '0read ' . s:t
             endif
         endfor
@@ -55,7 +49,7 @@ if has('autocmd')
         let s:templates = split(expand(s:templatepath), '\n')
         " load template if ext has matched
         for s:t in s:templates
-            if s:ft == split(split(s:t, s:separator)[-1], '\.')[0]
+            if s:ft == fnamemodify(s:t, ':t:r')
                 execute '0read ' . s:t
             endif
         endfor
