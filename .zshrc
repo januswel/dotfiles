@@ -1,6 +1,6 @@
 # zsh RC file
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/03/01 15:52:31.
+# Last Change:  2009/03/01 20:41:24.
 
 # completions
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -10,17 +10,17 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' list-colors ''
 
+# use vi like keybind
+# press <Esc> to enter normal mode
 bindkey -v
 
 # prompts
-#setopt prompt_subst
-#autoload -U colors
-#colors
+setopt prompt_subst
+autoload -U colors
+colors
 
-#PROMPT="%{$fg[green]%}${USER}@${HOST}${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}"
-#RPROMPT="%{$fg[green]%}[%~]%{$reset_color%}"
-PROMPT="${USER}@${HOST}${WINDOW:+"[$WINDOW]"}%(!.#.$) "
-RPROMPT="[%~]"
+PROMPT="%B%{$fg[yellow]%}${USER}@${HOST}${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}%b"
+RPROMPT="%B%{$fg[green]%}[%~]%{$reset_color%}%b"
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
