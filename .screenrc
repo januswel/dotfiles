@@ -12,3 +12,6 @@ bind n screen
 bind h prev
 bind l next
 bind b windowlist
+
+defbce "on"
+term xterm-256color
