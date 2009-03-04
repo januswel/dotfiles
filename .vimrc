@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/01 20:35:04.
+" Last Change:  2009/03/04 22:38:52.
 
 " initialization ----------------------------------------------------------
 " get the personal directory for initialization
@@ -72,6 +72,7 @@ set encoding=utf-8      " inside Vim
 set fileencoding=utf-8  " buffer default (for new file)
 " character encodings for exist files
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,utf-16,ucs-2-internal,ucs-2
+set langmenu=ja.utf-8   " language of menu
 
 " end-of-line format
 set fileformat=unix             " buffer default (for new file)
