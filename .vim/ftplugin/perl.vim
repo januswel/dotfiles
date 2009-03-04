@@ -1,7 +1,7 @@
 " Vim ftplugin file
 " Language:     Perl
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 15:36:51.
+" Last Change:  2009/03/04 21:05:00.
 " Version:      0.10
 
 " for make
@@ -12,3 +12,5 @@ compiler perl
 if has('win32')
     let &l:makeprg = substitute(&l:makeprg, '%', '"%"', 'g')
 endif
+
+" vim: ts=4 sw=4 sts=0 et
