@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/25 23:38:13.
+" Last Change:  2009/03/04 21:15:45.
 " Version:      0.20
 
 " wrapper function for keywords in 'complete' and omni completion
@@ -21,4 +21,4 @@ function! SmartComplete()
     endif
 endfunction
 
-" vim: st=4 sw=4 sts=0 et
+" vim: ts=4 sw=4 sts=0 et

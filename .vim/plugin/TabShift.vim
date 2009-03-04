@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 15:26:08.
+" Last Change:  2009/03/04 21:15:46.
 " Version:      0.20
 " Remark:       This plugin give you the function like
 "               'tabm[ove][!] +N | -N' of Vimperator
@@ -22,4 +22,4 @@ function! TabShift(delta)
     execute 'tabmove' ((pos >= 0) ? pos : pos + max)
 endfunction
 
-" vim: st=4 sw=4 sts=0 et
+" vim: ts=4 sw=4 sts=0 et
