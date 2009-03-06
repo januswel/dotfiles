@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/03/06 21:14:45.
+" Last Change: 2009/03/06 21:18:56.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -51,7 +51,8 @@ set focuscontent
 set guioptions=rb
 
 " don't start new vim
-set editor=gvim\ -f\ --remote-tab-wait-silent
+" launching external editor is cranky in Win32
+"set editor=gvim\ -f\ --remote-tab-wait-silent
 
 
 " preferences ( Firefox about:config ) ------------------------------------
