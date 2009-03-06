@@ -1,12 +1,11 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 00:54:26.
-" Version:      0.10
-" Remark:       contribute function and command
-"               to open explorer.exe of win32.
+" Last Change:  2009/03/07 01:22:09.
+" Version:      0.11
+" Remark:       contribute command to open explorer.exe of win32.
 
 if has('win32') && has('modify_fname')
-    function! OpenWin32Explorer(system_encoding)
+    function! <SID>OpenWin32Explorer(system_encoding)
         let buffer_path = expand('%:p')
         if buffer_path != ''
             " open explorer and select editing file
@@ -33,7 +32,7 @@ if has('win32') && has('modify_fname')
     endfunction
 
     " register command, for convenience
-    command! -nargs=1 OpenWin32Explorer call OpenWin32Explorer(<args>)
+    command! -nargs=1 OpenWin32Explorer call <SID>OpenWin32Explorer(<args>)
 endif
 
 " vim: ts=4 sw=4 sts=0 et
