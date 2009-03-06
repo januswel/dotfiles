@@ -1,19 +1,12 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 01:35:45.
-" Version:      0.20
+" Last Change:  2009/03/07 01:42:17.
+" Version:      0.30
 " Remark:       contribute command to open explorer.exe of win32.
 
 if has('win32') && has('modify_fname')
-    function! <SID>OpenWin32Explorer()
-        let buffer_path = expand('%:p')
-        if buffer_path != ''
-            " open explorer and select editing file
-            let cmd = '!start explorer /select,' . buffer_path
-        else
-            " when buffer's filename is empty
-            let cmd = '!start explorer ' . getcwd()
-        endif
+    function! s:ConvertEncodingToSystemDefault(orig_str)
+        let str = a:orig_str
 
         if has('multi_byte')
             " If 'encoding' option differ from system encoding, this
@@ -29,11 +22,10 @@ if has('win32') && has('modify_fname')
             if cur_encoding != &encoding
                 " try to convert
                 if has('iconv')
-                    let cmd = iconv(cmd, cur_encoding, &encoding)
+                    let str = iconv(str, cur_encoding, &encoding)
                 else
-                    echoerr 'OpenWin32Explorer needs iconv.'
+                    throw 'Feature +iconv is needed.'
                                 \ . ' See :help iconv-dynamic.'
-                    return 1
                 endif
             endif
 
@@ -41,7 +33,24 @@ if has('win32') && has('modify_fname')
             let &encoding = cur_encoding
         endif
 
-        execute cmd
+        return str
+    endfunction
+
+    function! <SID>OpenWin32Explorer()
+        let buffer_path = expand('%:p')
+        if buffer_path != ''
+            " open explorer and select editing file
+            let cmd = '!start explorer /select,' . buffer_path
+        else
+            " when buffer's filename is empty
+            let cmd = '!start explorer ' . getcwd()
+        endif
+
+        try
+            execute s:ConvertEncodingToSystemDefault(cmd)
+        catch
+            echoerr 'OpenWin32Explorer.vim: ' . v:exception
+        endtry
     endfunction
 
     " register command, for convenience
