@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/01 21:03:46.
-" Version:      0.13
+" Last Change:  2009/03/06 20:22:04.
+" Version:      0.20
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -17,40 +17,58 @@ if has('autocmd')
         let s:templatepath = g:templateautoloader_path . '/*'
     endif
 
+    " return bool
+    " 0    : buffer has something
+    " not 0: buffer is empty
+    function! IsBufferEmpty()
+        if !(line('$') == 1 && getline(1) == '')
+            return 1
+        endif
+        return 0
+    endfunction
+
+    " return list
+    " get absolute path of template files
+    function! GetTemplateFiles()
+        return split(expand(s:templatepath), '\n')
+    endfunction
+
+    " return none
+    " read specified file to buffer
+    function! ReadTemplateFile(file)
+        execute '0read ' . a:file
+    endfunction
+
     " along with ext
     function! AutoLoadTemplateExt()
-        if !(line('$') == 1 && getline(1) == '')
+        if IsBufferEmpty()
             return 1
         endif
 
         " get extension name of buffer
-        let s:ext = fnamemodify(bufname(''), ':e')
+        let l:ext = fnamemodify(bufname(''), ':e')
 
-        " get list of template files
-        let s:templates = split(expand(s:templatepath), '\n')
         " load template if ext has matched
-        for s:t in s:templates
-            if s:ext == fnamemodify(s:t, ':e')
-                execute '0read ' . s:t
+        for l:t in GetTemplateFiles()
+            if l:ext == fnamemodify(l:t, ':e')
+                call ReadTemplateFile(l:t)
             endif
         endfor
     endfunction
 
     " along with filetype
     function! AutoLoadTemplateFileType()
-        if !(line('$') == 1 && getline(1) == '')
+        if IsBufferEmpty()
             return 1
         endif
 
         " get filetype of buffer
-        let s:ft = &l:filetype
+        let l:ft = &l:filetype
 
-        " get list of template files
-        let s:templates = split(expand(s:templatepath), '\n')
         " load template if ext has matched
-        for s:t in s:templates
-            if s:ft == fnamemodify(s:t, ':t:r')
-                execute '0read ' . s:t
+        for l:t in GetTemplateFiles()
+            if l:ft == fnamemodify(l:t, ':t:r')
+                call ReadTemplateFile(l:t)
             endif
         endfor
     endfunction
