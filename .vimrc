@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 19:11:40.
+" Last Change:  2009/03/06 19:21:22.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -105,7 +105,6 @@ let g:is_bash=1
 
 " plugin: ProtectFile.vim
 let g:autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
-"let g:autoprotectfile_nomodifiable_paths = "$VIMRUNTIME/*"
 
 
 " autocmd {{{1 ------------------------------------------------------------
@@ -139,27 +138,25 @@ augroup END
 mapclear
 mapclear!
 
+" cursor ---
 " move cursor as it looks
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" tabs ---
 " tabnew is hard to complete
 nnoremap t :tabnew<Space>
-
 " switch tab
 nnoremap <C-h> gT
 nnoremap <C-l> gt
-
 " move tab
-" TabShift.vim plugin
+" plugin: TabShift.vim
 nnoremap <silent><C-p> :call TabShift(-1)<CR>
 nnoremap <silent><C-n> :call TabShift(+1)<CR>
 
-" line break
-nnoremap <silent><S-k> i<CR><Esc>
-
+" searches ---
 " scroll matched word to middle of screen
 nnoremap n nzz
 nnoremap N Nzz
@@ -168,25 +165,24 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" source
-nnoremap <silent><Leader>r :source ~/.vimrc<CR>
-
+" editing ---
+" line break
+nnoremap <silent><S-k> i<CR><Esc>
 " make
 nnoremap <silent><Leader>m :update<CR>:make<CR>
+" source
+nnoremap <silent><Leader>r :source ~/.vimrc<CR>
+" activate smart (keywords or omni) completion
+" plugin: SmartComplete.vim
+inoremap <C-n> <C-r>=SmartComplete()<CR>
 
 " path operation ---
 " change directory
 nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
-
 " open explorer and select editing file
 if has('win32')
     nnoremap <silent><Leader>e :!start explorer /select,%:p<CR>
 endif
-
-" settings with plugin ---
-" activate smart (keywords or omni) completion
-" plugin: SmartComplete.vim
-inoremap <C-n> <C-r>=SmartComplete()<CR>
 
 
 " abbreviation {{{1 -------------------------------------------------------
