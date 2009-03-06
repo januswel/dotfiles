@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 19:21:22.
+" Last Change:  2009/03/06 20:57:20.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -179,9 +179,9 @@ inoremap <C-n> <C-r>=SmartComplete()<CR>
 " path operation ---
 " change directory
 nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
-" open explorer and select editing file
+" open explorer
 if has('win32')
-    nnoremap <silent><Leader>e :!start explorer /select,%:p<CR>
+    nnoremap <silent><Leader>e :OpenWin32Explorer 'cp932'<CR>
 endif
 
 
