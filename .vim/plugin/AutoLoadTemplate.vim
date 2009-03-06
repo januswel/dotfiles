@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 20:32:39.
-" Version:      0.21
+" Last Change:  2009/03/06 20:34:27.
+" Version:      0.22
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -72,6 +72,9 @@ if has('autocmd')
                 call ReadTemplateFile(l:t)
             endif
         endfor
+
+        " why 'modified' is set by calling this function only...?
+        setlocal nomodified
     endfunction
 
     " autocmd
