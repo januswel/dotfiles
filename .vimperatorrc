@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/03/06 21:13:08.
+" Last Change: 2009/03/06 21:14:45.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -282,7 +282,7 @@ autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\
 
 " Mitter
 " w/q for Mitter kbd raging changer
-autocmd LocationChange http://mitter\\.jp/edit :fmap w q
+autocmd LocationChange http://mitter\\.jp/[^/]+/videos :fmap w q
 
 
 " set ---
