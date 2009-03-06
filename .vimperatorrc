@@ -1,7 +1,7 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/03/01 02:28:26.
+" Last Change: 2009/03/06 21:13:08.
 
 " options -----------------------------------------------------------------
 " safe mode
@@ -226,10 +226,6 @@ let image_extender_skip_prompt='false'
 " plugin: hidecritter.js
 let hidecritter_mapping='H'
 let hatena_star_hint_mapping='h'
-
-" plugin: PMWriter.js
-let pmwriter_plugin_dir = '~\vimperator\plugin'
-let pmwriter_output_dir = '~\vimperator\plugin\help\'
 
 
 " source extra resources --------------------------------------------------
