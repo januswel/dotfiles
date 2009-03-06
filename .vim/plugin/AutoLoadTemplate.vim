@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 20:22:04.
-" Version:      0.20
+" Last Change:  2009/03/06 20:32:39.
+" Version:      0.21
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -36,7 +36,8 @@ if has('autocmd')
     " return none
     " read specified file to buffer
     function! ReadTemplateFile(file)
-        execute '0read ' . a:file
+        execute 'read ' . a:file
+        1delete
     endfunction
 
     " along with ext
