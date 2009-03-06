@@ -1,7 +1,7 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 21:28:10.
+" Last Change:  2009/03/06 17:54:11.
 " Version:      0.41
 
 if exists("b:did_ftplugin")
@@ -35,20 +35,16 @@ endfunction
 
 " function to close tag
 function! InsertHTMLCloseTag()
-" inserts the appropriate closing HTML tag; used for the \hc operation defined
-" above;
-" requires ignorecase to be set, or to type HTML tags in exactly the same case
-" that I do;
-" doesn't treat <P> as something that needs closing;
-" clobbers register z and mark z
+" inserts the appropriate closing HTML tag; used for the \hc operation
+" defined above; requires ignorecase to be set, or to type HTML tags in
+" exactly the same case that I do; doesn't treat <P> as something that needs
+" closing; clobbers register z and mark z
 "
-" by Smylers http://www.stripey.com/vim/
-" 2000 May 3
+" by Smylers http://www.stripey.com/vim/ 2000 May 3
 
     if &filetype == 'html' || &filetype == 'xhtml'
 
         " list of tags which shouldn't be closed:
-        "let UnaryTags = ' Area Base Br DD DT HR Img Input LI Link Meta P Param '
         let UnaryTags = ' area base br hr img input link meta param '
 
         " remember current position:
@@ -57,13 +53,14 @@ function! InsertHTMLCloseTag()
         " loop backwards looking for tags:
         let Found = 0
         while Found == 0
-            " find the previous <, then go forwards one character and grab the first
-            " character plus the entire word:
+            " find the previous <, then go forwards one character and grab
+            " the first character plus the entire word:
             execute "normal ?\<LT>\<CR>l"
             normal "zyl
             let Tag = expand('<cword>')
 
-            " if this is a closing tag, skip back to its matching opening tag:
+            " if this is a closing tag, skip back to its matching opening
+            " tag:
             if @z == '/'
                 execute "normal ?\<LT>" . Tag . "\<CR>"
 
@@ -85,8 +82,8 @@ function! InsertHTMLCloseTag()
 
     else " filetype is not HTML
         echohl ErrorMsg
-        echo 'The InsertCloseTag() function is only intended to be used in HTML ' .
-                    \ 'files.'
+        echo 'The InsertCloseTag() function is only intended ' .
+                    \ 'to be used in HTML files.'
         sleep
         echohl None
     endif " check on filetype
