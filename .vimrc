@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 20:57:20.
+" Last Change:  2009/03/07 00:43:33.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -153,8 +153,8 @@ nnoremap <C-h> gT
 nnoremap <C-l> gt
 " move tab
 " plugin: TabShift.vim
-nnoremap <silent><C-p> :call TabShift(-1)<CR>
-nnoremap <silent><C-n> :call TabShift(+1)<CR>
+nnoremap <silent><C-p> :TabShift -1<CR>
+nnoremap <silent><C-n> :TabShift +1<CR>
 
 " searches ---
 " scroll matched word to middle of screen
