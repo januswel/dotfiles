@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 00:43:33.
+" Last Change:  2009/03/07 01:37:03.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -181,7 +181,7 @@ inoremap <C-n> <C-r>=SmartComplete()<CR>
 nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
 " open explorer
 if has('win32')
-    nnoremap <silent><Leader>e :OpenWin32Explorer 'cp932'<CR>
+    nnoremap <silent><Leader>e :OpenWin32Explorer<CR>
 endif
 
 
