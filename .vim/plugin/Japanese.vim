@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/26 00:01:47.
-" Version:      0.10
+" Last Change:  2009/03/07 00:30:39.
+" Version:      0.11
 " Remark:       decision encoding and fileencoding[s] and ambiwidth
 
 " detection character encoding automatically
@@ -50,7 +50,7 @@ endif
 
 " if Japanese is not contained, set fileencoding to value of encoding
 if has('autocmd')
-    function! ReCheckFileEncoding()
+    function! <SID>ReCheckFileEncoding()
         if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
             let &fileencoding=&encoding
         endif
@@ -58,7 +58,7 @@ if has('autocmd')
 
     augroup ReCheckFileEncoding
         autocmd! ReCheckFileEncoding
-        autocmd BufReadPost * call ReCheckFileEncoding()
+        autocmd BufReadPost * call <SID>ReCheckFileEncoding()
     augroup END
 endif
 
