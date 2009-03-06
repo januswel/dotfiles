@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 01:22:09.
-" Version:      0.11
+" Last Change:  2009/03/07 01:26:55.
+" Version:      0.12
 " Remark:       contribute command to open explorer.exe of win32.
 
 if has('win32') && has('modify_fname')
@@ -15,16 +15,18 @@ if has('win32') && has('modify_fname')
             let cmd = '!start explorer ' . getcwd()
         endif
 
-        " if 'encofing' option differ from system encoding, this function
-        " needs iconv !! in Windows, needs +iconv/dyn and iconv.dll
-        " (libiconv.dll). see :help iconv-dynamic
-        if &encoding != a:system_encoding
-            if has('iconv')
-                let cmd = iconv(cmd, &encoding, a:system_encoding)
-            else
-                echoerr 'OpenWin32Explorer needs iconv.'
-                            \ . ' See :help iconv-dynamic.'
-                return 1
+        if has('multi_byte')
+            " If 'encoding' option differ from system encoding, this
+            " function needs iconv. In Windows, needs +iconv/dyn and
+            " iconv.dll (libiconv.dll). See :help iconv-dynamic
+            if &encoding != a:system_encoding
+                if has('iconv')
+                    let cmd = iconv(cmd, &encoding, a:system_encoding)
+                else
+                    echoerr 'OpenWin32Explorer needs iconv.'
+                                \ . ' See :help iconv-dynamic.'
+                    return 1
+                endif
             endif
         endif
 
