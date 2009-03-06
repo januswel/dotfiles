@@ -1,8 +1,8 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/04 22:38:52.
+" Last Change:  2009/03/06 19:11:40.
 
-" initialization ----------------------------------------------------------
+" initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
 " and set it to script local variable 'vimpersonal'
 " for compatibility between various operating systems
@@ -12,7 +12,7 @@ let s:vimpersonal = split(&runtimepath, ',')[0]
 let s:templatepath = s:vimpersonal . '/template'
 
 
-" options -----------------------------------------------------------------
+" options {{{1 ------------------------------------------------------------
 " compatible mode off
 set nocompatible
 
@@ -79,20 +79,20 @@ set fileformat=unix             " buffer default (for new file)
 set fileformats=unix,dos,mac    " EOL format for exist files
 
 
-" filetype ----------------------------------------------------------------
+" filetype {{{1 -----------------------------------------------------------
 filetype on         " filetype detection on
 filetype plugin on  " for omni completion
 filetype indent on  " each filetype indent on
 
 
-" syntax highlight --------------------------------------------------------
+" syntax highlight {{{1 ---------------------------------------------------
 syntax enable       " use syntax highlight
 
 " color scheme: Janus.vim
 colorscheme Janus   " my color scheme
 
 
-" let ---------------------------------------------------------------------
+" let {{{1 ----------------------------------------------------------------
 " <Leader>
 let mapleader=','
 
@@ -108,7 +108,7 @@ let g:autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
 "let g:autoprotectfile_nomodifiable_paths = "$VIMRUNTIME/*"
 
 
-" autocmd -----------------------------------------------------------------
+" autocmd {{{1 ------------------------------------------------------------
 " open QuickFix window automatically
 augroup showQuickFixWindow
     autocmd! showQuickFixWindow
@@ -134,7 +134,7 @@ augroup xhtml
 augroup END
 
 
-" map ---------------------------------------------------------------------
+" map {{{1 ----------------------------------------------------------------
 " clear mappings
 mapclear
 mapclear!
@@ -189,13 +189,14 @@ endif
 inoremap <C-n> <C-r>=SmartComplete()<CR>
 
 
-" abbreviation ------------------------------------------------------------
+" abbreviation {{{1 -------------------------------------------------------
 " fix typo
 abbreviate retrun return
 abbreviate cosnt  const
 
 
-" script ------------------------------------------------------------------
+" script {{{1 -------------------------------------------------------------
 
 
-" vim: ts=4 sw=4 sts=0 et
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker
