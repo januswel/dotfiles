@@ -1,11 +1,11 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 20:49:27.
+" Last Change:  2009/03/07 00:54:26.
 " Version:      0.10
 " Remark:       contribute function and command
 "               to open explorer.exe of win32.
 
-if has('win32')
+if has('win32') && has('modify_fname')
     function! OpenWin32Explorer(system_encoding)
         let buffer_path = expand('%:p')
         if buffer_path != ''
