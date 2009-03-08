@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/09 02:49:00.
+" Last Change:  2009/03/09 02:52:50.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -199,6 +199,8 @@ endif
 " fix typo
 abbreviate retrun return
 abbreviate cosnt  const
+abbreviate scirpt script
+abbreviate cludge kludge
 
 
 " script {{{1 -------------------------------------------------------------
