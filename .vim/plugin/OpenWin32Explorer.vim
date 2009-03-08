@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 01:42:17.
+" Last Change:  2009/03/08 23:29:43.
 " Version:      0.30
 " Remark:       contribute command to open explorer.exe of win32.
 
@@ -13,6 +13,9 @@ if has('win32') && has('modify_fname')
             " function needs iconv. In Windows, needs +iconv/dyn and
             " iconv.dll (libiconv.dll). See :help iconv-dynamic
 
+            " error flag
+            let error = 0
+
             " save 'encoding' to variable
             let cur_encoding = &encoding
             " get default 'encoding'
@@ -24,13 +27,17 @@ if has('win32') && has('modify_fname')
                 if has('iconv')
                     let str = iconv(str, cur_encoding, &encoding)
                 else
-                    throw 'Feature +iconv is needed.'
-                                \ . ' See :help iconv-dynamic.'
+                    let error = 1
                 endif
             endif
 
             " restore 'encoding'
             let &encoding = cur_encoding
+
+            if error
+                throw 'Feature +iconv is needed.'
+                            \ . ' See :help iconv-dynamic.'
+            endif
         endif
 
         return str
