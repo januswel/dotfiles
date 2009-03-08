@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/09 02:42:37.
+" Last Change:  2009/03/09 02:49:00.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -180,7 +180,10 @@ nnoremap <silent><Leader>r :source ~/.vimrc<CR>
 nnoremap <silent><Leader>s :set spell!<CR>
 " activate completion depending to the situation
 " plugin: SmartComplete.vim
-inoremap <C-n> <C-r>=SmartComplete()<CR>
+if has('insert_expand')
+    inoremap <C-Space> <C-r>=SmartComplete()<CR>
+    inoremap <C-S-Space> <C-p>
+endif
 
 " path operation ---
 " change directory
