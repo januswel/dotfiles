@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/09 02:39:39.
+" Last Change:  2009/03/09 02:42:37.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -176,6 +176,8 @@ nnoremap <silent><S-k> i<CR><Esc>
 nnoremap <silent><Leader>m :update<CR>:make<CR>
 " source
 nnoremap <silent><Leader>r :source ~/.vimrc<CR>
+" toggle spell check
+nnoremap <silent><Leader>s :set spell!<CR>
 " activate completion depending to the situation
 " plugin: SmartComplete.vim
 inoremap <C-n> <C-r>=SmartComplete()<CR>
