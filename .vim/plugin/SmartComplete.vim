@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/09 02:22:41.
-" Version:      0.21
+" Last Change:  2009/03/09 02:28:09.
+" Version:      0.30
 " Remark:       function that return keys to activate complete depending to
 "               the situation.
 
@@ -12,14 +12,18 @@ if has('insert_expand')
             return "\<C-n>"
         endif
 
-        " previous column of the cursor
-        let col = col('.') - 1
-        if !col || getline('.')[col - 1] !~ '\k\|<\|/'
-            return ""
-        elseif exists('&omnifunc') && &omnifunc == ''
+        if &omnifunc != ''
+            " omni completion
+            return "\<C-x>\<C-o>"
+        elseif &filetype == 'vim'
+            " vim functions, special variables etc
+            return "\<C-x>\<C-v>"
+        elseif &filetype == 'perl'
+            " perl has a lot of included files...
             return "\<C-n>"
         else
-            return "\<C-x>\<C-o>"
+            " keyword completion(only in current buffer and included files)
+            return "\<C-x>\<C-i>"
         endif
     endfunction
 endif
