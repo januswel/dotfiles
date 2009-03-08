@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 01:37:03.
+" Last Change:  2009/03/09 02:35:58.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -66,6 +66,10 @@ set backspace=indent,eol,start  " allow backspacing over autoindent, line breake
 " command-line completion
 set wildmenu            " command-line completion on
 set wildmode=list:full  " list all candidates and full completion
+
+" insert mode completion
+set complete=.,w,b,t,i
+set completeopt=menu,menuone,preview
 
 " character encoding
 set encoding=utf-8      " inside Vim
