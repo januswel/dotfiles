@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/09 02:52:50.
+" Last Change:  2009/03/09 03:36:24.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -181,8 +181,15 @@ nnoremap <silent><Leader>s :set spell!<CR>
 " activate completion depending to the situation
 " plugin: SmartComplete.vim
 if has('insert_expand')
-    inoremap <C-Space> <C-r>=SmartComplete()<CR>
-    inoremap <C-S-Space> <C-p>
+    if has('win32')
+        inoremap <C-Space> <C-r>=SmartComplete()<CR>
+        inoremap <C-S-Space> <C-p>
+    else
+        " <C-@> = <Nul> = <C-Space>
+        inoremap <C-@> <C-r>=SmartComplete()<CR>
+        " this don't work
+        "inoremap <C-S-Space> <C-p>
+    endif
 endif
 
 " path operation ---
