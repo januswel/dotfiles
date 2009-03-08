@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/09 02:35:58.
+" Last Change:  2009/03/09 02:39:39.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -73,10 +73,10 @@ set completeopt=menu,menuone,preview
 
 " character encoding
 set encoding=utf-8      " inside Vim
+set langmenu=ja.utf-8   " language of menu
 set fileencoding=utf-8  " buffer default (for new file)
 " character encodings for exist files
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,utf-16,ucs-2-internal,ucs-2
-set langmenu=ja.utf-8   " language of menu
 
 " end-of-line format
 set fileformat=unix             " buffer default (for new file)
@@ -125,7 +125,7 @@ augroup xhtml
     autocmd! xhtml
 
     " reindent by <C-b>
-    " cludge: setting 'indentkeys' at ftplugin don't work in gvim
+    " kludge: setting 'indentkeys' at ftplugin don't work in gvim
     autocmd FileType html,xhtml     setlocal indentkeys& indentkeys+=!
 
     " key mappings
@@ -176,7 +176,7 @@ nnoremap <silent><S-k> i<CR><Esc>
 nnoremap <silent><Leader>m :update<CR>:make<CR>
 " source
 nnoremap <silent><Leader>r :source ~/.vimrc<CR>
-" activate smart (keywords or omni) completion
+" activate completion depending to the situation
 " plugin: SmartComplete.vim
 inoremap <C-n> <C-r>=SmartComplete()<CR>
 
@@ -184,6 +184,7 @@ inoremap <C-n> <C-r>=SmartComplete()<CR>
 " change directory
 nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
 " open explorer
+" plugin: OpenWin32Explorer.vim
 if has('win32')
     nnoremap <silent><Leader>e :OpenWin32Explorer<CR>
 endif
