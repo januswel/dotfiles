@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/11 08:20:24.
+" Last Change:  2009/03/11 08:27:01.
 " Version:      0.11
 " Remark:       decision encoding and fileencoding[s] and ambiwidth
 
@@ -61,7 +61,7 @@ if has('autocmd')
 
     augroup ReCheckFileEncoding
         autocmd! ReCheckFileEncoding
-        autocmd BufReadPost * call <SID>ReCheckFileEncoding()
+        autocmd BufReadPost * call s:ReCheckFileEncoding()
     augroup END
 endif
 
