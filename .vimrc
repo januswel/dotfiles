@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/11 07:52:13.
+" Last Change:  2009/03/11 07:55:32.
 
 " initialization {{{1 -----------------------------------------------------
 " get the personal directory for initialization
@@ -182,11 +182,11 @@ nnoremap <silent><Leader>s :set spell!<CR>
 " plugin: SmartComplete.vim
 if has('insert_expand')
     if has('gui_running')
-        inoremap <C-Space> <C-r>=SmartComplete()<CR>
+        inoremap <expr> <C-Space> SmartComplete()
         inoremap <C-S-Space> <C-p>
     else
         " <C-@> = <Nul> = <C-Space>
-        inoremap <C-@> <C-r>=SmartComplete()<CR>
+        inoremap <expr> <C-@> SmartComplete()
     endif
 endif
 
