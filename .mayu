@@ -3,7 +3,7 @@
 #
 # author janus_wel <janus.wel.3@gmail.com>
 # initial written 2008/07/30
-# Last Change: 2009/02/26 12:29:44.
+# Last Change: 2009/03/07 16:44:05.
 
 # include files -----------------------------------------------------------
 include "109.mayu"
@@ -162,7 +162,7 @@ key S-g = End
 keymap2 foobar2000g
 key g = Home    # jump first of playlist
 
-window foobar2000 /foobar2000\.exe/ : Global
+window foobar2000 /foobar2000\.exe:\{E7076D1C-A7BF-4f39-B771-BCBE88F2A2A8\}:\{DA9A1375-A411-48a9-AF74-4AC29FF9BE9C\}:\{72FACC90-BB7E-4733-8449-D7537232AD26\}:foo_ui_columns_splitter_panel_child_container:ListViewAdvClass$/ : Global
 key j   = ↓
 key k   = ↑
 key S-g = End   # jump last of playlist
