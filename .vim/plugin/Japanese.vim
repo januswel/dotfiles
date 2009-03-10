@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/11 08:16:46.
+" Last Change:  2009/03/11 08:20:24.
 " Version:      0.11
 " Remark:       decision encoding and fileencoding[s] and ambiwidth
 
@@ -54,7 +54,7 @@ endif
 " if Japanese is not contained, set fileencoding to value of encoding
 if has('autocmd')
     function! s:ReCheckFileEncoding()
-        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+        if &fileencoding != &encoding && search("[^\x01-\x7e]", 'n') == 0
             let &fileencoding = &encoding
         endif
     endfunction
