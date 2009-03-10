@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/07 00:38:28.
+" Last Change:  2009/03/11 08:02:48.
 " Version:      0.21
 " Remark:       This plugin give you the function like
 "               'tabm[ove][!] +N | -N' of Vimperator
@@ -10,7 +10,7 @@
 "   :call TabShift(1)   " shift current tab to right
 "   :call TabShift(-2)  " shift current tab to left 2
 
-function! <SID>TabShift(delta)
+function! s:TabShift(delta)
     " delta must be signed number
     if a:delta !~ '^[+-]\?\d\+$' | return 0 | endif
 

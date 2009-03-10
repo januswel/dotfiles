@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/08 23:29:43.
+" Last Change:  2009/03/11 06:23:21.
 " Version:      0.30
 " Remark:       contribute command to open explorer.exe of win32.
 
@@ -43,7 +43,7 @@ if has('win32') && has('modify_fname')
         return str
     endfunction
 
-    function! <SID>OpenWin32Explorer()
+    function! s:OpenWin32Explorer()
         let buffer_path = expand('%:p')
         if buffer_path != ''
             " open explorer and select editing file
