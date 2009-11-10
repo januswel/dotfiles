@@ -1,20 +1,56 @@
 # .screenrc
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/11/11 04:26:33.
+# Last Change:  2009/11/11 04:35:28.
 
+# general
+# for safety
 autodetach on
-bell_msg "^G"
-defencoding utf-8
+
+# encodings
+# default encoding for new window
+defencoding UTF-8
+
+# window settings
+# default lines of scroll-backing for new window
 defscrollback 10000
-escape ^Jj
+
+# display
 startup_message off
+
+# bell
+# ring bell by termcap setting
+bell_msg "^G"
+# not use visual bell
 vbell off
+
+# caption
+# display caption to show informations about windows, load average and time, at any time
+# %{= wb}   : bg is white and fg is blue
+# %-w       : number and title at left ( younger ) pos of current window
+# %{=bu dr} : attributes are bold and underline, bg is default and fg is red
+# %n        : window number
+# %t        : window title
+# %{-}      : color is before ( bg is white and fg is blue)
+# %+w       : number and title at right ( older ) pos of current window
+# %=        : filling characters
+# %{=b wk}  : attribute is bold, bg is white and fg is black
+# [%l]      : load of system
+# %{=b wb}  : attribute is bold, bg is white and fg is blue
+# %Y/%m/%d  : YYYY/mm/dd
+# %c        : now time (24 hours)
 caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d %c"
+
+# key settings
+# use ctrl+j to handling screen
+escape ^Jj
+
+# bindings
 bind n screen
 bind h prev
 bind l next
 bind b windowlist
 
+# for xfce terminal
 defbce "on"
 term xterm-256color
 
