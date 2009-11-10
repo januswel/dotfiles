@@ -1,3 +1,7 @@
+# .screenrc
+# Maintainer:   janus_wel <janus.wel.3@gmail.com>
+# Last Change:  2009/11/11 03:48:57.
+
 autodetach on
 bell_msg "^G"
 defkanji utf-8
@@ -15,3 +19,5 @@ bind b windowlist
 
 defbce "on"
 term xterm-256color
+
+# vim: ts=4 sw=4 sts=0 et
