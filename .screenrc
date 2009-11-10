@@ -1,12 +1,10 @@
 # .screenrc
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/11/11 04:16:18.
+# Last Change:  2009/11/11 04:26:33.
 
 autodetach on
 bell_msg "^G"
-defkanji utf-8
 defencoding utf-8
-encoding utf-8 utf-8
 defscrollback 10000
 escape ^Jj
 startup_message off
