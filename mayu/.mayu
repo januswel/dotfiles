@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 06:00:51.
+# Last Change:      2009/11/12 06:03:57.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -177,6 +177,14 @@ key Semicolon   = &Prefix(TweenExtendedHintMode)
 # cmd.exe {{{2
 window CMD /ConsoleWindowClass/ : Global
 key Tab     = C-f
+
+# Mp3tag {{{2
+window Mp3tag /Mp3tag\.exe:Afx:00400000:b:00010011:00000006:0024061E:AfxControlBar90su:Afx:00400000:8:00010011:0110005B:00000000:#32770/ : Global
+key C-h = BackSpace
+
+# Visual Studio Express Edition {{{2
+window VisualStudio /(vcsexpress|VCExpress)\.exe/ : Global
+key C-h = BackSpace
 
 
 # }}}1
