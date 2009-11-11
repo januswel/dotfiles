@@ -2,7 +2,7 @@
 # setting file for 窓使いの憂鬱
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/11 21:05:12.
+# Last Change:      2009/11/11 21:13:21.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -25,16 +25,13 @@ key *LeftControl = *英数
 
 # substitutions {{{2
 # open context menu with "カタカナ/ひらがな"
-key ひらがな = Applications
-key IL-*IC-ひらがな = Applications
+def subst *ひらがな = *Applications
 
 # toggle IME with "無変換"
-key *無変換 = 半角/全角
-key IL-*IC-無変換 = 半角/全角
+def subst *無変換 = *$ToggleIME
 
 # set "変換" to "Tab"
-key *変換 = *Tab
-key IL-*IC-変換 = *Tab
+def subst *変換 = *Tab
 
 # window operation {{{2
 key C-A-i = &WindowMinimize     # m(I)nimize
