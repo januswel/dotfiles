@@ -1,8 +1,8 @@
 # .mayu
-# setting file for 窓使いの憂鬱
+# setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 04:47:44.
+# Last Change:      2009/11/12 04:56:07.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -16,22 +16,22 @@ keymap Global
 # modifiers {{{2
 # add "Caps Lock" to modifier as "ctrl"
 # set one-shot-modifire "Esc"
-mod ctrl += !!英数
-def subst *英数 = *Esc
+mod ctrl += !!Eisuu
+def subst *Eisuu = *Esc
 
 # set left ctrl to "Caps Lock"
 mod ctrl -= LeftControl
-def subst *LeftControl = *英数
+def subst *LeftControl = *Eisuu
 
 # substitutions {{{2
-# open context menu with "カタカナ/ひらがな"
-def subst *ひらがな = *Applications
+# open context menu with "Hiragana"
+def subst *Hiragana = *Applications
 
-# toggle IME with "無変換"
-def subst *無変換 = *$ToggleIME
+# toggle IME with "NonConvert"
+def subst *NonConvert = *$ToggleIME
 
-# set "変換" to "Tab"
-def subst *変換 = *Tab
+# set "Convert" to "Tab"
+def subst *Convert = *Tab
 
 # window operation {{{2
 # maximize & minimize
@@ -58,7 +58,7 @@ key C-A-t = W-b                 # focus (T)asktray
 key S-_1  = W-r                 # display "execute command" window
 
 # app-specific keys {{{2
-# 窓使いの憂鬱
+# mayu
 key C-A-r = &LoadSetting    # (R)eload
 key C-A-w = &WindowIdentify # (W)indow research
 
@@ -90,18 +90,18 @@ key i = i
 key r = r
 
 window Explorer /Explorer\.EXE:(CabinetWClass:SHELLDLL_DefView:SysListView32|Progman:SHELLDLL_DefView:SysListView32)$/ : Global
-key j       = ↓
-key k       = ↑
-key h       = ←
-key l       = →
-key C-j     = C-↓
-key C-k     = C-↑
-key C-h     = C-←
-key C-l     = C-→
-key S-j     = S-↓
-key S-k     = S-↑
-key S-h     = S-←
-key S-l     = S-→
+key j       = Down
+key k       = Up
+key h       = Left
+key l       = Right
+key C-j     = C-Down
+key C-k     = C-Up
+key C-h     = C-Left
+key C-l     = C-Right
+key S-j     = S-Down
+key S-k     = S-Up
+key S-h     = S-Left
+key S-l     = S-Right
 key u       = Backspace                 # upper directory
 key d       = Delete                    # delete files
 key S-d     = S-Delete                  # delete files completely
@@ -119,10 +119,10 @@ key C-h = Backspace
 
 # IrfanView
 window IrfanView /i_view32\.exe:IrfanView($|:FullScreenClass$|:#\d+:SysListView32$)/ : Global
-key j = ↓
-key k = ↑
-key h = ←
-key l = →
+key j = Down
+key k = Up
+key h = Left
+key l = Right
 key d = Delete
 
 
@@ -136,10 +136,10 @@ keymap2 STEPg
 key g = Home
 
 window STEP /SuperTagEditor\.exe:Afx:[\da-f]{6}:[\da-f]:[\da-f]{5}:[\da-f]:[\da-f]+:AfxFrameOrView42s:SysListView32$/ : Global
-key *j  = *↓
-key *k  = *↑
-key *h  = *←
-key *l  = *→
+key *j  = *Down
+key *k  = *Up
+key *h  = *Left
+key *l  = *Right
 key d   = Delete
 key i   = F2
 key S-i = F2 Home
@@ -153,8 +153,8 @@ keymap2 foobar2000g
 key g = Home    # jump first of playlist
 
 window foobar2000 /foobar2000\.exe:\{E7076D1C-A7BF-4f39-B771-BCBE88F2A2A8\}:\{DA9A1375-A411-48a9-AF74-4AC29FF9BE9C\}:\{72FACC90-BB7E-4733-8449-D7537232AD26\}:foo_ui_columns_splitter_panel_child_container:ListViewAdvClass$/ : Global
-key j   = ↓
-key k   = ↑
+key j   = Down
+key k   = Up
 key S-g = End   # jump last of playlist
 key g   = &Prefix(foobar2000g)
 
@@ -167,10 +167,10 @@ keymap2 AdobeReaderg
 key g = Home
 
 window AdobeReader /AcroRd32\.exe:AcrobatSDIWindow:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView/ : Global
-key j   = ↓
-key k   = ↑
-key h   = ←
-key l   = →
+key j   = Down
+key k   = Up
+key h   = Left
+key l   = Right
 key S-j = PageDown
 key S-k = PageUp
 key g   = &Prefix(AdobeReaderg)
@@ -181,10 +181,10 @@ keymap2 PowerPointSlideShowg
 key g = Home
 
 window PowerPointSlideShow /POWERPNT\.EXE:screenClass:paneClassDC/ : Global
-key j   = ↓
-key k   = ↑
-key h   = ←
-key l   = →
+key j   = Down
+key k   = Up
+key h   = Left
+key l   = Right
 key g   = &Prefix(PowerPointSlideShowg)
 key S-g = End
 
@@ -194,8 +194,8 @@ key C-h = BackSpace
 
 # Tween
 window TweenOpenURL /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a/ : Global
-key j = ↓
-key k = ↑
+key j = Down
+key k = Up
 
 window TweenCommandLine /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.EDIT\.app\.0\.378734a/ : Global
 key C-h = BackSpace
@@ -219,7 +219,7 @@ key Semicolon   = &Prefix(TweenExtendedHintMode)
 # cmd.exe
 window CMD /ConsoleWindowClass/ : Global
 key Tab     = C-f
-key 変換    = C-f
+key Convert = C-f
 
 
 # }}}1
