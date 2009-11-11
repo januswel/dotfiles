@@ -2,7 +2,7 @@
 # setting file for 窓使いの憂鬱
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/11 21:41:29.
+# Last Change:      2009/11/11 21:46:08.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -61,6 +61,9 @@ key S-_1  = W-r                 # display "execute command" window
 # 窓使いの憂鬱
 key C-A-r = &LoadSetting    # (R)eload
 key C-A-w = &WindowIdentify # (W)indow research
+
+# Launchy
+key C-A-Solidus = W-Space   # activate
 
 
 # app-specific key mappings {{{1
