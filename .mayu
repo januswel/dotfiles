@@ -2,7 +2,7 @@
 # setting file for 窓使いの憂鬱
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/11 21:37:13.
+# Last Change:      2009/11/11 21:41:29.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -58,11 +58,9 @@ key C-A-t = W-b                 # focus (T)asktray
 key S-_1  = W-r                 # display "execute command" window
 
 # app-specific keys {{{2
-# 窓使いの憂鬱用
-# (R)eload
-key C-A-r = &LoadSetting &HelpMessage(Mayu, "loading has succeeded!!")
-# (W)indow research
-key C-A-w = &WindowIdentify
+# 窓使いの憂鬱
+key C-A-r = &LoadSetting    # (R)eload
+key C-A-w = &WindowIdentify # (W)indow research
 
 
 # app-specific key mappings {{{1
