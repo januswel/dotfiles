@@ -2,7 +2,7 @@
 # setting file for 窓使いの憂鬱
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/11 21:46:08.
+# Last Change:      2009/11/12 04:47:44.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -17,11 +17,11 @@ keymap Global
 # add "Caps Lock" to modifier as "ctrl"
 # set one-shot-modifire "Esc"
 mod ctrl += !!英数
-key *英数 = *Esc
+def subst *英数 = *Esc
 
 # set left ctrl to "Caps Lock"
 mod ctrl -= LeftControl
-key *LeftControl = *英数
+def subst *LeftControl = *英数
 
 # substitutions {{{2
 # open context menu with "カタカナ/ひらがな"
