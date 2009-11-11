@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 04:56:07.
+# Last Change:      2009/11/12 05:04:25.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -25,12 +25,15 @@ def subst *LeftControl = *Eisuu
 
 # substitutions {{{2
 # open context menu with "Hiragana"
+# "Hiragana" lies to the left of right "Alt"
 def subst *Hiragana = *Applications
 
 # toggle IME with "NonConvert"
+# "NonConvert" lies to the right of left "Alt"
 def subst *NonConvert = *$ToggleIME
 
 # set "Convert" to "Tab"
+# "Convert" lies to the left of "Space"
 def subst *Convert = *Tab
 
 # window operation {{{2
