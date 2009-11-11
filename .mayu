@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 05:06:06.
+# Last Change:      2009/11/12 05:24:23.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -67,55 +67,8 @@ key C-A-Solidus = W-Space   # activate
 
 
 # app-specific key mappings {{{1
-# Firefox XUL dialogs
-window XULDialog /firefox\.exe:(?:Mozilla[a-zA-Z]+:)*MozillaDialogClass:MozillaWindowClass$/ : Global
-key C-h = BackSpace
-
-# Explorer(desktop)
-# after 'g' pressed (2 stroke key map)
-keymap2 Explorerg
-key g = Home    # jump first file
-
-# after '/' pressed (2 stroke key map)
-# quick jump
-keymap2 ExplorerSolidus
-key j = j
-key k = k
-key h = h
-key l = l
-key g = g
-key u = u
-key d = d
-key i = i
-key r = r
-
-window Explorer /Explorer\.EXE:(CabinetWClass:SHELLDLL_DefView:SysListView32|Progman:SHELLDLL_DefView:SysListView32)$/ : Global
-key j       = Down
-key k       = Up
-key h       = Left
-key l       = Right
-key C-j     = C-Down
-key C-k     = C-Up
-key C-h     = C-Left
-key C-l     = C-Right
-key S-j     = S-Down
-key S-k     = S-Up
-key S-h     = S-Left
-key S-l     = S-Right
-key u       = Backspace                 # upper directory
-key d       = Delete                    # delete files
-key S-d     = S-Delete                  # delete files completely
-key S-g     = End                       # jump last file
-key i       = F2                        # edit file / directory name
-key S-i     = F2 Home                   # edit file / directory name (at first character)
-key S-a     = F2 End                    # edit file / directory name (at last character)
-key r       = F5                        # reload
-key g       = &Prefix(Explorerg)        # jump keymap2 Explorerg
-key Solidus = &Prefix(ExplorerSolidus)  # jump keymap2 ExplorerSolidus
-
-window ExplorerPath /Explorer\.EXE:CabinetWClass:WorkerW:ReBarWindow32:ComboBoxEx32:ComboBox:Edit$/ : Global
-key C-h = Backspace
-
+# controlling Windows like vim
+include "Windows-vim.mayu"
 
 # IrfanView
 window IrfanView /i_view32\.exe:IrfanView($|:FullScreenClass$|:#\d+:SysListView32$)/ : Global
