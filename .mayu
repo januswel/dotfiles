@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 05:04:25.
+# Last Change:      2009/11/12 05:06:06.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -56,9 +56,6 @@ key C-A-o = &WindowSetAlpha(50) # toggle (O)pacity
 key C-A-d = W-d                 # focus (D)esktop
 key C-A-m = W-m                 # (M)inimize all window
 key C-A-t = W-b                 # focus (T)asktray
-
-# execute platform (external) command
-key S-_1  = W-r                 # display "execute command" window
 
 # app-specific keys {{{2
 # mayu
