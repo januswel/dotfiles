@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 05:53:31.
+# Last Change:      2009/11/12 05:57:22.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -70,6 +70,12 @@ key C-A-Solidus = W-Space   # activate
 # controlling Windows like vim
 include "Windows-vim.mayu"
 
+# Launchy {{{2
+window Launchy /Launchy\.exe:QTool$/ : Global
+key C-h   = BackSpace
+key Tab   = Down
+key S-Tab = Up
+
 # IrfanView {{{2
 window IrfanView /i_view32\.exe:IrfanView($|:FullScreenClass$|:#\d+:SysListView32$)/ : Global
 key j = Down
@@ -78,11 +84,9 @@ key h = Left
 key l = Right
 key d = Delete
 
-
 # Windows Live {{{2
 window WindowsLive /msnmsgr\.exe:IMWindowClass:DirectUIHWND$/ : Global
 key C-h = BackSpace
-
 
 # STEP {{{2
 keymap2 STEPg
@@ -99,7 +103,6 @@ key S-i = F2 Home
 key S-a = F2 End
 key g   = &Prefix(STEPg)
 key S-g = End
-
 
 # foobar2000 {{{2
 keymap2 foobar2000g
