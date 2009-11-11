@@ -1,9 +1,10 @@
 # .mayu
 # setting file for 窓使いの憂鬱
 #
-# author janus_wel <janus.wel.3@gmail.com>
-# initial written 2008/07/30
-# Last Change: 2009/03/07 16:44:05.
+# Maintainer:       janus_wel <janus.wel.3@gmail.com>
+# Last Change:      2009/11/11 20:47:34.
+# Initial Written:  2008/07/30
+# Refer:            http://mayu.sourceforge.net/
 
 # include files -----------------------------------------------------------
 include "109.mayu"
@@ -232,4 +233,4 @@ key Tab     = C-f
 key 変換    = C-f
 
 
-# vim: ft=mayu sw=4 sts=4 et
+# vim: ft=mayu ts=4 sw=4 sts=0 et
