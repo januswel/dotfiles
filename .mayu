@@ -2,7 +2,7 @@
 # setting file for 窓使いの憂鬱
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/11 20:58:40.
+# Last Change:      2009/11/11 21:05:12.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -13,6 +13,7 @@ include "109.mayu"
 # global key mappings {{{1
 keymap Global
 
+# modifiers {{{2
 # add "Caps Lock" to modifier as "ctrl"
 # set one-shot-modifire "Esc"
 mod ctrl += !!英数
@@ -22,6 +23,7 @@ key *英数 = *Esc
 mod ctrl -= LeftControl
 key *LeftControl = *英数
 
+# substitutions {{{2
 # open context menu with "カタカナ/ひらがな"
 key ひらがな = Applications
 key IL-*IC-ひらがな = Applications
@@ -34,7 +36,7 @@ key IL-*IC-無変換 = 半角/全角
 key *変換 = *Tab
 key IL-*IC-変換 = *Tab
 
-# Window operation
+# window operation {{{2
 key C-A-i = &WindowMinimize     # m(I)nimize
 key C-A-a = &WindowMaximize     # m(A)ximize
 #key C-A-p = &WindowClose        # close
@@ -50,7 +52,7 @@ key C-A-j = &WindowMove(0, 16)  # move down 16 dots
 key C-A-h = &WindowMove(-16, 0) # move left 16 dots
 key C-A-l = &WindowMove(16, 0)  # move right 16 dots
 
-
+# app-specific keys {{{2
 # 窓使いの憂鬱用
 # (R)eload
 key C-A-r = &LoadSetting &HelpMessage(Mayu, "loading has succeeded!!")
