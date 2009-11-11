@@ -2,7 +2,7 @@
 # setting file for 窓使いの憂鬱
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/11 20:47:34.
+# Last Change:      2009/11/11 20:53:51.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -58,26 +58,6 @@ key C-A-w = &WindowIdentify
 
 
 # specific settings -----------------------------------------------------
-# Google Docs
-window GoogleDocs (/firefox\.exe:MozillaUIWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass/ && /(Google ドキュメント|Docs & Spreadsheets)/) : Global
-key C-h     = BackSpace
-key C-i     = ↑
-key C-m     = ↓
-key C-k     = ←
-key C-l     = →
-key C-u     = Home
-key C-o     = End
-key C-S-i   = S-↑
-key C-S-m   = S-↓
-key C-S-k   = S-←
-key C-S-l   = S-→
-key C-S-u   = S-Home
-key C-S-o   = S-End
-
-# Gmail
-window Gmail (/firefox\.exe:MozillaUIWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass:MozillaWindowClass:MozillaContentFrameWindowClass:MozillaWindowClass/ && /Gmail/) : Global
-key C-h = BackSpace
-
 # Firefox XUL dialogs
 window XULDialog /firefox\.exe:(?:Mozilla[a-zA-Z]+:)*MozillaDialogClass:MozillaWindowClass$/ : Global
 key C-h = BackSpace
