@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 05:57:22.
+# Last Change:      2009/11/12 06:00:51.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -83,6 +83,8 @@ key k = Up
 key h = Left
 key l = Right
 key d = Delete
+key S-j = PageDown
+key S-k = PageUp
 
 # Windows Live {{{2
 window WindowsLive /msnmsgr\.exe:IMWindowClass:DirectUIHWND$/ : Global
