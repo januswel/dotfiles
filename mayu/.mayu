@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 05:51:57.
+# Last Change:      2009/11/12 05:53:31.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -113,7 +113,7 @@ key g   = &Prefix(foobar2000g)
 
 # notepad.exe {{{2
 window notepad /notepad\.exe:Notepad:Edit$/ : Global
-key C-h = Backspace
+key C-h = BackSpace
 
 # Adobe Reader {{{2
 keymap2 AdobeReaderg
@@ -172,7 +172,6 @@ key Semicolon   = &Prefix(TweenExtendedHintMode)
 # cmd.exe {{{2
 window CMD /ConsoleWindowClass/ : Global
 key Tab     = C-f
-key Convert = C-f
 
 
 # }}}1
