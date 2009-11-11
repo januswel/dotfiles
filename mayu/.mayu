@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 06:03:57.
+# Last Change:      2009/11/12 06:08:27.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -185,6 +185,20 @@ key C-h = BackSpace
 # Visual Studio Express Edition {{{2
 window VisualStudio /(vcsexpress|VCExpress)\.exe/ : Global
 key C-h = BackSpace
+
+# TaggedFrog {{{2
+keymap2 TaggedFrogg
+key g = Home    # jump first file
+
+window TaggedFrog /TaggedFrog\.exe:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.SysListView32\.app\.0\.33c0d9d/ : Global
+key *j  = *Down
+key *k  = *Up
+key *h  = *Left
+key *l  = *Right
+key S-g = End                       # jump last file
+key S-a = F2 End                    # edit file / directory name (at last character)
+key r   = F5                        # reload
+key g   = &Prefix(TaggedFrogg)
 
 
 # }}}1
