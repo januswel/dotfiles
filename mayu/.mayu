@@ -2,7 +2,7 @@
 # setting file for mayu
 #
 # Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 05:24:23.
+# Last Change:      2009/11/12 05:51:57.
 # Initial Written:  2008/07/30
 # Refer:            http://mayu.sourceforge.net/
 
@@ -70,7 +70,7 @@ key C-A-Solidus = W-Space   # activate
 # controlling Windows like vim
 include "Windows-vim.mayu"
 
-# IrfanView
+# IrfanView {{{2
 window IrfanView /i_view32\.exe:IrfanView($|:FullScreenClass$|:#\d+:SysListView32$)/ : Global
 key j = Down
 key k = Up
@@ -79,12 +79,12 @@ key l = Right
 key d = Delete
 
 
-# Windows Live
+# Windows Live {{{2
 window WindowsLive /msnmsgr\.exe:IMWindowClass:DirectUIHWND$/ : Global
 key C-h = BackSpace
 
 
-# STEP
+# STEP {{{2
 keymap2 STEPg
 key g = Home
 
@@ -101,7 +101,7 @@ key g   = &Prefix(STEPg)
 key S-g = End
 
 
-# foobar2000
+# foobar2000 {{{2
 keymap2 foobar2000g
 key g = Home    # jump first of playlist
 
@@ -111,11 +111,11 @@ key k   = Up
 key S-g = End   # jump last of playlist
 key g   = &Prefix(foobar2000g)
 
-# notepad.exe
+# notepad.exe {{{2
 window notepad /notepad\.exe:Notepad:Edit$/ : Global
 key C-h = Backspace
 
-# Adobe Reader
+# Adobe Reader {{{2
 keymap2 AdobeReaderg
 key g = Home
 
@@ -129,7 +129,7 @@ key S-k = PageUp
 key g   = &Prefix(AdobeReaderg)
 key S-g = End
 
-# slide show on Power Point
+# slide show on Power Point {{{2
 keymap2 PowerPointSlideShowg
 key g = Home
 
@@ -141,11 +141,11 @@ key l   = Right
 key g   = &Prefix(PowerPointSlideShowg)
 key S-g = End
 
-# comment textarea on commit dialog of TortoiseSVN
+# comment textarea on commit dialog of TortoiseSVN {{{2
 window TortoiseSVNCommitComment /TortoiseProc\.exe:#\d+:Scintilla/ : Global
 key C-h = BackSpace
 
-# Tween
+# Tween {{{2
 window TweenOpenURL /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a/ : Global
 key j = Down
 key k = Up
@@ -169,7 +169,7 @@ key r           = F5
 key d           = C-d
 key Semicolon   = &Prefix(TweenExtendedHintMode)
 
-# cmd.exe
+# cmd.exe {{{2
 window CMD /ConsoleWindowClass/ : Global
 key Tab     = C-f
 key Convert = C-f
