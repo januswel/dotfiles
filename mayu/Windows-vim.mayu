@@ -3,7 +3,7 @@
 # key mappings about Windows feature like vim (vimperator)
 #
 # Maintainer:   janus <janus.wel.3@gmail.com>
-# Last Change:  2009/11/12 06:14:10.
+# Last Change:  2009/11/13 05:56:36.
 # Remarks:      Transition Diagram
 #                   insert <--> normal(default) <--> visual
 #                                    ↓↑
@@ -27,7 +27,7 @@ keyseq $wv-windows     = &Toggle(Lock9, on)  &Toggle(Lock8, on)  &SetImeStatus(o
 # FileList {{{1
 # SysListView32 (Explorer and so on)
 # SysTreeView32 (SHBrowseForFolder, OpenFileDialog etc)
-# ComboBox (oodles)
+# ComboBox, EditComboBox (oodles)
 
 # after 'g' pressed (2 stroke key map) {{{2
 # normal mode {{{3
@@ -40,7 +40,7 @@ keymap2 FileListvg
 key g = S-Home  # jump to first file
 
 # window {{{2
-window FileList /(?!Progman)(?!WorkerW)(?:SysListView32|SysTreeView32|ComboBox)$/ : Global
+window FileList /(?!Progman)(?!WorkerW)(?:SysListView32|SysTreeView32|ComboBox|ComboBox:Edit)$/ : Global
 # common
 key C-h = BackSpace
 
@@ -163,17 +163,6 @@ else
 endif
 
 
-
-# Edit ComboBox {{{1
-window EditComboBox /ComboBox:Edit$/ : Global
-# common
-key C-h = BackSpace
-# normal mode
-key L9-L8-Esc       = $wv-vim-normal    # enter normal mode from Windows mode
-key ~L9-~L8-*j      = *Down             # down
-key ~L9-~L8-*k      = *Up               # up
-# Windows mode
-key ~L9-~L8-Colon   = $wv-windows       # enter Windows mode
 
 # tasktray {{{1
 window tasktray /Explorer\.EXE:Shell_TrayWnd:TrayNotifyWnd:SysPager:ToolbarWindow32/ : Global
