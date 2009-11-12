@@ -3,7 +3,7 @@
 # key mappings about Windows feature like vim (vimperator)
 #
 # Maintainer:   janus <janus.wel.3@gmail.com>
-# Last Change:  2009/11/13 06:21:02.
+# Last Change:  2009/11/13 06:30:14.
 # Remarks:      Transition Diagram
 #                   insert <--> normal(default) <--> visual
 #                                     ||
@@ -49,10 +49,18 @@ key C-h = BackSpace
 # normal mode {{{3
 key L9-L8-Esc       = $wv-vim-normal    # enter normal mode from Windows mode
 key ~L9-L8-Esc      = $wv-vim-normal    # enter normal mode from visual mode
-key ~L9-~L8-*j      = *Down             # down
-key ~L9-~L8-*k      = *Up               # up
-key ~L9-~L8-*h      = *Left             # left
-key ~L9-~L8-*l      = *Right            # right
+key ~L9-~L8-j       = Down              # down
+key ~L9-~L8-k       = Up                # up
+key ~L9-~L8-h       = Left              # left
+key ~L9-~L8-l       = Right             # right
+key ~L9-~L8-C-j     = C-Down            # focus down
+key ~L9-~L8-C-k     = C-Up              # focus up
+key ~L9-~L8-C-h     = C-Left            # focus left
+key ~L9-~L8-C-l     = C-Right           # focus right
+key ~L9-~L8-S-j     = S-Down            # select down
+key ~L9-~L8-S-k     = S-Up              # select up
+key ~L9-~L8-S-h     = S-Left            # select left
+key ~L9-~L8-S-l     = S-Right           # select right
 key ~L9-~L8-i       = F2                # edit file / directory name
 key ~L9-~L8-S-i     = F2 Home           # edit file / directory name (at first character)
 key ~L9-~L8-S-a     = F2 End            # edit file / directory name (at last character)
@@ -112,12 +120,18 @@ key C-h = BackSpace
 # normal mode {{{3
 key L9-L8-Esc       = $wv-vim-normal    # enter normal mode from Windows mode
 key ~L9-L8-Esc      = $wv-vim-normal    # enter normal mode from visual mode
-key ~L9-~L8-~S-*j   = *Down             # down
-key ~L9-~L8-~S-*k   = *Up               # up
-key ~L9-~L8-S-j     = C-Down Space      # down
-key ~L9-~L8-S-k     = C-Up Space        # up
-key ~L9-~L8-*h      = *Left             # left
-key ~L9-~L8-*l      = *Right            # right
+key ~L9-~L8-j       = Down              # down
+key ~L9-~L8-k       = Up                # up
+key ~L9-~L8-h       = Left              # left
+key ~L9-~L8-l       = Right             # right
+key ~L9-~L8-C-j     = C-Down            # focus down
+key ~L9-~L8-C-k     = C-Up              # focus up
+key ~L9-~L8-C-h     = C-Left            # focus left
+key ~L9-~L8-C-l     = C-Right           # focus right
+key ~L9-~L8-S-j     = C-Down Space      # select down
+key ~L9-~L8-S-k     = C-Up Space        # select up
+key ~L9-~L8-S-h     = S-Left            # select left
+key ~L9-~L8-S-l     = S-Right           # select right
 key ~L9-~L8-i       = F2                # edit file / directory name
 key ~L9-~L8-S-i     = F2 Home           # edit file / directory name (at first character)
 key ~L9-~L8-S-a     = F2 End            # edit file / directory name (at last character)
