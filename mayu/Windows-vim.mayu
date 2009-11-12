@@ -3,7 +3,7 @@
 # key mappings about Windows feature like vim (vimperator)
 #
 # Maintainer:   janus <janus.wel.3@gmail.com>
-# Last Change:  2009/11/13 06:07:42.
+# Last Change:  2009/11/13 06:21:02.
 # Remarks:      Transition Diagram
 #                   insert <--> normal(default) <--> visual
 #                                     ||
@@ -24,21 +24,22 @@ keyseq $wv-vim-visual  = &Toggle(Lock9, off) &Toggle(Lock8, on)  &SetImeStatus(o
 keyseq $wv-vim-insert  = &Toggle(Lock9, on)  &Toggle(Lock8, off) &SetImeStatus(off) &HelpMessage(, "-- insert --")
 keyseq $wv-windows     = &Toggle(Lock9, on)  &Toggle(Lock8, on)  &SetImeStatus(off) &HelpMessage(, "-- Windows --")
 
+# common keymap2 {{{1
+# after 'g' pressed (2 stroke key map)
+# normal mode {{{2
+keymap2 Afterg
+key g = Home        # jump to first file
+key u = BackSpace   # upper directory
+
+# visual mode {{{2
+keymap2 Aftergv
+key g = S-Home  # jump to first file
+
 # CommonControl {{{1
 # SysListView32 (Explorer and so on)
 # SysTreeView32 (SHBrowseForFolder, OpenFileDialog etc)
 # ComboBox, EditComboBox (oodles)
 # ToolbarWindow32, MENU (a lots of)
-
-# after 'g' pressed (2 stroke key map) {{{2
-# normal mode {{{3
-keymap2 CommonControlg
-key g = Home        # jump to first file
-key u = BackSpace   # upper directory
-
-# visual mode {{{3
-keymap2 CommonControlvg
-key g = S-Home  # jump to first file
 
 # window {{{2
 window CommonControl /(?!Progman)(?!WorkerW)(?:SysListView32|SysTreeView32|ComboBox|ComboBox:Edit|ToolbarWindow32|MENU)$/ : Global
@@ -46,30 +47,30 @@ window CommonControl /(?!Progman)(?!WorkerW)(?:SysListView32|SysTreeView32|Combo
 key C-h = BackSpace
 
 # normal mode {{{3
-key L9-L8-Esc       = $wv-vim-normal        # enter normal mode from Windows mode
-key ~L9-L8-Esc      = $wv-vim-normal        # enter normal mode from visual mode
-key ~L9-~L8-*j      = *Down                 # down
-key ~L9-~L8-*k      = *Up                   # up
-key ~L9-~L8-*h      = *Left                 # left
-key ~L9-~L8-*l      = *Right                # right
-key ~L9-~L8-i       = F2                    # edit file / directory name
-key ~L9-~L8-S-i     = F2 Home               # edit file / directory name (at first character)
-key ~L9-~L8-S-a     = F2 End                # edit file / directory name (at last character)
-key ~L9-~L8-C-d     = F4                    # path completion (extend combobox)
-key ~L9-~L8-r       = F5                    # reload
-key ~L9-~L8-C-g     = A-Enter               # display property dialog
-key ~L9-~L8-S-g     = End                   # jump to last file
-key ~L9-~L8-g       = &Prefix(CommonControlg)    # see keymap2 CommonControlg
-key ~L9-~L8-Esc     = &Default              # send "escape" key to Windows
+key L9-L8-Esc       = $wv-vim-normal    # enter normal mode from Windows mode
+key ~L9-L8-Esc      = $wv-vim-normal    # enter normal mode from visual mode
+key ~L9-~L8-*j      = *Down             # down
+key ~L9-~L8-*k      = *Up               # up
+key ~L9-~L8-*h      = *Left             # left
+key ~L9-~L8-*l      = *Right            # right
+key ~L9-~L8-i       = F2                # edit file / directory name
+key ~L9-~L8-S-i     = F2 Home           # edit file / directory name (at first character)
+key ~L9-~L8-S-a     = F2 End            # edit file / directory name (at last character)
+key ~L9-~L8-C-d     = F4                # path completion (extend combobox)
+key ~L9-~L8-r       = F5                # reload
+key ~L9-~L8-C-g     = A-Enter           # display property dialog
+key ~L9-~L8-S-g     = End               # jump to last file
+key ~L9-~L8-g       = &Prefix(Afterg)   # see keymap2 Afterg
+key ~L9-~L8-Esc     = &Default          # send "escape" key to Windows
 
 # visual mode {{{3
-key ~L9-~L8-v   = $wv-vim-visual        # enter visual mode
-key ~L9-L8-j    = S-Down                # select down
-key ~L9-L8-k    = S-Up                  # select up
-key ~L9-L8-h    = S-Left                # select left
-key ~L9-L8-l    = S-Right               # select right
-key ~L9-L8-S-g  = S-End                 # jump to last file
-key ~L9-L8-g    = &Prefix(CommonControlvg)   # see keymap2 CommonControlvg
+key ~L9-~L8-v   = $wv-vim-visual    # enter visual mode
+key ~L9-L8-j    = S-Down            # select down
+key ~L9-L8-k    = S-Up              # select up
+key ~L9-L8-h    = S-Left            # select left
+key ~L9-L8-l    = S-Right           # select right
+key ~L9-L8-S-g  = S-End             # jump to last file
+key ~L9-L8-g    = &Prefix(Aftergv)  # see keymap2 Aftergv
 
 # Windows mode {{{3
 key ~L9-~L8-Slash   = $wv-windows   # enter Windows mode
@@ -109,32 +110,32 @@ window Desktop /(?:Progman|WorkerW):SHELLDLL_DefView:SysListView32$/ : Global
 key C-h = BackSpace
 
 # normal mode {{{3
-key L9-L8-Esc       = $wv-vim-normal        # enter normal mode from Windows mode
-key ~L9-L8-Esc      = $wv-vim-normal        # enter normal mode from visual mode
-key ~L9-~L8-~S-*j   = *Down                 # down
-key ~L9-~L8-~S-*k   = *Up                   # up
-key ~L9-~L8-S-j     = C-Down Space          # down
-key ~L9-~L8-S-k     = C-Up Space            # up
-key ~L9-~L8-*h      = *Left                 # left
-key ~L9-~L8-*l      = *Right                # right
-key ~L9-~L8-i       = F2                    # edit file / directory name
-key ~L9-~L8-S-i     = F2 Home               # edit file / directory name (at first character)
-key ~L9-~L8-S-a     = F2 End                # edit file / directory name (at last character)
-key ~L9-~L8-C-d     = F4                    # path completion (extend combobox)
-key ~L9-~L8-r       = F5                    # reload
-key ~L9-~L8-C-g     = A-Enter               # display property dialog
-key ~L9-~L8-S-g     = End                   # jump to last file
-key ~L9-~L8-g       = &Prefix(CommonControlg)    # see keymap2 CommonControlg
-key ~L9-~L8-Esc     = &Default              # send "escape" key to Windows
+key L9-L8-Esc       = $wv-vim-normal    # enter normal mode from Windows mode
+key ~L9-L8-Esc      = $wv-vim-normal    # enter normal mode from visual mode
+key ~L9-~L8-~S-*j   = *Down             # down
+key ~L9-~L8-~S-*k   = *Up               # up
+key ~L9-~L8-S-j     = C-Down Space      # down
+key ~L9-~L8-S-k     = C-Up Space        # up
+key ~L9-~L8-*h      = *Left             # left
+key ~L9-~L8-*l      = *Right            # right
+key ~L9-~L8-i       = F2                # edit file / directory name
+key ~L9-~L8-S-i     = F2 Home           # edit file / directory name (at first character)
+key ~L9-~L8-S-a     = F2 End            # edit file / directory name (at last character)
+key ~L9-~L8-C-d     = F4                # path completion (extend combobox)
+key ~L9-~L8-r       = F5                # reload
+key ~L9-~L8-C-g     = A-Enter           # display property dialog
+key ~L9-~L8-S-g     = End               # jump to last file
+key ~L9-~L8-g       = &Prefix(Afterg)   # see keymap2 Afterg
+key ~L9-~L8-Esc     = &Default          # send "escape" key to Windows
 
 # visual mode {{{3
-key ~L9-~L8-v   = $wv-vim-visual        # enter visual mode
-key ~L9-L8-j    = C-Down Space          # select down
-key ~L9-L8-k    = C-Up Space            # select up
-key ~L9-L8-h    = S-Left                # select left
-key ~L9-L8-l    = S-Right               # select right
-key ~L9-L8-S-g  = S-End                 # jump to last file
-key ~L9-L8-g    = &Prefix(CommonControlvg)   # see keymap2 CommonControlvg
+key ~L9-~L8-v   = $wv-vim-visual    # enter visual mode
+key ~L9-L8-j    = C-Down Space      # select down
+key ~L9-L8-k    = C-Up Space        # select up
+key ~L9-L8-h    = S-Left            # select left
+key ~L9-L8-l    = S-Right           # select right
+key ~L9-L8-S-g  = S-End             # jump to last file
+key ~L9-L8-g    = &Prefix(Aftergv)  # see keymap2 Aftergv
 
 # Windows mode {{{3
 key ~L9-~L8-Slash   = $wv-windows   # enter Windows mode
