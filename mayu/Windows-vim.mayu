@@ -3,10 +3,10 @@
 # key mappings about Windows feature like vim (vimperator)
 #
 # Maintainer:   janus <janus.wel.3@gmail.com>
-# Last Change:  2009/11/13 05:56:36.
+# Last Change:  2009/11/13 05:59:36.
 # Remarks:      Transition Diagram
 #                   insert <--> normal(default) <--> visual
-#                                    ↓↑
+#                                     ||
 #                                   Windows
 #
 #               It is possible to change keybinds for copy,
