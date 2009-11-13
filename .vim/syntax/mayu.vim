@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/14 01:13:46.
-" Version:      0.26
+" Last Change:  2009/11/14 01:18:27.
+" Version:      0.27
 
 
 " For version 5.x: Clear all syntax items
@@ -82,7 +82,7 @@ syntax keyword  mayuExtendedKeyFlag E0 E1 contained transparent
 
 " comments
 syntax keyword  mayuCommentTodo TODO FIXME XXX TBD contained
-syntax region   mayuComment     start=/\%(^\|\s\+\)#/ end=/$/ contains=mayuCommentTodo keepend oneline
+syntax region   mayuComment     start=/#/ end=/$/ contains=mayuCommentTodo keepend oneline
 
 " all
 syntax cluster  mayuAll contains=mayuInclude,mayuConditional,mayuOperator,mayuNumberDecimal,mayuNumberHexadecimal,mayuStringDoubleQuote,mayuStringSingleQuote,mayuRegexpString,mayuFunction,mayuFunctionName,mayuDefine,mayuOption,mayuOption,mayuKeySequense,mayuSpecialKeys,mayuSpecialKeysPrefix,mayuCommentTodo,mayuComment
