@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/14 01:05:42.
-" Version:      0.25
+" Last Change:  2009/11/14 01:13:46.
+" Version:      0.26
 
 
 " For version 5.x: Clear all syntax items
@@ -75,6 +75,11 @@ syntax keyword  mayuSpecialKeysPrefix
             \ L0 L1 L2 L3 L4 L5 L6 L7 L8 L9
             \ contained transparent
 
+" scancodes
+syntax match    mayuScanCodeDecimal      /\<E[01]\-\d\+\>/ contains=mayuExtendedKeyFlag
+syntax match    mayuScanCodeHexadecimal  /\<E[01]\-0x\x\+\>/ contains=mayuExtendedKeyFlag
+syntax keyword  mayuExtendedKeyFlag E0 E1 contained transparent
+
 " comments
 syntax keyword  mayuCommentTodo TODO FIXME XXX TBD contained
 syntax region   mayuComment     start=/\%(^\|\s\+\)#/ end=/$/ contains=mayuCommentTodo keepend oneline
@@ -97,6 +102,8 @@ if version >= 508 || !exists("did_mayu_syntax_inits")
 
     HiLink mayuNumberDecimal        Number
     HiLink mayuNumberHexadecimal    Number
+    HiLink mayuScanCodeDecimal      Number
+    HiLink mayuScanCodeHexadecimal  Number
 
     HiLink mayuStringDoubleQuote    String
     HiLink mayuStringSingleQuote    String
