@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/14 00:58:26.
-" Version:      0.24
+" Last Change:  2009/11/14 01:05:42.
+" Version:      0.25
 
 
 " For version 5.x: Clear all syntax items
@@ -68,9 +68,11 @@ syntax match    mayuOption /\%(delay-of\s\+!!!\|sts4mayu\|cts4mayu\)/
 syntax match    mayuKeySequense /\$[A-Za-z\-_]\+/
 
 " special keys
-syntax match    mayuSpecialKeys /\%([\*~]\=\u\+-\)\+\*\=\S\+/ contains=mayuSpecialKeysPrefix
+syntax match    mayuSpecialKeys /\%([\*~]\=\%(C\|M\|A\|S\|W\|NL\|CL\|SL\|KL\|IL\|IC\|MAX\|MIN\|MMAX\|MMIN\|T\|TS\|L[0-9]\)-\)\+\*\=\S\+/ contains=mayuSpecialKeysPrefix
 syntax keyword  mayuSpecialKeysPrefix
-            \ C M A S NL CL SL KL IL IC MAX MIN MMAX MMIN T TS
+            \ C M A S W NL CL SL KL IL IC
+            \ MAX MIN MMAX MMIN T TS
+            \ L0 L1 L2 L3 L4 L5 L6 L7 L8 L9
             \ contained transparent
 
 " comments
