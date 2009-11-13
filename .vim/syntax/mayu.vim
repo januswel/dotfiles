@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/25 21:16:02.
-" Version:      0.22
+" Last Change:  2009/11/14 00:49:58.
+" Version:      0.23
 
 
 " For version 5.x: Clear all syntax items
@@ -32,7 +32,7 @@ syntax region   mayuStringDoubleQuote   start=/"/ skip=/\\\\\|\\$"/ end=/"/
 syntax region   mayuStringSingleQuote   start=/'/ skip=/\\\\\|\\$'/ end=/'/
 
 " regular expression
-syntax region   mayuRegexpString    start=+/\%(\*\|/\)\@!+ skip=+\\\\\|\\/+ end=+/[gim]\{-,3}+ oneline
+syntax region   mayuRegexpString    start=+/\%(\*\|/\)\@!+ skip=+\\\\\|\\/+ end=+/[gim]\{-,3}+ oneline contained
 
 " functions
 syntax match    mayuFunction        /&\a\+\>/ contains=mayuFunctionName
@@ -55,8 +55,10 @@ syntax keyword  mayuFunctionName
 
 " definitions
 syntax keyword  mayuDefine
-            \ keymap keymap2 window key event mod def keyseq sync alias
+            \ keymap keymap2 key event mod def keyseq sync alias
             \ subst define
+syntax keyword  mayuDefineWindowKeyword window contained containedin=mayuDefineWindow
+syntax region   mayuDefineWindow start=/window/ end=/$/ contains=mayuDefineWindowKeyword,mayuOperator,mayuRegexpString
 
 " options
 syntax keyword  mayuOption option
@@ -101,6 +103,7 @@ if version >= 508 || !exists("did_mayu_syntax_inits")
     HiLink mayuFunction             Function
 
     HiLink mayuDefine               Statement
+    HiLink mayuDefineWindowKeyword  Statement
     HiLink mayuOption               Keyword
 
     HiLink mayuKeySequense          Identifier
