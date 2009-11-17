@@ -1,16 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/11 07:55:32.
-
-" initialization {{{1 -----------------------------------------------------
-" get the personal directory for initialization
-" and set it to script local variable 'vimpersonal'
-" for compatibility between various operating systems
-let s:vimpersonal = split(&runtimepath, ',')[0]
-
-" set path to template files
-let s:templatepath = s:vimpersonal . '/template'
-
+" Last Change:  2009/11/18 06:56:13.
 
 " options {{{1 ------------------------------------------------------------
 " compatible mode off
@@ -25,12 +15,18 @@ set noautowrite     " set off writing a file automatically
 set noautowriteall  " completely
 
 " backup
-" backup directory
-let &backupdir = s:vimpersonal . '/backup/'
-set backup          " backup feature on
-set writebackup     " make a backup file before overwriting a file
-set backupcopy=auto " how backup files are created, best one
-set backupext=~     " tail character to add a backup file
+" The "backup" directory that be found in runtime path at first,
+" is backupdir.
+let s:backupdir = globpath(&runtimepath, 'backup')
+" Backup feature is enable when the backupdir exists.
+if s:backupdir != ''
+    set backup          " backup feature on
+    set writebackup     " make a backup file before overwriting a file
+    set backupcopy=auto " how backup files are created, best one
+    set backupext=~     " trailing character of backup file
+    let &backupdir = s:backupdir . ',' . &backupdir
+endif
+unlet s:backupdir
 
 " display & information
 set showtabline=2   " show tab bar always
