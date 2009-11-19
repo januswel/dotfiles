@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/19 17:02:03.
+" Last Change:  2009/11/19 18:10:15.
 
 " options {{{1
 " general {{{2
@@ -37,6 +37,7 @@ set showmode        " show mode name
 set cmdheight=1     " height of command-line is 1 row
 set showmatch       " show pair parentheses, brackets and so on
 set scrolloff=3     " above and below cursor number is 3 line
+set showcmd         " show entered and partial command
 set nolist          " don't show space characters (tab, line break)
 " sequence backslash ( yen in Japanese ), space "\ "
 " are interpreted just space " ". thus, below command
