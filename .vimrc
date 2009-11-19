@@ -1,19 +1,17 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/19 14:15:36.
+" Last Change:  2009/11/19 15:52:33.
 
 " options {{{1
 " general {{{2
-" compatible mode off
-set nocompatible
+set nocompatible    " compatible mode off
 
 " path setting
-" add path to my bin
-set path^=~/bin/
+set path^=~/bin/    " prepend my bin to 'path'
 
 " timing to write
-set noautowrite     " set off writing a file automatically
-set noautowriteall  " completely
+set noautowrite     " disable writing files automatically
+set noautowriteall  " make my wish to vim thoroughly
 
 " backup {{{2
 " The "backup" directory that be found in runtime path at first,
@@ -32,41 +30,53 @@ unlet s:backupdir
 " display & information {{{2
 set showtabline=2   " show tab bar always
 set number          " show line numbers
-set noruler         " not show row and column number of cursor
-set title           " display file name to edit
+set noruler         " don't show row and column number of cursor
+set title           " display editing file name at title bar
 set laststatus=2    " show status line always
 set showmode        " show mode name
 set cmdheight=1     " height of command-line is 1 row
 set nolist          " not show space characters (tab, line break)
-set showmatch       " show pair parenthesis, bracket
+set showmatch       " show pair parentheses, brackets and so on
 set scrolloff=3     " above and below cursor number is 3 line
 " filename [filetype][fileencoding:fileformat][RO]?[+]?    column:line/all-line[ percentage-of-buffer%]
 set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L[%3p%%]
 
 " tab, space and indent {{{2
 set tabstop=4       " tab width
-set shiftwidth=4    " tab width (cindent and <<, >>)
-set softtabstop=0   " tab width (<Tab>), when this is 0, use tabstop
+set shiftwidth=4    " number of spaces inserted by cindent, <<, >> and so on
+" number of spaces inserted by <Tab> or deleted by <BS> (enterd by user)
+set softtabstop=0   " when this is setted to 0, use content of 'tabstop'
+set expandtab       " expand tab to spaces
 set autoindent      " auto indent on
-set expandtab       " replace tab to space
 
 " search {{{2
 set incsearch   " incremental search on
 set hlsearch    " highlight matched word
-set ignorecase  " pattern is performed as case insensitive normally
-set smartcase   " but as case sensitive if capital character is contained
-set wrapscan    " wrap
+set ignorecase  " use ignore case normally
+set smartcase   " but use match case when capital character is contained
+set wrapscan    " search wrap around the end of the file
 
 " backspacing {{{2
-set backspace=indent,eol,start  " allow backspacing over autoindent, line breakes, start of insert
+" allow backspacing over autoindent, line breakes, start of insert
+set backspace=indent,eol,start
 
 " completion {{{2
 " command-line mode
 set wildmenu            " command-line completion on
-set wildmode=list:full  " list all candidates and full completion
+set wildmode=list:full  " list all candidates and complete full words
 
 " insert mode
+" scanning places (and order) by keyword completion
+" . : current buffer
+" w : buffers from other windows
+" b : other loaded buffers
+" t : tab completion
+" i : current and included files
 set complete=.,w,b,t,i
+" options
+" menu      : use a popup menu
+" menuone   : use a popup menu also when only one match
+" preview   : show extra information in the preview window
 set completeopt=menu,menuone,preview
 
 " encoding & format {{{2
@@ -108,6 +118,7 @@ let autodate_format='%Y/%m/%d %H:%M:%S'
 let g:is_bash=1
 
 " plugin: ProtectFile.vim
+" runtime file is untouchable
 let g:autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
 
 
@@ -116,8 +127,10 @@ let g:autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
 augroup showQuickFixWindow
     autocmd! showQuickFixWindow
 
-    autocmd QuickFixCmdPost make    cwindow " make
-    autocmd QuickFixCmdPost vimgrep cwindow " internal grep
+    " make
+    autocmd QuickFixCmdPost make    cwindow
+    " internal grep
+    autocmd QuickFixCmdPost vimgrep cwindow
 augroup END
 
 " for [x]html {{{2
@@ -147,8 +160,6 @@ mapclear!
 nnoremap <silent><Leader>m :update<CR>:make<CR>
 " source
 nnoremap <silent><Leader>r :source ~/.vimrc<CR>
-" toggle spell check
-nnoremap <silent><Leader>s :set spell!<CR>
 
 " cursor {{{2
 " move cursor as it looks
@@ -157,13 +168,13 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" tabs {{{2
-" tabnew is hard to complete
+" tabpage {{{2
+" :tabnew is hard to complete
 nnoremap t :tabnew<Space>
-" switch tab
+" switch tabpage
 nnoremap <C-h> gT
 nnoremap <C-l> gt
-" move tab
+" move around tabpage
 " plugin: TabShift.vim
 nnoremap <silent><C-p> :TabShift -1<CR>
 nnoremap <silent><C-n> :TabShift +1<CR>
@@ -192,8 +203,12 @@ if has('insert_expand')
     endif
 endif
 
+" utils {{{2
+" toggle spell check
+nnoremap <silent><Leader>s :set spell!<CR>
+
 " path operation {{{2
-" change directory
+" change directory to one that has editing file
 nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
 " open explorer
 " plugin: OpenWin32Explorer.vim
