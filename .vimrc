@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/19 16:00:44.
+" Last Change:  2009/11/19 17:02:03.
 
 " options {{{1
 " general {{{2
@@ -42,8 +42,34 @@ set nolist          " don't show space characters (tab, line break)
 " are interpreted just space " ". thus, below command
 " sets "  " to "tab" directive in 'listchars' option
 set listchars=tab:\ \   " don't show tab even if 'list' is on
-" filename [filetype][fileencoding:fileformat][RO]?[+]?    column:line/all-line[ percentage-of-buffer%]
-set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L[%3p%%]
+
+" statusline {{{2
+" %3(%m%)                   : modified flag (bracketed, fixed)
+" %2n                       : buffer number (2 digit)
+" %t                        : filename (only leaf)
+" %y                        : filetype (bracketed)
+" %{&fenc!=""?&fenc:&enc}   : fileencoding
+" %{&fileformat}            : fileformat
+" %r                        : read only flag
+" %=                        : spliter left between right
+" %{tabpagenr()}            : current tabnumber
+" %{tabpagenr('$')}         : tabpage count
+" %v                        : virtual column
+" %l                        : line number
+" %L                        : lines count
+" %(%{matchstr(getline('.'),'.',col('.')-1)}%) :the character at the cursor
+" 0x%04B                    : hexadecimal octets
+" %4P                       : percentage through file of displayed window
+let &statusline = join([
+            \ '%3(%m%) %2n %t %y',
+            \ '[%{&fenc != "" ? &fenc : &enc}:%{&fileformat}]',
+            \ '%r',
+            \ '%=',
+            \ '[%{tabpagenr()}/%{tabpagenr("$")}]',
+            \ '[%v:%l/%L]',
+            \ '[%2(%{matchstr(getline("."),".",col(".")-1)}%) 0x%04B]',
+            \ '[%4P]',
+            \ ], '')
 
 " tab, space and indent {{{2
 set tabstop=4       " tab width
