@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/20 10:08:58.
-" Version:      0.21
+" Last Change:  2009/11/20 10:19:34.
+" Version:      0.22
 " Remark:       define syntaxes for invisible characters
 
 " show invisible characters
@@ -33,7 +33,7 @@ if has('autocmd') && has('syntax')
 
     augroup showInvisible
         autocmd! showInvisible
-        autocmd BufNew,BufRead * call ShowInvisibleCharacters()
+        autocmd BufWinEnter,ColorScheme * call ShowInvisibleCharacters()
     augroup END
 endif
 
