@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/27 21:24:23.
-" Version:      0.20
+" Last Change:  2009/11/20 10:08:58.
+" Version:      0.21
 " Remark:       define syntaxes for invisible characters
 
 " show invisible characters
@@ -25,7 +25,7 @@ if has('autocmd') && has('syntax')
 
             HiLink DoubleWidthSpace     Error
             HiLink TrailingWhitespace   Error
-            HiLink TabSpace             Search
+            HiLink TabSpace             Error
 
             delcommand HiLink
         endif
