@@ -1,8 +1,14 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/21 11:56:07.
-" Version:      0.23
+" Last Change:  2009/11/21 12:00:47.
+" Version:      0.24
 " Remark:       define syntaxes for invisible characters
+
+" check loaded already or not
+if exists('loaded_showinvisiblecharacters')
+    finish
+endif
+let loaded_showinvisiblecharacters = 1
 
 " check required features
 if !has('autocmd') || !has('syntax')
