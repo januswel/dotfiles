@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/22 13:47:20.
-" Version:      0.31
+" Last Change:  2009/11/22 14:30:09.
+" Version:      0.32
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -91,8 +91,9 @@ function! s:DefineHighlightGroups(groups)
 endfunction
 
 " autocommands
-augroup showInvisible
-    autocmd! showInvisible
+augroup showinvisible
+    autocmd! showinvisible
+
     autocmd BufWinEnter * call <SID>SetMatch(expand('<abuf>'))
     autocmd ColorScheme * call <SID>DefineHighlightGroups(s:patterns)
 augroup END
