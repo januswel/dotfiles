@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/22 14:30:09.
-" Version:      0.32
+" Last Change:  2009/11/22 14:34:46.
+" Version:      0.33
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -72,6 +72,13 @@ function! s:SetMatch(bufnr)
     let s:matchids[a:bufnr] = <SID>AddMatch(s:patterns)
 endfunction
 
+function! s:UnsetMatch(bufnr)
+    " when buffer is deleted, that is, matches for the buffer are broken off
+    " automatically.  thus only just clean up the dictionary to manage, in
+    " this function.
+    call remove(s:matchids, a:bufnr)
+endfunction
+
 " define :highlight
 function! s:DefineHighlightGroups(groups)
     if version >= 508 || !exists('did_invisiblecharacters_syntax_inits')
@@ -95,6 +102,7 @@ augroup showinvisible
     autocmd! showinvisible
 
     autocmd BufWinEnter * call <SID>SetMatch(expand('<abuf>'))
+    autocmd BufWinLeave * call <SID>UnsetMatch(expand('<abuf>'))
     autocmd ColorScheme * call <SID>DefineHighlightGroups(s:patterns)
 augroup END
 
