@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/21 12:00:47.
-" Version:      0.24
+" Last Change:  2009/11/22 11:47:00.
+" Version:      0.25
 " Remark:       define syntaxes for invisible characters
 
 " check loaded already or not
@@ -16,7 +16,7 @@ if !has('autocmd') || !has('syntax')
 endif
 
 syntax on
-function! ShowInvisibleCharacters()
+function! s:ShowInvisibleCharacters()
     " double width space
     syntax match DoubleWidthSpace   /\%u3000/ display containedin=ALL
     " trailing whitespace characters
@@ -42,7 +42,7 @@ endf
 
 augroup showInvisible
     autocmd! showInvisible
-    autocmd BufWinEnter,ColorScheme * call ShowInvisibleCharacters()
+    autocmd BufWinEnter,ColorScheme * call <SID>ShowInvisibleCharacters()
 augroup END
 
 " vim: ts=4 sw=4 sts=0 et
