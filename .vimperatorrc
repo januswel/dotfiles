@@ -1,9 +1,9 @@
 " .vimperatorrc
 " author janus_wel <janus.wel.3@gmail.com>
 " for 2.0pre (created: 2008/12/10 07:30:02)
-" Last Change: 2009/03/06 21:18:56.
+" Last Change: 2009/12/02 16:06:10.
 
-" options -----------------------------------------------------------------
+" options {{{1
 " safe mode
 "set noloadplugins
 
@@ -51,12 +51,11 @@ set focuscontent
 set guioptions=rb
 
 " don't start new vim
-" launching external editor is cranky in Win32
-"set editor=gvim\ -f\ --remote-tab-wait-silent
+set editor=gvim\ -f\ --remote-tab-wait-silent
 
 
-" preferences ( Firefox about:config ) ------------------------------------
-" tabs ---
+" preferences ( Firefox about:config ) {{{1
+" tabs {{{2
 " display tab-bar anytime
 set! browser.tabs.autoHide=false
 
@@ -73,7 +72,7 @@ set! browser.tabs.loadDivertedInBackground=true
 set! browser.tabs.tabMaxWidth=24
 set! browser.tabs.tabMinWidth=24
 
-" miscs ---
+" miscs {{{2
 " case-sensitive when find
 set! accessibility.typeaheadfind.casesensitive=1
 
@@ -97,12 +96,12 @@ set! layout.word_select.eat_space_to_next_word=false
 set! browser.download.manager.showWhenStarting=false
 
 
-" variables ---------------------------------------------------------------
+" variables {{{1
 " this must be set before map operation, otherwise use default value.
 let mapleader=','
 
 
-" mappings ----------------------------------------------------------------
+" mappings {{{1
 " clear all key mappings
 " to avoid troubles from loading rc file several times
 mapclear
@@ -166,7 +165,7 @@ noremap <Leader>d :redraw<CR>
 noremap <Leader>r :source ~/.vimperatorrc<CR>
 
 
-" plugins -----------------------------------------------------------------
+" plugins {{{1
 " plugin: direct_bookmark.js
 " move to .vimperatorrc.js
 noremap B :sbm<Space>
@@ -229,7 +228,7 @@ let hidecritter_mapping='H'
 let hatena_star_hint_mapping='h'
 
 
-" source extra resources --------------------------------------------------
+" source extra resources {{{1
 " javascript
 source ~/.vimperatorrc.js
 
@@ -237,7 +236,7 @@ source ~/.vimperatorrc.js
 "source ~/.vimperatorrc.css
 
 
-" autocmd -----------------------------------------------------------------
+" autocmd {{{1
 " clear all autocmds to avoid troubles from loading rc fle several times
 autocmd!
 
@@ -245,7 +244,7 @@ autocmd!
 " defined by .vimperatorrc.js
 autocmd LocationChange .* :js liberator.plugins.nicomap()
 
-" fmap ---
+" fmap {{{2
 " all clear
 autocmd LocationChange .* :fmapc
 
@@ -286,13 +285,14 @@ autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\
 autocmd LocationChange http://mitter\\.jp/[^/]+/videos :fmap w q
 
 
-" set ---
+" set {{{2
 " option c/h/H is defined by plugin,
 " the timing ':set pageinfo' is at the ready of vimperator
 autocmd VimperatorEnter .* :set pageinfo=gmchH
 
 
-" finish ------------------------------------------------------------------
+" finish {{{1
 echo "GET READY!!"
 
-" vim: ft=vimperator sw=4 sts=4 ts=4 et
+" }}}1
+" vim: ft=vimperator ts=4 sw=4 sts=0 et fdm=marker fdc=3
