@@ -1,6 +1,6 @@
 # zsh RC file
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/03/01 20:41:24.
+# Last Change:  2009/12/02 16:14:27.
 
 # completions
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -20,7 +20,7 @@ autoload -U colors
 colors
 
 PROMPT="%B%{$fg[yellow]%}${USER}@${HOST}${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}%b"
-RPROMPT="%B%{$fg[green]%}[%~]%{$reset_color%}%b"
+RPROMPT="%B%{$fg[cyan]%}[%~]%{$reset_color%}%b"
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
