@@ -1,24 +1,13 @@
 # config file of HTML Tidy
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/02/26 21:06:42.
+# Last Change:  2009/11/17 04:16:12.
 
-bare:yes
+add-xml-decl:yes
 char-encoding:raw
 clean:yes
-fix-backslash:yes
-fix-bad-comments:yes
-indent-attributes:no
-indent-cdata:no
-indent-spaces:2
 indent:auto
-newline:LF
 output-xhtml:yes
+quiet:yes
 replace-color:yes
 tidy-mark:no
-wrap-asp:no
-wrap-attributes:no
-wrap-jste:no
-wrap-php:no
-wrap-script-literals:no
-wrap-sections:no
 wrap:0
