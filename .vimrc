@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/19 18:44:29.
+" Last Change:  2009/12/02 21:27:51.
 
 " options {{{1
 " general {{{2
@@ -46,6 +46,7 @@ set listchars=tab:\ \   " don't show tab even if 'list' is on
 
 " statusline {{{2
 " %3(%m%)                   : modified flag (bracketed, fixed)
+" %<                        : where to truncate line
 " %2n                       : buffer number (2 digit)
 " %t                        : filename (only leaf)
 " %y                        : filetype (bracketed)
@@ -62,7 +63,7 @@ set listchars=tab:\ \   " don't show tab even if 'list' is on
 " 0x%04B                    : hexadecimal octets
 " %4P                       : percentage through file of displayed window
 let &statusline = join([
-            \ '%3(%m%) %2n %t %y',
+            \ '%3(%m%) %<%2n %t %y',
             \ '[%{&fenc != "" ? &fenc : &enc}:%{&fileformat}]',
             \ '%r',
             \ '%=',
