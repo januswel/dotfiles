@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 22:58:32.
+" Last Change:  2009/12/02 23:05:29.
 " Version:      0.35
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
@@ -27,7 +27,6 @@ set cpoptions&vim
 " 2: mapped highlight group
 let s:patterns = [
             \   ['TrailingWhiteSpace',      '\s\+$',    'Error'],
-            \   ['TabSpace',                '\t',       'Error'],
             \   ['IdeographicSpaceUnicode', '\%u3000',  'Error'],
             \   ['IdeographicSpaceCP932',   '\%u8140',  'Error'],
             \   ['IdeographicSpaceEUCJP',   '\%ua1a1',  'Error'],

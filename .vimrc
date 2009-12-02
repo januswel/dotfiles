@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 21:37:14.
+" Last Change:  2009/12/02 23:06:24.
 
 " options {{{1
 " general {{{2
@@ -215,6 +215,12 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
+
+" matches {{{2
+" clear match pattern
+nnoremap <silent><Leader><S-t> :match<CR>
+" show CHARACTER TABULATION
+nnoremap <silent><Leader>t :match Error /\t/<CR>
 
 " editing {{{2
 " line break
