@@ -3,11 +3,11 @@
 " this contains visual settings only, use with .vimrc
 "
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 17:06:15.
+" Last Change:  2009/12/02 17:08:25.
 
 " options {{{1
 " display & information
-set guioptions=er   " show tab like system-native and right scroll bar only
+set guioptions=     " show no gui components
 set laststatus=2    " show status line always
 set cmdheight=1     " height of command-line is 1 row
 if has('gui_win32')
