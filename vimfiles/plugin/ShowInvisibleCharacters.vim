@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 22:10:39.
-" Version:      0.34
+" Last Change:  2009/12/02 22:41:18.
+" Version:      0.35
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -33,47 +33,23 @@ let s:patterns = [
             \   ['IdeographicSpaceEUCJP',   '\%ua1a1',  'Error'],
             \ ]
 
-" use this dictionary to manage matchids
-" key: buffer number
-" val: list of matchids
-let s:matchids = {}
-
 " just call function matchadd() and return its returned values
 function! s:AddMatch(patterns)
-    let l:matchids = []
+    let l:matchidlist = []
     for [group, pattern; rest] in a:patterns
-        call add(l:matchids, matchadd(group, pattern))
+        call add(l:matchidlist, matchadd(group, pattern))
     endfor
-    return l:matchids
+    return l:matchidlist
 endfunction
 
 " delete matchids that is already exist and add match patterns
-function! s:SetMatch(bufnr)
-    " deleting section
-    if has_key(s:matchids, a:bufnr)
-        let matchids = s:matchids[a:bufnr]
-        " if matchid is already exists
-        if matchids != []
-            " eliminate them!
-            for matchid in matchids
-                call matchdelete(matchid)
-            endfor
-
-            " because variable "matchids" is reference to
-            " s:matchids[x], this command is clear of s:matchids[x]
-            let matchids = []
-        endif
+function! s:SetMatch()
+    " check match is already setted or not
+    if exists('w:matchidlist')
+        return
     endif
 
-    " adding section
-    let s:matchids[a:bufnr] = <SID>AddMatch(s:patterns)
-endfunction
-
-function! s:UnsetMatch(bufnr)
-    " when buffer is deleted, that is, matches for the buffer are broken off
-    " automatically.  thus only just clean up the dictionary to manage, in
-    " this function.
-    call remove(s:matchids, a:bufnr)
+    let w:matchidlist = <SID>AddMatch(s:patterns)
 endfunction
 
 " define :highlight
@@ -98,8 +74,7 @@ endfunction
 augroup showinvisible
     autocmd! showinvisible
 
-    autocmd BufWinEnter * call <SID>SetMatch(expand('<abuf>'))
-    autocmd BufWinLeave * call <SID>UnsetMatch(expand('<abuf>'))
+    autocmd VIMEnter,WinEnter * call <SID>SetMatch()
     autocmd ColorScheme * call <SID>DefineHighlightGroups(s:patterns)
 augroup END
 
