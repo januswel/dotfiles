@@ -1,6 +1,6 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 22:41:18.
+" Last Change:  2009/12/02 22:58:32.
 " Version:      0.35
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
@@ -49,7 +49,7 @@ function! s:SetMatch()
         return
     endif
 
-    let w:matchidlist = <SID>AddMatch(s:patterns)
+    let w:matchidlist = s:AddMatch(s:patterns)
 endfunction
 
 " define :highlight
@@ -74,13 +74,13 @@ endfunction
 augroup showinvisible
     autocmd! showinvisible
 
-    autocmd VIMEnter,WinEnter * call <SID>SetMatch()
-    autocmd ColorScheme * call <SID>DefineHighlightGroups(s:patterns)
+    autocmd VIMEnter,WinEnter * call s:SetMatch()
+    autocmd ColorScheme * call s:DefineHighlightGroups(s:patterns)
 augroup END
 
 " register highlight group name previously, since matchadd() needs defined
 " highlight groups
-call <SID>DefineHighlightGroups(s:patterns)
+call s:DefineHighlightGroups(s:patterns)
 
 " restore the value of 'cpoptions'
 let &cpoptions = s:save_cpoptions
