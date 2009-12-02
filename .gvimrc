@@ -3,13 +3,17 @@
 " this contains visual settings only, use with .vimrc
 "
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 16:24:24.
+" Last Change:  2009/12/02 17:06:15.
 
 " options {{{1
 " display & information
 set guioptions=er   " show tab like system-native and right scroll bar only
 set laststatus=2    " show status line always
 set cmdheight=1     " height of command-line is 1 row
+if has('gui_win32')
+    " if VL Gothic will be found in the system, use MS Gothic
+    set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
+endif
 
 
 " syntax highlight {{{1
