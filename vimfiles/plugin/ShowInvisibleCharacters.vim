@@ -1,25 +1,25 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/22 14:34:46.
-" Version:      0.33
+" Last Change:  2009/12/02 22:10:39.
+" Version:      0.34
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
 
-" check loaded already or not
+" check if this plugin is already loaded or not
 if exists('loaded_showinvisiblecharacters')
     finish
 endif
 let loaded_showinvisiblecharacters = 1
 
-" check required feature
+" check vim has the required feature
 if !has('autocmd')
     finish
 endif
 
 " for line continuing
 let s:save_cpoptions = &cpoptions
-set cpoptions&
+set cpoptions&vim
 
 " pattern definitions
 " 0: group name
@@ -32,9 +32,6 @@ let s:patterns = [
             \   ['IdeographicSpaceCP932',   '\%u8140',  'Error'],
             \   ['IdeographicSpaceEUCJP',   '\%ua1a1',  'Error'],
             \ ]
-
-" restore 'cpoptions'
-let &cpoptions = s:save_cpoptions
 
 " use this dictionary to manage matchids
 " key: buffer number
@@ -109,5 +106,9 @@ augroup END
 " register highlight group name previously, since matchadd() needs defined
 " highlight groups
 call <SID>DefineHighlightGroups(s:patterns)
+
+" restore the value of 'cpoptions'
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
 
 " vim: ts=4 sw=4 sts=0 et
