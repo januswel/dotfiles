@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 21:27:51.
+" Last Change:  2009/12/02 21:37:14.
 
 " options {{{1
 " general {{{2
@@ -39,10 +39,6 @@ set showmatch       " show pair parentheses, brackets and so on
 set scrolloff=3     " above and below cursor number is 3 line
 set showcmd         " show entered and partial command
 set nolist          " don't show space characters (tab, line break)
-" sequence backslash ( yen in Japanese ), space "\ "
-" are interpreted just space " ". thus, below command
-" sets "  " to "tab" directive in 'listchars' option
-set listchars=tab:\ \   " don't show tab even if 'list' is on
 
 " statusline {{{2
 " %3(%m%)                   : modified flag (bracketed, fixed)
@@ -179,15 +175,6 @@ augroup xhtml
     autocmd FileType html,xhtml     inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
     " modify by HTML Tidy
     autocmd FileType html,xhtml     nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
-augroup END
-
-" tabs in help file {{{2
-augroup tabinhelp
-    autocmd! tabinhelp
-
-    " don't highlight tab characters in help file
-    " to use 'list' mode
-    autocmd BufWinEnter *.txt           if &ft ==# "help" | setlocal list | endif
 augroup END
 
 
