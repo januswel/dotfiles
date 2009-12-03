@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/03 22:26:08.
+" Last Change:  2009/12/03 22:32:51.
 
 " options {{{1
 " general {{{2
@@ -15,6 +15,10 @@ set path^=~/bin/    " prepend my bin to 'path'
 " timing to write
 set noautowrite     " disable writing files automatically
 set noautowriteall  " make my wish to vim thoroughly
+
+" wait till input is determined
+set notimeout       " don't make me hurry
+set nottimeout      " once agein, don't
 
 " backup {{{2
 " The "backup" directory that be found in runtime path at first,
