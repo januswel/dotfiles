@@ -1,10 +1,13 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 23:06:24.
+" Last Change:  2009/12/03 22:26:08.
 
 " options {{{1
 " general {{{2
 set nocompatible    " compatible mode off
+
+" viminfo
+set viminfo+=%      " save and restore the buffer list
 
 " path setting
 set path^=~/bin/    " prepend my bin to 'path'
