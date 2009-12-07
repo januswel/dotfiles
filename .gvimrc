@@ -3,7 +3,7 @@
 " this contains visual settings only, use with .vimrc
 "
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 04:40:10.
+" Last Change:  2009/12/08 05:26:48.
 
 " options {{{1
 " display & information
@@ -11,9 +11,10 @@ set guioptions=         " show no gui components
 set laststatus=2        " show status line always
 set cmdheight=1         " height of command-line is 1 row
 set langmenu=ja.utf-8   " language and encoding of menu
-if has('gui_win32')
-    " if VL Gothic will be found in the system, use MS Gothic
+if has('win32')
+    " if VL Gothic will be not found in the system, use MS Gothic
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
+    set linespace=0
 endif
 
 " for East Asian Width Class Ambiguous
