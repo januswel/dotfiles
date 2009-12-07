@@ -3,7 +3,7 @@
 " this contains visual settings only, use with .vimrc
 "
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 05:26:48.
+" Last Change:  2009/12/08 05:28:50.
 
 " options {{{1
 " display & information
@@ -15,6 +15,11 @@ if has('win32')
     " if VL Gothic will be not found in the system, use MS Gothic
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
     set linespace=0
+
+    " no way to use a mouse
+    set mouse=
+    set nomousefocus
+    set mousehide
 endif
 
 " for East Asian Width Class Ambiguous
