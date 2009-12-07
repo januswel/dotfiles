@@ -3,7 +3,7 @@
 " this contains visual settings only, use with .vimrc
 "
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/07 22:48:18.
+" Last Change:  2009/12/08 04:40:10.
 
 " options {{{1
 " display & information
@@ -16,6 +16,10 @@ if has('gui_win32')
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
 endif
 
+" for East Asian Width Class Ambiguous
+if exists('&ambiwidth')
+    set ambiwidth=auto
+endif
 
 " syntax highlight {{{1
 syntax enable       " use syntax highlight
