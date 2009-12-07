@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/03 22:32:51.
+" Last Change:  2009/12/07 22:52:18.
 
 " options {{{1
 " general {{{2
@@ -115,16 +115,21 @@ set complete=.,w,b,t,i
 set completeopt=menu,menuone,preview
 
 " encoding & format {{{2
-" character encoding
 " 'fileencodings' is setted by plugin "Japanese.vim"
-set encoding=utf-8      " inside Vim
-set langmenu=ja.utf-8   " language of menu
-set fileencoding=utf-8  " buffer default (for new file)
+if has('win32')
+    if has('gui')
+        set encoding=utf-8
+    else
+        set encoding=cp932
+    endif
+else
+    set encoding=utf-8
+endif
 
 " end-of-line format
 " candidates of EOL format for exist files
 " first one is used as new file's EOL format
-set fileformats=unix,dos,mac
+set fileformats=unix,dos
 
 
 " filetype {{{1
