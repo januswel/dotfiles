@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/07 22:52:18.
+" Last Change:  2009/12/07 23:10:30.
 
 " options {{{1
 " general {{{2
@@ -50,31 +50,32 @@ set nolist          " don't show space characters (tab, line break)
 " statusline {{{2
 " %3(%m%)                   : modified flag (bracketed, fixed)
 " %<                        : where to truncate line
-" %2n                       : buffer number (2 digit)
+" %3n                       : buffer number (3 digit)
 " %t                        : filename (only leaf)
 " %y                        : filetype (bracketed)
-" %{&fenc!=""?&fenc:&enc}   : fileencoding
-" %{&fileformat}            : fileformat
-" %r                        : read only flag
+" %{&fenc!=#""?&fenc:&enc}  : fileencoding
+" %{&ff}                    : fileformat
+" %r                        : read only flag (bracketed)
 " %=                        : spliter left between right
 " %{tabpagenr()}            : current tabnumber
-" %{tabpagenr('$')}         : tabpage count
+" %{tabpagenr("$")}         : tabpage count
 " %v                        : virtual column
 " %l                        : line number
 " %L                        : lines count
-" %(%{matchstr(getline('.'),'.',col('.')-1)}%) :the character at the cursor
 " 0x%04B                    : hexadecimal octets
 " %4P                       : percentage through file of displayed window
-let &statusline = join([
-            \ '%3(%m%) %<%2n %t %y',
-            \ '[%{&fenc != "" ? &fenc : &enc}:%{&fileformat}]',
+let s:statusline = [
+            \ '%3(%m%) %<%3n %t %y',
+            \ '[%{&fenc!=#""?&fenc:&enc}:%{&ff}]',
             \ '%r',
             \ '%=',
             \ '[%{tabpagenr()}/%{tabpagenr("$")}]',
             \ '[%v:%l/%L]',
-            \ '[%2(%{matchstr(getline("."),".",col(".")-1)}%) 0x%04B]',
+            \ '[0x%04B]',
             \ '[%4P]',
-            \ ], '')
+            \ ]
+let &statusline = join(s:statusline, '')
+unlet s:statusline
 
 " tab, space and indent {{{2
 set tabstop=4       " tab width
