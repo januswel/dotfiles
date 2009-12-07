@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/07 23:10:30.
+" Last Change:  2009/12/08 02:07:09.
 
 " options {{{1
 " general {{{2
@@ -116,7 +116,7 @@ set complete=.,w,b,t,i
 set completeopt=menu,menuone,preview
 
 " encoding & format {{{2
-" 'fileencodings' is setted by plugin "Japanese.vim"
+" 'fileencodings' is setted by plugin "jaencs.vim"
 if has('win32')
     if has('gui')
         set encoding=utf-8
