@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 13:04:46.
+" Last Change:  2009/12/08 13:06:58.
 
 " options {{{1
 " general {{{2
@@ -142,6 +142,16 @@ set fileformats=unix,dos
 " clipboard is used as unnamed register
 if has('gui') || has('xterm_clipboard')
     set clipboard=unnamed
+endif
+
+" :hardcopy
+if has('printer')
+    set printoptions=number:y
+    set printheader=%<%t%=page\ %N
+
+    if has('win32')
+        set printfont=VL_Gothic:h12:cSHIFTJIS
+    endif
 endif
 
 
