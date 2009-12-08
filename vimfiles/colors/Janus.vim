@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 10:44:29.
+" Last Change:  2009/12/08 11:00:22.
 " Version:      0.32
 
 " restore default colors
@@ -24,55 +24,75 @@ endif
 let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
-" general colors
-hi Normal   ctermbg=236     ctermfg=15
-    \       guibg=#333333   guifg=#ffffff
-hi NonText                  ctermfg=11
-    \                       guifg=#ffff00
-hi Cursor   ctermbg=10      ctermfg=0
-    \       guibg=#00ff00   guifg=#000000
-hi CursorIM ctermfg=0       ctermbg=214
-    \       guifg=#000000   guibg=#ffa500
+" base
+hi Normal       ctermbg=236     ctermfg=15
+    \           guibg=#333333   guifg=#ffffff
 
-" miscs
-hi Statement    ctermfg=99
-    \           guifg=#7b68ee
-hi Constant     ctermfg=216
-    \           guifg=#ffa07a
-hi String       ctermfg=216
-    \           guifg=#ffa07a
+" cursor
+hi Cursor       ctermbg=10      ctermfg=0
+    \           guibg=#00ff00   guifg=#000000
+hi CursorIM     ctermfg=0       ctermbg=214
+    \           guifg=#000000   guibg=#ffa500
+
+" C language and compatibles
+" :help group-name
 hi Comment      ctermfg=214
     \           guifg=#ffa500
-hi Character    ctermfg=14
-    \           guifg=#00ffff
-hi Type         ctermfg=170
-    \           guifg=#da70d6
-hi Special      ctermfg=14              cterm=bold
-    \           guifg=#dddd00           gui=bold
+" constants
+" base of String, Character, Number, Boolean, Float
+hi Constant     ctermfg=216
+    \           guifg=#ffa07a
+" identifiers
+" base of Function
 hi Identifier   ctermfg=77              cterm=bold
     \           guifg=#60dd60           gui=bold
+" statements
+" base of Conditional, Repeat, Label, Operator, Keyword, Exception
+hi Statement    ctermfg=99
+    \           guifg=#7b68ee
+" preprocessors
+" base of Include, Define, Macro, PreCondit
 hi PreProc      ctermfg=71              cterm=bold
     \           guifg=#3cb371           gui=bold
+" types
+" base of StorageClass, Structure, Typedef
+hi Type         ctermfg=170
+    \           guifg=#da70d6
+" specials
+" base of SpecialChar, Tag, Delimiter, SpecialComment, Debug
+hi Special      ctermfg=14              cterm=bold
+    \           guifg=#dddd00           gui=bold
+" urls
+hi Underlined   ctermfg=152
+            \   guifg=#b0e0e6
+" errors
+hi Error        ctermbg=9
+    \           guibg=#ff0000
+" attentions
+hi ToDo         ctermbg=11          ctermfg=4
+    \           guibg=#ffff00       guifg=#0000ff
 
-" links
-hi  default link Function    Identifier
-hi  default link SpecialKey  Comment
-hi  default link Directory   Comment
-hi! default link MatchParen  Search
-
-" colors not part of the original set:
+" default highlighting groups
+" :help highlight-groups
+" modes
 hi Visual       ctermbg=15          ctermfg=61
     \           guibg=#ffffff       guifg=#5562bf
+
+" searches
 hi Search       ctermbg=11          ctermfg=0               cterm=none
     \           guibg=#ffff00       guifg=#000000           gui=none
 hi IncSearch    ctermbg=4           ctermfg=11
     \           guibg=#0000ff       guifg=#ffff00
+hi! default link MatchParen  Search
+
+" specials
+hi NonText      ctermfg=11
+    \           guifg=#ffff00
+hi  default link SpecialKey  Comment
 hi WarningMsg   ctermbg=15          ctermfg=9
     \           guibg=#ffffff       guifg=#ff0000
-hi Error        ctermbg=9
-    \           guibg=#ff0000
-hi ToDo         ctermbg=11          ctermfg=4
-    \           guibg=#ffff00       guifg=#0000ff
+
+" fold
 hi Folded       ctermbg=145         ctermfg=15
     \           guibg=#a9a9a9       guifg=#ffffff
 
