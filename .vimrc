@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 12:46:58.
+" Last Change:  2009/12/08 12:51:51.
 
 " options {{{1
 " general {{{2
@@ -91,6 +91,10 @@ set hlsearch    " highlight matched word
 set ignorecase  " use ignore case normally
 set smartcase   " but use match case when capital character is contained
 set wrapscan    " search wrap around the end of the file
+
+" window {{{2
+set splitbelow  " make a new window at the below of the current window
+set splitright  " make a new window at the right of the current window
 
 " editing {{{2
 " allow backspacing over autoindent, line breakes, start of insert
