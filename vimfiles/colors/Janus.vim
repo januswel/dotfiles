@@ -1,7 +1,7 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/28 15:47:55.
-" Version:      0.31
+" Last Change:  2009/12/08 10:13:41.
+" Version:      0.32
 
 " restore default colors
 hi clear
@@ -22,6 +22,8 @@ hi NonText  ctermbg=Black   ctermfg=Yellow
     \       guibg=Gray15    guifg=Yellow3
 hi Cursor   ctermbg=Green   ctermfg=Black 
     \       guibg=Green2    guifg=Black
+hi CursorIM ctermfg=Black   ctermbg=214 
+    \       guifg=Black     guibg=Orange
 
 " miscs
 hi Statement    ctermfg=Blue 
