@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 11:17:45.
+" Last Change:  2009/12/08 11:20:05.
 " Version:      0.32
 
 " restore default colors
@@ -98,6 +98,16 @@ hi SpecialKey               ctermfg=11
             \               guifg=#ffff00
 hi WarningMsg               ctermfg=9       ctermbg=15
             \               guifg=#ff0000   guibg=#ffffff
+
+" popup menu
+hi PMenu                    ctermfg=0       ctermbg=251
+            \               guifg=#000000   guibg=#cccccc
+hi PMenuSel                 ctermfg=0       ctermbg=48
+            \               guifg=#000000   guibg=#00ff7f
+hi PMenuSbar                                ctermbg=8
+            \                               guibg=#808080
+hi PMenuThumb               ctermfg=15
+            \               guifg=#ffffff
 
 " fold
 hi Folded                   ctermfg=15      ctermbg=145
