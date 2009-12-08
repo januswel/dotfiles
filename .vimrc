@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 02:07:09.
+" Last Change:  2009/12/08 12:46:58.
 
 " options {{{1
 " general {{{2
@@ -92,9 +92,11 @@ set ignorecase  " use ignore case normally
 set smartcase   " but use match case when capital character is contained
 set wrapscan    " search wrap around the end of the file
 
-" backspacing {{{2
+" editing {{{2
 " allow backspacing over autoindent, line breakes, start of insert
 set backspace=indent,eol,start
+" <C-A> and <C-X> affect also hexadecimal number and single alphabet
+set nrformats=hex,alpha
 
 " completion {{{2
 " command-line mode
