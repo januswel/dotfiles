@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 12:51:51.
+" Last Change:  2009/12/08 13:04:46.
 
 " options {{{1
 " general {{{2
@@ -137,6 +137,12 @@ endif
 " candidates of EOL format for exist files
 " first one is used as new file's EOL format
 set fileformats=unix,dos
+
+" platform specific {{{2
+" clipboard is used as unnamed register
+if has('gui') || has('xterm_clipboard')
+    set clipboard=unnamed
+endif
 
 
 " filetype {{{1
