@@ -1,7 +1,7 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 11:20:05.
-" Version:      0.32
+" Last Change:  2009/12/08 11:37:06.
+" Version:      0.35
 
 " restore default colors
 hi clear
@@ -98,6 +98,24 @@ hi SpecialKey               ctermfg=11
             \               guifg=#ffff00
 hi WarningMsg               ctermfg=9       ctermbg=15
             \               guifg=#ff0000   guibg=#ffffff
+
+" statusline
+hi StatusLine   term=none
+            \   cterm=none  ctermfg=0       ctermbg=251
+            \   gui=bold    guifg=#000000   guibg=#cccccc
+hi StatusLineNC term=bold
+            \   cterm=bold  ctermfg=0       ctermbg=251
+            \   gui=none    guifg=#000000   guibg=#cccccc
+hi VertSplit    cterm=none  ctermfg=251     ctermbg=251
+            \   gui=none    guifg=#cccccc   guibg=#cccccc
+
+" tabline
+hi TabLine                  ctermfg=0       ctermbg=251
+            \               guifg=#000000   guibg=#cccccc
+hi TabLineFill              ctermfg=251
+            \               guifg=#cccccc
+hi TabLineSel               ctermfg=11      ctermbg=236
+            \               guifg=#ffff00   guibg=#333333
 
 " popup menu
 hi PMenu                    ctermfg=0       ctermbg=251
