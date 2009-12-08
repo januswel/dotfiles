@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 13:06:58.
+" Last Change:  2009/12/08 13:14:28.
 
 " options {{{1
 " general {{{2
@@ -171,18 +171,18 @@ colorscheme Janus   " my color scheme
 " let {{{1
 " general {{{2
 " <Leader>
-let mapleader=','
+let mapleader = ','
 
 " plugin: autodate.vim
 " date format to insert automatically
-let autodate_format='%Y/%m/%d %H:%M:%S'
+let autodate_format = '%Y/%m/%d %H:%M:%S'
 
 " setting for bash (:help sh.vim)
-let g:is_bash=1
+let is_bash = 1
 
 " plugin: ProtectFile.vim
 " runtime file is untouchable
-let g:autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
+let autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
 
 
 " autocmd {{{1
