@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 11:10:22.
+" Last Change:  2009/12/08 11:17:45.
 " Version:      0.32
 
 " restore default colors
@@ -34,6 +34,10 @@ hi Cursor                   ctermfg=0       ctermbg=10
             \               guifg=#000000   guibg=#00ff00
 hi CursorIM                 ctermfg=0       ctermbg=214
             \               guifg=#000000   guibg=#ffa500
+hi CursorColumn                             ctermbg=241
+            \                               guibg=#666666
+hi CursorLine                               ctermbg=241
+            \                               guibg=#666666
 
 " C language and compatibles
 " :help group-name
@@ -98,6 +102,8 @@ hi WarningMsg               ctermfg=9       ctermbg=15
 " fold
 hi Folded                   ctermfg=15      ctermbg=145
             \               guifg=#ffffff   guibg=#a9a9a9
+hi FoldColumn               ctermfg=15      ctermbg=236
+            \               guifg=#ffffff   guibg=#333333
 
 " restore &cpoptions
 let &cpoptions = s:save_cpoptions
