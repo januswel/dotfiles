@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 13:14:28.
+" Last Change:  2009/12/08 13:26:11.
 
 " options {{{1
 " general {{{2
@@ -177,12 +177,20 @@ let mapleader = ','
 " date format to insert automatically
 let autodate_format = '%Y/%m/%d %H:%M:%S'
 
-" setting for bash (:help sh.vim)
-let is_bash = 1
-
 " plugin: ProtectFile.vim
 " runtime file is untouchable
 let autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
+
+" platform specific {{{2
+if has('win32')
+    " in Windows, processing tar, gzip and zip with vim is non-sense...
+    let loaded_gzip = 1
+    let loaded_tarPlugin = 1
+    let loaded_zipPlugin = 1
+else
+    " setting for bash (:help sh.vim)
+    let is_bash = 1
+endif
 
 
 " autocmd {{{1
