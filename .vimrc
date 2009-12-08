@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 13:26:11.
+" Last Change:  2009/12/08 13:41:06.
 
 " options {{{1
 " general {{{2
@@ -180,6 +180,21 @@ let autodate_format = '%Y/%m/%d %H:%M:%S'
 " plugin: ProtectFile.vim
 " runtime file is untouchable
 let autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
+
+" disable plugin {{{2
+" settings for Kaoriya version
+if has('kaoriya')
+    let plugin_cmdex_disable = 1
+    let plugin_dicwin_disable = 1
+    let plugin_format_disable = 1
+    let plugin_hz_ja_disable = 1
+    let plugin_scrnmode_disable = 1
+    let plugin_verifyenc_disable = 1
+
+    " don't source gvimrc_example.vim in $VIM
+    " see $VIM/gvimrc
+    let no_gvimrc_example = 1
+endif
 
 " platform specific {{{2
 if has('win32')
