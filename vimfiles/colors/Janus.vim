@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 10:21:53.
+" Last Change:  2009/12/08 10:44:29.
 " Version:      0.32
 
 " restore default colors
@@ -25,33 +25,33 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " general colors
-hi Normal   ctermbg=Black   ctermfg=White 
-    \       guibg=Gray20    guifg=GhostWhite
-hi NonText  ctermbg=Black   ctermfg=Yellow 
-    \       guibg=Gray15    guifg=Yellow3
-hi Cursor   ctermbg=Green   ctermfg=Black 
-    \       guibg=Green2    guifg=Black
-hi CursorIM ctermfg=Black   ctermbg=214 
-    \       guifg=Black     guibg=Orange
+hi Normal   ctermbg=236     ctermfg=15
+    \       guibg=#333333   guifg=#ffffff
+hi NonText                  ctermfg=11
+    \                       guifg=#ffff00
+hi Cursor   ctermbg=10      ctermfg=0
+    \       guibg=#00ff00   guifg=#000000
+hi CursorIM ctermfg=0       ctermbg=214
+    \       guifg=#000000   guibg=#ffa500
 
 " miscs
-hi Statement    ctermfg=Blue 
+hi Statement    ctermfg=99
     \           guifg=#7b68ee
-hi Constant     ctermfg=LightRed 
-    \           guifg=#e9967a
-hi String       ctermfg=LightRed 
-    \           guifg=#e9967a
-hi Comment      ctermfg=LightRed 
-    \           guifg=Orange
-hi Character    ctermfg=Cyan 
-    \           guifg=Cyan
-hi Type         ctermfg=LightMagenta 
+hi Constant     ctermfg=216
+    \           guifg=#ffa07a
+hi String       ctermfg=216
+    \           guifg=#ffa07a
+hi Comment      ctermfg=214
+    \           guifg=#ffa500
+hi Character    ctermfg=14
+    \           guifg=#00ffff
+hi Type         ctermfg=170
     \           guifg=#da70d6
-hi Special      ctermfg=Yellow          cterm=bold 
+hi Special      ctermfg=14              cterm=bold
     \           guifg=#dddd00           gui=bold
-hi Identifier   ctermfg=LightGreen      cterm=bold 
+hi Identifier   ctermfg=77              cterm=bold
     \           guifg=#60dd60           gui=bold
-hi PreProc      ctermfg=DarkGreen       cterm=bold 
+hi PreProc      ctermfg=71              cterm=bold
     \           guifg=#3cb371           gui=bold
 
 " links
@@ -61,20 +61,20 @@ hi  default link Directory   Comment
 hi! default link MatchParen  Search
 
 " colors not part of the original set:
-hi Visual       ctermbg=fg          ctermfg=DarkGreen       cterm=reverse 
-    \           guibg=fg            guifg=darkoliveGreen    gui=reverse
-hi Search       ctermbg=Yellow      ctermfg=White           cterm=none 
-    \           guibg=Yellow        guifg=Black             gui=none
-hi IncSearch    ctermbg=Blue        ctermfg=Yellow          cterm=bold 
-    \           guibg=Blue          guifg=Yellow            gui=bold
-hi WarningMsg   ctermbg=White       ctermfg=Red             cterm=bold 
-    \           guibg=GhostWhite    guifg=Red               gui=bold
-hi Error        ctermbg=Red 
-    \           guibg=Red3
-hi Todo         ctermbg=Yellow      ctermfg=Blue 
-    \           guibg=Yellow        guifg=Blue
-hi Folded       ctermbg=LightGray   ctermfg=DarkGray 
-    \           guibg=Gray45        guifg=Gray90
+hi Visual       ctermbg=15          ctermfg=61
+    \           guibg=#ffffff       guifg=#5562bf
+hi Search       ctermbg=11          ctermfg=0               cterm=none
+    \           guibg=#ffff00       guifg=#000000           gui=none
+hi IncSearch    ctermbg=4           ctermfg=11
+    \           guibg=#0000ff       guifg=#ffff00
+hi WarningMsg   ctermbg=15          ctermfg=9
+    \           guibg=#ffffff       guifg=#ff0000
+hi Error        ctermbg=9
+    \           guibg=#ff0000
+hi ToDo         ctermbg=11          ctermfg=4
+    \           guibg=#ffff00       guifg=#0000ff
+hi Folded       ctermbg=145         ctermfg=15
+    \           guibg=#a9a9a9       guifg=#ffffff
 
 " restore &cpoptions
 let &cpoptions = s:save_cpoptions
