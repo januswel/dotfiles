@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 11:37:06.
+" Last Change:  2009/12/08 12:59:17.
 " Version:      0.35
 
 " restore default colors
@@ -110,12 +110,12 @@ hi VertSplit    cterm=none  ctermfg=251     ctermbg=251
             \   gui=none    guifg=#cccccc   guibg=#cccccc
 
 " tabline
-hi TabLine                  ctermfg=0       ctermbg=251
-            \               guifg=#000000   guibg=#cccccc
-hi TabLineFill              ctermfg=251
-            \               guifg=#cccccc
-hi TabLineSel               ctermfg=11      ctermbg=236
-            \               guifg=#ffff00   guibg=#333333
+hi TabLineSel   cterm=bold  ctermfg=11      ctermbg=236
+            \   gui=bold    guifg=#ffff00   guibg=#333333
+hi TabLine      cterm=none  ctermfg=0       ctermbg=251
+            \   gui=none    guifg=#000000   guibg=#cccccc
+hi TabLineFill  cterm=none                  ctermbg=251
+            \   gui=none                    guibg=#cccccc
 
 " popup menu
 hi PMenu                    ctermfg=0       ctermbg=251
