@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 10:13:41.
+" Last Change:  2009/12/08 10:20:25.
 " Version:      0.32
 
 " restore default colors
@@ -14,6 +14,10 @@ endif
 
 " name of this color scheme
 let g:colors_name = 'Janus'
+
+" for line continueing
+let s:save_cpoptions = &cpoptions
+set cpoptions&vim
 
 " general colors
 hi Normal   ctermbg=Black   ctermfg=White 
@@ -66,5 +70,9 @@ hi Todo         ctermbg=Yellow      ctermfg=Blue
     \           guibg=Yellow        guifg=Blue
 hi Folded       ctermbg=LightGray   ctermfg=DarkGray 
     \           guibg=Gray45        guifg=Gray90
+
+" restore &cpoptions
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
 
 " vim: ts=4 sw=4 sts=0 et
