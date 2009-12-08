@@ -1,6 +1,6 @@
 " Vim color scheme file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 10:20:25.
+" Last Change:  2009/12/08 10:21:53.
 " Version:      0.32
 
 " restore default colors
@@ -14,6 +14,11 @@ endif
 
 " name of this color scheme
 let g:colors_name = 'Janus'
+
+" affects only when 256 or more than colors
+if exists('&t_Co') && (&t_Co == 8 || &t_Co == 16)
+    finish
+endif
 
 " for line continueing
 let s:save_cpoptions = &cpoptions
