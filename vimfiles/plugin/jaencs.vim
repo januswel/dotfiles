@@ -1,6 +1,6 @@
 " jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/09 23:47:48.
+" Last Change:  2009/12/09 23:51:37.
 " Version:      0.12
 " Remark:       determin 'fileencodings' depending on 'encoding'
 "               automatically, with Japanese encodings.
@@ -15,8 +15,10 @@
 "                   - iso-2022-jp-3
 " Acknowledgement:
 "   thinca
-"       He told me the implementation of the value "guess"
+"       He told me the implementation of the value "guess" and show me ropes to
+"       specify characters by using byte codes
 "           - http://d.hatena.ne.jp/thinca/20091208/1260265376
+"           - http://d.hatena.ne.jp/thinca/20091208/1260264053
 
 " preparation {{{1
 " check if this plugin is already loaded or not
@@ -50,8 +52,8 @@ let s:utf   = ['utf-8']
 " but "euc-jp" can be specified the 'encoding'
 function! s:CheckIconvCapability()
     " use U+3327 "SQUARE TON" and U+3326 "SQUARE DORU"
-    let test_ms   = iconv("\u3327\u3326", 'ucs-2', 'eucjp-ms')
-    let test_jisx = iconv("\u3327\u3326", 'ucs-2', 'euc-jisx0213')
+    let test_ms   = iconv("\xe3\x8c\xa7\xe3\x8c\xa6", 'utf-8', 'eucjp-ms')
+    let test_jisx = iconv("\xe3\x8c\xa7\xe3\x8c\xa6", 'utf-8', 'euc-jisx0213')
     let correct = "\xad\xc5\xad\xcb"
     if test_ms ==# correct
         return [['eucjp-ms', 'euc-jp'], ['iso-2022-jp-3']]
