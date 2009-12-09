@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 13:41:06.
+" Last Change:  2009/12/10 02:49:27.
 
 " options {{{1
 " general {{{2
@@ -217,6 +217,8 @@ augroup showQuickFixWindow
     autocmd QuickFixCmdPost make    cwindow
     " internal grep
     autocmd QuickFixCmdPost vimgrep cwindow
+    " external grep
+    autocmd QuickFixCmdPost grep    cwindow
 augroup END
 
 " for [x]html {{{2
