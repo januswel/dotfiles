@@ -1,7 +1,7 @@
 " jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 02:00:01.
-" Version:      0.10
+" Last Change:  2009/12/09 23:47:48.
+" Version:      0.12
 " Remark:       determin 'fileencodings' depending on 'encoding'
 "               automatically, with Japanese encodings.
 "               work with the file that is one of following encodings.
@@ -13,6 +13,10 @@
 "                   - eucjp-ms
 "                   - iso-2022-jp
 "                   - iso-2022-jp-3
+" Acknowledgement:
+"   thinca
+"       He told me the implementation of the value "guess"
+"           - http://d.hatena.ne.jp/thinca/20091208/1260265376
 
 " preparation {{{1
 " check if this plugin is already loaded or not
@@ -72,11 +76,6 @@ function! s:GetOptimalFileEncodings()
     let idx = match(result, &encoding)
     if idx != -1
         call remove(result, idx)
-    endif
-
-    " enable guessing the encoding if it's available
-    if has('guess_encode')
-        call insert(result, 'guess')
     endif
 
     return join(result, ',')
