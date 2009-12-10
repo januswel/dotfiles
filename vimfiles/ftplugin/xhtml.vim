@@ -1,8 +1,8 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 11:30:03.
-" Version:      0.42
+" Last Change:  2009/12/10 11:37:21.
+" Version:      0.43
 
 " preparation {{{1
 if exists("b:did_ftplugin")
@@ -16,16 +16,16 @@ set cpoptions&vim
 
 
 " main {{{1
-" about tabs
-" always possibility that indent is deep
+" options {{{2
+" about tab spaces
 setlocal shiftwidth=2
 setlocal tabstop=2
 
-
+" compiler {{{2
 " for make
 compiler xhtml
 
-
+" functions {{{2
 " check, fix, form document and write it back
 setlocal autoread
 function! ModifyByHTMLTidy()
