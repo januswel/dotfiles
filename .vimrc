@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 11:39:29.
+" Last Change:  2009/12/10 12:30:25.
 
 " options {{{1
 " general {{{2
@@ -170,8 +170,9 @@ colorscheme Janus   " my color scheme
 
 " let {{{1
 " general {{{2
-" <Leader>
+" <Leader>, <LocalLeader>
 let mapleader = ','
+let maplocalleader = ';'
 
 " plugin: autodate.vim
 " date format to insert automatically
