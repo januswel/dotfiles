@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 02:49:27.
+" Last Change:  2009/12/10 11:30:17.
 
 " options {{{1
 " general {{{2
@@ -225,14 +225,10 @@ augroup END
 augroup xhtml
     autocmd! xhtml
 
-    " reindent by <C-b>
-    " kludge: setting 'indentkeys' at ftplugin don't work in gvim
-    autocmd FileType html,xhtml     setlocal indentkeys& indentkeys+=!
-
     " key mappings
     " ftplugin: html.vim
     " complete closing tab
-    autocmd FileType html,xhtml     inoremap <buffer><C-f> <Esc>:call InsertHTMLCloseTag()<CR>a<C-b>
+    autocmd FileType html,xhtml     inoremap <buffer><C-b> <Esc>:call InsertHTMLCloseTag()<CR>a<C-f>
     " modify by HTML Tidy
     autocmd FileType html,xhtml     nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 augroup END

@@ -1,7 +1,7 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 11:26:05.
+" Last Change:  2009/12/10 11:30:03.
 " Version:      0.42
 
 " preparation {{{1
@@ -16,11 +16,6 @@ set cpoptions&vim
 
 
 " main {{{1
-" reindent by <C-b>
-" this don't work in gvim (bug?)
-"setlocal indentkeys& indentkeys+=!
-
-
 " about tabs
 " always possibility that indent is deep
 setlocal shiftwidth=2
