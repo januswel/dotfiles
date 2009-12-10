@@ -1,8 +1,8 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 12:19:29.
-" Version:      0.51
+" Last Change:  2009/12/10 12:29:04.
+" Version:      0.52
 
 " preparation {{{1
 if exists("b:did_ftplugin")
@@ -14,6 +14,9 @@ let b:did_ftplugin = 1
 let b:save_cpoptions = &cpoptions
 set cpoptions&vim
 
+" undo commands
+let b:undo_ftplugin = 'setlocal shiftwidth< tabstop<'
+            \ . '| unlet! b:tidyopt b:tidyenc_default b:enctable b:bypassedtags'
 
 " main {{{1
 " mappings {{{2
