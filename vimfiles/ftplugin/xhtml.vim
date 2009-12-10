@@ -1,8 +1,8 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 11:55:23.
-" Version:      0.45
+" Last Change:  2009/12/10 12:06:47.
+" Version:      0.50
 
 " preparation {{{1
 if exists("b:did_ftplugin")
@@ -47,16 +47,138 @@ setlocal tabstop=2
 " for make
 compiler xhtml
 
+" variables {{{2
+let b:tidyopt = {
+            \ '--add-xml-decl':     'yes',
+            \ '--char-encoding':    'utf8',
+            \ '--clean':            'yes',
+            \ '--indent':           'auto',
+            \ '--join-classes':     'yes',
+            \ '--output-xhtml':     'yes',
+            \ '--quiet':            'yes',
+            \ '--show-warnings':    'no',
+            \ '--tab-size':         '2',
+            \ '--tidy-mark':        'no',
+            \ '--wrap':             '0',
+            \ }
+
+let b:tidyenc_default = 'ascii'
+
+let b:enctable = {
+            \ 'ascii':      'ascii',
+            \ 'latin0':     'latin9',
+            \ 'latin1':     'latin1',
+            \ 'utf8':       'utf-8',
+            \ 'iso2022':    'iso-2022-jp',
+            \ 'mac':        'macroman',
+            \ 'win1252':    'cp1252',
+            \ 'ibm858':     'cp858',
+            \ 'utf16le':    'utf-16le',
+            \ 'utf16be':    'utf-16',
+            \ 'utf16':      'utf-16',
+            \ 'big5':       'big5',
+            \ 'shiftjis':   'sjis',
+            \ }
+
 " functions {{{2
-" check, fix, form document and write it back
-setlocal autoread
-if !exists('*s:ModifyByHTMLTidy')
-    function s:ModifyByHTMLTidy()
-        update
-        !tidy  -config ~/.tidyrc -quiet -modify "%"
+" convert the encoding name of tidy to it of vim
+if !exists('*s:GetValidEncName')
+    function s:GetValidEncName(enc)
+        " "raw" is indifference about encoding
+        if a:enc ==# 'raw'
+            return &fileencoding
+        elseif has_key(b:enctable, a:enc)
+            return b:enctable[a:enc]
+        endif
+
+        " ?
+        throw 'Unknown encoding: ' . a:enc
     endfunction
 endif
 
+" filter by HTML Tidy
+if !exists('*s:ModifyByHTMLTidy')
+    function s:ModifyByHTMLTidy()
+        " save positions
+        let pos = s:SavePositions()
+
+        " save 'fileencoding'
+        let save_fileencoding = &fileencoding
+
+        try
+            if has_key(b:tidyopt, '--char-encoding')
+                let tidyenc = s:GetValidEncName(b:tidyopt['--char-encoding'])
+            else
+                let tidyenc = b:tidyenc_default
+            endif
+            let &fileencoding = tidyenc
+
+            " use tidy as filter
+            " this method has merit that can undo,
+            " compared with using write-back option.
+            silent execute '1,$!tidy ' . s:Dict2Str(b:tidyopt)
+
+            " restore positions
+            call s:RestorePositions(pos)
+        catch
+            echoerr v:exception
+        finally
+            " restore 'fileencoding'
+            let &fileencoding = save_fileencoding
+        endtry
+    endfunction
+endif
+
+" stuff
+" convert values of the dictionary to string with specified delimiter
+if !exists('*s:Dict2Str')
+    function s:Dict2Str(dict, ...)
+        if a:0 ==# 0
+            let d1 = ' '
+            let d2 = ' '
+        elseif a:0 ==# 1
+            let d1 = a:1
+            let d2 = a:1
+        elseif a:0 ==# 2
+            let d1 = a:1
+            let d2 = a:2
+        endif
+
+        let result = []
+        for [key, val] in items(a:dict)
+            call add(result, key . d1 . val)
+        endfor
+        return join(result, d2)
+    endfunction
+endif
+
+" save cursor and screen positions
+" pair up this function with s:RestorePositions
+if !exists('*s:SavePositions')
+    function s:SavePositions()
+        " cursor pos
+        let cursor = getpos('.')
+
+        " screen pos
+        normal! H
+        let screen = getpos('.')
+
+        return [screen, cursor]
+    endfunction
+endif
+
+" restore cursor and screen positions
+" pair up this function with s:SavePositions
+if !exists('*s:RestorePositions')
+    function s:RestorePositions(pos)
+        " screen
+        call setpos('.', a:pos[0])
+
+        " cursor
+        normal! zt
+        call setpos('.', a:pos[1])
+    endfunction
+endif
 
 " function to close tag
 if !exists('*s:InsertXhtmlCloseTag')
