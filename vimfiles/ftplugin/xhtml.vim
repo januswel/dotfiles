@@ -1,15 +1,21 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 17:54:11.
-" Version:      0.41
+" Last Change:  2009/12/10 11:26:05.
+" Version:      0.42
 
+" preparation {{{1
 if exists("b:did_ftplugin")
     finish
 endif
 let b:did_ftplugin = 1
 
+" reset the value of 'cpoptions' for portability
+let b:save_cpoptions = &cpoptions
+set cpoptions&vim
 
+
+" main {{{1
 " reindent by <C-b>
 " this don't work in gvim (bug?)
 "setlocal indentkeys& indentkeys+=!
@@ -90,5 +96,10 @@ function! InsertHTMLCloseTag()
 
 endfunction " InsertHTMLCloseTag()
 
+" post-processing {{{1
+" restore the value of 'cpoptions'
+let &cpoptions = b:save_cpoptions
+unlet b:save_cpoptions
 
-" vim: ts=4 sw=4 sts=0 et
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
