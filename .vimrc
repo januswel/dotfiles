@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 11:30:17.
+" Last Change:  2009/12/10 11:39:29.
 
 " options {{{1
 " general {{{2
@@ -219,18 +219,6 @@ augroup showQuickFixWindow
     autocmd QuickFixCmdPost vimgrep cwindow
     " external grep
     autocmd QuickFixCmdPost grep    cwindow
-augroup END
-
-" for [x]html {{{2
-augroup xhtml
-    autocmd! xhtml
-
-    " key mappings
-    " ftplugin: html.vim
-    " complete closing tab
-    autocmd FileType html,xhtml     inoremap <buffer><C-b> <Esc>:call InsertHTMLCloseTag()<CR>a<C-f>
-    " modify by HTML Tidy
-    autocmd FileType html,xhtml     nnoremap <buffer><silent><Leader>h :call ModifyByHTMLTidy()<CR>
 augroup END
 
 

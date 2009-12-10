@@ -1,8 +1,8 @@
 " Vim ftplugin file
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 11:37:21.
-" Version:      0.43
+" Last Change:  2009/12/10 11:49:24.
+" Version:      0.44
 
 " preparation {{{1
 if exists("b:did_ftplugin")
@@ -16,6 +16,28 @@ set cpoptions&vim
 
 
 " main {{{1
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+            \ && !(exists('no_ftxhtml_maps') && no_example_maps)
+
+    " hasmapto() and <unique> are required to avoid overlap
+    if !hasmapto('<Plug>InsertXhtmlCloseTag')
+        imap <unique><buffer><C-b>
+                    \ <Plug>InsertXhtmlCloseTag
+    endif
+    if !hasmapto('<Plug>ModifyByHTMLTidy')
+        nmap <unique><buffer><LocalLeader>m
+                    \ <Plug>ModifyByHTMLTidy
+    endif
+endif
+
+" complete closing tab
+inoremap <script><silent><buffer><Plug>InsertXhtmlCloseTag
+            \ <Esc>:call <SID>InsertXhtmlCloseTag()<CR>a<C-f>
+" modify by HTML Tidy
+nnoremap <script><silent><buffer><Plug>ModifyByHTMLTidy
+            \ :call <SID>ModifyByHTMLTidy()<CR>
+
 " options {{{2
 " about tab spaces
 setlocal shiftwidth=2
@@ -28,14 +50,14 @@ compiler xhtml
 " functions {{{2
 " check, fix, form document and write it back
 setlocal autoread
-function! ModifyByHTMLTidy()
+function! s:ModifyByHTMLTidy()
     update
     !tidy  -config ~/.tidyrc -quiet -modify "%"
 endfunction
 
 
 " function to close tag
-function! InsertHTMLCloseTag()
+function! s:InsertXhtmlCloseTag()
 " inserts the appropriate closing HTML tag; used for the \hc operation
 " defined above; requires ignorecase to be set, or to type HTML tags in
 " exactly the same case that I do; doesn't treat <P> as something that needs
