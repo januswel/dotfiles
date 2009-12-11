@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:56:05.
+" Last Change:  2009/12/11 15:01:07.
 
 " options {{{1
 " general {{{2
@@ -62,6 +62,7 @@ set nolist          " don't show space characters (tab, line break)
 " %v                        : virtual column
 " %l                        : line number
 " %L                        : lines count
+" %{strtrans(matchstr(getline("."),".",col(".")-1))} : chars under the cursor
 " 0x%04B                    : hexadecimal octets
 " %4P                       : percentage through file of displayed window
 let s:statusline = [
@@ -71,7 +72,8 @@ let s:statusline = [
             \ '%=',
             \ '[%{tabpagenr()}/%{tabpagenr("$")}]',
             \ '[%v:%l/%L]',
-            \ '[0x%04B]',
+            \ '[%2(%{strtrans(matchstr(getline("."),".",col(".")-1))}%)',
+            \ ' 0x%04B]',
             \ '[%4P]',
             \ ]
 let &statusline = join(s:statusline, '')
