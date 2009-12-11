@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:30:00.
+" Last Change:  2009/12/11 14:30:47.
 
 " options {{{1
 " general {{{2
@@ -311,6 +311,33 @@ inoremap <C-u> <Esc>gUiw`]a
 nnoremap gl gu
 " to camel case
 inoremap <C-c> <Esc>bgUllgue`]a
+
+" tuck it
+" single and double quote
+vnoremap <Leader>' <Esc>`>a'<Esc>`<i'<Esc>
+vnoremap <Leader>" <Esc>`>a"<Esc>`<i"<Esc>
+" parentheses, curly, square and angle brackets
+vnoremap <Leader>( <Esc>`>a)<Esc>`<i(<Esc>
+vnoremap <Leader>{ <Esc>`>a}<Esc>`<i{<Esc>
+vnoremap <Leader>[ <Esc>`>a]<Esc>`<i[<Esc>
+vnoremap <Leader>< <Esc>`>a><Esc>`<i<<Esc>
+" percent
+vnoremap <Leader>% <Esc>`>a%<Esc>`<i%<Esc>
+" bar
+" see :help map_bar
+vnoremap <Leader>| <Esc>`>a|<Esc>`<i|<Esc>
+" entity references, less and greater than sign
+vnoremap <Leader>a <Esc>`>a&gt;<Esc>`<i&lt;<Esc>`[
+" xhtml inline tags
+vnoremap <Leader>k <Esc>`>a<lt>/kbd><Esc>`<i<lt>kbd><Esc>`[
+vnoremap <Leader>c <Esc>`>a<lt>/code><Esc>`<i<lt>code><Esc>`[
+vnoremap <Leader>d <Esc>`>a<lt>/del><Esc>`<i<lt>del><Esc>`[
+vnoremap <Leader>i <Esc>`>a<lt>/ins><Esc>`<i<lt>ins><Esc>`[
+vnoremap <Leader>q <Esc>`>a<lt>/q><Esc>`<i<lt>q><Esc>`[
+" FULLWIDTH TILDE
+vnoremap <Leader>w <Esc>`>a <C-q>uff5e<Esc>`<i<C-q>uff5e <Esc>`[
+" LEFT CORNER BRACKET and RIGHT CORNER BRACKET
+vnoremap <Leader>b <Esc>`>a<C-q>u300d<Esc>`<i<C-q>u300c<Esc>`[
 
 " activate completion depending to the situation
 " plugin: SmartComplete.vim
