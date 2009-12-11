@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 15:01:07.
+" Last Change:  2009/12/11 15:06:08.
 
 " options {{{1
 " general {{{2
@@ -237,6 +237,8 @@ nnoremap <silent><Leader>p :execute ':ptag ' . expand('<cword>')<CR>
 nnoremap <silent><Leader><S-p> :setlocal paste!<CR>:setlocal paste?<CR>
 " show buffer list
 nnoremap <silent><Leader>b :buffers<CR>
+" yank all lines of the buffer
+nnoremap <silent><Leader>y :1,$:yank<CR>
 " toggle spell check
 if has('spell') && has('syntax')
     nnoremap <silent><Leader>s :setlocal spell!<CR>:setlocal spell?<CR>
