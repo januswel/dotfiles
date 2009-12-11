@@ -1,13 +1,15 @@
 " Vim ftplugin file
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/04 21:05:09.
-" Version:      0.12
+" Last Change:  2009/12/11 17:02:55.
+" Version:      0.13
 
 if exists("b:did_ftplugin")
     finish
 endif
 let b:did_ftplugin = 1
+
+let b:undo_ftplugin = 'setlocal fenc< ff< fo< cin< cino< com<'
 
 " AviSynth recognize only cp932
 setlocal fileencoding=cp932
