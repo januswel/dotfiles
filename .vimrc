@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:47:31.
+" Last Change:  2009/12/11 14:50:43.
 
 " options {{{1
 " general {{{2
@@ -354,8 +354,9 @@ endif
 " path operation {{{2
 " show current directory
 nnoremap <silent><Leader>d :pwd<CR>
-" change directory to one that has editing file
-nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
+" change directory to one that has the editing file
+nnoremap <silent><Leader><S-d> :lcd %:p:h<CR>:pwd<CR>
+
 " open explorer
 " plugin: OpenWin32Explorer.vim
 if has('win32')
