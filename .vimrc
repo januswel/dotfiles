@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 13:30:17.
+" Last Change:  2009/12/11 13:33:32.
 
 " options {{{1
 " general {{{2
@@ -261,6 +261,9 @@ nnoremap <silent><Leader>w :wincmd T<CR>
 nnoremap t :tabnew<Space>
 " open the buffer in a new tab page from the buffer list
 nnoremap <S-t> :tab sbuffer<Space>
+
+" open the tag under the cursor in a new tabpage
+nnoremap <silent><C-]> :tab wincmd ]<CR>
 
 " switch between tabpages
 nnoremap <C-h> gT
