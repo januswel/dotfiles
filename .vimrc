@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:30:47.
+" Last Change:  2009/12/11 14:47:31.
 
 " options {{{1
 " general {{{2
@@ -352,6 +352,8 @@ if has('insert_expand')
 endif
 
 " path operation {{{2
+" show current directory
+nnoremap <silent><Leader>d :pwd<CR>
 " change directory to one that has editing file
 nnoremap <silent><Leader>c :cd %:p:h<CR>:pwd<CR>
 " open explorer
