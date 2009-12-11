@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 12:05:21.
+" Last Change:  2009/12/11 12:35:34.
 
 " options {{{1
 " general {{{2
@@ -240,8 +240,14 @@ nnoremap <silent><Leader>b :buffers<CR>
 " move cursor as it looks
 nnoremap j gj
 nnoremap k gk
+nnoremap 0 g0
+nnoremap ^ g^
+nnoremap $ g$
 vnoremap j gj
 vnoremap k gk
+vnoremap 0 g0
+vnoremap ^ g^
+vnoremap $ g$
 
 " tabpage {{{2
 " :tabnew is hard to complete
