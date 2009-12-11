@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 13:48:03.
+" Last Change:  2009/12/11 14:23:38.
 
 " options {{{1
 " general {{{2
@@ -235,6 +235,10 @@ nnoremap <silent><Leader>p :execute ':ptag ' . expand('<cword>')<CR>
 nnoremap <silent><Leader><S-p> :setlocal paste!<CR>:setlocal paste?<CR>
 " show buffer list
 nnoremap <silent><Leader>b :buffers<CR>
+" toggle spell check
+if has('spell') && has('syntax')
+    nnoremap <silent><Leader>s :setlocal spell!<CR>:setlocal spell?<CR>
+endif
 
 " cursor {{{2
 " move cursor as it looks
@@ -310,10 +314,6 @@ if has('insert_expand')
         inoremap <expr> <C-@> SmartComplete()
     endif
 endif
-
-" utils {{{2
-" toggle spell check
-nnoremap <silent><Leader>s :set spell!<CR>
 
 " path operation {{{2
 " change directory to one that has editing file
