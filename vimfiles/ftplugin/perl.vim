@@ -1,8 +1,13 @@
 " Vim ftplugin file
 " Language:     Perl
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/04 21:05:00.
-" Version:      0.10
+" Last Change:  2009/12/11 19:05:15.
+" Version:      0.11
+
+if exists('b:did_ftplugin')
+    finish
+endif
+let b:did_ftplugin = 1
 
 " for make
 compiler perl
