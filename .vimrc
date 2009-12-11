@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:23:38.
+" Last Change:  2009/12/11 14:28:36.
 
 " options {{{1
 " general {{{2
@@ -302,7 +302,8 @@ nnoremap <silent><Leader>t :match Error /\t/<CR>
 
 " editing {{{2
 " line break
-nnoremap <silent><S-k> i<CR><Esc>
+nnoremap <S-k> i<CR><Esc>
+
 " activate completion depending to the situation
 " plugin: SmartComplete.vim
 if has('insert_expand')
