@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 11:53:36.
+" Last Change:  2009/12/11 11:56:09.
 
 " options {{{1
 " general {{{2
@@ -226,7 +226,7 @@ augroup END
 " mappings {{{1
 " general {{{2
 " make
-nnoremap <silent><Leader>m :update<CR>:make<CR>
+nnoremap <silent><Leader>m :update<CR>:make "%"<CR>
 " source
 nnoremap <silent><Leader>r :source ~/.vimrc<CR>
 
