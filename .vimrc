@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 13:33:32.
+" Last Change:  2009/12/11 13:41:57.
 
 " options {{{1
 " general {{{2
@@ -275,13 +275,14 @@ nnoremap <silent><C-p> :TabShift -1<CR>
 nnoremap <silent><C-n> :TabShift +1<CR>
 
 " searches {{{2
-" scroll matched word to middle of screen
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+" put matched word in the top of the screen
+" "zt" indicates to redraw screen with the cursor line as the top of the screen
+nnoremap n nzt
+nnoremap N Nzt
+nnoremap * *zt
+nnoremap # #zt
+nnoremap g* g*zt
+nnoremap g# g#zt
 
 " matches {{{2
 " clear match pattern
