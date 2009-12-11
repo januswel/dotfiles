@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 13:44:57.
+" Last Change:  2009/12/11 13:48:03.
 
 " options {{{1
 " general {{{2
@@ -284,6 +284,11 @@ nnoremap *  *zvzt
 nnoremap #  #zvzt
 nnoremap g* g*zvzt
 nnoremap g# g#zvzt
+
+" stop the highlighting matched texts
+nnoremap <silent><Leader>h :nohlsearch<CR>
+" clear search pattern
+nnoremap <silent><Leader><S-h> :let @/=''<CR>
 
 " matches {{{2
 " clear match pattern
