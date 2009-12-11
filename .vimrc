@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:54:50.
+" Last Change:  2009/12/11 14:56:05.
 
 " options {{{1
 " general {{{2
@@ -368,10 +368,15 @@ endif
 
 " abbreviation {{{1
 " fix typo
-abbreviate retrun return
-abbreviate cosnt  const
-abbreviate scirpt script
-abbreviate cludge kludge
+abbreviate retrun   return
+abbreviate cosnt    const
+abbreviate scirpt   script
+abbreviate cludge   kludge
+abbreviate hlep     help
+abbreviate parcent  percent
+abbreviate persent  percent
+abbreviate parsent  percent
+abbreviate tilda    tilde
 
 
 " script {{{1
