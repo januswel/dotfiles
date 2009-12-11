@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 12:44:51.
+" Last Change:  2009/12/11 13:30:17.
 
 " options {{{1
 " general {{{2
@@ -259,10 +259,14 @@ nnoremap <silent><Leader>w :wincmd T<CR>
 
 " :tabnew is hard to complete
 nnoremap t :tabnew<Space>
-" switch tabpage
+" open the buffer in a new tab page from the buffer list
+nnoremap <S-t> :tab sbuffer<Space>
+
+" switch between tabpages
 nnoremap <C-h> gT
 nnoremap <C-l> gt
-" move around tabpage
+
+" move a tabpage around
 " plugin: TabShift.vim
 nnoremap <silent><C-p> :TabShift -1<CR>
 nnoremap <silent><C-n> :TabShift +1<CR>
