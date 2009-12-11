@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 12:35:34.
+" Last Change:  2009/12/11 12:44:51.
 
 " options {{{1
 " general {{{2
@@ -249,7 +249,14 @@ vnoremap 0 g0
 vnoremap ^ g^
 vnoremap $ g$
 
-" tabpage {{{2
+" window & tabpage {{{2
+" move cursor among windows, to next one and to previous one
+nnoremap <silent><C-j> :wincmd w<CR>
+nnoremap <silent><C-k> :wincmd W<CR>
+
+" move the window to a new tab page
+nnoremap <silent><Leader>w :wincmd T<CR>
+
 " :tabnew is hard to complete
 nnoremap t :tabnew<Space>
 " switch tabpage
