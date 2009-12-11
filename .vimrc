@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 11:56:09.
+" Last Change:  2009/12/11 12:05:21.
 
 " options {{{1
 " general {{{2
@@ -229,6 +229,12 @@ augroup END
 nnoremap <silent><Leader>m :update<CR>:make "%"<CR>
 " source
 nnoremap <silent><Leader>r :source ~/.vimrc<CR>
+" jump to the tag under the cursor
+nnoremap <silent><Leader>p :execute ':ptag ' . expand('<cword>')<CR>
+" toggle 'paste'
+nnoremap <silent><Leader><S-p> :setlocal paste!<CR>:setlocal paste?<CR>
+" show buffer list
+nnoremap <silent><Leader>b :buffers<CR>
 
 " cursor {{{2
 " move cursor as it looks
