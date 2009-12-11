@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 14:28:36.
+" Last Change:  2009/12/11 14:30:00.
 
 " options {{{1
 " general {{{2
@@ -303,6 +303,14 @@ nnoremap <silent><Leader>t :match Error /\t/<CR>
 " editing {{{2
 " line break
 nnoremap <S-k> i<CR><Esc>
+
+" to upper case
+nnoremap g<S-l> gU
+inoremap <C-u> <Esc>gUiw`]a
+" to lower case
+nnoremap gl gu
+" to camel case
+inoremap <C-c> <Esc>bgUllgue`]a
 
 " activate completion depending to the situation
 " plugin: SmartComplete.vim
