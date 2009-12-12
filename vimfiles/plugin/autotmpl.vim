@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/12 18:09:10.
-" Version:      0.29
+" Last Change:  2009/12/12 18:23:47.
+" Version:      0.30
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -70,45 +70,42 @@ function! s:GetTemplateFiles()
     return split(files, '\n')
 endfunction
 
-" return none
-" read specified file to buffer
+" read the specified file to the buffer
 function! s:ReadTemplateFile(file)
     execute 'read ' . a:file
     1delete _
 endfunction
 
-" along with ext
-function! s:AutoLoadTemplateExt()
+function! s:LoadTemplateAlongWithExtension()
     " assertion
     if !(s:IsBufferEmpty() && s:IsBufferModifiable() && s:IsBufferNormal())
         return 1
     endif
 
     " get extension name of buffer
-    let l:ext = fnamemodify(bufname(''), ':e')
+    let extension = fnamemodify(bufname(''), ':e')
 
     " load template if ext has matched
-    for l:t in s:GetTemplateFiles()
-        if l:ext == fnamemodify(l:t, ':e')
-            call s:ReadTemplateFile(l:t)
+    for template in s:GetTemplateFiles()
+        if extension ==? fnamemodify(template, ':e')
+            call s:ReadTemplateFile(template)
         endif
     endfor
 endfunction
 
-" along with filetype
-function! s:AutoLoadTemplateFileType()
+function! s:LoadTemplateAlongWithFileType()
     " assertion
     if !(s:IsBufferEmpty() && s:IsBufferModifiable() && s:IsBufferNormal())
         return 1
     endif
 
     " get filetype of buffer
-    let l:ft = &l:filetype
+    let filetype = &filetype
 
     " load template if ext has matched
-    for l:t in s:GetTemplateFiles()
-        if l:ft == fnamemodify(l:t, ':t:r')
-            call s:ReadTemplateFile(l:t)
+    for template in s:GetTemplateFiles()
+        if filetype ==? fnamemodify(template, ':t:r')
+            call s:ReadTemplateFile(template)
         endif
     endfor
 
@@ -120,8 +117,8 @@ endfunction
 augroup autotmpl
     autocmd! autotmpl
 
-    autocmd BufNewFile *    call s:AutoLoadTemplateExt()
-    autocmd FileType *      call s:AutoLoadTemplateFileType()
+    autocmd BufNewFile *    call s:LoadTemplateAlongWithExtension()
+    autocmd FileType *      call s:LoadTemplateAlongWithFileType()
 augroup END
 
 " post-processing {{{1
