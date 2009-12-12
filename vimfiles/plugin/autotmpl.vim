@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/12 17:53:24.
-" Version:      0.27
+" Last Change:  2009/12/12 17:59:48.
+" Version:      0.28
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -36,6 +36,26 @@ function! s:IsBufferEmpty()
     return 0
 endfunction
 
+" return bool
+" 0    : the buffer is not modifiable
+" not 0: the buffer is modifiable
+function! s:IsBufferModifiable()
+    if &modifiable && !&readonly
+        return 1
+    endif
+    return 0
+endfunction
+
+" return bool
+" 0    : the buffer has special attributes
+" not 0: the buffer is normal
+function! s:IsBufferNormal()
+    if &buftype ==# ''
+        return 1
+    endif
+    return 0
+endfunction
+
 " return List
 function! s:GetTemplateFiles()
     let files = ''
@@ -59,7 +79,8 @@ endfunction
 
 " along with ext
 function! s:AutoLoadTemplateExt()
-    if !s:IsBufferEmpty()
+    " assertion
+    if !(s:IsBufferEmpty() && s:IsBufferModifiable() && s:IsBufferNormal())
         return 1
     endif
 
@@ -76,7 +97,8 @@ endfunction
 
 " along with filetype
 function! s:AutoLoadTemplateFileType()
-    if !s:IsBufferEmpty()
+    " assertion
+    if !(s:IsBufferEmpty() && s:IsBufferModifiable() && s:IsBufferNormal())
         return 1
     endif
 
