@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/12 17:35:21.
-" Version:      0.26
+" Last Change:  2009/12/12 17:53:24.
+" Version:      0.27
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -27,10 +27,10 @@ set cpoptions&vim
 " main {{{1
 " functions {{{2
 " return bool
-" 0    : buffer has something
-" not 0: buffer is empty
+" 0    : the buffer has something
+" not 0: the buffer is empty
 function! s:IsBufferEmpty()
-    if !(line('$') == 1 && getline(1) == '')
+    if line('$') ==# 1 && getline(1) ==# ''
         return 1
     endif
     return 0
@@ -59,7 +59,7 @@ endfunction
 
 " along with ext
 function! s:AutoLoadTemplateExt()
-    if s:IsBufferEmpty()
+    if !s:IsBufferEmpty()
         return 1
     endif
 
@@ -76,7 +76,7 @@ endfunction
 
 " along with filetype
 function! s:AutoLoadTemplateFileType()
-    if s:IsBufferEmpty()
+    if !s:IsBufferEmpty()
         return 1
     endif
 
