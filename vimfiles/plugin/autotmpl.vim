@@ -1,12 +1,26 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/12 18:23:47.
-" Version:      0.30
-" Remark:       load template along with ext automatically.
-"               the position of template files can be seted
-"               by g:autoloadtemplate_path. default is
-"                   UNIX / Linux: ~/.vim/template
-"                   Windows     : %HOME%\vimfiles\template
+" Last Change:  2009/12/12 18:25:25.
+" Version:      0.31
+" Remark:       This plugin provides the feature to load a template file along
+"               with the extension or the filetype of the buffer automatically.
+"               The path of template files can be setted with
+"               "g:autotmpl_tmpls" like following codes. Take care that the
+"               path includes wildcard like '*' or '**'.
+"
+"                   let g:autotmpl_tmpls = '~/templates/*'
+"                   let g:autotmpl_tmpls = '/home/mymaster/template/**'
+"                   let g:autotmpl_tmpls = '%HOMEDRIVE%%HOMEPATH%\template\*'
+"
+"               With the default settings, this plugin will search
+"               "template/**" in 'runtimepath'. This represents template files
+"               are all files that exists in each values of 'runtimepath' below
+"               "template" directory.
+"
+"               The name of the template file matter in order to be loaded as
+"               intended. You must name your template file like "filetype.ext".
+"               e.g. the typical template file for scripting language perl
+"               should be named "perl.pl".
 
 " preparation {{{1
 " check if this plugin is already loaded or not
