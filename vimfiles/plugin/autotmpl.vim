@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/12 17:59:48.
-" Version:      0.28
+" Last Change:  2009/12/12 18:09:10.
+" Version:      0.29
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -116,9 +116,10 @@ function! s:AutoLoadTemplateFileType()
     setlocal nomodified
 endfunction
 
-" autocmd
-augroup AutoLoadTemplate
-    autocmd! AutoLoadTemplate
+" autocmd {{{2
+augroup autotmpl
+    autocmd! autotmpl
+
     autocmd BufNewFile *    call s:AutoLoadTemplateExt()
     autocmd FileType *      call s:AutoLoadTemplateFileType()
 augroup END
