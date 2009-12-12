@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/12 16:29:14.
-" Version:      0.25
+" Last Change:  2009/12/12 17:35:21.
+" Version:      0.26
 " Remark:       load template along with ext automatically.
 "               the position of template files can be seted
 "               by g:autoloadtemplate_path. default is
@@ -25,14 +25,7 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" path to template files
-" default
-let s:templatepath = split(&runtimepath, ',')[0] . '/template/*'
-" load setting from global variable
-if exists('g:autoloadtemplate_path')
-    let s:templatepath = g:templateautoloader_path . '/*'
-endif
-
+" functions {{{2
 " return bool
 " 0    : buffer has something
 " not 0: buffer is empty
@@ -43,10 +36,18 @@ function! s:IsBufferEmpty()
     return 0
 endfunction
 
-" return list
-" get absolute path of template files
+" return List
 function! s:GetTemplateFiles()
-    return split(expand(s:templatepath), '\n')
+    let files = ''
+
+    if exists('g:autotmpl_tmpls') && g:autotmpl_tmpls !=# ''
+        let files = glob(g:autotmpl_tmpls)
+    else
+        " default
+        let files = globpath(&runtimepath, 'template/**')
+    endif
+
+    return split(files, '\n')
 endfunction
 
 " return none
