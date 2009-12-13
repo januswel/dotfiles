@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 14:42:39.
-" Version:      0.14
+" Last Change:  2009/12/13 14:47:35.
+" Version:      0.15
 " Remark:       cleanup buffer list. delete listed but unloaded buffer from
 "               buffer list.
 
@@ -36,14 +36,19 @@ nnoremap <silent><Plug>SweepBufList
 
 " functions {{{2
 function! s:SweepBufList()
-    let numof_buffer = bufnr('$')
-    let l:b = 1
-    while l:b <= numof_buffer
-        if buflisted(l:b) && !bufloaded(l:b)
-            execute 'bdelete ' . l:b
+    let lastbuf = bufnr('$')
+    let targets = []
+    let nr = 1
+    while nr <= lastbuf
+        if buflisted(nr) && !bufloaded(nr)
+            call add(targets, nr)
         endif
-        let l:b = l:b + 1
+        let nr += 1
     endwhile
+
+    if !empty(targets)
+        execute 'bdelete ' . join(targets)
+    endif
 endfunction
 
 " post-processings {{{1
