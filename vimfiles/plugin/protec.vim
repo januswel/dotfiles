@@ -1,33 +1,33 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 17:59:07.
-" Version:      0.10
+" Last Change:  2009/12/13 12:08:34.
+" Version:      0.11
 " Remark:       :set readonly, at opening specified path automatically.
 "               the setting is possible with global variables,
 "               e.g.:
 "
-"      g:autoprotectfile_readonly_paths = "$VIMTUNTIME/*,~/importants/*"
-"      g:autoprotectfile_nomodifiable_paths = "~/veryimportants/*"
+"      g:protec_readonly_paths = "$VIMTUNTIME/*,~/importants/*"
+"      g:protec_nomodifiable_paths = "~/veryimportants/*"
 
 if has('autocmd')
     " readonly
-    if exists('g:autoprotectfile_readonly_paths')
-                \ && len(g:autoprotectfile_readonly_paths)
-        augroup AutoProtectFileReadOnly
-            autocmd! AutoProtectFileReadOnly
+    if exists('g:protec_readonly_paths')
+                \ && len(g:protec_readonly_paths)
+        augroup ProtecReadOnly
+            autocmd! ProtecReadOnly
             execute 'autocmd BufReadPost '
-                        \ . g:autoprotectfile_readonly_paths
+                        \ . g:protec_readonly_paths
                         \ . ' setlocal readonly'
         augroup END
     endif
 
     " nomodifiable
-    if exists('g:autoprotectfile_nomodifiable_paths')
-                \ && len(g:autoprotectfile_nomodifiable_paths)
-        augroup AutoProtectFileNoModifiable
-            autocmd! AutoProtectFileNoModifiable
+    if exists('g:protec_nomodifiable_paths')
+                \ && len(g:protec_nomodifiable_paths)
+        augroup ProtecNoModifiable
+            autocmd! ProtecNoModifiable
             execute 'autocmd BufReadPost '
-                        \ . g:autoprotectfile_nomodifiable_paths
+                        \ . g:protec_nomodifiable_paths
                         \ . ' setlocal nomodifiable'
         augroup END
     endif
