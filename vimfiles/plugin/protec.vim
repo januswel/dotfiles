@@ -1,13 +1,20 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 12:32:15.
-" Version:      0.14
-" Remark:       :set readonly, at opening specified path automatically.
-"               the setting is possible with global variables,
-"               e.g.:
+" Last Change:  2009/12/13 12:44:32.
+" Version:      0.15
+" Remark:       This plugin provides to execute ":set readonly" or ":set
+"               nomodifiable" automatically, when opening files in specified
+"               paths.  Specifying paths is done by definitions of global
+"               variables "g:protec_readonly_paths" or
+"               "g:protec_nomodifiable_paths", like following codes:
 "
-"      g:protec_readonly_paths = "$VIMTUNTIME/*,~/importants/*"
-"      g:protec_nomodifiable_paths = "~/veryimportants/*"
+"                   let g:protec_readonly_paths = "~/importants/*"
+"                   let g:protec_nomodifiable_paths = '~/veryimportants/**'
+"                   let g:protec_readonly_paths = "$VIM/**,C:/Perl/lib/**"
+"                   let g:protec_nomodifiable_paths = [
+"                                               \ '$VIM/**',
+"                                               \ '/home/mymaster/opened/**',
+"                                               \ ]
 
 " preparation {{{1
 " check if this plugin is already loaded or not
