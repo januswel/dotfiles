@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 12:10:57.
-" Version:      0.12
+" Last Change:  2009/12/13 12:17:46.
+" Version:      0.13
 " Remark:       :set readonly, at opening specified path automatically.
 "               the setting is possible with global variables,
 "               e.g.:
@@ -26,27 +26,55 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" readonly
-if exists('g:protec_readonly_paths')
-            \ && len(g:protec_readonly_paths)
-    augroup ProtecReadOnly
-        autocmd! ProtecReadOnly
-        execute 'autocmd BufReadPost '
-                    \ . g:protec_readonly_paths
-                    \ . ' setlocal readonly'
-    augroup END
-endif
+" function {{{2
+" stuff
+function! s:Convert2String(srcname)
+    " check the existence
+    if !exists(a:srcname)
+        return ''
+    endif
 
-" nomodifiable
-if exists('g:protec_nomodifiable_paths')
-            \ && len(g:protec_nomodifiable_paths)
-    augroup ProtecNoModifiable
-        autocmd! ProtecNoModifiable
-        execute 'autocmd BufReadPost '
-                    \ . g:protec_nomodifiable_paths
-                    \ . ' setlocal nomodifiable'
-    augroup END
-endif
+    " expand the value
+    execute 'let src = ' . a:srcname
+    " check the type
+    let t = type(src)
+    if t ==# 1
+        " string
+        return src
+    elseif t ==# 3
+        " List
+        return join(src, ',')
+    endif
+
+    return ''
+endfunction
+
+function! s:SetProtectorates()
+    " readonly
+    let paths = s:Convert2String('g:protec_readonly_paths')
+    if paths !=# ''
+        augroup ProtecReadOnly
+            autocmd! ProtecReadOnly
+            execute 'autocmd BufReadPost '
+                        \ . paths
+                        \ . ' setlocal readonly'
+        augroup END
+    endif
+
+    " nomodifiable
+    let paths = s:Convert2String('g:protec_nomodifiable_paths')
+    if paths !=# ''
+        augroup ProtecNoModifiable
+            autocmd! ProtecNoModifiable
+            execute 'autocmd BufReadPost '
+                        \ . paths
+                        \ . ' setlocal nomodifiable'
+        augroup END
+    endif
+endfunction
+
+" execute codes {{{2
+call s:SetProtectorates()
 
 " post-processing {{{1
 " restore the value of 'cpoptions'
