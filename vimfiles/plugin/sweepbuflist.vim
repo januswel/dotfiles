@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 14:34:35.
-" Version:      0.12
+" Last Change:  2009/12/13 14:38:57.
+" Version:      0.13
 " Remark:       cleanup buffer list. delete listed but unloaded buffer from
 "               buffer list.
 
@@ -17,6 +17,12 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" commands {{{2
+if exists(':SweepBufList') != 2
+    command SweepBufList call <SID>SweepBufList()
+endif
+
+" functions {{{2
 function! s:SweepBufList()
     let numof_buffer = bufnr('$')
     let l:b = 1
@@ -27,8 +33,6 @@ function! s:SweepBufList()
         let l:b = l:b + 1
     endwhile
 endfunction
-
-command! SweepBufList call <SID>SweepBufList()
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
