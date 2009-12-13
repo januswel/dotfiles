@@ -1,9 +1,10 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 14:47:35.
-" Version:      0.15
-" Remark:       cleanup buffer list. delete listed but unloaded buffer from
-"               buffer list.
+" Last Change:  2009/12/13 14:56:01.
+" Version:      0.16
+" Remark:       This plugin provides the command ":SweepBufList", mappings
+"               "<Leader>sb" and "<Plug>SweepBufList" to sweep buffer list.
+"               Deleting buffers are listed but unloaded ones.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
