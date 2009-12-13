@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 12:17:46.
-" Version:      0.13
+" Last Change:  2009/12/13 12:32:15.
+" Version:      0.14
 " Remark:       :set readonly, at opening specified path automatically.
 "               the setting is possible with global variables,
 "               e.g.:
@@ -26,6 +26,12 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" variables {{{2
+let s:protec_optvars = {
+            \ 'readonly':       'g:protec_readonly_paths',
+            \ 'nomodifiable':   'g:protec_nomodifiable_paths',
+            \ }
+
 " function {{{2
 " stuff
 function! s:Convert2String(srcname)
@@ -50,27 +56,24 @@ function! s:Convert2String(srcname)
 endfunction
 
 function! s:SetProtectorates()
-    " readonly
-    let paths = s:Convert2String('g:protec_readonly_paths')
-    if paths !=# ''
-        augroup ProtecReadOnly
-            autocmd! ProtecReadOnly
-            execute 'autocmd BufReadPost '
-                        \ . paths
-                        \ . ' setlocal readonly'
-        augroup END
-    endif
+    augroup protec
+        autocmd! protec
+    augroup END
 
-    " nomodifiable
-    let paths = s:Convert2String('g:protec_nomodifiable_paths')
-    if paths !=# ''
-        augroup ProtecNoModifiable
-            autocmd! ProtecNoModifiable
-            execute 'autocmd BufReadPost '
-                        \ . paths
-                        \ . ' setlocal nomodifiable'
-        augroup END
-    endif
+    for [opt, var] in items(s:protec_optvars)
+        let paths = s:Convert2String(var)
+        if paths !=# ''
+            augroup protec
+                execute join([
+                            \ 'autocmd',
+                            \ 'BufReadPost',
+                            \ paths,
+                            \ 'setlocal',
+                            \ opt,
+                            \])
+            augroup END
+        endif
+    endfor
 endfunction
 
 " execute codes {{{2
