@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 14:38:57.
-" Version:      0.13
+" Last Change:  2009/12/13 14:42:39.
+" Version:      0.14
 " Remark:       cleanup buffer list. delete listed but unloaded buffer from
 "               buffer list.
 
@@ -21,6 +21,18 @@ set cpoptions&vim
 if exists(':SweepBufList') != 2
     command SweepBufList call <SID>SweepBufList()
 endif
+
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+    \ && !(exists('no_sweepbuflist_maps') && no_sweepbuflist_maps)
+    if !hasmapto('<Plug>SweepBuflist', 'n')
+        nmap <silent><unique><Leader>sb
+                    \ <Plug>SweepBufList|:buffers<CR>
+    endif
+endif
+
+nnoremap <silent><Plug>SweepBufList
+            \ :silent call <SID>SweepBufList()<CR>
 
 " functions {{{2
 function! s:SweepBufList()
