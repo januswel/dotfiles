@@ -1,11 +1,11 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/11 08:08:24.
-" Version:      0.10
+" Last Change:  2009/12/13 14:30:58.
+" Version:      0.11
 " Remark:       cleanup buffer list. delete listed but unloaded buffer from
 "               buffer list.
 
-function! s:BufferListCleanup()
+function! s:SweepBufList()
     let numof_buffer = bufnr('$')
     let l:b = 1
     while l:b <= numof_buffer
@@ -16,6 +16,6 @@ function! s:BufferListCleanup()
     endwhile
 endfunction
 
-command! BufferListCleanup call <SID>BufferListCleanup()
+command! SweepBufList call <SID>SweepBufList()
 
 " vim: ts=4 sw=4 sts=0 et
