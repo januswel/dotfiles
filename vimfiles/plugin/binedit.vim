@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 15:14:18.
-" Version:      0.11
+" Last Change:  2009/12/14 22:16:44.
+" Version:      0.12
 " Remark:       This plugin provides the feature to edit in the form of xxd
 "               when you open a file with setting the option 'binary'. In order
 "               to set the 'binary' with opening a file simultaneously, use the
@@ -57,7 +57,7 @@ function! s:Convert2XXD()
     silent %!xxd -g 1
 
     " for win32 environment
-    silent %substitute/$//g
+    silent %substitute/$//ge
 endfunction
 
 " convert into binary
