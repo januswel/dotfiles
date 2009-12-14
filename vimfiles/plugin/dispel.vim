@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 21:03:49.
-" Version:      0.37
+" Last Change:  2009/12/14 21:06:28.
+" Version:      0.38
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -28,12 +28,13 @@ set cpoptions&vim
 " 0: group name
 " 1: pattern strings
 " 2: mapped highlight group
+scriptencoding utf-8
 let s:patterns = [
-            \   ['TrailingWhiteSpace',      '\s\+$',    'Error'],
-            \   ['IdeographicSpaceUnicode', '\%u3000',  'Error'],
-            \   ['IdeographicSpaceCP932',   '\%u8140',  'Error'],
-            \   ['IdeographicSpaceEUCJP',   '\%ua1a1',  'Error'],
+            \   ['TrailingWhiteSpace',  '\s\+$',    'Error'],
+            \   ['IdeographicSpace',    '　',       'Error'],
             \ ]
+scriptencoding
+lockvar s:patterns
 
 " functions {{{2
 " just call function matchadd() and return its returned values
@@ -92,4 +93,4 @@ let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
 " }}}1
-" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
+" vim: fenc=utf-8 ts=4 sw=4 sts=0 et fdm=marker fdc=3
