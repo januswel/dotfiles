@@ -1,26 +1,28 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/02 23:05:29.
-" Version:      0.35
+" Last Change:  2009/12/14 20:48:51.
+" Version:      0.36
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
 
+" preparations {{{1
 " check if this plugin is already loaded or not
-if exists('loaded_showinvisiblecharacters')
+if exists('loaded_dispel')
     finish
 endif
-let loaded_showinvisiblecharacters = 1
+let loaded_dispel = 1
 
 " check vim has the required feature
 if !has('autocmd')
     finish
 endif
 
-" for line continuing
+" reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
+" main {{{1
 " pattern definitions
 " 0: group name
 " 1: pattern strings
@@ -53,9 +55,9 @@ endfunction
 
 " define :highlight
 function! s:DefineHighlightGroups(groups)
-    if version >= 508 || !exists('did_invisiblecharacters_syntax_inits')
+    if version >= 508 || !exists('did_dispel_syntax_inits')
         if version < 508
-            let did_invisiblecharacters_syntax_inits = 1
+            let did_dispel_syntax_inits = 1
             command -nargs=+ HiLink hi link <args>
         else
             command -nargs=+ HiLink hi def link <args>
@@ -70,8 +72,8 @@ function! s:DefineHighlightGroups(groups)
 endfunction
 
 " autocommands
-augroup showinvisible
-    autocmd! showinvisible
+augroup dispel
+    autocmd! dispel
 
     autocmd VIMEnter,WinEnter * call s:SetMatch()
     autocmd ColorScheme * call s:DefineHighlightGroups(s:patterns)
@@ -81,8 +83,10 @@ augroup END
 " highlight groups
 call s:DefineHighlightGroups(s:patterns)
 
+" post-processings {{{1
 " restore the value of 'cpoptions'
 let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
-" vim: ts=4 sw=4 sts=0 et
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
