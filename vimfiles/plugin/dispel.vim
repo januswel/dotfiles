@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 20:48:51.
-" Version:      0.36
+" Last Change:  2009/12/14 21:03:49.
+" Version:      0.37
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -23,6 +23,7 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" variables {{{2
 " pattern definitions
 " 0: group name
 " 1: pattern strings
@@ -34,6 +35,7 @@ let s:patterns = [
             \   ['IdeographicSpaceEUCJP',   '\%ua1a1',  'Error'],
             \ ]
 
+" functions {{{2
 " just call function matchadd() and return its returned values
 function! s:AddMatch(patterns)
     let l:matchidlist = []
@@ -71,7 +73,7 @@ function! s:DefineHighlightGroups(groups)
     endif
 endfunction
 
-" autocommands
+" autocommands {{{2
 augroup dispel
     autocmd! dispel
 
@@ -79,6 +81,7 @@ augroup dispel
     autocmd ColorScheme * call s:DefineHighlightGroups(s:patterns)
 augroup END
 
+" execute commands {{{2
 " register highlight group name previously, since matchadd() needs defined
 " highlight groups
 call s:DefineHighlightGroups(s:patterns)
