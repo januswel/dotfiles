@@ -1,10 +1,35 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 21:26:34.
-" Version:      0.40
+" Last Change:  2009/12/14 21:32:02.
+" Version:      0.41
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
-" Remark:       define matches for invisible characters
+" Remark: {{{1
+"   This plugin provides the feature to make transparent characters a visible
+"   block automatically.
+"
+"   The patterns are given by the global variable "g:dispel_patterns" that must
+"   be the List has some Dictionaries. If you want to show trailing spaces with
+"   WarningMsg highlighting, write following codes in .vimrc:
+"
+"       let g:dispel_patterns = [
+"                   \   {
+"                   \       'name':         'TrailingWhiteSpace',
+"                   \       'pattern':      '\s\+$',
+"                   \       'highlight':    'WarningMsg'
+"                   \   },
+"                   \ ]
+"
+"   The key "name" must be unique through all patterns. The key "pattern" can
+"   be written in form of regular expression. The key "highlight" must be the
+"   highlight group name that exists already.
+"
+"   If you want to show other characters, append Dictionaries that has keys
+"   "name", "pattern" and "highlight".
+"
+"   In the default settings - when "g:dispel_patterns" is undefined - this
+"   plugin show trailing spaces and U+3000 "IDEOGRAPHIC SPACE" with Error
+"   highlighting
 
 " preparations {{{1
 " check if this plugin is already loaded or not
