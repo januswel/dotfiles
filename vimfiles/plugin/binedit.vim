@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 13:48:19.
-" Version:      0.10
+" Last Change:  2009/12/14 15:14:18.
+" Version:      0.11
 " Remark:       This plugin provides the feature to edit in the form of xxd
 "               when you open a file with setting the option 'binary'. In order
 "               to set the 'binary' with opening a file simultaneously, use the
@@ -14,6 +14,12 @@ if exists('loaded_binedit')
     finish
 endif
 let loaded_binedit = 1
+
+" check the system has the required command
+let s:version = system('xxd --version')
+if v:shell_error != 0
+    finish
+endif
 
 " reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
