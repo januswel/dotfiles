@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 21:06:28.
-" Version:      0.38
+" Last Change:  2009/12/14 21:18:17.
+" Version:      0.39
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -25,13 +25,21 @@ set cpoptions&vim
 " main {{{1
 " variables {{{2
 " pattern definitions
-" 0: group name
-" 1: pattern strings
-" 2: mapped highlight group
+" name:      a unique name
+" pattern:   a pattern string
+" highlight: the highlight group to map to
 scriptencoding utf-8
 let s:patterns = [
-            \   ['TrailingWhiteSpace',  '\s\+$',    'Error'],
-            \   ['IdeographicSpace',    '　',       'Error'],
+            \   {
+            \       'name':         'TrailingWhiteSpace',
+            \       'pattern':      '\s\+$',
+            \       'highlight':    'Error'
+            \   },
+            \   {
+            \       'name':         'IdeographicSpace',
+            \       'pattern':      '　',
+            \       'highlight':    'Error'
+            \   },
             \ ]
 scriptencoding
 lockvar s:patterns
@@ -40,8 +48,8 @@ lockvar s:patterns
 " just call function matchadd() and return its returned values
 function! s:AddMatch(patterns)
     let l:matchidlist = []
-    for [group, pattern; rest] in a:patterns
-        call add(l:matchidlist, matchadd(group, pattern))
+    for item in a:patterns
+        call add(l:matchidlist, matchadd(item.name, item.pattern))
     endfor
     return l:matchidlist
 endfunction
@@ -66,8 +74,8 @@ function! s:DefineHighlightGroups(groups)
             command -nargs=+ HiLink hi def link <args>
         endif
 
-        for [group, dust, mapping] in a:groups
-            execute 'HiLink ' . group . ' ' . mapping
+        for item in a:groups
+            execute 'HiLink ' . item.name . ' ' . item.highlight
         endfor
 
         delcommand HiLink
