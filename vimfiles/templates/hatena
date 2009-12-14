@@ -1,4 +1,4 @@
-*[tag] title
+*[tag] '%:t:r'
 
 - ul
 ++ ol
