@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 21:18:17.
-" Version:      0.39
+" Last Change:  2009/12/14 21:26:34.
+" Version:      0.40
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark:       define matches for invisible characters
@@ -24,12 +24,12 @@ set cpoptions&vim
 
 " main {{{1
 " variables {{{2
-" pattern definitions
+" default patterns
 " name:      a unique name
 " pattern:   a pattern string
 " highlight: the highlight group to map to
 scriptencoding utf-8
-let s:patterns = [
+let s:patterns_default = [
             \   {
             \       'name':         'TrailingWhiteSpace',
             \       'pattern':      '\s\+$',
@@ -42,7 +42,7 @@ let s:patterns = [
             \   },
             \ ]
 scriptencoding
-lockvar s:patterns
+lockvar s:patterns_default
 
 " functions {{{2
 " just call function matchadd() and return its returned values
@@ -82,6 +82,14 @@ function! s:DefineHighlightGroups(groups)
     endif
 endfunction
 
+" global or script local
+function! s:GetPatterns()
+    if exists('g:dispel_patterns')
+        return g:dispel_patterns
+    endif
+    return s:patterns_default
+endfunction
+
 " autocommands {{{2
 augroup dispel
     autocmd! dispel
@@ -90,7 +98,9 @@ augroup dispel
     autocmd ColorScheme * call s:DefineHighlightGroups(s:patterns)
 augroup END
 
-" execute commands {{{2
+" execute codes {{{2
+let s:patterns = s:GetPatterns()
+
 " register highlight group name previously, since matchadd() needs defined
 " highlight groups
 call s:DefineHighlightGroups(s:patterns)
