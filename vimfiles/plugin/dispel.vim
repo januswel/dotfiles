@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 21:32:02.
-" Version:      0.41
+" Last Change:  2009/12/14 22:10:24.
+" Version:      0.42
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark: {{{1
@@ -30,6 +30,8 @@
 "   In the default settings - when "g:dispel_patterns" is undefined - this
 "   plugin show trailing spaces and U+3000 "IDEOGRAPHIC SPACE" with Error
 "   highlighting
+"
+"   fileencoding 判別用文字列
 
 " preparations {{{1
 " check if this plugin is already loaded or not
@@ -136,4 +138,4 @@ let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
 " }}}1
-" vim: fenc=utf-8 ts=4 sw=4 sts=0 et fdm=marker fdc=3
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
