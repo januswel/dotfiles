@@ -1,21 +1,16 @@
 " expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 14:49:06.
-" Version:      0.10
+" Last Change:  2009/12/14 16:42:55.
+" Version:      0.11
 " Remark:       This plugin provides the feature to expand variables or
 "               evaluate expressions in the current buffer.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
-if exists('loaded_example')
+if exists('loaded_expandvar')
     finish
 endif
-let loaded_example = 1
-
-" check vim has required features
-if !(has('win32') && exists('&guifont'))
-    finish
-endif
+let loaded_expandvar = 1
 
 " reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
