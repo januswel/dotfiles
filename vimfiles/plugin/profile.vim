@@ -1,7 +1,7 @@
 " profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/15 16:37:39.
-" Version:      0.10
+" Last Change:  2009/12/15 17:04:48.
+" Version:      0.11
 " Remark: {{{1
 "   This plugin provides the function and the command to profile expressions.
 "
@@ -60,6 +60,7 @@ endif
 " functions {{{2
 " main
 function! TimeExpression(expression)
+    let evaluated = eval(a:expression)
     let trials = s:GetNumofTrials()
     let i = 0
 
@@ -72,20 +73,32 @@ function! TimeExpression(expression)
 
     let elapsed = reltime(start)
     let all = str2float(reltimestr(elapsed))
-    return [a:expression, trials, all]
+    return [a:expression, evaluated, trials, all]
 endfunction
 
 " stuff
 " for display
 function! s:Profile(expression)
-    let [expression, trials, all] = TimeExpression(a:expression)
+    try
+        let [expression, evaluated, trials, all] = TimeExpression(a:expression)
+    catch
+        echoerr v:exception
+        return
+    endtry
+
     let template = [
                 \       'expression:       %s',
+                \       'evaluated:        %s',
                 \       'number of trials: %d',
                 \       'time for all:     %f msec',
                 \       'time for a trial: %f msec',
                 \  ]
-    echo printf(join(template, "\n"), a:expression, trials, all, all / trials)
+    echo printf(join(template, "\n"),
+                \ a:expression,
+                \ string(evaluated),
+                \ trials,
+                \ all,
+                \ all / trials)
 endfunction
 
 " global or script local
