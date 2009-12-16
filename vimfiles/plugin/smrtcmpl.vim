@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 17:04:38.
-" Version:      0.33
+" Last Change:  2009/12/16 17:10:36.
+" Version:      0.34
 " Remark:       function that return keys to activate complete depending to
 "               the situation.
 
@@ -41,18 +41,16 @@ inoremap <expr><silent><Plug>SmartCompletion
 
 " functions {{{2
 function! s:SmartCompletion()
-    " select next item if completion window is exist
-    if pumvisible()
+    if     pumvisible()
+        " select a next item when a pop-up menu exists already
         return "\<C-n>"
-    endif
-
-    if &omnifunc != ''
+    elseif !empty(&omnifunc)
         " omni completion
         return "\<C-x>\<C-o>"
-    elseif &filetype == 'vim'
-        " vim functions, special variables etc
+    elseif &filetype ==# 'vim'
+        " vim commands, functions and special variables etc
         return "\<C-x>\<C-v>"
-    elseif &filetype == 'perl'
+    elseif &filetype ==# 'perl'
         " perl has a lot of included files...
         return "\<C-n>"
     else
