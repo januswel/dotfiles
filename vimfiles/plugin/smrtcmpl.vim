@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 16:47:58.
-" Version:      0.31
+" Last Change:  2009/12/16 17:03:55.
+" Version:      0.32
 " Remark:       function that return keys to activate complete depending to
 "               the situation.
 
@@ -22,7 +22,25 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-function! SmartComplete()
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+            \ && !(exists('no_smrtcmpl_maps') && no_smrtcmpl_maps)
+
+    if !hasmapto('<Plug>SmartComplete', 'i')
+        if has('gui_running')
+            imap <unique><C-Space> <Plug>SmartComplete
+        else
+            " <C-@> = <Nul> = <C-Space>
+            imap <unique><C-@> <Plug>SmartComplete
+        endif
+    endif
+endif
+
+inoremap <expr><silent><Plug>SmartComplete
+            \ <SID>SmartComplete()
+
+" functions {{{2
+function! s:SmartComplete()
     " select next item if completion window is exist
     if pumvisible()
         return "\<C-n>"

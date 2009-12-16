@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 15:06:08.
+" Last Change:  2009/12/16 16:52:53.
 
 " options {{{1
 " general {{{2
@@ -342,18 +342,6 @@ vnoremap <Leader>q <Esc>`>a<lt>/q><Esc>`<i<lt>q><Esc>`[
 vnoremap <Leader>w <Esc>`>a <C-q>uff5e<Esc>`<i<C-q>uff5e <Esc>`[
 " LEFT CORNER BRACKET and RIGHT CORNER BRACKET
 vnoremap <Leader>b <Esc>`>a<C-q>u300d<Esc>`<i<C-q>u300c<Esc>`[
-
-" activate completion depending to the situation
-" plugin: SmartComplete.vim
-if has('insert_expand')
-    if has('gui_running')
-        inoremap <expr> <C-Space> SmartComplete()
-        inoremap <C-S-Space> <C-p>
-    else
-        " <C-@> = <Nul> = <C-Space>
-        inoremap <expr> <C-@> SmartComplete()
-    endif
-endif
 
 " path operation {{{2
 " show current directory
