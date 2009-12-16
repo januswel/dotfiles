@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 14:56:01.
-" Version:      0.16
+" Last Change:  2009/12/16 16:29:36.
+" Version:      0.17
 " Remark:       This plugin provides the command ":SweepBufList", mappings
 "               "<Leader>sb" and "<Plug>SweepBufList" to sweep buffer list.
 "               Deleting buffers are listed but unloaded ones.
@@ -26,7 +26,8 @@ endif
 " mappings {{{2
 if !(exists('no_plugin_maps') && no_plugin_maps)
     \ && !(exists('no_sweepbuflist_maps') && no_sweepbuflist_maps)
-    if !hasmapto('<Plug>SweepBuflist', 'n')
+
+    if !hasmapto('<Plug>SweepBufList', 'n')
         nmap <silent><unique><Leader>sb
                     \ <Plug>SweepBufList|:buffers<CR>
     endif
