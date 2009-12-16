@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 17:13:27.
-" Version:      0.35
+" Last Change:  2009/12/16 17:41:10.
+" Version:      0.36
 " Remark:       function that return keys to activate complete depending to
 "               the situation.
 
@@ -56,9 +56,6 @@ function! s:SmartCompletion()
     elseif !empty(&dictionary)
         " from the dictionary
         return "\<C-x>\<C-k>"
-    elseif &filetype ==# 'perl'
-        " perl has a lot of included files...
-        return "\<C-n>"
     else
         " keyword completion(only in current buffer and included files)
         return "\<C-x>\<C-i>"
