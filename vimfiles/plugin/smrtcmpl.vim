@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 17:41:10.
-" Version:      0.36
+" Last Change:  2009/12/16 17:43:40.
+" Version:      0.37
 " Remark:       function that return keys to activate complete depending to
 "               the situation.
 
@@ -57,8 +57,8 @@ function! s:SmartCompletion()
         " from the dictionary
         return "\<C-x>\<C-k>"
     else
-        " keyword completion(only in current buffer and included files)
-        return "\<C-x>\<C-i>"
+        " keyword in 'complete'
+        return "\<C-n>"
     endif
 endfunction
 
