@@ -1,31 +1,26 @@
 " Vim file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/03 19:39:41.
-" Version:      0.10
+" Last Change:  2009/12/17 16:46:05.
+" Version:      0.11
 " Remark:       Provides below functions. All functions affect to the
 "               character under the cursor.
 "
-"   * GetUtf8ByteSequence()
+"   * unicode#GetUtf8ByteSequence()
 "       get the list that has numbers of UTF-8 byte sequence
-"   * GetUtf8ByteSequenceStr()
+"   * unicode#GetUtf8ByteSequenceStr()
 "       get the string of UTF-8 byte sequence
-"   * GetUnicodeCodePoint()
+"   * unicode#GetUnicodeCodePoint()
 "       get the number of Unicode code point
-"   * GetUnicodePattern()
+"   * unicode#GetUnicodePattern()
 "       get the search pattern of the character
 "
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 
 " preparation {{{1
-" check if this plugin is already loaded or not
-if exists('loaded_unicode')
-    finish
-endif
-let loaded_unicode = 1
-
 " check vim has the required feature
 if !has('multi_byte')
+    echoerr 'Vim does not have the required feature +multi_byte.'
     finish
 endif
 
@@ -35,7 +30,7 @@ set cpoptions&vim
 
 " main {{{1
 " about UTF-8 byte sequence {{{2
-function! GetUtf8ByteSequence()
+function! unicode#GetUtf8ByteSequence()
     let char = matchstr(getline('.'), '.', col('.') - 1)
     if char == ''
         return [0]
@@ -54,8 +49,8 @@ function! GetUtf8ByteSequence()
 endfunction
 
 " for display
-function! GetUtf8ByteSequenceStr()
-    let utf8 = GetUtf8ByteSequence()
+function! unicode#GetUtf8ByteSequenceStr()
+    let utf8 = unicode#GetUtf8ByteSequence()
     let result = []
     for byte in utf8
         call add(result, printf('%02x', byte))
@@ -64,9 +59,9 @@ function! GetUtf8ByteSequenceStr()
 endfunction
 
 " about Unicode code point {{{2
-function! GetUnicodeCodePoint()
+function! unicode#GetUnicodeCodePoint()
     " inverse transform to Unicode code point
-    let utf8 = GetUtf8ByteSequence()
+    let utf8 = unicode#GetUtf8ByteSequence()
     let idx = len(utf8) - 1
     " the condition is determined by a number of byte sequence
     let conditions = s:conditions[idx]
@@ -85,8 +80,8 @@ function! GetUnicodeCodePoint()
     throw 'Found the malformed utf-8 byte sequence: ' . utf8
 endfunction
 
-function! GetUnicodePattern()
-    return printf('%%\u%04x', GetUnicodeCodePoint())
+function! unicode#GetUnicodePattern()
+    return printf('%%\u%04x', unicode#GetUnicodeCodePoint())
 endfunction
 
 " stuff
