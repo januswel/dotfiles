@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/17 11:52:39.
-" Version:      0.23
+" Last Change:  2009/12/17 12:01:07.
+" Version:      0.24
 " Remark:       This plugin give you the function like
 "               'tabm[ove][!] +N | -N' of Vimperator
 " History:      2008/06/12 initial written
@@ -29,15 +29,20 @@ set cpoptions&vim
 " main {{{1
 " functions {{{2
 function! s:TabShift(delta)
-    " delta must be signed number
-    if a:delta !~ '^[+-]\?\d\+$' | return 0 | endif
+    " assertion
+    " suppose the delta is an integer
+    if type(a:delta) !=# 0
+        echoerr 'An integer is required!!'
+        return
+    endif
 
     " calculate overwrap
-    let max = tabpagenr('$')
-    let pos = (tabpagenr() + a:delta - 1) % max
+    let numoftab = tabpagenr('$')
+    let pos = (tabpagenr() + a:delta - 1) % numoftab
+    " sign correction
+    let pos = pos >= 0 ? pos : pos + numoftab
 
-    " execute with sign correction
-    execute 'tabmove' ((pos >= 0) ? pos : pos + max)
+    execute 'tabmove' pos
 endfunction
 
 " commands {{{2
