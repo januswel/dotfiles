@@ -1,14 +1,22 @@
-" Vim plugin file
+" vim plugin file
+" Filename:     tabshift.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/17 12:01:07.
-" Version:      0.24
-" Remark:       This plugin give you the function like
-"               'tabm[ove][!] +N | -N' of Vimperator
-" History:      2008/06/12 initial written
-"               2008/06/15 correct and compress
-" Usage:
-"   :call TabShift(1)   " shift current tab to right
-"   :call TabShift(-2)  " shift current tab to left 2
+" Last Change:  2009/12/17 12:02:14.
+" Version:      0.25
+" Remark: {{{1
+"   This plugin provides the command to move the current tabpage around by
+"   specifying an integer, like ":tabm[ove][!] +N | -N" of Vimperator.
+"
+"   This command can be specified only a signed or unsigned integer. In order
+"   to move the tabpage to the left, hit the following command:
+"
+"       :TabShift -1
+"
+"   When an integer that make the tabpage the left of first one or the right of
+"   last one is specified this command, the tabpage will wrap. Thus the
+"   following command make the tabpage that is far-right the third tabpage:
+"
+"       :TabShift 3
 
 " preparations {{{1
 " check if this plugin is already loaded or not
