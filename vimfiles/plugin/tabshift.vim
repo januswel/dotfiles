@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/17 11:48:35.
-" Version:      0.22
+" Last Change:  2009/12/17 11:52:39.
+" Version:      0.23
 " Remark:       This plugin give you the function like
 "               'tabm[ove][!] +N | -N' of Vimperator
 " History:      2008/06/12 initial written
@@ -41,7 +41,9 @@ function! s:TabShift(delta)
 endfunction
 
 " commands {{{2
-command -nargs=1 TabShift call <SID>TabShift(<args>)
+if exists(':TabShift') != 2
+    command -nargs=1 TabShift call <SID>TabShift(<args>)
+endif
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
