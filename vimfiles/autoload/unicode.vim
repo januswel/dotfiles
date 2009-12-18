@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 15:43:31.
-" Version:      0.31
+" Last Change:  2009/12/18 15:50:59.
+" Version:      0.32
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -250,6 +250,7 @@ endfunction
 
 " constants
 " the List that has Funcrefs to calculate Unicode code point
+unlockvar s:funcs
 let s:funcs = [
             \   function('s:OneByteToUnicode'),
             \   function('s:TwoBytesToUnicode'),
@@ -259,6 +260,7 @@ let s:funcs = [
 lockvar s:funcs
 
 " conditions that be used to check if the byte sequence are valid or not
+unlockvar s:conditions
 let s:conditions = [
             \   [[[0, 0x7f]]],
             \   [[[0xc2, 0xdf], [0x80, 0xbf]]],
@@ -276,6 +278,7 @@ let s:conditions = [
             \ ]
 lockvar s:conditions
 
+unlockvar s:condition_firstbyte
 let s:condition_firstbyte = s:BuildFirstByteConditions(s:conditions)
 lockvar s:condition_firstbyte
 
