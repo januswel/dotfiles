@@ -1,41 +1,41 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 14:54:24.
-" Version:      0.17
+" Last Change:  2009/12/18 14:57:43.
+" Version:      0.18
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
 "   This autoload script provides following functions. All functions take the
 "   character under the cursor as the target.
 "
-"       * unicode#GetUtf8ByteSequence()
-"           get the list that has numbers of UTF-8 byte sequence
-"       * unicode#GetUtf8ByteSequenceStr()
-"           get the string of UTF-8 byte sequence
-"       * unicode#GetUnicodeCodePoint()
-"           get the number of Unicode code point
-"       * unicode#GetPattern({type})
-"           return the search pattern of the character. {type} can be one of
-"           following values:
+"   * unicode#GetUtf8ByteSequence()
+"       return the list that has numbers of UTF-8 byte sequence
+"   * unicode#GetUtf8ByteSequenceStr()
+"       return the string of UTF-8 byte sequence
+"   * unicode#GetUnicodeCodePoint()
+"       return the number of Unicode code point
+"   * unicode#GetPattern({type})
+"       return the search pattern of the character. See |/\%x| |/\%u| |/\%U|.
+"       {type} can be one of following values:
 "
-"           "x"         A string in form of "\%x.."
-"           "u" or "U"  A string in form of "\%u...." or "\%U........"
-"                       Appropreate one will be chosen.
+"       "x"         A string in form of "\%x.."
+"       "u" or "U"  A string in form of "\%u...." or "\%U........"
+"                 Appropreate one will be chosen.
 "
-"           Calling with no arguments is possible, then return a string in form
-"           of "\%x..".
-"       * unicode#GetLiteral({type})
-"           return the literal of the character. See :help expr-quote. {type}
-"           can be one of following values:
+"       Calling with no arguments is possible, then return a string in form of
+"       "\%x..".
+"   * unicode#GetLiteral({type})
+"       return the literal of the character. See |expr-quote|. {type} can be
+"       one of following values:
 "
-"           "x"         A string in form of "\x.."
-"           "X"         A string in form of "\X.."
-"           "u"         A string in form of "\u...."
-"           "U"         A string in form of "\U...."
+"       "x"         A string in form of "\x.."
+"       "X"         A string in form of "\X.."
+"       "u"         A string in form of "\u...."
+"       "U"         A string in form of "\U...."
 "
-"           Calling with no arguments is possible, then return a string in form
-"           of "\%x..".
+"       Calling with no arguments is possible, then return a string in form of
+"       "\%x..".
 
 " preparation {{{1
 " check vim has the required feature
