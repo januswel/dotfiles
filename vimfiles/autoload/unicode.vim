@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 14:45:46.
-" Version:      0.16
+" Last Change:  2009/12/18 14:54:24.
+" Version:      0.17
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -22,6 +22,17 @@
 "           "x"         A string in form of "\%x.."
 "           "u" or "U"  A string in form of "\%u...." or "\%U........"
 "                       Appropreate one will be chosen.
+"
+"           Calling with no arguments is possible, then return a string in form
+"           of "\%x..".
+"       * unicode#GetLiteral({type})
+"           return the literal of the character. See :help expr-quote. {type}
+"           can be one of following values:
+"
+"           "x"         A string in form of "\x.."
+"           "X"         A string in form of "\X.."
+"           "u"         A string in form of "\u...."
+"           "U"         A string in form of "\U...."
 "
 "           Calling with no arguments is possible, then return a string in form
 "           of "\%x..".
@@ -65,6 +76,38 @@ function! unicode#GetPattern(...)
             return printf('\%%U%08x', unicode)
         endif
     endif
+endfunction
+
+" return the literal in form of "\x..", "\X..", "\u...." or "\U...."
+" see :help expr-quote
+function! unicode#GetLiteral(...)
+    if empty(a:000)
+        return s:GetTwoHexadecimalLiteral(0)
+    elseif a:1 ==# 'x'
+        return s:GetTwoHexadecimalLiteral(0)
+    elseif a:1 ==# 'X'
+        return s:GetTwoHexadecimalLiteral(1)
+    elseif a:1 ==? 'u'
+        let unicode = unicode#GetUnicodeCodePoint()
+        if unicode <= 0xffff
+            return printf('\%s%04x', a:1, unicode)
+        else
+            echoerr printf(
+                \ "Can't convert to a literal in form \\u: U+%08x",
+                \ unicode)
+        endif
+    endif
+endfunction
+
+" stuff
+function! s:GetTwoHexadecimalLiteral(case)
+    let template = a:case ? '\X%02x' : '\x%02x'
+    let result = []
+    for byte in unicode#GetUtf8ByteSequence()
+        call add(result, printf(template, byte))
+    endfor
+
+    return join(result, '')
 endfunction
 
 " about UTF-8 byte sequence {{{2
