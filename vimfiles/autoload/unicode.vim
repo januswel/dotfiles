@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 09:51:29.
-" Version:      0.13
+" Last Change:  2009/12/18 09:53:40.
+" Version:      0.14
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -82,7 +82,7 @@ function! unicode#GetUnicodeCodePoint()
 endfunction
 
 function! unicode#GetUnicodePattern()
-    return printf('%%\u%04x', unicode#GetUnicodeCodePoint())
+    return printf('\%%u%04x', unicode#GetUnicodeCodePoint())
 endfunction
 
 " stuff
