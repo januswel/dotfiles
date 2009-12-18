@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 09:53:40.
-" Version:      0.14
+" Last Change:  2009/12/18 09:58:07.
+" Version:      0.15
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -30,6 +30,22 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" for display {{{2
+" like the normal command "g8"
+function! unicode#GetUtf8ByteSequenceStr()
+    let utf8 = unicode#GetUtf8ByteSequence()
+    let result = []
+    for byte in utf8
+        call add(result, printf('%02x', byte))
+    endfor
+    return join(result)
+endfunction
+
+" return the pattern in form of "\%u...."
+function! unicode#GetUnicodePattern()
+    return printf('\%%u%04x', unicode#GetUnicodeCodePoint())
+endfunction
+
 " about UTF-8 byte sequence {{{2
 function! unicode#GetUtf8ByteSequence()
     let char = matchstr(getline('.'), '.', col('.') - 1)
@@ -47,16 +63,6 @@ function! unicode#GetUtf8ByteSequence()
     endwhile
 
     return result
-endfunction
-
-" for display
-function! unicode#GetUtf8ByteSequenceStr()
-    let utf8 = unicode#GetUtf8ByteSequence()
-    let result = []
-    for byte in utf8
-        call add(result, printf('%02x', byte))
-    endfor
-    return join(result)
 endfunction
 
 " about Unicode code point {{{2
@@ -79,10 +85,6 @@ function! unicode#GetUnicodeCodePoint()
     endfor
 
     throw 'Found the malformed utf-8 byte sequence: ' . utf8
-endfunction
-
-function! unicode#GetUnicodePattern()
-    return printf('\%%u%04x', unicode#GetUnicodeCodePoint())
 endfunction
 
 " stuff
