@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 15:50:59.
-" Version:      0.32
+" Last Change:  2009/12/18 15:53:38.
+" Version:      0.33
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -49,7 +49,7 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" for display {{{2
+" utilities {{{2
 " like the normal command "g8"
 function! unicode#GetUtf8ByteSequenceStr(str)
     let utf8 = unicode#GetUtf8ByteSequence(a:str)
@@ -61,6 +61,7 @@ function! unicode#GetUtf8ByteSequenceStr(str)
 endfunction
 
 " return the pattern in form of "\%x..", "\%u...." and "\%U........"
+" see :help E678
 function! unicode#GetPattern(str, ...)
     if empty(a:000) || a:1 ==# 'x'
         " default and "\%x.."
@@ -87,6 +88,7 @@ endfunction
 
 " return the literal in form of "\x..", "\X..", "\u...." or "\U...."
 " see :help expr-quote
+" just delegate
 function! unicode#GetLiteral(str, ...)
     if empty(a:000)
         return s:GetTwoHexadecimalLiteral(a:str, 0)
@@ -133,6 +135,7 @@ function! s:GetFourHexadecimalLiteral(str, case)
 endfunction
 
 " about UTF-8 byte sequence {{{2
+" just convert by iconv()
 function! unicode#GetUtf8ByteSequence(str)
     if empty(a:str)
         return [0]
@@ -157,8 +160,8 @@ function! unicode#GetUnicodeCodePoint(str)
     let result = []
     while !empty(utf8)
         let bytelength = s:GetByteLength(utf8[0])
-        let sequense = remove(utf8, 0, bytelength - 1)
-        call add(result, s:Convert2CodePoint(sequense))
+        let sequence = remove(utf8, 0, bytelength - 1)
+        call add(result, s:Convert2CodePoint(sequence))
     endwhile
 
     return result
@@ -178,7 +181,7 @@ function! s:GetByteLength(byte)
     throw 'Unsupposed byte: ' . string(a:byte)
 endfunction
 
-" inverse transform from UTF-8 byte sequense to Unicode code point
+" inverse transform from UTF-8 byte sequence to Unicode code point
 function! s:Convert2CodePoint(utf8)
     " the condition is determined by a number of byte sequence
     let idx = len(a:utf8) - 1
