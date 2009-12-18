@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 09:58:07.
-" Version:      0.15
+" Last Change:  2009/12/18 14:45:46.
+" Version:      0.16
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -15,8 +15,16 @@
 "           get the string of UTF-8 byte sequence
 "       * unicode#GetUnicodeCodePoint()
 "           get the number of Unicode code point
-"       * unicode#GetUnicodePattern()
-"           get the search pattern of the character
+"       * unicode#GetPattern({type})
+"           return the search pattern of the character. {type} can be one of
+"           following values:
+"
+"           "x"         A string in form of "\%x.."
+"           "u" or "U"  A string in form of "\%u...." or "\%U........"
+"                       Appropreate one will be chosen.
+"
+"           Calling with no arguments is possible, then return a string in form
+"           of "\%x..".
 
 " preparation {{{1
 " check vim has the required feature
@@ -41,9 +49,22 @@ function! unicode#GetUtf8ByteSequenceStr()
     return join(result)
 endfunction
 
-" return the pattern in form of "\%u...."
-function! unicode#GetUnicodePattern()
-    return printf('\%%u%04x', unicode#GetUnicodeCodePoint())
+" return the pattern in form of "\%x..", "\%u...." and "\%U........"
+function! unicode#GetPattern(...)
+    if empty(a:000) || a:1 ==# 'x'
+        let result = []
+        for byte in unicode#GetUtf8ByteSequence()
+            call add(result, printf('\%%x%02x', byte))
+        endfor
+        return join(result, '')
+    elseif a:1 ==? 'u'
+        let unicode = unicode#GetUnicodeCodePoint()
+        if unicode <= 0xffff
+            return printf('\%%u%04x', unicode)
+        else
+            return printf('\%%U%08x', unicode)
+        endif
+    endif
 endfunction
 
 " about UTF-8 byte sequence {{{2
