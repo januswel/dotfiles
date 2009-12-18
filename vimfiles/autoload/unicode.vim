@@ -1,21 +1,22 @@
-" Vim file
+" vim autoload file
+" Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/17 16:46:05.
-" Version:      0.11
-" Remark:       Provides below functions. All functions affect to the
-"               character under the cursor.
-"
-"   * unicode#GetUtf8ByteSequence()
-"       get the list that has numbers of UTF-8 byte sequence
-"   * unicode#GetUtf8ByteSequenceStr()
-"       get the string of UTF-8 byte sequence
-"   * unicode#GetUnicodeCodePoint()
-"       get the number of Unicode code point
-"   * unicode#GetUnicodePattern()
-"       get the search pattern of the character
-"
+" Last Change:  2009/12/18 09:48:01.
+" Version:      0.12
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
+" Remark: {{{1
+"   This autoload script provides following functions. All functions take the
+"   character under the cursor as the target.
+"
+"       * unicode#GetUtf8ByteSequence()
+"           get the list that has numbers of UTF-8 byte sequence
+"       * unicode#GetUtf8ByteSequenceStr()
+"           get the string of UTF-8 byte sequence
+"       * unicode#GetUnicodeCodePoint()
+"           get the number of Unicode code point
+"       * unicode#GetUnicodePattern()
+"           get the search pattern of the character
 
 " preparation {{{1
 " check vim has the required feature
@@ -66,7 +67,7 @@ function! unicode#GetUnicodeCodePoint()
     " the condition is determined by a number of byte sequence
     let conditions = s:conditions[idx]
 
-    " check if the byte sequence are valid or not
+    " check if the byte sequence is valid or not
     for condition in conditions
         let i = 0
         for [lower, upper] in condition
@@ -116,7 +117,7 @@ function! s:RS(nr, bits)
 endfunction
 
 " constants
-" the list that has Funcrefs to calculate Unicode code point
+" the List that has Funcrefs to calculate Unicode code point
 let s:funcs = [
                 \ function('s:OneByteToUnicode'),
                 \ function('s:TwoBytesToUnicode'),
