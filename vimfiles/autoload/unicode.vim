@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 09:48:01.
-" Version:      0.12
+" Last Change:  2009/12/18 09:51:29.
+" Version:      0.13
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -124,6 +124,7 @@ let s:funcs = [
                 \ function('s:ThreeBytesToUnicode'),
                 \ function('s:FourBytesToUnicode'),
             \ ]
+lockvar s:funcs
 
 " conditions that be used to check if the byte sequence are valid or not
 let s:conditions = [
@@ -141,6 +142,7 @@ let s:conditions = [
                 \ [[0xf4, 0xf4], [0x80, 0x8f], [0x80, 0xbf], [0x80, 0xbf]],
             \ ],
         \ ]
+lockvar s:conditions
 
 " post-processing {{{1
 " restore the value of 'cpoptions'
