@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 15:30:23.
-" Version:      0.30
+" Last Change:  2009/12/18 15:43:31.
+" Version:      0.31
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -80,6 +80,8 @@ function! unicode#GetPattern(str, ...)
             endif
         endfor
         return join(result, '')
+    else
+        echoerr 'Unknown argument: ' . string(a:1)
     endif
 endfunction
 
@@ -96,6 +98,8 @@ function! unicode#GetLiteral(str, ...)
         return s:GetFourHexadecimalLiteral(a:str, 0)
     elseif a:1 ==# 'U'
         return s:GetFourHexadecimalLiteral(a:str, 1)
+    else
+        echoerr 'Unknown argument: ' . string(a:1)
     endif
 endfunction
 
