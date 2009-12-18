@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 15:53:38.
-" Version:      0.33
+" Last Change:  2009/12/18 15:58:19.
+" Version:      0.34
 " Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
 "               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
 " Remark: {{{1
@@ -60,6 +60,7 @@ function! unicode#GetUtf8ByteSequenceStr(str)
     return join(result)
 endfunction
 
+" patterns {{{3
 " return the pattern in form of "\%x..", "\%u...." and "\%U........"
 " see :help E678
 function! unicode#GetPattern(str, ...)
@@ -86,6 +87,7 @@ function! unicode#GetPattern(str, ...)
     endif
 endfunction
 
+" literals {{{3
 " return the literal in form of "\x..", "\X..", "\u...." or "\U...."
 " see :help expr-quote
 " just delegate
@@ -154,6 +156,7 @@ function! unicode#GetUtf8ByteSequence(str)
 endfunction
 
 " about Unicode code point {{{2
+" functions {{{3
 function! unicode#GetUnicodeCodePoint(str)
     let utf8 = unicode#GetUtf8ByteSequence(a:str)
 
@@ -202,7 +205,7 @@ function! s:Convert2CodePoint(utf8)
     throw 'Found the malformed utf-8 byte sequence: ' . string(a:utf8)
 endfunction
 
-" stuff
+" stuff functions {{{3
 function! s:OneByteToUnicode(utf8)
     " 0xxxxxxx -> 00000000-0xxxxxxx
     return a:utf8[0]
@@ -251,7 +254,7 @@ function! s:BuildFirstByteConditions(src)
     return result
 endfunction
 
-" constants
+" constants {{{3
 " the List that has Funcrefs to calculate Unicode code point
 unlockvar s:funcs
 let s:funcs = [
@@ -291,4 +294,4 @@ let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
 " }}}1
-" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=4
