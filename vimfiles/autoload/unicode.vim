@@ -1,10 +1,18 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/18 15:58:19.
-" Version:      0.34
-" Refer:        http://d.hatena.ne.jp/krogue/20080616/1213590577
-"               http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
+" Last Change:  2009/12/21 13:16:09.
+" Version:      0.35
+" Dependency:
+"   This plugin needs following files
+"
+"   * autoload/unicode/namelist.vim
+"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/unicode/namelist.vim
+"
+" Refer:
+"   * http://d.hatena.ne.jp/krogue/20080616/1213590577
+"   * http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
+"
 " Remark: {{{1
 "   This autoload script provides following functions. All functions must be
 "   specified the target string.
@@ -36,6 +44,14 @@
 "
 "       Calling with no arguments is possible, then return a string in form of
 "       "\%x..".
+"   * unicode#GetName({char})
+"       return the name of the specified character defined by The Unicode
+"       Consortium.
+"       Note: For HAN characters, this function return a empty string because
+"       they don't have unified name. But reading is defined by UNIHAN -
+"       UNICODE HAN DATABASE. See the below page if you are interested:
+"
+"           http://www.unicode.org/reports/tr38/
 
 " preparation {{{1
 " check vim has the required feature
@@ -287,6 +303,13 @@ lockvar s:conditions
 unlockvar s:condition_firstbyte
 let s:condition_firstbyte = s:BuildFirstByteConditions(s:conditions)
 lockvar s:condition_firstbyte
+
+" about Unicode character names {{{2
+function! unicode#GetName(char)
+    let codepoint = printf('%04X', unicode#GetUnicodeCodePoint(a:char)[0])
+    return get(g:unicode#namelist#dict, codepoint, '')
+endfunction
+
 
 " post-processing {{{1
 " restore the value of 'cpoptions'
