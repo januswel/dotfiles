@@ -1,7 +1,13 @@
 " expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 16:42:55.
-" Version:      0.11
+" Last Change:  2009/12/21 13:26:12.
+" Version:      0.12
+" Dependency:
+"   This plugin needs following files
+"
+"   * autoload/buf/replace.vim
+"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf/replace.vim
+"
 " Remark:       This plugin provides the feature to expand variables or
 "               evaluate expressions in the current buffer.
 
@@ -37,55 +43,12 @@ nnoremap <silent><Plug>EvalExpression
             \ :silent call <SID>EvalExpression()<CR>
 
 " functions {{{2
-" expanding a variable
-function! s:GetExpanded(varname)
-    execute 'let result = expand(' . a:varname . ')'
-    return result
-endfunction
-
 function! s:ExpandVariable()
-    return s:ReplaceCWORD(function('s:GetExpanded'))
-endfunction
-
-" evaluating an expression
-function! s:GetEvaluated(expression)
-    execute 'let result = eval("' . escape(a:expression, '"') . '")'
-    return result
+    return buf#replace#CWORD(function('expand'), '<e-target>')
 endfunction
 
 function! s:EvalExpression()
-    return s:ReplaceCWORD(function('s:GetEvaluated'))
-endfunction
-
-" common
-function! s:ReplaceCWORD(func)
-    " assertion
-    if matchstr(getline('.'), '.', col('.') - 1) ==# ' '
-        return
-    endif
-
-    let target = expand('<cWORD>')
-    try
-        let result = a:func(target)
-    catch
-        echoerr s:GetExceptionMessages()
-        return
-    endtry
-
-    " if the result is List or Dictionary, convert it to string
-    let t = type(result)
-    if t ==# 3 || t ==# 4
-        let r = string(result)
-    else
-        let r = result
-    endif
-
-    " cut the expression and paste the expanded result
-    normal! "_ciW=r
-endfunction
-
-function! s:GetExceptionMessages()
-    return substitute(v:exception, '^Vim.*:\(E\d\+\)', '\1', 'I')
+    return buf#replace#CWORD(function('eval'), '<target>')
 endfunction
 
 " post-processings {{{1
