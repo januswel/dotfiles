@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 22:29:12.
-" Version:      0.36
+" Last Change:  2009/12/22 22:32:04.
+" Version:      0.37
 " Dependency:
 "   This plugin needs following files
 "
@@ -53,7 +53,7 @@ function! s:LoadTemplateAlongWithExtension()
     endif
 
     " get extension name of buffer
-    let extension = fnamemodify(bufname(''), ':e')
+    let extension = expand('%:e')
     if empty(extension)
         return
     endif
@@ -124,8 +124,7 @@ endfunction
 " return List
 function! s:GetTemplateFiles()
     let files = ''
-
-    if exists('g:autotmpl_tmpls') && g:autotmpl_tmpls !=# ''
+    if exists('g:autotmpl_tmpls') && !empty(g:autotmpl_tmpls)
         let files = glob(g:autotmpl_tmpls)
     else
         " default
@@ -137,7 +136,7 @@ endfunction
 
 " read the specified file to the buffer
 function! s:ReadTemplateFile(file)
-    execute 'read ' . a:file
+    execute 'read' a:file
     1delete _
 endfunction
 
