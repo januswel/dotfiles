@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 23:40:49.
-" Version:      0.14
+" Last Change:  2009/12/22 23:41:44.
+" Version:      0.15
 " Acknowledgement:
 "   thinca
 "       He told me the implementation of the value "guess" and show me ropes to
@@ -81,6 +81,11 @@ function! s:GetOptimalFileEncodings()
     let idx = index(result, &encoding)
     if idx != -1
         call remove(result, idx)
+    endif
+
+    " enable guessing the encoding if it's available
+    if has('guess_encode')
+        call add(result, 'guess')
     endif
 
     return join(result, ',')
