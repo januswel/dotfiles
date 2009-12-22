@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 23:29:40.
-" Version:      0.13
+" Last Change:  2009/12/22 23:40:49.
+" Version:      0.14
 " Acknowledgement:
 "   thinca
 "       He told me the implementation of the value "guess" and show me ropes to
@@ -78,7 +78,7 @@ function! s:GetOptimalFileEncodings()
     let result = s:FileEncodingSet()
 
     " remove the one as same as &encoding
-    let idx = match(result, &encoding)
+    let idx = index(result, &encoding)
     if idx != -1
         call remove(result, idx)
     endif
