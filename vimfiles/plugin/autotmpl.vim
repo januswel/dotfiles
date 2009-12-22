@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 21:30:22.
-" Version:      0.34
+" Last Change:  2009/12/22 22:19:38.
+" Version:      0.35
 " Dependency:
 "   This plugin needs following files
 "
@@ -68,6 +68,27 @@ function! s:LoadTemplateAlongWithExtension()
 endfunction
 
 function! s:LoadTemplateAlongWithFileType()
+    " If the file associated with the current buffer does not exist, load a
+    " template file along with an extension. Because a FileType event will
+    " happen in advance of a BufNewFile event when a buffer is opened with
+    " filename - the cause is autocmd defined by ftdetect plugins. In this
+    " case, the event sequense is:
+    "
+    "   1. ftdetect's BufNewFile
+    "       A value of 'filetype' is setted and trigger FileType.
+    "   2. this plugin's FileType
+    "       s:LoadTemplateAlongWithFileType() is called and load any template.
+    "       In order to get the intended result (we need to load a template
+    "       along with an extension), it is required to call
+    "       s:LoadTemplateAlongWithExtension in this function.
+    "   3. this plugin's BufNewFile
+    "       s:LoadTemplateAlongWithExtension() is called and may load any
+    "       template. But when any template is already loaded, this event is
+    "       meaningless in effect.
+    if !fs#Exists(expand('%:p'))
+        call s:LoadTemplateAlongWithExtension()
+    endif
+
     " assertion
     if !s:IsTarget()
         return
