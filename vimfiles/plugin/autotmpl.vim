@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 21:19:15.
-" Version:      0.33
+" Last Change:  2009/12/22 21:30:22.
+" Version:      0.34
 " Dependency:
 "   This plugin needs following files
 "
@@ -54,6 +54,9 @@ function! s:LoadTemplateAlongWithExtension()
 
     " get extension name of buffer
     let extension = fnamemodify(bufname(''), ':e')
+    if empty(extension)
+        return
+    endif
 
     " load template if ext has matched
     for template in s:GetTemplateFiles()
@@ -72,6 +75,9 @@ function! s:LoadTemplateAlongWithFileType()
 
     " get filetype of buffer
     let filetype = &filetype
+    if empty(filetype)
+        return
+    endif
 
     " load template if ext has matched
     for template in s:GetTemplateFiles()
