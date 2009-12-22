@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 22:32:04.
-" Version:      0.37
+" Last Change:  2009/12/22 22:39:00.
+" Version:      0.38
 " Dependency:
 "   This plugin needs following files
 "
@@ -45,6 +45,9 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" variables {{{2
+let s:tmpls_default = 'template/**'
+
 " functions {{{2
 function! s:LoadTemplateAlongWithExtension()
     " assertion
@@ -128,7 +131,7 @@ function! s:GetTemplateFiles()
         let files = glob(g:autotmpl_tmpls)
     else
         " default
-        let files = globpath(&runtimepath, 'template/**')
+        let files = globpath(&runtimepath, s:tmpls_default)
     endif
 
     return split(files, '\n')
