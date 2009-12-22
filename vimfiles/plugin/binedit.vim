@@ -1,12 +1,13 @@
-" Vim plugin file
+" vim plugin file
+" Filename:     binedit.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 22:16:44.
-" Version:      0.12
-" Remark:       This plugin provides the feature to edit in the form of xxd
-"               when you open a file with setting the option 'binary'. In order
-"               to set the 'binary' with opening a file simultaneously, use the
-"               "++bin" modifier. See ":help using-xxd" about the source of
-"               this plugin.
+" Last Change:  2009/12/23 00:35:43.
+" Version:      0.13
+" Remark: {{{1
+"   This plugin provides the feature to edit in the form of xxd when you open a
+"   file with setting the option 'binary'. In order to set the 'binary' with
+"   opening a file simultaneously, use the "++bin" modifier. See ":help
+"   using-xxd" about the source of this plugin.
 
 " preparations {{{1
 " check if this plugin is already loaded or not

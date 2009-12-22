@@ -1,20 +1,24 @@
-" Vim plugin file
+" vim plugin file
+" Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/13 12:44:32.
-" Version:      0.15
-" Remark:       This plugin provides to execute ":set readonly" or ":set
-"               nomodifiable" automatically, when opening files in specified
-"               paths.  Specifying paths is done by definitions of global
-"               variables "g:protec_readonly_paths" or
-"               "g:protec_nomodifiable_paths", like following codes:
+" Last Change:  2009/12/23 00:38:52.
+" Version:      0.16
+" Remark: {{{1
+"   This plugin provides to execute ":set readonly" or ":set nomodifiable"
+"   automatically, when opening files in specified paths. Specifying paths is
+"   done by definitions of global variables "g:protec_readonly_paths" or
+"   "g:protec_nomodifiable_paths", like following codes:
 "
-"                   let g:protec_readonly_paths = "~/importants/*"
-"                   let g:protec_nomodifiable_paths = '~/veryimportants/**'
-"                   let g:protec_readonly_paths = "$VIM/**,C:/Perl/lib/**"
-"                   let g:protec_nomodifiable_paths = [
-"                                               \ '$VIM/**',
-"                                               \ '/home/mymaster/opened/**',
-"                                               \ ]
+"       let g:protec_readonly_paths = "~/importants/*"
+"       let g:protec_nomodifiable_paths = '~/veryimportants/**'
+"
+"   Or
+"
+"       let g:protec_readonly_paths = "$VIM/**,C:/Perl/lib/**"
+"       let g:protec_nomodifiable_paths = [
+"                                       \    '$VIM/**',
+"                                       \    '/home/mymaster/opened/**',
+"                                       \ ]
 
 " preparation {{{1
 " check if this plugin is already loaded or not

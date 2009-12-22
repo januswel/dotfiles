@@ -1,11 +1,12 @@
-" resetfenc.vim
+" vim plugin file
+" Filename:     resetfenc.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 02:21:55.
-" Version:      0.10
-" Remark:       if a file contains only ASCII characters,
-"               set 'fileencoding' to the value of 'encoding'.
-"               most encodings are compatible with ASCII characters or
-"               superset of it.
+" Last Change:  2009/12/23 00:39:37.
+" Version:      0.11
+" Remark: {{{1
+"   If a file contains only ASCII characters, set 'fileencoding' to the value
+"   of 'encoding'. Most encodings are compatible with ASCII characters or
+"   superset of it.
 
 " preparation {{{1
 " check if this plugin is already loaded or not

@@ -1,32 +1,33 @@
-" genctags.vim
+" vim plugin file
+" Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 16:31:01.
-" Version:      0.10
-" Remark:       This plugin provides the command ":GenerateCtags" and mappings
-"               "<Leader>gc" and "<Plug>GenerateCtags" to generate the file
-"               "tags" that includes tag information, by "ctags" program.
+" Last Change:  2009/12/23 00:07:56.
+" Version:      0.11
+" Remark: {{{1
+"   This plugin provides the command ":GenerateCtags" and mappings "<Leader>gc"
+"   and "<Plug>GenerateCtags" to generate the file "tags" that includes tag
+"   information, by "ctags" program.
 "
-"               The command ":GenerateCtags" can be specified the bang '!'.
-"               With the bang, this command search directories recursively.
-"               This command must be specified one or more arguments.  Without
-"               the bang, the first argument is the target directory. With the
-"               bang, the first one is the top of the target directory.  Ones
-"               from the second to the end are excluded directories.
+"   The command ":GenerateCtags" can be specified the bang '!'. With the bang,
+"   this command search directories recursively. This command must be specified
+"   one or more arguments. Without the bang, the first argument is the target
+"   directory. With the bang, the first one is the top of the target directory.
+"   Ones from the second to the end are excluded directories.
 "
-"               To generate the "tags" file of the current directory, execute
-"               following command:
+"   To generate the "tags" file of the current directory, execute following
+"   command:
 "
-"                   :GenerateCtags .
+"       :GenerateCtags .
 "
-"               To generate the file of your vim runtime but exclude GetLatest
-"               and spell files:
+"   To generate the file of your vim runtime but exclude GetLatest and spell
+"   files:
 "
-"                   :GenerateCtags! ~/.vim/ GetLatest spell
+"       :GenerateCtags! ~/.vim/ GetLatest spell
 "
-"               The internal mapping "<Plug>GenerateCtags" is mapped like
-"               following command:
+"   The internal mapping "<Plug>GenerateCtags" is mapped like following
+"   command:
 "
-"                   :GenerateCtags expand('%:p:h')
+"       :GenerateCtags expand('%:p:h')
 
 " preparations {{{1
 " check if this plugin is already loaded or not

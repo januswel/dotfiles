@@ -1,9 +1,11 @@
-" Vim plugin file
+" vim plugin file
+" Filename:     smrtcmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 17:43:40.
-" Version:      0.37
-" Remark:       function that return keys to activate complete depending to
-"               the situation.
+" Last Change:  2009/12/23 00:40:21.
+" Version:      0.38
+" Remark: {{{1
+"   The function that return keys to activate completion depending to the
+"   situation.
 
 " preparations {{{1
 " check if this plugin is already loaded or not

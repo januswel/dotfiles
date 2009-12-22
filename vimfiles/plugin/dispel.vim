@@ -1,7 +1,8 @@
-" Vim plugin file
+" vim plugin file
+" Filename:     dispel.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/14 22:10:24.
-" Version:      0.42
+" Last Change:  2009/12/23 00:36:21.
+" Version:      0.43
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 " Remark: {{{1

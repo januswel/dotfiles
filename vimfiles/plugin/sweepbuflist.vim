@@ -1,10 +1,12 @@
-" Vim plugin file
+" vim plugin file
+" Filename:     sweepbuflist.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 16:29:36.
-" Version:      0.17
-" Remark:       This plugin provides the command ":SweepBufList", mappings
-"               "<Leader>sb" and "<Plug>SweepBufList" to sweep buffer list.
-"               Deleting buffers are listed but unloaded ones.
+" Last Change:  2009/12/23 00:40:53.
+" Version:      0.18
+" Remark: {{{1
+"   This plugin provides the command ":SweepBufList", mappings "<Leader>sb" and
+"   "<Plug>SweepBufList" to sweep the buffer list. Deleting buffers are listed
+"   but unloaded ones.
 
 " preparations {{{1
 " check if this plugin is already loaded or not

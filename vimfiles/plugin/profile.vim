@@ -1,7 +1,8 @@
-" profile.vim
+" vim plugin name
+" Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/15 17:04:48.
-" Version:      0.11
+" Last Change:  2009/12/23 00:38:14.
+" Version:      0.12
 " Remark: {{{1
 "   This plugin provides the function and the command to profile expressions.
 "
