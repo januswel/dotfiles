@@ -1,7 +1,7 @@
 " Vim plugin file
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 21:06:37.
-" Version:      0.32
+" Last Change:  2009/12/22 21:19:15.
+" Version:      0.33
 " Dependency:
 "   This plugin needs following files
 "
@@ -59,6 +59,7 @@ function! s:LoadTemplateAlongWithExtension()
     for template in s:GetTemplateFiles()
         if extension ==? fnamemodify(template, ':e')
             call s:ReadTemplateFile(template)
+            return
         endif
     endfor
 endfunction
@@ -76,11 +77,13 @@ function! s:LoadTemplateAlongWithFileType()
     for template in s:GetTemplateFiles()
         if filetype ==? fnamemodify(template, ':t:r')
             call s:ReadTemplateFile(template)
+
+            " why 'modified' is set by calling this function only...?
+            setlocal nomodified
+
+            return
         endif
     endfor
-
-    " why 'modified' is set by calling this function only...?
-    setlocal nomodified
 endfunction
 
 " stuff
