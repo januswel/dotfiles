@@ -1,0 +1,170 @@
+" vim plugin file
+" Filename:     zoomfont.vim
+" Maintainer:   janus_wel <janus.wel.3@gmail.com>
+" Last Change:  2009/12/23 22:38:29.
+" Version:      0.10
+" Remark: {{{1
+"   This plugin provides the feature to zoom up and down by changing a font
+"   size. This works with only win32 environment.
+"
+"   Following mappings are provided:
+"
+"       <Leader>+               zoom in
+"       <Leader>-               zoom out
+"       <Leader>&               reset to default
+"
+"   Also internal mappings are:
+"
+"       <Plug>ZoomFontIn        zoom in
+"       <Plug>ZoomFontOut       zoom out
+"       <Plug>ZoomFontReset     reset to default
+"
+"   Additionally following commands are available:
+"
+"       :ZoomIn                 zoom in
+"       :ZoomOut                zoom out
+"       :ZoomReset              reset to default
+
+" preparations {{{1
+" check if this plugin is already loaded or not
+if exists('loaded_zoomfont')
+    finish
+endif
+let loaded_zoomfont = 1
+
+" check vim has required features
+if !(has('gui') && exists('&guifont') && has('win32'))
+    finish
+endif
+
+" reset the value of 'cpoptions' for portability
+let s:save_cpoptions = &cpoptions
+set cpoptions&vim
+
+" main {{{1
+" commands {{{2
+if exists(':ZoomIn') != 2
+    command -nargs=0 ZoomIn    call <SID>Zoom('+')
+endif
+if exists(':ZoomOut') != 2
+    command -nargs=0 ZoomOut   call <SID>Zoom('-')
+endif
+if exists(':ZoomReset') != 2
+    command -nargs=0 ZoomReset call <SID>Zoom('&')
+endif
+
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+            \ && !(exists('no_zoomfont_maps') && no_zoomfont_maps)
+
+    if !hasmapto('<Plug>ZoomFontIn', 'n')
+        nmap <unique><Leader>+ <Plug>ZoomFontIn
+    endif
+    if !hasmapto('<Plug>ZoomFontOut', 'n')
+        nmap <unique><Leader>- <Plug>ZoomFontOut
+    endif
+    if !hasmapto('<Plug>ZoomFontReset', 'n')
+        nmap <unique><Leader>& <Plug>ZoomFontReset
+    endif
+endif
+
+nnoremap <silent><Plug>ZoomFontIn    :call <SID>Zoom('+')<CR>
+nnoremap <silent><Plug>ZoomFontOut   :call <SID>Zoom('-')<CR>
+nnoremap <silent><Plug>ZoomFontReset :call <SID>Zoom('&')<CR>
+
+" varialbles {{{2
+let s:sizes = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
+lockvar s:sizes
+let s:size_default = 12
+lockvar s:size_default
+
+" functions {{{2
+" 'guifont' example: MS_Gothic:h12:cSHIFTJIS,MS_Mincho:h12:cSHIFTJIS
+function! s:Zoom(operator)
+    try
+        " get the value of 'guifont' and make ready
+        let fonts = split(&guifont, ',')
+
+        let newfonts = []
+        for font in fonts
+            let font = s:ChangeFontSize(a:operator, font)
+            call add(newfonts, font)
+        endfor
+
+        " set a new value to 'guifont'
+        let &guifont = join(newfonts, ',')
+    catch '^\(max\|min\)imum$'
+        echohl WarningMsg
+        echo 'The font size is already ' . v:exception
+        echohl None
+    endtry
+endfunction
+
+" stuff
+function! s:ChangeFontSize(operator, font)
+    " seek the setting of font size and modify it
+    " prepair
+    let settings = split(a:font, ':')
+
+    " list to save processed results
+    let newsettings = []
+    for setting in settings
+        " in win32, font size is given in the form of 'hxx'
+        if setting =~# '^h\d\+$'
+            " pick out font size and convert it into number
+            let current = str2nr(setting[1:], 10)
+            let new = s:GetNewSize(a:operator, current)
+            call add(newsettings, printf('h%d', new))
+            continue
+        endif
+
+        call add(newsettings, setting)
+    endfor
+    return join(newsettings, ':')
+endfunction
+
+function! s:GetNewSize(operator, current)
+    " determine new size
+    if a:operator ==# '+'
+        return s:IncreaseSize(a:current)
+    elseif a:operator ==# '-'
+        return s:DecreaseSize(a:current)
+    elseif a:operator ==# '&'
+        return s:size_default
+    endif
+    return a:current
+endfunction
+
+function! s:IncreaseSize(current)
+    " search bigger one
+    for size in s:sizes
+        if size > a:current
+            return size
+        endif
+    endfor
+    throw 'maximum'
+endfunction
+
+function! s:DecreaseSize(current)
+    " cache smaller one than current
+    if a:current == s:sizes[0]
+        throw 'minimum'
+    endif
+
+    let prev = s:sizes[0]
+    for size in s:sizes
+        if size >= a:current
+            return prev
+        endif
+        " cache
+        let prev = size
+    endfor
+endfunction
+
+" post-processings {{{1
+" restore the value of 'cpoptions'
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
+
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
