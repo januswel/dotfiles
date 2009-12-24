@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/24 21:08:30.
-" Version:      0.12
+" Last Change:  2009/12/24 21:23:26.
+" Version:      0.13
 " Remark: {{{1
 "   This plugin provides the feature to zoom up and down by changing a font
 "   size. This works with only win32 environment.
@@ -75,6 +75,7 @@ nnoremap <silent><Plug>ZoomFontReset :call <SID>Zoom('&')<CR>
 " varialbles {{{2
 " Other script local variables, s:lines_default and s:columns_default are
 " defined by the function s:GetDefaults().
+" Additionally s:size_default may be changed by s:GetDefaults()
 let s:sizes = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 lockvar s:sizes
 let s:size_default = 12
@@ -150,6 +151,7 @@ function! s:FormatFontSize(size)
     throw 'Unknown'
 endfunction
 
+" just delegate
 function! s:GetNewSize(operator, current)
     " determine new size
     if a:operator ==# '+'
@@ -190,11 +192,37 @@ endfunction
 
 " get default settings
 function! s:GetDefaults()
+    let size_user = s:GetFontSizeUser()
+    if !empty(size_user)
+        unlockvar s:size_default
+        let s:size_default = size_user
+        lockvar s:size_default
+    endif
+
     let s:columns_default = &columns
     lockvar s:columns_default
 
     let s:lines_default = &lines
     lockvar s:lines_default
+endfunction
+
+" get the first one of 'guifont'
+function! s:GetFontSizeUser()
+    " assertion
+    if empty(&guifont)
+        return ''
+    endif
+
+    let font = split(&guifont, ',')[0]
+    for setting in split(font, ':')
+        try
+            return s:GetFontSize(setting)
+        catch '^Unknown$'
+            continue
+        endtry
+    endfor
+
+    return ''
 endfunction
 
 " autocmds {{{2
