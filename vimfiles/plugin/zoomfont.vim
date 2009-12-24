@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/24 20:59:21.
-" Version:      0.11
+" Last Change:  2009/12/24 21:08:30.
+" Version:      0.12
 " Remark: {{{1
 "   This plugin provides the feature to zoom up and down by changing a font
 "   size. This works with only win32 environment.
@@ -73,6 +73,8 @@ nnoremap <silent><Plug>ZoomFontOut   :call <SID>Zoom('-')<CR>
 nnoremap <silent><Plug>ZoomFontReset :call <SID>Zoom('&')<CR>
 
 " varialbles {{{2
+" Other script local variables, s:lines_default and s:columns_default are
+" defined by the function s:GetDefaults().
 let s:sizes = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 lockvar s:sizes
 let s:size_default = 12
@@ -93,6 +95,11 @@ function! s:Zoom(operator)
 
         " set a new value to 'guifont'
         let &guifont = join(newfonts, ',')
+        " this is additional but make you happy
+        if a:operator ==# '&'
+            let &lines = s:lines_default
+            let &columns = s:columns_default
+        endif
     catch '^\(max\|min\)imum$'
         echohl WarningMsg
         echo 'The font size is already ' . v:exception
@@ -180,6 +187,23 @@ function! s:DecreaseSize(current)
         let prev = size
     endfor
 endfunction
+
+" get default settings
+function! s:GetDefaults()
+    let s:columns_default = &columns
+    lockvar s:columns_default
+
+    let s:lines_default = &lines
+    lockvar s:lines_default
+endfunction
+
+" autocmds {{{2
+augroup zoomfont
+    autocmd! zoomfont
+
+    " In order to get values that are setted by .gvimrc
+    autocmd VimEnter * call s:GetDefaults()
+augroup END
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
