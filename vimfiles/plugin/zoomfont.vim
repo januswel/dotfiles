@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/23 22:38:29.
-" Version:      0.10
+" Last Change:  2009/12/24 20:59:21.
+" Version:      0.11
 " Remark: {{{1
 "   This plugin provides the feature to zoom up and down by changing a font
 "   size. This works with only win32 environment.
@@ -106,21 +106,41 @@ function! s:ChangeFontSize(operator, font)
     " prepair
     let settings = split(a:font, ':')
 
-    " list to save processed results
+    " a List to save processed results
     let newsettings = []
     for setting in settings
-        " in win32, font size is given in the form of 'hxx'
-        if setting =~# '^h\d\+$'
-            " pick out font size and convert it into number
-            let current = str2nr(setting[1:], 10)
-            let new = s:GetNewSize(a:operator, current)
-            call add(newsettings, printf('h%d', new))
+        try
+            let current = s:GetFontSize(setting)
+        catch '\v^Unknown$'
+            call add(newsettings, setting)
             continue
-        endif
+        endtry
 
-        call add(newsettings, setting)
+        let new = s:GetNewSize(a:operator, current)
+        call add(newsettings, s:FormatFontSize(new))
     endfor
     return join(newsettings, ':')
+endfunction
+
+" in win32, font size is given in the form of 'hxx'
+" pick out font size and convert it into number
+function! s:GetFontSize(setting)
+    if a:setting =~# '\v^h\d+$'
+        return str2nr(a:setting[1:], 10)
+    elseif a:setting =~# '\v^h\d+\.\d+$'
+        return str2float(a:setting[1:])
+    endif
+    throw 'Unknown'
+endfunction
+
+" formatting by printf() according to a type of size
+function! s:FormatFontSize(size)
+    if type(a:size) == 0
+        return printf('h%d', a:size)
+    elseif type(a:size) == 5
+        return printf('h%f', a:size)
+    endif
+    throw 'Unknown'
 endfunction
 
 function! s:GetNewSize(operator, current)
