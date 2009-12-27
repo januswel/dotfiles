@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     xterm256.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/27 17:18:49.
-" Version:      0.20
+" Last Change:  2009/12/27 17:22:03.
+" Version:      0.21
 " Dependency:
 "   This plugin needs following files
 "
@@ -116,15 +116,16 @@ function! color#xterm256#Nr2RGB(nr)
     return color#rgb#List2Str(s:Nr2RGB(a:nr))
 endfunction
 
-" search the one has shortest distance
 function! color#xterm256#RGB2Nr(...)
     " normalize to a List
     let rgb = call('color#rgb#Normalize2List', a:000)
 
+    " search the one has shortest distance
     return s:SearchShortestDistance(rgb)
 endfunction
 
 " stuff functions {{{2
+" for color#xterm256#Nr2RGB() {{{3
 function! s:Nr2RGB(nr)
     " assertions
     if type(a:nr) != 0 || a:nr < s:nr_first || s:nr_last < a:nr
@@ -173,6 +174,7 @@ function! s:ColorCube2RGB(nr)
                 \ ]
 endfunction
 
+" for color#xterm256#RGB2Nr() {{{3
 function! s:SearchShortestDistance(rgb)
     let [b16_nr, b16_d] = s:SearchBase16Colors(a:rgb)
     if b16_d == 0
@@ -250,4 +252,4 @@ let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
 " }}}1
-" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=4
