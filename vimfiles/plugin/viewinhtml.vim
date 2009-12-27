@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/28 02:37:01.
-" Version:      0.10
+" Last Change:  2009/12/28 03:13:20.
+" Version:      0.11
 " Dependency:
 "   This plugin needs following files
 "
@@ -13,18 +13,21 @@
 "   This plugin provides the command and mappings to show contents of the
 "   current buffer in your favorite http user agent (web browser).
 "
-"   :{range}ViewInHtml                                  *:ViewInHtml*
+"                                                       *:ViewInHtml*
+"   :{range}ViewInHtml
 "                       Show contents of the current buffer in your favorite
 "                       http user agent (web browser). {range} is line number
 "                       to show. When {range} is not specified, target is all
 "                       of contents.
 "
-"   <Leader>vh                                          *<Leader>vh*
-"                       Is mapped to |<Plug>ViewInHtml|.
-"
-"   <Plug>ViewInHtml                                    *<Plug>ViewInHtml*
+"                                                       *<Plug>ViewInHtml*
+"   <Plug>ViewInHtml
 "                       An internal mapping in normal mode. Same as
 "                       |:ViewInHtml| but target is the all of contents.
+"
+"   <Leader>vh
+"                       When there is no mappings with |<Plug>ViewInHtml|, this
+"                       will be mapped to <Plug>ViewInHtml, .
 
 " preparations {{{1
 " check if this plugin is already loaded or not

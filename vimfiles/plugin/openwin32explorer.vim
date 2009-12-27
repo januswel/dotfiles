@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/28 03:06:11.
-" Version:      0.42
+" Last Change:  2009/12/28 03:13:25.
+" Version:      0.43
 " Dependency:
 "   This plugin needs following files
 "
@@ -20,15 +20,16 @@
 "   :OpenWin32Explorer {dir}
 "                       Open {dir} with explorer.exe.
 "
-"                                                       *<Leader>oe*
-"   <Leader>oe
-"                       Is mapped to |<Plug>OpenWin32Explorer|, when there is
-"                       no mappings with <Plug>OpenWin32Explorer.
-"
 "                                               *<Plug>OpenWin32Explorer*
 "   <Plug>OpenWin32Explorer
-"                       Open the file in the current buffer with explorer.exe
-"                       and then point the file.
+"                       An internal mapping to open the file in the current
+"                       buffer with explorer.exe and then point the file in
+"                       normal mode.
+"
+"   <Leader>oe
+"                       When there is no mappings with
+"                       |<Plug>OpenWin32Explorer|, this will be mapped to
+"                       <Plug>OpenWin32Explorer.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
