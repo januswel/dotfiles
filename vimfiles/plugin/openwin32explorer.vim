@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/28 02:49:49.
-" Version:      0.40
+" Last Change:  2009/12/28 02:51:30.
+" Version:      0.41
 " Dependency:
 "   This plugin needs following files
 "
@@ -33,6 +33,17 @@ if exists(':OpenWin32Explorer') != 2
     command -nargs=? -complete=dir OpenWin32Explorer
                 \ call s:OpenWin32Explorer('<args>')
 endif
+
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+    \ && !(exists('no_win32util_maps') && no_example_maps)
+
+    if !hasmapto('<Plug>OpenWin32Explorer')
+        nmap <unique><Leader>oe <Plug>OpenWin32Explorer
+    endif
+endif
+nnoremap <silent><Plug>OpenWin32Explorer
+    \ :call <SID>OpenWin32Explorer()<CR>
 
 " functions {{{2
 function! s:OpenWin32Explorer(...)
