@@ -1,15 +1,34 @@
 " vim plugin file
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/28 02:51:30.
-" Version:      0.41
+" Last Change:  2009/12/28 03:06:11.
+" Version:      0.42
 " Dependency:
 "   This plugin needs following files
 "
 "   * autoload/shell.vim
 "       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/shell.vim
 "
-" Remark:       contribute command to open explorer.exe of win32.
+" Remark: {{{1
+"   This plugin provides the command and mappings to open a directory with
+"   explorer.exe in win32 enviroment.
+"
+"                                                       *:OpenWin32Explorer*
+"   :OpenWin32Explorer
+"                       Open the current working directory.
+"
+"   :OpenWin32Explorer {dir}
+"                       Open {dir} with explorer.exe.
+"
+"                                                       *<Leader>oe*
+"   <Leader>oe
+"                       Is mapped to |<Plug>OpenWin32Explorer|, when there is
+"                       no mappings with <Plug>OpenWin32Explorer.
+"
+"                                               *<Plug>OpenWin32Explorer*
+"   <Plug>OpenWin32Explorer
+"                       Open the file in the current buffer with explorer.exe
+"                       and then point the file.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
