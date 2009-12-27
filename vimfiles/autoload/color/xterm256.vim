@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     xterm256.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/26 18:14:27.
-" Version:      0.11
+" Last Change:  2009/12/27 17:18:49.
+" Version:      0.20
 " Dependency:
 "   This plugin needs following files
 "
@@ -30,8 +30,6 @@ set cpoptions&vim
 
 " main {{{1
 " constants {{{2
-" another script local variable: s:xterm_256colors is defined by the following.
-
 " 256 colors
 " the first is 0 and the last is 255
 unlockvar s:nr_first
@@ -176,49 +174,75 @@ function! s:ColorCube2RGB(nr)
 endfunction
 
 function! s:SearchShortestDistance(rgb)
-    " at this point, longest distance must be setted to this variable.
-    " 3 is for cubic
-    let shortest = pow(s:color_upper - s:color_lower, 2) * 3 + 1
-    " an imitation of the index of s:xterm_256colors
-    let idx = 0
-    for basis in s:xterm_256colors
-        let distance = s:CalcCubicDistance(a:rgb, basis)
-        if distance < shortest
-            " cache the index (is xterm color number) has a shortest distance
-            let shortest = distance
-            let nr = idx
-        endif
-
-        let idx += 1
-    endfor
-
-    if exists('nr')
-        return nr
-    else
-        throw 'Not found due to an unknown issue: ' . a:rgb
+    let [b16_nr, b16_d] = s:SearchBase16Colors(a:rgb)
+    if b16_d == 0
+        return b16_nr
     endif
+
+    let [gs_nr, gs_d] = s:SearchGrayScaleColors(a:rgb)
+    if gs_d == 0
+        return gs_nr
+    endif
+
+    let [cc_nr, cc_d] = s:SearchColorCubeColors(a:rgb)
+
+    " youngest number is prior
+    if b16_d <= cc_d && b16_d <= gs_d
+        return b16_nr
+    elseif cc_d <= gs_d
+        return cc_nr
+    else
+        return gs_nr
+    endif
+
+    throw 'Unknown issue'
 endfunction
 
-" manually in-line expansion for cubic
-function! s:CalcCubicDistance(p, q)
-    return          pow(a:p[0] - a:q[0], 2)
-                \ + pow(a:p[1] - a:q[1], 2)
-                \ + pow(a:p[2] - a:q[2], 2)
+function! s:SearchBase16Colors(rgb)
+    " manually in-line expansion
+    let distances = map(copy(s:base16colors),
+                \       'abs(a:rgb[0] - v:val[0])'
+                \   . '+ abs(a:rgb[1] - v:val[1])'
+                \   . '+ abs(a:rgb[2] - v:val[2])')
+    let nr = index(distances, min(distances))
+    return [nr, distances[nr]]
 endfunction
 
-" build a List has RGB Lists
-function! s:BuildXterm256Colors()
-    let result = []
-    for nr in range(s:nr_first, s:nr_last)
-        call add(result, s:Nr2RGB(nr))
-    endfor
-    return result
+function! s:SearchGrayScaleColors(rgb)
+    " manually in-line expansion
+    let distances = map(copy(s:grayscale_tones),
+                \       'abs(a:rgb[0] - v:val)'
+                \   . '+ abs(a:rgb[1] - v:val)'
+                \   . '+ abs(a:rgb[2] - v:val)')
+    let nr = index(distances, min(distances))
+    return [nr + s:grayscale_offset, distances[nr]]
 endfunction
 
-" execute codes
-unlockvar s:xterm_256colors
-let s:xterm_256colors = s:BuildXterm256Colors()
-lockvar s:xterm_256colors
+function! s:SearchColorCubeColors(rgb)
+    " manually in-line expansion from function
+    let distances = map(copy(s:colorcube_levels),
+                \       'abs(a:rgb[0] - v:val)')
+    let r = index(distances, min(distances))
+    let distances = map(copy(s:colorcube_levels),
+                \       'abs(a:rgb[1] - v:val)')
+    let g = index(distances, min(distances))
+    let distances = map(copy(s:colorcube_levels),
+                \       'abs(a:rgb[2] - v:val)')
+    let b = index(distances, min(distances))
+
+    " see comments of s:ColorCube2RGB() for details of this expression
+    let nr =        s:coefficient_red   * r
+                \ + s:coefficient_green * g
+                \ + s:coefficient_blue  * b
+                \ + s:colorcube_offset
+
+    " manually in-line expansion
+    let distance =   abs(a:rgb[0] - s:colorcube_levels[r])
+                \  + abs(a:rgb[1] - s:colorcube_levels[g])
+                \  + abs(a:rgb[2] - s:colorcube_levels[b])
+
+    return [nr, distance]
+endfunction
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
