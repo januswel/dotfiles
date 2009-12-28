@@ -2,12 +2,13 @@
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2009 Dec 29.
-" Version:      0.40
+" Version:      0.41
+" License:      VIM LICENSE. See |license|
 " Dependency:
-"   This plugin needs following files
+"   This plugin requires following file[s].
 "
-"   * autoload/buf.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf.vim
+"   autoload/buf.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf.vim
 
 " preparation {{{1
 " check if this plugin is already loaded or not
