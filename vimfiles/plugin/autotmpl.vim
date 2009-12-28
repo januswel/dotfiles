@@ -2,7 +2,7 @@
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2009 Dec 29.
-" Version:      0.39
+" Version:      0.40
 " Dependency:
 "   This plugin needs following files
 "
@@ -26,11 +26,12 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" variables {{{2
+" constants {{{2
 let s:tmpls_default = 'template/**'
+lockvar s:tmpls_default
 
 " functions {{{2
-function! s:LoadTemplateAlongWithExtension()
+function s:LoadTemplateAlongWithExtension()
     " assertion
     if !s:IsTarget()
         return
@@ -51,7 +52,7 @@ function! s:LoadTemplateAlongWithExtension()
     endfor
 endfunction
 
-function! s:LoadTemplateAlongWithFileType()
+function s:LoadTemplateAlongWithFileType()
     " If the file associated with the current buffer does not exist, load a
     " template file along with an extension. Because a FileType event will
     " happen in advance of a BufNewFile event when a buffer is opened with
@@ -99,14 +100,14 @@ endfunction
 
 " stuff
 " is target buffer ?
-function! s:IsTarget()
+function s:IsTarget()
     if buf#IsEmpty() && buf#IsModifiable() && buf#IsNormalType()
         return 1
     endif
 endfunction
 
 " return List
-function! s:GetTemplateFiles()
+function s:GetTemplateFiles()
     let files = ''
     if exists('g:autotmpl_tmpls') && !empty(g:autotmpl_tmpls)
         let files = glob(g:autotmpl_tmpls)
@@ -119,7 +120,7 @@ function! s:GetTemplateFiles()
 endfunction
 
 " read the specified file to the buffer
-function! s:ReadTemplateFile(file)
+function s:ReadTemplateFile(file)
     execute 'read' a:file
     1delete _
 endfunction
