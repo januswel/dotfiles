@@ -1,0 +1,56 @@
+*autotmpl.txt*	Plugin for loading a template automatically
+                                                Last change: 2009 Dec 29.
+
+DESCRIPTION						*autotmpl-description*
+
+Plugin for loading a template file along with the extension or the filetype of
+a buffer automatically.
+
+DEPENDENCIES						*autotmpl-dependencies*
+
+This plugin require following autoload file[s].
+
+autoload/buf.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf.vim
+
+SETTINGS						*autotmpl-settings*
+
+Setting is done with a global variable and template files that have
+appropreate name.
+
+Variables:
+g:autotmpl_tmpls	The path of template files can be setted with
+			"g:autotmpl_tmpls" like following codes. Take care
+			that the path includes wildcard like '*' or '**': >
+
+	let g:autotmpl_tmpls = '~/templates/*'
+	let g:autotmpl_tmpls = '/home/mymaster/template/**'
+	let g:autotmpl_tmpls = '%HOMEDRIVE%%HOMEPATH%\template\*'
+
+DEFAULT
+
+With the default settings - g:autotmpl_tmpls is undefined, this plugin will
+search "template/**" in 'runtimepath'. This represents template files are
+all files that exists in each values of 'runtimepath' below "template"
+directory.
+
+TEMPLATE NAME
+
+The name of the template file matter in order to be loaded as intended. You
+must name your template file like "filetype.ext". E.g. the typical template
+file for scripting language perl should be named "perl.pl".
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2009 by janus_wel.
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:

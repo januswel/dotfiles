@@ -1,32 +1,13 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 22:39:00.
-" Version:      0.38
+" Last Change:  2009 Dec 29.
+" Version:      0.39
 " Dependency:
 "   This plugin needs following files
 "
 "   * autoload/buf.vim
 "       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf.vim
-"
-" Remark: {{{1
-"   This plugin provides the feature to load a template file along with the
-"   extension or the filetype of the buffer automatically. The path of template
-"   files can be setted with "g:autotmpl_tmpls" like following codes. Take care
-"   that the path includes wildcard like '*' or '**'.
-"
-"       let g:autotmpl_tmpls = '~/templates/*'
-"       let g:autotmpl_tmpls = '/home/mymaster/template/**'
-"       let g:autotmpl_tmpls = '%HOMEDRIVE%%HOMEPATH%\template\*'
-"
-"   With the default settings - g:autotmpl_tmpls is undefined, this plugin will
-"   search "template/**" in 'runtimepath'. This represents template files are
-"   all files that exists in each values of 'runtimepath' below "template"
-"   directory.
-"
-"   The name of the template file matter in order to be loaded as intended. You
-"   must name your template file like "filetype.ext". E.g. the typical template
-"   file for scripting language perl should be named "perl.pl".
 
 " preparation {{{1
 " check if this plugin is already loaded or not
