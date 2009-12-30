@@ -11,6 +11,7 @@
 "   autoload/example.vim
 "   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/example.vim
 
+" main {{{1
 " define functions
 function! Example()
     " some codes
@@ -24,4 +25,5 @@ augroup Example
     autocmd BufNew,BufReadPost *.vim :echo 'Example'
 augroup END
 
-" vim: ts=4 sw=4 sts=0 et
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
