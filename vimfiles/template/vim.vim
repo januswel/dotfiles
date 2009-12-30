@@ -33,18 +33,60 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" define functions
-function! Example()
-    " some codes
+" commands {{{2
+" use exists() to check the command is already defined or not
+" return value 2 tells that the command matched completely exists
+if exists(':Example') != 2
+    command -nargs=0 -range=% -bang Example call <SID>Example
+endif
+
+" mappings {{{2
+" check global variables that specify the plugin is allowed to define mappings
+if !(exists('no_plugin_maps') && no_plugin_maps)
+            \ && !(exists('no_example_maps') && no_example_maps)
+
+    " hasmapto() and <unique> are required to avoid overlap
+    if !hasmapto('<Plug>Example')
+        nmap <unique><Leader>example <Plug>Example
+    endif
+endif
+
+" <script> and <SID> are used by vim internally
+" consider to use :silent if you inhibit messages from vim
+nnoremap <silent><Plug>Example :call <SID>Example
+
+" functions {{{2
+function! s:Example(...)
+    if empty(a:000)
+        throw 'There is no argument.'
+    elseif a:0 > 1
+        throw 'Too many arguments: ' . string(a:000)
+    endif
+
+    echo a:1
 endfunction
 
-" autocmd
-augroup Example
-    autocmd! Example
+" autocmds {{{2
+augroup example
+    autocmd! example
 
     autocmd FileType vim :echo 'Example'
     autocmd BufNew,BufReadPost *.vim :echo 'Example'
 augroup END
+
+" stuffs {{{2
+" get the character under the cursor, byte / multibyte
+call getline('.')[col('.') - 1]
+call matchstr(getline('.'), '.', col('.') - 1)
+
+" change encoding
+if has('iconv')
+    call iconv('something', &encoding, 'utf-8')
+endif
+
+" converting exceptions that are thrown by Vim
+" see :help catch-errors
+call substitute(v:exception, '^Vim.*:\(E\d\+\)', '\1', 'I')
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
