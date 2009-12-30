@@ -4,7 +4,7 @@
 " Last Change:  2009 Dec 31.
 " Version:      0.41
 " License:      New BSD License
-"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Dependency:

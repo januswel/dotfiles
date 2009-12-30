@@ -1,8 +1,12 @@
-" Vim compiler file
+" vim compiler file
+" Filename:     xhtml.vim
 " Compiler:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 11:34:59.
-" Version:      0.12
+" Last Change:  2009 Dec 31.
+" Version:      0.13
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 if exists('current_compiler')
     finish

@@ -1,8 +1,12 @@
-" Vim ftplugin file
+" vim ftplugin file
+" Filename:     xhtml.vim
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/10 12:29:04.
-" Version:      0.52
+" Last Change:  2009 Dec 31.
+" Version:      0.53
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 " preparation {{{1
 if exists("b:did_ftplugin")

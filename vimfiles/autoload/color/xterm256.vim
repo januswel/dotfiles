@@ -1,8 +1,12 @@
 " vim autoload file
 " Filename:     xterm256.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/27 17:22:03.
-" Version:      0.21
+" Last Change:  2009 Dec 31.
+" Version:      0.22
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Dependency:
 "   This plugin needs following files
 "

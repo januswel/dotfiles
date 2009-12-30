@@ -2,8 +2,12 @@
 " Filename:     hatena.vim
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 30.
-" Version:      0.12
+" Last Change:  2009 Dec 31.
+" Version:      0.13
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Refer:        http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%af%e3%81%a6%e3%81%aa%e8%a8%98%e6%b3%95%e4%b8%80%e8%a6%a7
 
 " For version 5.x: Clear all syntax items

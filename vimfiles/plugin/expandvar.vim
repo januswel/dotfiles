@@ -1,8 +1,12 @@
 " vim plugin file
 " Filename:     expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/23 00:36:56.
-" Version:      0.13
+" Last Change:  2009 Dec 31.
+" Version:      0.14
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Dependency:
 "   This plugin needs following files
 "

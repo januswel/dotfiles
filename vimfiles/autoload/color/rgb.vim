@@ -1,8 +1,12 @@
 " vim autoload file
 " Filename:     rgb.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/26 00:42:01.
-" Version:      0.10
+" Last Change:  2009 Dec 31.
+" Version:      0.11
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Remark: {{{1
 "   utility functions to treat RGB color
 "

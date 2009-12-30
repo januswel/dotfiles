@@ -1,8 +1,12 @@
-" Vim ftdetect file
+" vim ftdetect file
+" Filename:     hatena.vim
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/06 19:15:26.
-" Version:      0.20
+" Last Change:  2009 Dec 31.
+" Version:      0.21
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 " from vimperator
 autocmd BufRead */vimperator-d.hatena.ne.jp*.tmp    setfiletype hatena

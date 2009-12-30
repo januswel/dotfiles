@@ -1,8 +1,12 @@
 " vim plugin file
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 23:41:44.
-" Version:      0.15
+" Last Change:  2009 Dec 31.
+" Version:      0.16
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Acknowledgement:
 "   thinca
 "       He told me the implementation of the value "guess" and show me ropes to

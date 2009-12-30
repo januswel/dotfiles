@@ -1,8 +1,12 @@
 " vim plugin file
 " Filename:     resetfenc.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/23 00:39:37.
-" Version:      0.11
+" Last Change:  2009 Dec 31.
+" Version:      0.12
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Remark: {{{1
 "   If a file contains only ASCII characters, set 'fileencoding' to the value
 "   of 'encoding'. Most encodings are compatible with ASCII characters or

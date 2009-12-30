@@ -1,8 +1,12 @@
 " vim plugin file
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/28 03:13:20.
-" Version:      0.11
+" Last Change:  2009 Dec 31.
+" Version:      0.12
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Dependency:
 "   This plugin needs following files
 "

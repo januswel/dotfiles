@@ -1,8 +1,12 @@
-" Vim ftplugin file
+" vim ftplugin file
+" Filename:     perl.vim
 " Language:     Perl
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 19:19:30.
-" Version:      0.12
+" Last Change:  2009 Dec 31.
+" Version:      0.13
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 if exists('b:did_ftplugin')
     finish

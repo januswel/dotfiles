@@ -1,8 +1,12 @@
 " vim plugin file
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/28 03:13:25.
-" Version:      0.43
+" Last Change:  2009 Dec 31.
+" Version:      0.44
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Dependency:
 "   This plugin needs following files
 "

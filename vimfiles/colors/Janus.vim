@@ -1,7 +1,11 @@
-" Vim color scheme file
+" vim colors file
+" Filename:     Janus.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/08 12:59:17.
-" Version:      0.35
+" Last Change:  2009 Dec 31.
+" Version:      0.36
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 " restore default colors
 hi clear

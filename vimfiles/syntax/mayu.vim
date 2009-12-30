@@ -2,8 +2,11 @@
 " Filename:     mayu.vim
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 30.
-" Version:      0.31
+" Last Change:  2009 Dec 31.
+" Version:      0.32
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 
 " For version 5.x: Clear all syntax items

@@ -1,8 +1,12 @@
 " vim plugin file
 " Filename:     tabshift.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/17 12:02:14.
-" Version:      0.25
+" Last Change:  2009 Dec 31.
+" Version:      0.26
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Remark: {{{1
 "   This plugin provides the command to move the current tabpage around by
 "   specifying an integer, like ":tabm[ove][!] +N | -N" of Vimperator.

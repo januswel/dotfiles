@@ -1,8 +1,12 @@
-" Vim ftplugin file
+" vim ftplugin file
+" Filename:     hatena.vim
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 17:05:56.
-" Version:      0.10
+" Last Change:  2009 Dec 31.
+" Version:      0.11
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 if exists('b:did_ftplugin')
     finish

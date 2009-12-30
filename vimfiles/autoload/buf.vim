@@ -1,8 +1,12 @@
 " vim autoload file
 " Filename:     buf.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/22 20:55:34.
-" Version:      0.10
+" Last Change:  2009 Dec 31.
+" Version:      0.11
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Remark:       utility functions for buffer
 
 " preparations {{{1

@@ -1,8 +1,12 @@
-" Vim ftplugin file
+" vim ftplugin file
+" Filename:     mayu.vim
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/11 17:13:36.
-" Version:      0.13
+" Last Change:  2009 Dec 31.
+" Version:      0.14
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 if exists("b:did_ftplugin")
     finish

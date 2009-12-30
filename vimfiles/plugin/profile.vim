@@ -1,8 +1,12 @@
 " vim plugin name
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/23 00:38:14.
-" Version:      0.12
+" Last Change:  2009 Dec 31.
+" Version:      0.13
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution is permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Remark: {{{1
 "   This plugin provides the function and the command to profile expressions.
 "
