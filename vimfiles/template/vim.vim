@@ -1,9 +1,15 @@
-" Vim (ftplugin|plugin|syntax) file
+" vim '%:p:h:t' file
+" Filename:     '%:t'
 " Language:     <Example>
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/25 23:19:01.
+" Last Change:  2009 Dec 30.
 " Version:      0.10
-" Remark:       <Example>
+" License:      VIM LICENSE.  See |license|.
+" Dependency:
+"   This plugin requires following files
+"
+"   autoload/example.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/example.vim
 
 " define functions
 function! Example()
