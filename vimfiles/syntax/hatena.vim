@@ -3,7 +3,7 @@
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2009 Dec 30.
-" Version:      0.11
+" Version:      0.12
 " Refer:        http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%af%e3%81%a6%e3%81%aa%e8%a8%98%e6%b3%95%e4%b8%80%e8%a6%a7
 
 " For version 5.x: Clear all syntax items
@@ -212,7 +212,7 @@ syn match   hatenaKeywordIdInner        /\[\@<=k:id:/ contains=hatenaIdPreDelimi
 syn match   hatenaIdDelimiter   /[:#]/ contained
 syn match   hatenaId            /id:/ contains=hatenaIdDelimiter nextgroup=hatenaIdName
 syn match   hatenaIdInner       /\[\@<=id:/ contains=hatenaIdDelimiter nextgroup=hatenaIdName containedin=hatenaBracket
-syn match   hatenaIdName        /[^:]\+/ contains=hatenaIdDelimiter contained nextgroup=hatenaIdDate,hatenaIdMonth,hatenaIdArchive,hatenaIdOthers
+syn match   hatenaIdName        /[^w]\+/ contains=hatenaIdDelimiter contained nextgroup=hatenaIdDate,hatenaIdMonth,hatenaIdArchive,hatenaIdOthers
 syn match   hatenaIdMonth       /:\d\{6}/ contains=hatenaIdDelimiter,hatenaIntegerInner contained
 syn match   hatenaIdDate        /:\d\{8}/ contains=hatenaIdDelimiter,hatenaIntegerInner contained nextgroup=hatenaIdTime
 syn match   hatenaIdTime        /[:#]\d\{10}/ contains=hatenaIdDelimiter,hatenaIntegerInner contained
