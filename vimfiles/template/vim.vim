@@ -2,9 +2,12 @@
 " Filename:     '%:t'
 " Language:     <Example>
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 30.
+" Last Change:  2009 Dec 31.
 " Version:      0.10
-" License:      VIM LICENSE.  See |license|.
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Dependency:
 "   This plugin requires following files
 "

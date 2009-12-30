@@ -1,9 +1,12 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 29.
+" Last Change:  2009 Dec 31.
 " Version:      0.41
-" License:      VIM LICENSE. See |license|
+" License:      New BSD License
+"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+"
 " Dependency:
 "   This plugin requires following file[s].
 "
