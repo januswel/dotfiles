@@ -1,9 +1,10 @@
-" Vim syntax file
+" vim syntax file
+" Filename:     hatena.vim
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/03/04 22:56:44.
-" Version:      0.10
-" Remark:       refer: http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%af%e3%81%a6%e3%81%aa%e8%a8%98%e6%b3%95%e4%b8%80%e8%a6%a7
+" Last Change:  2009 Dec 30.
+" Version:      0.11
+" Refer:        http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%af%e3%81%a6%e3%81%aa%e8%a8%98%e6%b3%95%e4%b8%80%e8%a6%a7
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded

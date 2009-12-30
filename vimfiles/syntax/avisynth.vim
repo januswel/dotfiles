@@ -1,8 +1,9 @@
-" Vim syntax file
+" vim syntax file
+" Filename:     avisynth.vim
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/02/25 21:16:00.
-" Version:      0.12
+" Last Change:  2009 Dec 30.
+" Version:      0.13
 
 
 " For version 5.x: Clear all syntax items

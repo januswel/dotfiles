@@ -1,8 +1,9 @@
-" Vim syntax file
+" vim syntax file
+" Filename:     mayu.vim
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/11/14 01:19:23.
-" Version:      0.30
+" Last Change:  2009 Dec 30.
+" Version:      0.31
 
 
 " For version 5.x: Clear all syntax items
