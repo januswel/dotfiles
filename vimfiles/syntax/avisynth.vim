@@ -3,7 +3,7 @@
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2009 Dec 30.
-" Version:      0.13
+" Version:      0.14
 
 
 " For version 5.x: Clear all syntax items
@@ -46,7 +46,7 @@ syntax keyword  avsFunctionString
             \ Time
 syntax keyword  avsFunctionBoolean
             \ IsBool IsClip IsFloat IsInt IsString Exist Defined
-syntax keyword  avsFunctionConvertion
+syntax keyword  avsFunctionConversion
             \ Value HexValue String
 syntax keyword  avsFunctionControll
             \ Apply Eval Import Select Default Assert NOP SetMemoryMax
@@ -151,7 +151,7 @@ syntax region   avsCommentEndDelimiter  start=/__END__/ skip=/./ end=/./ contain
 
 
 " all
-syntax cluster avsAll contains=avsLineContinuationFrom,avsLineContinuationTo,avsLineContinuation,avsBoolean,avsNumberDecimal,avsNumberHexadecimal,avsStringDoubleQuote,avsStringMultiLine,avsException,avsFunctionNumeric,avsFunctionString,avsFunctionBoolean,avsFunctionConvertion,avsFunctionControll,avsFunctionVersion,avsFunctionRuntime,avsPropertyClip,avsPlugin,avsFilterMediaFile,avsFilterColor,avsFilterOverlay,avsFilterGeometric,avsFilterPixel,avsFilterTimeline,avsFilterInterlace,avsFilterAudio,avsFilterConditional,avsFilterDebug,avsControl,avsVariableStatement,avsSpecialVariable,avsDefineFunction,avsDefineFunctionStart,avsDefineFunctionType,avsColorHexadecimal,avsColorHexadecimal,avsCommentTodo,avsCommentLine,avsCommentBlock,avsCommentNestedBlock,avsCommentEndDelimiter
+syntax cluster avsAll contains=ALL
 
 
 syntax case match
@@ -182,7 +182,7 @@ if version >= 508 || !exists("did_avs_syntax_inits")
   HiLink avsFunctionNumeric         Function
   HiLink avsFunctionString          Function
   HiLink avsFunctionBoolean         Function
-  HiLink avsFunctionConvertion      Function
+  HiLink avsFunctionConversion      Function
   HiLink avsFunctionControll        Function
   HiLink avsFunctionVersion         Function
   HiLink avsFunctionRuntime         Function
