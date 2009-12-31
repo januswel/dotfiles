@@ -270,6 +270,9 @@ nnoremap <silent><C-k> :wincmd W<CR>
 " move the window to a new tab page
 nnoremap <silent><Leader>w :wincmd T<CR>
 
+" open the result of looking up a keyword under the cursor in new tabpage
+nnoremap <silent><S-k> K:wincmd T<CR>
+
 " :tabnew is hard to complete
 nnoremap t :tabnew<Space>
 " open the buffer in a new tab page from the buffer list
@@ -310,8 +313,8 @@ nnoremap <silent><Leader><S-t> :match<CR>
 nnoremap <silent><Leader>t :match Error /\t/<CR>
 
 " editing {{{2
-" line break
-nnoremap <S-k> i<CR><Esc>
+" line break, mnemonic: "S"plit
+nnoremap <S-s> i<CR><Esc>
 
 " to upper case
 nnoremap g<S-l> gU
