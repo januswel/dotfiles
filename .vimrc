@@ -98,8 +98,9 @@ set smartcase   " but use match case when capital character is contained
 set wrapscan    " search wrap around the end of the file
 
 " window {{{2
-set splitbelow  " make a new window at the below of the current window
-set splitright  " make a new window at the right of the current window
+set splitbelow      " make a new window at the below of the current window
+set splitright      " make a new window at the right of the current window
+set helpheight=0    " a height of help window is half of the current window
 
 " editing {{{2
 " allow backspacing over autoindent, line breakes, start of insert
