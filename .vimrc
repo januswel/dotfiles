@@ -367,10 +367,18 @@ nnoremap <silent><Leader><S-d> :lcd %:p:h<CR>:pwd<CR>
 " change directory to the upper one
 nnoremap <silent><Leader>u :lcd ../<CR>:pwd<CR>
 
-" open explorer
-" plugin: OpenWin32Explorer.vim
+" plugin {{{2
+" sweepbuflist.vim
+nmap <silent><Leader><S-b> <Plug>SweepBufList|:buffers<CR>
+" expandvar.vim
+nmap <silent><Leader>e <Plug>ExpandVariable
+nmap <silent><Leader><S-e> <Plug>EvalExpression
+nmap <silent><Leader>c  <Plug>GenerateCtags
+
+" openwin32explorer.vim and viewinhtml.vim
 if has('win32')
-    nnoremap <silent><Leader>e :OpenWin32Explorer<CR>
+    nmap <Leader>f <Plug>OpenWin32Explorer
+    nmap <Leader><S-v> <Plug>ViewInHtml
 endif
 
 
