@@ -219,9 +219,9 @@ endif
 " mappings {{{1
 " general {{{2
 " make
-nnoremap <silent><Leader>m :update<CR>:make "%"<CR>
+nnoremap <silent><Leader>m :update<CR>:make! "%"<CR>
 " source
-nnoremap <silent><Leader>r :source ~/.vimrc<CR>
+nnoremap <silent><Leader><S-s> :source ~/.vimrc<CR>:source ~/.gvimrc<CR>
 " jump to the tag under the cursor
 nnoremap <silent><Leader>p :execute ':ptag ' . expand('<cword>')<CR>
 " toggle 'paste'
@@ -229,7 +229,7 @@ nnoremap <silent><Leader><S-p> :setlocal paste!<CR>:setlocal paste?<CR>
 " show buffer list
 nnoremap <silent><Leader>b :buffers<CR>
 " yank all lines of the buffer
-nnoremap <silent><Leader>y :1,$:yank<CR>
+nnoremap <silent><Leader>y :%yank<CR>
 " toggle spell check
 if has('spell') && has('syntax')
     nnoremap <silent><Leader>s :setlocal spell!<CR>:setlocal spell?<CR>
