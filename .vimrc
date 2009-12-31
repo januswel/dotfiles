@@ -184,9 +184,10 @@ let maplocalleader = ';'
 " date format to insert automatically
 let autodate_format = '%Y %3m %d'
 
-" plugin: ProtectFile.vim
+" plugin: protec.vim
 " runtime file is untouchable
-let autoprotectfile_readonly_paths = "$VIMRUNTIME/*"
+let protec_readonly_paths = '$VIM/**'
+let protec_nomodifiable_paths = '$VIM/**'
 
 " disable plugin {{{2
 " settings for Kaoriya version
