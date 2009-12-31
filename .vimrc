@@ -325,7 +325,7 @@ nnoremap gl gu
 inoremap <C-c> <Esc>bgUllgue`]a
 
 " tuck it
-" single and double quote
+" U+0027 APOSTROPHE and U+0022 QUOTATION MARK
 vnoremap <Leader>' <Esc>`>a'<Esc>`<i'<Esc>
 vnoremap <Leader>" <Esc>`>a"<Esc>`<i"<Esc>
 " parentheses, curly, square and angle brackets
@@ -333,9 +333,9 @@ vnoremap <Leader>( <Esc>`>a)<Esc>`<i(<Esc>
 vnoremap <Leader>{ <Esc>`>a}<Esc>`<i{<Esc>
 vnoremap <Leader>[ <Esc>`>a]<Esc>`<i[<Esc>
 vnoremap <Leader>< <Esc>`>a><Esc>`<i<<Esc>
-" percent
+" U+0025 PERCENT SIGN
 vnoremap <Leader>% <Esc>`>a%<Esc>`<i%<Esc>
-" bar
+" U+007C VERTICAL LINE
 " see :help map_bar
 vnoremap <Leader>| <Esc>`>a|<Esc>`<i|<Esc>
 " entity references, less and greater than sign
@@ -346,9 +346,9 @@ vnoremap <Leader>c <Esc>`>a<lt>/code><Esc>`<i<lt>code><Esc>`[
 vnoremap <Leader>d <Esc>`>a<lt>/del><Esc>`<i<lt>del><Esc>`[
 vnoremap <Leader>i <Esc>`>a<lt>/ins><Esc>`<i<lt>ins><Esc>`[
 vnoremap <Leader>q <Esc>`>a<lt>/q><Esc>`<i<lt>q><Esc>`[
-" FULLWIDTH TILDE
+" U+FF5E FULLWIDTH TILDE
 vnoremap <Leader>w <Esc>`>a <C-q>uff5e<Esc>`<i<C-q>uff5e <Esc>`[
-" LEFT CORNER BRACKET and RIGHT CORNER BRACKET
+" U+300C LEFT CORNER BRACKET and U+300D RIGHT CORNER BRACKET
 vnoremap <Leader>b <Esc>`>a<C-q>u300d<Esc>`<i<C-q>u300c<Esc>`[
 
 " path operation {{{2
