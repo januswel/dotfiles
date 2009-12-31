@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     buf.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.11
+" Last Change:  2010 Jan 01.
+" Version:      0.12
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -18,7 +18,7 @@ set cpoptions&vim
 " functions {{{2
 " return bool
 function! buf#IsEmpty()
-    if line('$') ==# 1 && getline(1) ==# ''
+    if line('$') ==# 1 && empty(getline(1))
         return 1
     endif
     return 0
@@ -34,7 +34,7 @@ endfunction
 
 " return bool
 function! buf#IsNormalType()
-    if &buftype ==# ''
+    if empty(&buftype)
         return 1
     endif
     return 0
