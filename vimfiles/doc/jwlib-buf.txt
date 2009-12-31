@@ -34,12 +34,12 @@ buf#IsEmpty()		When the current buffer has no contents, return not
 
 buf#IsModifiable()	When the current buffer is 'modifiable' and
 			'noreadonly', return not zero.  Otherwise return zero.
-			This function is contained in autoload/buf.vim
+			This function is contained in autoload/buf.vim.
 
 buf#IsNormalType()	When 'buftype' of the current buffer has no value,
 			that is normal type, return not zero.  Otherwise
 			return zero.
-			This function is contained in autoload/buf.vim
+			This function is contained in autoload/buf.vim.
 
 							*jwlib-buf-replace*
 buf#replace#Char({Funcref}[, {arg1}, ...])
@@ -54,6 +54,8 @@ buf#replace#Char({Funcref}[, {arg1}, ...])
 			as an expression.  "<e-target>" is useful when you
 			wanna treat the target as an identifier (e.g.
 			variables, option names etc).
+			This function is contained in
+			autoload/buf/replace.vim.
 
 			Note that {Funcref} must be a Funcref of a global
 			function, because VIM can't find a instance of
@@ -62,10 +64,14 @@ buf#replace#Char({Funcref}[, {arg1}, ...])
 
 buf#replace#CWORD({Funcref}[, {arg1}, ...])
 			Same as buf#replace#Char() but a target is <cWORD>.
+			This function is contained in
+			autoload/buf/replace.vim.
 
 buf#replace#VisualHighlighted({Funcref}[, {arg1}, ...])
 			Same as buf#replace#Char() but a target is highlighted
 			area in visual mode.
+			This function is contained in
+			autoload/buf/replace.vim.
 
 
 ==============================================================================
