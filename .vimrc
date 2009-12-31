@@ -230,6 +230,14 @@ nnoremap <silent><Leader><S-p> :setlocal paste!<CR>:setlocal paste?<CR>
 nnoremap <silent><Leader>b :buffers<CR>
 " yank all lines of the buffer
 nnoremap <silent><Leader>y :%yank<CR>
+" to write commit messages of tortoisegit
+nnoremap <silent><Leader>gc :setlocal bt=nofile ft=gitcommit spell<CR>
+" generate tags for help
+if has('win32')
+    nnoremap <silent><Leader>gh :helptags ~/vimfiles/doc<CR>
+else
+    nnoremap <silent><Leader>gh :helptags ~/.vim/doc<CR>
+endif
 " toggle spell check
 if has('spell') && has('syntax')
     nnoremap <silent><Leader>s :setlocal spell!<CR>:setlocal spell?<CR>
