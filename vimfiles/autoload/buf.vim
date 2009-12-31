@@ -2,12 +2,10 @@
 " Filename:     buf.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 01.
-" Version:      0.12
+" Version:      0.13
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark:       utility functions for buffer
 
 " preparations {{{1
 " reset the value of 'cpoptions' for portability

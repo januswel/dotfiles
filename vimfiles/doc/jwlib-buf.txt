@@ -1,0 +1,83 @@
+*jwlib-buf.txt*	Autoload script about buffer
+                                                Last change: 2010 Jan 01.
+
+SYNOPSIS						*jwlib-buf-synopsis*
+>
+	# buffer status
+	if buf#IsEmpty() && buf#IsModifiable() || buf#IsNormalType()
+
+	# replace something in buffer
+	function Tuck(char, cover)
+		return a:cover + a:char + a:cover
+	endfunction
+	call buf#replace#Char(function('Tuck'), '<target>', '%')
+
+DESCRIPTION 					*jwlib-buf-description*
+
+Autoload scripts about buffer.  Here there are descriptions its name start
+with "buf", specifically following files.
+
+autoload/buf.vim
+			Contains functions to get status of a buffer.
+
+autoload/buf/replace.vim
+			Contains functions to replace a specified area to the
+			result of execution with a specified function.
+
+PROVIDES						*jwlib-buf-provides*
+
+Functions:
+							*jwlib-buf-status*
+buf#IsEmpty()		When the current buffer has no contents, return not
+			zero.  Otherwise return zero.
+			This function is contained in autoload/buf.vim.
+
+buf#IsModifiable()	When the current buffer is 'modifiable' and
+			'noreadonly', return not zero.  Otherwise return zero.
+			This function is contained in autoload/buf.vim
+
+buf#IsNormalType()	When 'buftype' of the current buffer has no value,
+			that is normal type, return not zero.  Otherwise
+			return zero.
+			This function is contained in autoload/buf.vim
+
+							*jwlib-buf-replace*
+buf#replace#Char({Funcref}[, {arg1}, ...])
+			Replace a character under the cursor with the returned
+			value by a function specified with {Funcref}.  {arg1}
+			and other additional arguments will be passed to that
+			function.
+			For {arg1} and so on, special arguments "<target>" and
+			"<e-target>" is available.  "<target>" will be
+			expanded to the target of this function.  "<e-target>"
+			will be also expanded to the target and then evaluated
+			as an expression.  "<e-target>" is useful when you
+			wanna treat the target as an identifier (e.g.
+			variables, option names etc).
+
+			Note that {Funcref} must be a Funcref of a global
+			function, because VIM can't find a instance of
+			{Funcref} if it isn't global.  This is a restriction
+			from VIM, not a issue of this script.
+
+buf#replace#CWORD({Funcref}[, {arg1}, ...])
+			Same as buf#replace#Char() but a target is <cWORD>.
+
+buf#replace#VisualHighlighted({Funcref}[, {arg1}, ...])
+			Same as buf#replace#Char() but a target is highlighted
+			area in visual mode.
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2010 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:

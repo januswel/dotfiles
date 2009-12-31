@@ -6,40 +6,6 @@
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This script provides functions to replace a specified area to the result of
-"   execution with a specified function. Following functions will be defined
-"   specifically:
-"
-"       * buf#replace#Char({Funcref}, ...)
-"           target is a character under the cursor
-"       * buf#replace#CWORD({Funcref}, ...)
-"           target is a <cWORD>
-"       * buf#replace#VisualHighlighted({Funcref}, ...)
-"           target is highlighted area in visual mode
-"
-"   All these functions require {Funcref} that is a reference of a function to
-"   return a string. And arguments of the function referred by {Funcref} can be
-"   passed continuously. Additionally, this special arguments "<target>" and
-"   "<e-target>" are available. The "<target>" will be expanded the target of
-"   above functions. The "<e-target>" will be also expanded but then evaluated,
-"   use this when you wanna treat the target as an identifier (e.g. variables,
-"   option names etc).
-"
-"   Following codes are simple use:
-"
-"       function Tuck(char, cover)
-"           return a:cover + a:char + a:cover
-"       endfunction
-"       call buf#replace#Char(function('Tuck'), '<target>', '%')
-"
-"   These codes tuck a character under the cursor with "%" (This is overdone
-"   for just tucking. Use a mapping.). You can see examples of above functions
-"   in expandvar.vim and uniconv.vim:
-"
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/plugin/expandvar.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/plugin/uniconv.vim
 
 " preparations {{{1
 " reset the value of 'cpoptions' for portability
