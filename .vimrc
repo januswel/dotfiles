@@ -325,6 +325,8 @@ nnoremap gl gu
 inoremap <C-c> <Esc>bgUllgue`]a
 
 " tuck it
+" U+0020 SPACE
+vnoremap <Leader><Space> <Esc>`>a <Esc>`<i <Esc>
 " U+0027 APOSTROPHE and U+0022 QUOTATION MARK
 vnoremap <Leader>' <Esc>`>a'<Esc>`<i'<Esc>
 vnoremap <Leader>" <Esc>`>a"<Esc>`<i"<Esc>
@@ -335,6 +337,8 @@ vnoremap <Leader>[ <Esc>`>a]<Esc>`<i[<Esc>
 vnoremap <Leader>< <Esc>`>a><Esc>`<i<<Esc>
 " U+0025 PERCENT SIGN
 vnoremap <Leader>% <Esc>`>a%<Esc>`<i%<Esc>
+" U+005F LOW LINE
+vnoremap <Leader>_ <Esc>`>a_<Esc>`<i_<Esc>
 " U+007C VERTICAL LINE
 " see :help map_bar
 vnoremap <Leader>| <Esc>`>a|<Esc>`<i|<Esc>
