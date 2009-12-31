@@ -1,0 +1,35 @@
+*qfagent.txt*	Plugin for semi-automation about quickfix list
+                                                Last change: 2009 Dec 31.
+
+DESCRIPTION						*qfagent-description*
+
+Plugin for opening a quickfix list window automatically, when you run command
+"make", "vimgrep" or "grep".  Additionally, it's also provided to convert
+results of above commands to bit more readable form - with considering
+encoding and end of line format.
+
+DEPENDENCIES						*qfagent-dependencies*
+
+This plugin require following autoload file[s].
+
+autoload/shell.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/shell.vim
+
+SETTINGS						*qfagent-settings*
+
+This plugin doesn't have any settings.
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2009 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:

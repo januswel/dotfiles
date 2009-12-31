@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009/12/16 23:33:49.
+" Last Change:  2009 Dec 31.
 
 " options {{{1
 " general {{{2
@@ -212,20 +212,6 @@ else
     " setting for bash (:help sh.vim)
     let is_bash = 1
 endif
-
-
-" autocmd {{{1
-" open QuickFix window automatically {{{2
-augroup showQuickFixWindow
-    autocmd! showQuickFixWindow
-
-    " make
-    autocmd QuickFixCmdPost make    cwindow
-    " internal grep
-    autocmd QuickFixCmdPost vimgrep cwindow
-    " external grep
-    autocmd QuickFixCmdPost grep    cwindow
-augroup END
 
 
 " mappings {{{1
