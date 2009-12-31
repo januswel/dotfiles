@@ -1,17 +1,11 @@
 " vim autoload file
 " Filename:     replace.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.11
+" Last Change:  2010 Jan 01.
+" Version:      0.12
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Dependency:
-"   This plugin needs following files
-"
-"   * autoload/util.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/util.vim
 "
 " Remark: {{{1
 "   This script provides functions to replace a specified area to the result of
@@ -120,7 +114,7 @@ function! s:Replace(getfunc, setfunc, func, ...)
         " cut the target and paste the expanded result
         call a:setfunc(r)
     catch
-        echoerr util#GetExceptionMessages()
+        echoerr v:exception
         return
     endtry
 endfunction
