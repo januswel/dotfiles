@@ -256,6 +256,12 @@ vnoremap 0 g0
 vnoremap ^ g^
 vnoremap $ g$
 
+" disable "," and ";" to use as mapleader and maplocalleader
+nnoremap , <Nop>
+nnoremap ; <Nop>
+vnoremap , <Nop>
+vnoremap ; <Nop>
+
 " window & tabpage {{{2
 " move cursor among windows, to next one and to previous one
 nnoremap <silent><C-j> :wincmd w<CR>
