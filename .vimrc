@@ -355,6 +355,10 @@ vnoremap <Leader>w <Esc>`>a <C-q>uff5e<Esc>`<i<C-q>uff5e <Esc>`[
 " U+300C LEFT CORNER BRACKET and U+300D RIGHT CORNER BRACKET
 vnoremap <Leader>b <Esc>`>a<C-q>u300d<Esc>`<i<C-q>u300c<Esc>`[
 
+" completion {{{2
+inoremap <expr><Tab>    pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<Tab>"
+
 " path operation {{{2
 " show current directory
 nnoremap <silent><Leader>d :pwd<CR>
