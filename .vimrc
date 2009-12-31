@@ -182,7 +182,7 @@ let maplocalleader = ';'
 
 " plugin: autodate.vim
 " date format to insert automatically
-let autodate_format = '%Y/%m/%d %H:%M:%S'
+let autodate_format = '%Y %3m %d'
 
 " plugin: ProtectFile.vim
 " runtime file is untouchable
