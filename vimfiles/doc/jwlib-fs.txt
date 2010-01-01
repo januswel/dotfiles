@@ -14,15 +14,14 @@ Autoload script about filesystem.  Here there are descriptions its name start
 with "fs", specifically following files.
 
 autoload/fs.vim
-			Contains a function to know a existence of a file.
+	Contains a function to know a existence of a file.
 
 PROVIDES						*jwlib-fs-provides*
 
 Functions:
 fs#Exists({file})
-			When {file} exists, return not zero.  Otherwise return
-			zero.
-			This function is contained in autoload/fs.vim
+	When {file} exists, return not zero.  Otherwise return zero.
+	This function is contained in autoload/fs.vim
 
 
 ==============================================================================
