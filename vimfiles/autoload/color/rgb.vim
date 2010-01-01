@@ -2,7 +2,7 @@
 " Filename:     rgb.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 01.
-" Version:      0.13
+" Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -148,7 +148,7 @@ endfunction
 
 function! color#rgb#List2Str(rgb, ...)
     " assertions {{{3
-    if type(a:rgb) != 3 || len(a:rgb) < 3
+    if type(a:rgb) != 3 || len(a:rgb) != 3
         throw 'A List that has 3 Number items is required'
     endif
     for color in a:rgb
