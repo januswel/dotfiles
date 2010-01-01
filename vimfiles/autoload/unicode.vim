@@ -1,12 +1,8 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.36
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Last Change:  2010 Jan 01.
+" Version:      0.37
 " Dependency:
 "   This plugin needs following files
 "
@@ -16,6 +12,10 @@
 " Refer:
 "   * http://d.hatena.ne.jp/krogue/20080616/1213590577
 "   * http://homepage1.nifty.com/nomenclator/unicode/ucs_utf.htm
+"
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Remark: {{{1
 "   This autoload script provides following functions. All functions must be

@@ -1,12 +1,8 @@
 " vim autoload file
 " Filename:     xterm256.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.22
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Last Change:  2010 Jan 01.
+" Version:      0.23
 " Dependency:
 "   This plugin needs following files
 "
@@ -16,6 +12,10 @@
 " Refer:
 "   http://d.hatena.ne.jp/kakurasan/20080701/p1
 "   http://d.hatena.ne.jp/kakurasan/20080703
+"
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Remark: {{{1
 "   utility function to treat xterm 256 colors
