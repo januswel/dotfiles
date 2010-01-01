@@ -2,7 +2,7 @@
 " Filename:     rgb.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 01.
-" Version:      0.12
+" Version:      0.13
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -77,7 +77,7 @@ function! color#rgb#Normalize2List(...)
                     return rgblist
                 endif
             else
-                throw 'Can not convert: ' . string(a:000)
+                throw 'Out of RGB value: ' . string(arg)
             endif
         elseif typeofarg == 1   " String {{{3
             if arg =~# '\v^#%(\x{3}|\x{6})$'
@@ -104,34 +104,38 @@ function! color#rgb#Normalize2List(...)
                     endif
                 endif
             else
-                throw 'Can not convert: ' . string(a:000)
+                throw 'Unknown form: ' . string(arg)
             endif
         elseif typeofarg == 3   " List {{{3
             " assertion
             if !empty(rgblist)
-                throw 'Can not convert: ' . string(a:000)
+                throw 'Too many arguments: ' . string(a:000)
             endif
 
+            " FIXME: kludge
+            " catch exceptions and rethrow those in order to avoid E171.
             try
                 " recursive call
                 return call('color#rgb#Normalize2List', arg)
             catch
-                throw 'Can not convert: ' . string(a:000)
+                throw v:exception
             endtry
         elseif typeofarg == 4   " Dictionary {{{3
             " assertion
             if !empty(rgblist)
-                throw 'Can not convert: ' . string(a:000)
+                throw 'Too many arguments: ' . string(a:000)
             endif
 
+            " FIXME: kludge
+            " catch exceptions and rethrow those in order to avoid E171.
             try
                 return s:Dict2List(arg)
             catch
-                throw 'Can not convert: ' . string(a:000)
+                throw v:exception
             endtry
         else                    " Others {{{3
             " other types are invalid
-            throw 'Can not convert: ' . string(a:000)
+            throw 'Unsupposed type: ' . string(arg)
             " }}}3
         endif
 
@@ -139,7 +143,7 @@ function! color#rgb#Normalize2List(...)
         unlet arg
     endfor
 
-    throw 'Can not convert: ' . string(a:000)
+    throw 'Too few arguments: ' . string(a:000)
 endfunction
 
 function! color#rgb#List2Str(rgb, ...)
@@ -226,7 +230,7 @@ function! s:Str2List(rgb)
                     \ ]
     endif
 
-    throw 'Can not convert: ' . string(a:rgb)
+    throw 'Unknown form: ' . string(a:rgb)
 endfunction
 
 function! s:Dict2List(rgb)
@@ -250,14 +254,14 @@ function! s:Dict2List(rgb)
                 throw 'Specifying a blue factor overlap: ' . string(a:rgb)
             endif
         else
-            throw 'Can not convert: ' . string(a:rgb)
+            throw 'Unknown key: ' . key
         endif
     endfor
 
     if exists('red') && exists('green') && exists('blue')
         return color#rgb#Normalize2List(red, green, blue)
     else
-        throw 'Can not convert: ' . string(a:rgb)
+        throw 'Too few arguments: ' . string(a:rgb)
     endif
 endfunction
 
