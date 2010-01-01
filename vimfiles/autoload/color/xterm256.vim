@@ -2,7 +2,7 @@
 " Filename:     xterm256.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 01.
-" Version:      0.23
+" Version:      0.24
 " Dependency:
 "   This plugin needs following files
 "
@@ -16,16 +16,6 @@
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   utility function to treat xterm 256 colors
-"
-"   * color#xterm256#Nr2RGB({nr})
-"       return a String in the form of non-capital "#rrggbb".
-"
-"   * color#xterm256#RGB2Nr({somethinglikeRGB})
-"       return a Number that is a xterm color number correspond to specified
-"       RGB values. {somethinglikeRGB} is explained by autoload/color/rgb.vim.
 
 " preparations {{{1
 " reset the value of 'cpoptions' for portability

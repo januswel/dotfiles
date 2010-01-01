@@ -2,57 +2,10 @@
 " Filename:     rgb.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 01.
-" Version:      0.15
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   utility functions to treat RGB color
-"
-"   * color#rgb#Normalize2List({somethinglikeRGB})
-"       return a List that is the form of [{red}, {green}, {blue}].
-"       {somethinglikeRGB} is a value[s] listed the following:
-"
-"       Number      An integer. Two more values that is a Number or String
-"                   looking an integer, are required.
-"       String      The form of "#rrggbb", "rrggbb" or "#rgb".
-"                   Additionally the one that is looking like an integer
-"                   can be specified.
-"       List        A List has 3 items that are above types.
-"       Dictionary  A Dictionary has following keys (case-insensitive) and
-"                   their values are Number or String looking an integer.
-"
-"                       "r" or "red"    a value of red
-"                       "g" or "green"  a value of green
-"                       "b" or "blue"   a value of blue
-"
-"       Following expressions are equivalent:
-"
-"           color#rgb#Normalize2List('#00ffa8')
-"           color#rgb#Normalize2List('00ffa8')
-"           color#rgb#Normalize2List('0', 255, 0xa8)
-"           color#rgb#Normalize2List(0, '0xff', '168')
-"           color#rgb#Normalize2List([0, 0xff, '0xa8'])
-"           color#rgb#Normalize2List({'ReD':'0', 'g':0xff, 'blUE':168})
-"
-"   * color#rgb#List2Str({rgb}, [{opt}])
-"       return a String that is formatted with specified option. {rgb} must be
-"       a List has 3 Numbers and in the form of [{red}, {green}, {blue}]. {opt}
-"       is formatting option. All of options are:
-"
-"       "#"     the cap "#" is added
-"       "x"     with non-capital characters (default)
-"       "X"     with capital characters
-"       "6"     in the form of "rrggbb" (default)
-"       "3"     in the form of "rgb"
-"
-"       When no options are passed, this function return in the form of
-"       capital "#rrggbb". E.g.:
-"
-"           color#rgb#List2Str([0, 255, 168])       " return "#00ffa8"
-"           color#rgb#List2Str([0, 255, 168], 'X')  " return "00FFA8"
-"           color#rgb#List2Str([0, 255, 168], '#3') " return "#0fa"
 
 " preparations {{{1
 " reset the value of 'cpoptions' for portability
