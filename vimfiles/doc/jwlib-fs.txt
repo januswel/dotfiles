@@ -11,7 +11,7 @@ SYNOPSIS						*jwlib-fs-synopsis*
 DESCRIPTION						*jwlib-fs-description*
 
 Autoload script about filesystem.  Here there are descriptions its name start
-with "buf", specifically following files.
+with "fs", specifically following files.
 
 autoload/fs.vim
 			Contains a function to know a existence of a file.
