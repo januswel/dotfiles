@@ -2,7 +2,7 @@
 " Filename:     rgb.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 01.
-" Version:      0.14
+" Version:      0.15
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -84,7 +84,7 @@ function! color#rgb#Normalize2List(...)
                 " the form of "#rgb" or "#rrggbb"
                 return s:Str2List(arg[1:])
             elseif arg =~# '\v^\x{6}$'
-                " the form of "rgb" or "rrggbb"
+                " the form of "rrggbb"
                 return s:Str2List(arg)
             elseif arg =~# '\v^0x\x+$'
                 " the form of "0x.."
