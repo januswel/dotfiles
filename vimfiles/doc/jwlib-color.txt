@@ -1,31 +1,35 @@
 *jwlib-color.txt*	Autoload script about color
-                                                Last change: 2010 Jan 01.
+                                                Last change: 2010 Jan 03.
 
 SYNOPSIS						*jwlib-color-synopsis*
 >
 	" handling RGB
 	" to List
 	" all of the "indigo" is [75, 0, 130]
-	let indigo = color#rgb#Normalize2List('#4b0082')
-	let indigo = color#rgb#Normalize2List('4b0082')
-	let indigo = color#rgb#Normalize2List('0x4b', 0, 0x82)
-	let indigo = color#rgb#Normalize2List(75, '0', '130')
-	let indigo = color#rgb#Normalize2List([0x4b, 0, '0x82'])
-	let indigo = color#rgb#Normalize2List({'R':'75', 'g':0, 'blUE':130})
+	let indigo = jwlib#color#rgb#Normalize2List('#4b0082')
+	let indigo = jwlib#color#rgb#Normalize2List('4b0082')
+	let indigo = jwlib#color#rgb#Normalize2List('0x4b', 0, 0x82)
+	let indigo = jwlib#color#rgb#Normalize2List(75, '0', '130')
+	let indigo = jwlib#color#rgb#Normalize2List([0x4b, 0, '0x82'])
+	let indigo = jwlib#color#rgb#Normalize2List({
+	        \    'ReD':'75',
+	        \    'g':0,
+	        \    'blUE':130
+	        \ })
 
 	" to String
-	echo color#rgb#List2Str(indigo)
-	echo color#rgb#List2Str(indigo, 'X')
-	echo color#rgb#List2Str(indigo, '#3')
+	echo jwlib#color#rgb#List2Str(indigo)
+	echo jwlib#color#rgb#List2Str(indigo, 'X')
+	echo jwlib#color#rgb#List2Str(indigo, '#3')
 
 
 	" converting between RGB and xterm color number
 	" xterm 256 colors to RGB
-	echo color#xterm256#Nr2RGB(100)
+	echo jwlib#color#xterm256#Nr2RGB(100)
 
 	" RGB to xterm 256 colors
 	execute 'highlight' 'Comment'
-			\ 'ctermfg=' .  color#xterm256#RGB2Nr('#ffa500')
+			\ 'ctermfg=' .  jwlib#color#xterm256#RGB2Nr('#ffa500')
 
 
 DESCRIPTION					*jwlib-color-description*
@@ -33,22 +37,22 @@ DESCRIPTION					*jwlib-color-description*
 Autoload scripts about buffer.  Here there are descriptions its name start
 with "color", specifically following files.
 
-autoload/color/rgb.vim
+autoload/jwlib/color/rgb.vim
 	Contains functions to handling RGB value.
-autoload/color/xterm256.vim
+autoload/jwlib/color/xterm256.vim
 	Contains functions to convert value between RGB and xterm color
 	number.
 
 DEPENDENCIES					*jwlib-color-dependencies*
 
-autoload/color/xterm256.vim requires autoload/color/rgb.vim.  I recommend to
-get both scripts.
+autoload/jwlib/color/xterm256.vim requires autoload/jwlib/color/rgb.vim.  I
+recommend to get both scripts.
 
 PROVIDES						*jwlib-color-provides*
 
 Functions:
 							*jwlib-color-rgb*
-color#rgb#Normalize2List({somethinglikeRGB})
+jwlib#color#rgb#Normalize2List({somethinglikeRGB})
 	Return a |List| that is the form of [{red}, {green}, {blue}].
 	{somethinglikeRGB} is a value[s] listed below.
 
@@ -73,11 +77,12 @@ color#rgb#Normalize2List({somethinglikeRGB})
 
 	See |jwlib-color-synopsis| for example.
 
-color#rgb#List2Str({rgb}[, {opt}])
+jwlib#color#rgb#List2Str({rgb}[, {opt}])
 	Return a |String| formatted from {rgb} with {opt}.
-	{rgb} must be a List has 3 Numbers and in the form of [{red}, {green},
-	{blue}] - the form of returned value by color#rgb#Normalize2List().
-	{opt} is option for format specifier.  All of options are shown below:
+	{rgb} must be a List has 3 Numbers in the form of [{red}, {green},
+	{blue}] - the form of returned value by
+	jwlib#color#rgb#Normalize2List().  {opt} is option for format
+	specifier.  All of options are shown below:
 
 	option	meaning ~
 	"#"	The cap "#" is added (default).
@@ -97,17 +102,17 @@ color#rgb#List2Str({rgb}[, {opt}])
 	See |jwlib-color-synopsis| for example.
 
 							*jwlib-color-xterm256*
-color#xterm256#Nr2RGB({nr})
+jwlib#color#xterm256#Nr2RGB({nr})
 	Return a |String| that is a RGB in the form of non-capital "#rrggbb",
 	to corresponds to {nr}.
 	{nr} is xterm color number and must be an integer from 0 to 255.
 	Otherwise throw an exception.
 
-color#xterm256#RGB2Nr({somethinglikeRGB})
+jwlib#color#xterm256#RGB2Nr({somethinglikeRGB})
 	Return a |Number| that is a xterm color number, to corresponds to
 	{somethinglikeRGB} or to be the number of nearest color from it.
-	{somethinglikeRGB} is the same as a one of color#rgb#Normalize2List(),
-	see |jwlib-color-rgb|.
+	{somethinglikeRGB} is the same as a one of
+	jwlib#color#rgb#Normalize2List(), see |jwlib-color-rgb|.
 
 
 ==============================================================================

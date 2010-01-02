@@ -2,7 +2,7 @@
 " Filename:     shell.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.13
+" Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -26,7 +26,7 @@ lockvar s:shelltypes
 
 " functions {{{2
 " return string
-function! shell#GetType()
+function! jwlib#shell#GetType()
     for [type, pattern] in s:shelltypes
         if &shell =~? pattern
             return type
@@ -38,9 +38,9 @@ function! shell#GetType()
 endfunction
 
 " get default encoding of shell
-function! shell#GetEncoding(...)
+function! jwlib#shell#GetEncoding(...)
     " heuristic
-    if shell#GetType() ==# 'cmd'
+    if jwlib#shell#GetType() ==# 'cmd'
         return 'cp932'
     endif
 

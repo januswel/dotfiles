@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     tabline.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
-" Version:      0.12
+" Last Change:  2010 Jan 03.
+" Version:      0.13
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -14,24 +14,24 @@
 "   There are 3 kind of functions. The first is for tabline - functions to build
 "   the form of tabline.
 "
-"       * NormalTabLine():  the imitation of default
-"       * NoMouseTabLine(): no identifiers for mouse operation
+"       * jwlib#tabline#NormalTabLine():  the imitation of default
+"       * jwlib#tabline#NoMouseTabLine(): no identifiers for mouse operation
 "
 "   The second is for tablabel - functions to determine the label of each
 "   tabpages.
 "
-"       * FileNameTabLabel():       filename only
-"       * FilePathTabLabel():       filepath in short form
-"       * ExtAndFileTypeTabLabel(): file extention and filetype
+"       * jwlib#tabline#FileNameTabLabel():       filename only
+"       * jwlib#tabline#FilePathTabLabel():       filepath in short form
+"       * jwlib#tabline#ExtAndFileTypeTabLabel(): file extention and filetype
 "
 "   The last is helper functions.
 "
-"       * GetTabpageInfo(): return a Dictionary has following keys
+"       * jwlib#tabline#GetTabpageInfo(): return a Dictionary has following keys
 "           - buflist:  a List of buffers are included by the tabpage
 "           - modified: when the tabpage has a modified buffer, return 1
 "                                           no modified buffer, return 0
 "           - bufnr:    a number of the current buffer in the tabpage
-"       * BuildTabpageIndicator(): return string has following indicators
+"       * jwlib#tabline#BuildTabpageIndicator(): return string has following indicators
 "           - a number of buffers that be included a tabpage but when its value
 "             is bigger than 1
 "           - a modifier '+' when the tabpage has a modified buffer
@@ -39,11 +39,11 @@
 "   In order to set these functions to 'tabline', write like following codes in
 "   your .vimrc:
 "
-"       set tabline=%!tabline#NormalTabLine('tabline#FileNameTabLabel')
+"       set tabline=%!jwlib#tabline#NormalTabLine('jwlib#tabline#FileNameTabLabel')
 "
 "   Of course using the combination of your function and above one is possible.
 "
-"       set tabline=%!YourTabLine('tabline#FilePathTabLabel')
+"       set tabline=%!YourTabLine('jwlib#tabline#FilePathTabLabel')
 
 " variables {{{1
 let s:noexts = ['nofile', 'quickfix', 'help']
@@ -51,7 +51,7 @@ let s:shortenpattern = ':gs?\(\.\.\|[^\\/]\)[^\\/]*\([\\/]\)?\1\2?'
 
 " functions {{{1
 " tablines {{{2
-function tabline#NormalTabLine(labelfunc)
+function jwlib#tabline#NormalTabLine(labelfunc)
     let tabpages = []
     let selected = tabpagenr()
     let nr = 1
@@ -60,7 +60,7 @@ function tabline#NormalTabLine(labelfunc)
         let tabpage = []
 
         " collect informations of the tabpage
-        let info = tabline#GetTabpageInfo(nr)
+        let info = jwlib#tabline#GetTabpageInfo(nr)
         let info.selected = nr == selected ? 1 : 0
 
         " set the tabpage number (for mouse clicks)
@@ -84,7 +84,7 @@ function tabline#NormalTabLine(labelfunc)
     return join(tabpages, '')
 endfunction
 
-function tabline#NoMouseTabLine(labelfunc)
+function jwlib#tabline#NoMouseTabLine(labelfunc)
     let tabpages = []
     let selected = tabpagenr()
     let nr = 1
@@ -93,7 +93,7 @@ function tabline#NoMouseTabLine(labelfunc)
         let tabpage = []
 
         " collect informations of the tabpage
-        let info = tabline#GetTabpageInfo(nr)
+        let info = jwlib#tabline#GetTabpageInfo(nr)
         let info.selected = nr == selected ? 1 : 0
 
         " the label is made by the function that is specified
@@ -111,9 +111,9 @@ function tabline#NoMouseTabLine(labelfunc)
 endfunction
 
 " tablabels {{{2
-function tabline#FilePathTabLabel(i)
+function jwlib#tabline#FilePathTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
-    let modifier = tabline#BuildTabpageIndicator(a:i)
+    let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
     let filepath = bufname(a:i.bufnr)
     if empty(filepath)
         let filepath = '-'
@@ -129,9 +129,9 @@ function tabline#FilePathTabLabel(i)
                 \], '')
 endfunction
 
-function tabline#FileNameTabLabel(i)
+function jwlib#tabline#FileNameTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
-    let modifier = tabline#BuildTabpageIndicator(a:i)
+    let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
     let filename = fnamemodify(bufname(a:i.bufnr), ':t')
     if empty(filename)
         let filename = '-'
@@ -145,9 +145,9 @@ function tabline#FileNameTabLabel(i)
                 \], '')
 endfunction
 
-function tabline#ExtAndFileTypeTabLabel(i)
+function jwlib#tabline#ExtAndFileTypeTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
-    let modifier = tabline#BuildTabpageIndicator(a:i)
+    let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
 
     let ext = ''
     let buftype = getbufvar(a:i.bufnr, '&buftype')
@@ -175,7 +175,7 @@ endfunction
 "   modified:   when the tabpage has a modified buffer, return 1
 "                                   no modified buffer, return 0
 "   bufnr:      a number of the current buffer in the tabpage
-function! tabline#GetTabpageInfo(n)
+function! jwlib#tabline#GetTabpageInfo(n)
     let buflist = tabpagebuflist(a:n)
 
     let modified = 0
@@ -193,7 +193,7 @@ function! tabline#GetTabpageInfo(n)
                 \ }
 endfunction
 
-function! tabline#BuildTabpageIndicator(i)
+function! jwlib#tabline#BuildTabpageIndicator(i)
     let numofbuf = len(a:i.buflist)
     let n = numofbuf !=# 1 ? numofbuf : ''
     let m = a:i.modified ? '+' : ''

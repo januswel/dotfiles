@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.14
+" Last Change:  2010 Jan 03.
+" Version:      0.15
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -10,8 +10,8 @@
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/buf/replace.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf/replace.vim
+"   * autoload/jwlib/buf/replace.vim
+"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf/replace.vim
 "
 " Remark: {{{1
 "   This plugin provides the feature to expand variables or evaluate
@@ -70,11 +70,11 @@ nnoremap <silent><Plug>EvalExpression
 
 " functions {{{2
 function! s:ExpandVariable()
-    return buf#replace#CWORD(function('expand'), '<e-target>')
+    return jwlib#buf#replace#CWORD(function('expand'), '<e-target>')
 endfunction
 
 function! s:EvalExpression()
-    return buf#replace#CWORD(function('eval'), '<target>')
+    return jwlib#buf#replace#CWORD(function('eval'), '<target>')
 endfunction
 
 " post-processings {{{1

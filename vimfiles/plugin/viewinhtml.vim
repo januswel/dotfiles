@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.12
+" Last Change:  2010 Jan 03.
+" Version:      0.13
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -10,8 +10,8 @@
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/shell.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/shell.vim
+"   * autoload/jwlib/shell.vim
+"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
 "
 " Remark: {{{1
 "   This plugin provides the command and mappings to show contents of the
@@ -99,7 +99,7 @@ function! s:ViewInHtml() range
     endif
 
     let save_shellslash = &shellslash
-    if shell#GetType() ==# 'cmd'
+    if jwlib#shell#GetType() ==# 'cmd'
         set noshellslash
     else
         set shellslash
@@ -121,7 +121,11 @@ function! s:ViewInHtml() range
             silent execute 'saveas!' tempfile
 
             " browse html with default UA
-            let filename = iconv(tempfile, &encoding, shell#GetEncoding())
+            let filename = iconv(
+                        \   tempfile,
+                        \   &encoding,
+                        \   jwlib#shell#GetEncoding()
+                        \ )
             let filename = shellescape(filename)
             silent call system(filename)
 

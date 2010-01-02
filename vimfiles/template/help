@@ -1,5 +1,5 @@
 '*'.expand('%:t').'*'	Plugin for showing example
-                                                Last change: 2009 Dec 29.
+                                                Last change: 2010 Jan 03.
 
 SYNOPSIS						*example-synopsis*
 >
@@ -13,8 +13,8 @@ DEPENDENCIES						*example-dependencies*
 
 This plugin require following autoload file[s].
 
-autoload/example.vim
-http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/example.vim
+autoload/jwlib/example.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/example.vim
 
 PROVIDES						*example-provides*
 

@@ -1,5 +1,5 @@
 *autotmpl.txt*	Plugin for loading a template automatically
-                                                Last change: 2010 Jan 01.
+                                                Last change: 2010 Jan 03.
 
 DESCRIPTION						*autotmpl-description*
 
@@ -10,8 +10,8 @@ DEPENDENCIES						*autotmpl-dependencies*
 
 This plugin require following autoload file[s].
 
-autoload/buf.vim
-http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf.vim
+autoload/jwlib/buf.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf.vim
 
 SETTINGS						*autotmpl-settings*
 

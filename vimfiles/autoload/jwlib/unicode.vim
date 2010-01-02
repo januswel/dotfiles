@@ -1,13 +1,13 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
-" Version:      0.37
+" Last Change:  2010 Jan 03.
+" Version:      0.38
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/unicode/namelist.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/unicode/namelist.vim
+"   * autoload/jwlib/unicode/namelist.vim
+"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/unicode/namelist.vim
 "
 " Refer:
 "   * http://d.hatena.ne.jp/krogue/20080616/1213590577
@@ -21,13 +21,13 @@
 "   This autoload script provides following functions. All functions must be
 "   specified the target string.
 "
-"   * unicode#GetUtf8ByteSequence({str})
+"   * jwlib#unicode#GetUtf8ByteSequence({str})
 "       return the List that has numbers of UTF-8 byte sequence.
-"   * unicode#GetUtf8ByteSequenceStr({str})
+"   * jwlib#unicode#GetUtf8ByteSequenceStr({str})
 "       return the string of UTF-8 byte sequence like the normal command "g8".
-"   * unicode#GetUnicodeCodePoint({str})
+"   * jwlib#unicode#GetUnicodeCodePoint({str})
 "       return the List that has numbers of Unicode code point.
-"   * unicode#GetPattern({str}[, {type}])
+"   * jwlib#unicode#GetPattern({str}[, {type}])
 "       return the search pattern of the character. See |/\%x| |/\%u| |/\%U|.
 "       {type} can be one of following values:
 "
@@ -37,7 +37,7 @@
 "
 "       Calling with no arguments is possible, then return a string in form of
 "       "\%x..".
-"   * unicode#GetLiteral({str}[, {type}])
+"   * jwlib#unicode#GetLiteral({str}[, {type}])
 "       return the literal of the character. See |expr-quote|. {type} can be
 "       one of following values:
 "
@@ -48,7 +48,7 @@
 "
 "       Calling with no arguments is possible, then return a string in form of
 "       "\%x..".
-"   * unicode#GetName({char})
+"   * jwlib#unicode#GetName({char})
 "       return the name of the specified character defined by The Unicode
 "       Consortium.
 "       Note: For HAN characters, this function return a empty string because
@@ -71,8 +71,8 @@ set cpoptions&vim
 " main {{{1
 " utilities {{{2
 " like the normal command "g8"
-function! unicode#GetUtf8ByteSequenceStr(str)
-    let utf8 = unicode#GetUtf8ByteSequence(a:str)
+function! jwlib#unicode#GetUtf8ByteSequenceStr(str)
+    let utf8 = jwlib#unicode#GetUtf8ByteSequence(a:str)
     let result = []
     for byte in utf8
         call add(result, printf('%02x', byte))
@@ -83,18 +83,18 @@ endfunction
 " patterns {{{3
 " return the pattern in form of "\%x..", "\%u...." and "\%U........"
 " see :help E678
-function! unicode#GetPattern(str, ...)
+function! jwlib#unicode#GetPattern(str, ...)
     if empty(a:000) || a:1 ==# 'x'
         " default and "\%x.."
         let result = []
-        for byte in unicode#GetUtf8ByteSequence(a:str)
+        for byte in jwlib#unicode#GetUtf8ByteSequence(a:str)
             call add(result, printf('\%%x%02x', byte))
         endfor
         return join(result, '')
     elseif a:1 ==? 'u'
         " "\%u...." or "\%U........"
         let result = []
-        for codepoint in unicode#GetUnicodeCodePoint(a:str)
+        for codepoint in jwlib#unicode#GetUnicodeCodePoint(a:str)
             if codepoint <= 0xffff
                 call add(result, printf('\%%u%04x', codepoint))
             else
@@ -111,7 +111,7 @@ endfunction
 " return the literal in form of "\x..", "\X..", "\u...." or "\U...."
 " see :help expr-quote
 " just delegate
-function! unicode#GetLiteral(str, ...)
+function! jwlib#unicode#GetLiteral(str, ...)
     if empty(a:000)
         return s:GetTwoHexadecimalLiteral(a:str, 0)
     elseif a:1 ==# 'x'
@@ -132,7 +132,7 @@ endfunction
 function! s:GetTwoHexadecimalLiteral(str, case)
     let template = a:case ? '\X%02x' : '\x%02x'
     let result = []
-    for byte in unicode#GetUtf8ByteSequence(a:str)
+    for byte in jwlib#unicode#GetUtf8ByteSequence(a:str)
         call add(result, printf(template, byte))
     endfor
 
@@ -143,7 +143,7 @@ endfunction
 function! s:GetFourHexadecimalLiteral(str, case)
     let template = a:case ? '\U%04x' : '\u%04x'
     let result = []
-    for codepoint in unicode#GetUnicodeCodePoint(a:str)
+    for codepoint in jwlib#unicode#GetUnicodeCodePoint(a:str)
         if codepoint <= 0xffff
             call add(result, printf(template, codepoint))
         else
@@ -158,7 +158,7 @@ endfunction
 
 " about UTF-8 byte sequence {{{2
 " just convert by iconv()
-function! unicode#GetUtf8ByteSequence(str)
+function! jwlib#unicode#GetUtf8ByteSequence(str)
     if empty(a:str)
         return [0]
     endif
@@ -177,8 +177,8 @@ endfunction
 
 " about Unicode code point {{{2
 " functions {{{3
-function! unicode#GetUnicodeCodePoint(str)
-    let utf8 = unicode#GetUtf8ByteSequence(a:str)
+function! jwlib#unicode#GetUnicodeCodePoint(str)
+    let utf8 = jwlib#unicode#GetUtf8ByteSequence(a:str)
 
     let result = []
     while !empty(utf8)
@@ -309,9 +309,10 @@ let s:condition_firstbyte = s:BuildFirstByteConditions(s:conditions)
 lockvar s:condition_firstbyte
 
 " about Unicode character names {{{2
-function! unicode#GetName(char)
-    let codepoint = printf('%04X', unicode#GetUnicodeCodePoint(a:char)[0])
-    return get(g:unicode#namelist#dict, codepoint, '')
+function! jwlib#unicode#GetName(char)
+    let codepoint =
+                \ printf('%04X', jwlib#unicode#GetUnicodeCodePoint(a:char)[0])
+    return get(g:jwlib#unicode#namelist#dict, codepoint, '')
 endfunction
 
 

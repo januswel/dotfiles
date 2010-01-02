@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     qfagent.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.10
+" Last Change:  2010 Jan 03.
+" Version:      0.11
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -10,8 +10,8 @@
 " Dependency:
 "   This plugin requires following files
 "
-"   autoload/shell.vim
-"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/shell.vim
+"   autoload/jwlib/shell.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
 
 " preparations {{{1
 " check if this plugin is already loaded or not
@@ -29,7 +29,7 @@ set cpoptions&vim
 " see :help QuickFixCmdPost-example
 " in win32 with cmd.exe, remove ^M from each lines
 function s:RemoveCRFromQFList()
-    if shell#GetType() ==# 'cmd'
+    if jwlib#shell#GetType() ==# 'cmd'
         let qflist = getqflist()
         for item in qflist
             let item.text = substitute(item.text, '$', '', '')
@@ -39,7 +39,7 @@ function s:RemoveCRFromQFList()
 endfunction
 
 function s:ConvertEncodingQFList()
-    let shellenc = shell#GetEncoding()
+    let shellenc = jwlib#shell#GetEncoding()
     if shellenc !=? &encoding
         let qflist = getqflist()
         for item in qflist

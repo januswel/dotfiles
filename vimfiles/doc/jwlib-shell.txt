@@ -4,14 +4,14 @@
 SYNOPSIS						*jwlib-shell-synopsis*
 >
 	" a type of shell
-	if shell#GetType() ==# 'cmd'
+	if jwlib#shell#GetType() ==# 'cmd'
 	    set noshellslash
 	else
 	    set shellslash
 	endif
 
 	" shell encoding
-	let senc = shell#GetEncoding()
+	let senc = jwlib#shell#GetEncoding()
 	let msg = iconv(str, &encoding, senc)
 
 DESCRIPTION					*jwlib-shell-description*
@@ -19,13 +19,13 @@ DESCRIPTION					*jwlib-shell-description*
 Autoload script about shell.  Here there are descriptions its name start with
 "shell", specifically following files.
 
-autoload/shell.vim
+autoload/jwlib/shell.vim
 	Contains functions to get informations about shell.
 
 PROVIDES						*jwlib-shell-provides*
 
 Functions:
-shell#GetType()
+jwlib#shell#GetType()
 		Return a String to show type of the 'shell'.  All of returned
 		values are listed below.
 
@@ -35,7 +35,7 @@ shell#GetType()
 		zsh	Z shell
 		sh	Bourne Shell or Bourne-Again Shell
 
-shell#GetEncoding([{expr}])
+jwlib#shell#GetEncoding([{expr}])
 		Return a String to show encoding used by the 'shell'.
 		When there is {expr} and its evaluated value is true, this
 		function may use a risky method to get more exact value.  In

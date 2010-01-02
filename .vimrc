@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
+" Last Change:  2010 Jan 03.
 
 " options {{{1
 " general {{{2
@@ -80,7 +80,9 @@ let &statusline = join(s:statusline, '')
 unlet s:statusline
 
 " tabline {{{2
-set tabline=%!tabline#NoMouseTabLine('tabline#ExtAndFileTypeTabLabel')
+let &tabline =  '%!jwlib#tabline#NoMouseTabLine('
+            \ .     '"jwlib#tabline#ExtAndFileTypeTabLabel"'
+            \ . ')'
 
 " tab, space and indent {{{2
 set tabstop=4       " tab width

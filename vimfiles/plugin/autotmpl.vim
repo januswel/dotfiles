@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.41
+" Last Change:  2010 Jan 03.
+" Version:      0.42
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -10,8 +10,8 @@
 " Dependency:
 "   This plugin requires following file[s].
 "
-"   autoload/buf.vim
-"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/buf.vim
+"   autoload/jwlib/buf.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf.vim
 
 " preparation {{{1
 " check if this plugin is already loaded or not
@@ -74,7 +74,7 @@ function s:LoadTemplateAlongWithFileType()
     "       s:LoadTemplateAlongWithExtension() is called and may load any
     "       template. But when any template is already loaded, this event is
     "       meaningless in effect.
-    if !fs#Exists(expand('%:p'))
+    if !jwlib#fs#Exists(expand('%:p'))
         call s:LoadTemplateAlongWithExtension()
     endif
 
@@ -105,7 +105,9 @@ endfunction
 " stuff
 " is target buffer ?
 function s:IsTarget()
-    if buf#IsEmpty() && buf#IsModifiable() && buf#IsNormalType()
+    if               jwlib#buf#IsEmpty()
+                \ && jwlib#buf#IsModifiable()
+                \ && jwlib#buf#IsNormalType()
         return 1
     endif
 endfunction

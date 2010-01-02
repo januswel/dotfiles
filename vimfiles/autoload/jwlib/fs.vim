@@ -1,7 +1,7 @@
 " vim autoload file
-" Filename:     buf.vim
+" Filename:     fs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
+" Last Change:  2010 Jan 03.
 " Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
@@ -14,30 +14,9 @@ set cpoptions&vim
 
 " main {{{1
 " functions {{{2
-" return bool
-function! buf#IsEmpty()
-    if line('$') ==# 1 && empty(getline(1))
-        return 1
-    endif
-    return 0
+function! jwlib#fs#Exists(target)
+    return !empty(glob(a:target))
 endfunction
-
-" return bool
-function! buf#IsModifiable()
-    if &modifiable && !&readonly
-        return 1
-    endif
-    return 0
-endfunction
-
-" return bool
-function! buf#IsNormalType()
-    if empty(&buftype)
-        return 1
-    endif
-    return 0
-endfunction
-
 
 " post-processings {{{1
 " restore the value of 'cpoptions'

@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     replace.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
-" Version:      0.13
+" Last Change:  2010 Jan 03.
+" Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -14,7 +14,7 @@ set cpoptions&vim
 
 " main {{{1
 " functions {{{2
-function! buf#replace#Char(func, ...)
+function! jwlib#buf#replace#Char(func, ...)
     let args = [
                 \ function('s:GetChar'),
                 \ function('s:SetChar'),
@@ -24,7 +24,7 @@ function! buf#replace#Char(func, ...)
     return call(function('s:Replace'), args)
 endfunction
 
-function! buf#replace#CWORD(func, ...)
+function! jwlib#buf#replace#CWORD(func, ...)
     let args = [
                 \ function('s:GetCWORD'),
                 \ function('s:SetCWORD'),
@@ -34,7 +34,7 @@ function! buf#replace#CWORD(func, ...)
     return call(function('s:Replace'), args)
 endfunction
 
-function! buf#replace#VisualHighlighted(func, ...)
+function! jwlib#buf#replace#VisualHighlighted(func, ...)
     let args = [
                 \ function('s:GetVisualHighlighted'),
                 \ function('s:SetVisualHighlighted'),
@@ -85,7 +85,7 @@ function! s:Replace(getfunc, setfunc, func, ...)
     endtry
 endfunction
 
-" for buf#replace#Char()
+" for jwlib#buf#replace#Char()
 function! s:GetChar()
     return matchstr(getline('.'), '.', col('.') - 1)
 endfunction
@@ -94,7 +94,7 @@ function! s:SetChar(r)
     normal! "_cl=a:r
 endfunction
 
-" for buf#replace#CWORD()
+" for jwlib#buf#replace#CWORD()
 function! s:GetCWORD()
     " assertion
     if matchstr(getline('.'), '.', col('.') - 1) ==# ' '
@@ -108,7 +108,7 @@ function! s:SetCWORD(r)
     normal! "_ciW=a:r
 endfunction
 
-" for buf#replace#VisualHighlighted()
+" for jwlib#buf#replace#VisualHighlighted()
 function! s:GetVisualHighlighted()
     let save_reg_z = @z
     normal! gv"zy

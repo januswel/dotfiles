@@ -2,7 +2,7 @@
 " Filename:     '%:t'
 " Language:     <Example>
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
+" Last Change:  2010 Jan 03.
 " Version:      0.10
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
@@ -11,8 +11,8 @@
 " Dependency:
 "   This plugin requires following files
 "
-"   autoload/example.vim
-"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/example.vim
+"   autoload/jwlib/example.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/example.vim
 
 " preparations {{{1
 " check if this plugin is already loaded or not

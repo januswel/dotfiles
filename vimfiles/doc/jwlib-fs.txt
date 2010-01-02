@@ -1,10 +1,10 @@
 *jwlib-fs.txt*	Autoload script about filesystem
-                                                Last change: 2010 Jan 01.
+                                                Last change: 2010 Jan 03.
 
 SYNOPSIS						*jwlib-fs-synopsis*
 >
 	let cmd = 'write'
-	if fs#Exists(expand('%:p'))
+	if jwlib#fs#Exists(expand('%:p'))
 	    cmd .= '!'
 	endif
 
@@ -13,15 +13,15 @@ DESCRIPTION						*jwlib-fs-description*
 Autoload script about filesystem.  Here there are descriptions its name start
 with "fs", specifically following files.
 
-autoload/fs.vim
+autoload/jwlib/fs.vim
 	Contains a function to know a existence of a file.
 
 PROVIDES						*jwlib-fs-provides*
 
 Functions:
-fs#Exists({file})
+jwlib#fs#Exists({file})
 	When {file} exists, return not zero.  Otherwise return zero.
-	This function is contained in autoload/fs.vim
+	This function is contained in autoload/jwlib/fs.vim
 
 
 ==============================================================================

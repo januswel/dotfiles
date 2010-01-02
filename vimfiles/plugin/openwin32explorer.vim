@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.44
+" Last Change:  2010 Jan 03.
+" Version:      0.45
 " License:      New BSD License
 "   See LICENSE.  Note that redistribution is permitted with this file.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -10,8 +10,8 @@
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/shell.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/shell.vim
+"   * autoload/jwlib/shell.vim
+"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
 "
 " Remark: {{{1
 "   This plugin provides the command and mappings to open a directory with
@@ -72,7 +72,7 @@ nnoremap <silent><Plug>OpenWin32Explorer
 " functions {{{2
 function! s:OpenWin32Explorer(...)
     let save_shellslash = &shellslash
-    if shell#GetType() ==# 'cmd'
+    if jwlib#shell#GetType() ==# 'cmd'
         set noshellslash
     else
         set shellslash
@@ -97,7 +97,7 @@ function! s:OpenWin32Explorer(...)
             let cmd = '!start explorer /select,' . shellescape(path)
         endif
 
-        let cmd = iconv(cmd, &encoding, shell#GetEncoding())
+        let cmd = iconv(cmd, &encoding, jwlib#shell#GetEncoding())
         silent execute cmd
     catch
         echoerr v:exception

@@ -1,8 +1,8 @@
 " vim autoload file
 " Filename:     rgb.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
-" Version:      0.16
+" Last Change:  2010 Jan 03.
+" Version:      0.17
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -14,7 +14,7 @@ set cpoptions&vim
 
 " main {{{1
 " functions {{{2
-function! color#rgb#Normalize2List(...)
+function! jwlib#color#rgb#Normalize2List(...)
     " assertions {{{3
     if empty(a:000)
         throw 'There are no arguments.'
@@ -69,7 +69,7 @@ function! color#rgb#Normalize2List(...)
             " catch exceptions and rethrow those in order to avoid E171.
             try
                 " recursive call
-                return call('color#rgb#Normalize2List', arg)
+                return call('jwlib#color#rgb#Normalize2List', arg)
             catch
                 throw v:exception
             endtry
@@ -99,7 +99,7 @@ function! color#rgb#Normalize2List(...)
     throw 'Too few arguments: ' . string(a:000)
 endfunction
 
-function! color#rgb#List2Str(rgb, ...)
+function! jwlib#color#rgb#List2Str(rgb, ...)
     " assertions {{{3
     if type(a:rgb) != 3 || len(a:rgb) != 3
         throw 'A List that has 3 Number items is required'
@@ -212,7 +212,7 @@ function! s:Dict2List(rgb)
     endfor
 
     if exists('red') && exists('green') && exists('blue')
-        return color#rgb#Normalize2List(red, green, blue)
+        return jwlib#color#rgb#Normalize2List(red, green, blue)
     else
         throw 'Too few arguments: ' . string(a:rgb)
     endif

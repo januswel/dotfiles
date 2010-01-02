@@ -1,13 +1,13 @@
 " vim autoload file
 " Filename:     xterm256.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
-" Version:      0.24
+" Last Change:  2010 Jan 03.
+" Version:      0.25
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/color/rgb.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/color/rgb.vim
+"   autoload/jwlib/color/rgb.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/color/rgb.vim
 "
 " Refer:
 "   http://d.hatena.ne.jp/kakurasan/20080701/p1
@@ -106,20 +106,20 @@ let s:coefficient_blue = 1
 lockvar s:coefficient_blue
 
 " functions {{{2
-function! color#xterm256#Nr2RGB(nr)
-    return color#rgb#List2Str(s:Nr2RGB(a:nr))
+function! jwlib#color#xterm256#Nr2RGB(nr)
+    return jwlib#color#rgb#List2Str(s:Nr2RGB(a:nr))
 endfunction
 
-function! color#xterm256#RGB2Nr(...)
+function! jwlib#color#xterm256#RGB2Nr(...)
     " normalize to a List
-    let rgb = call('color#rgb#Normalize2List', a:000)
+    let rgb = call('jwlib#color#rgb#Normalize2List', a:000)
 
     " search the one has shortest distance
     return s:SearchShortestDistance(rgb)
 endfunction
 
 " stuff functions {{{2
-" for color#xterm256#Nr2RGB() {{{3
+" for jwlib#color#xterm256#Nr2RGB() {{{3
 function! s:Nr2RGB(nr)
     " assertions
     if type(a:nr) != 0 || a:nr < s:nr_first || s:nr_last < a:nr
@@ -168,7 +168,7 @@ function! s:ColorCube2RGB(nr)
                 \ ]
 endfunction
 
-" for color#xterm256#RGB2Nr() {{{3
+" for jwlib#color#xterm256#RGB2Nr() {{{3
 function! s:SearchShortestDistance(rgb)
     let [b16_nr, b16_d] = s:SearchBase16Colors(a:rgb)
     if b16_d == 0

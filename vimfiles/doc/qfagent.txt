@@ -1,5 +1,5 @@
 *qfagent.txt*	Plugin for semi-automation about quickfix list
-                                                Last change: 2010 Jan 01.
+                                                Last change: 2010 Jan 03.
 
 DESCRIPTION						*qfagent-description*
 
@@ -12,8 +12,8 @@ DEPENDENCIES						*qfagent-dependencies*
 
 This plugin require following autoload file.
 
-autoload/shell.vim
-http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/shell.vim
+autoload/jwlib/shell.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
 
 SETTINGS						*qfagent-settings*
 
