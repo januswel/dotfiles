@@ -2,17 +2,17 @@
 " Filename:     expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.15
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Version:      0.17
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/jwlib/buf/replace.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf/replace.vim
+"   autoload/jwlib/buf/replace.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf/replace.vim
 "
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+
 " Remark: {{{1
 "   This plugin provides the feature to expand variables or evaluate
 "   expressions in the current buffer. When following identifiers in your

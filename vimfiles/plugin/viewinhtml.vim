@@ -2,16 +2,16 @@
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.13
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Version:      0.14
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/jwlib/shell.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+"   autoload/jwlib/shell.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+"
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Remark: {{{1
 "   This plugin provides the command and mappings to show contents of the

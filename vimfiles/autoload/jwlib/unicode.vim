@@ -2,12 +2,12 @@
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.38
+" Version:      0.39
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/jwlib/unicode/namelist.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/unicode/namelist.vim
+"   autoload/jwlib/unicode/namelist.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/unicode/namelist.vim
 "
 " Refer:
 "   * http://d.hatena.ne.jp/krogue/20080616/1213590577

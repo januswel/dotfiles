@@ -1,10 +1,10 @@
 " vim plugin file
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.17
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
+" Last Change:  2010 Jan 03.
+" Version:      0.18
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Remark: {{{1

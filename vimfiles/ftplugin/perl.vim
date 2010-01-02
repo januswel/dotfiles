@@ -2,10 +2,10 @@
 " Filename:     perl.vim
 " Language:     Perl
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.13
+" Last Change:  2010 Jan 03.
+" Version:      0.14
 " License:      New BSD License
-"   See LICENSE.  Note that redistribution may be permitted with this file.
+"   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 if exists('b:did_ftplugin')

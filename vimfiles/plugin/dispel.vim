@@ -1,14 +1,15 @@
 " vim plugin file
 " Filename:     dispel.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.44
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Last Change:  2010 Jan 03.
+" Version:      0.45
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
+"
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
+
 " Remark: {{{1
 "   This plugin provides the feature to make transparent characters a visible
 "   block automatically.

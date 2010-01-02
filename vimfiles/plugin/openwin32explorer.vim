@@ -2,16 +2,16 @@
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.45
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Version:      0.46
 " Dependency:
 "   This plugin needs following files
 "
-"   * autoload/jwlib/shell.vim
-"       http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+"   autoload/jwlib/shell.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+"
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Remark: {{{1
 "   This plugin provides the command and mappings to open a directory with

@@ -1,18 +1,18 @@
 " vim plugin file
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.16
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
-"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
+" Last Change:  2010 Jan 03.
+" Version:      0.17
 " Acknowledgement:
 "   thinca
 "       He told me the implementation of the value "guess" and show me ropes to
 "       specify characters by using byte codes
 "           - http://d.hatena.ne.jp/thinca/20091208/1260265376
 "           - http://d.hatena.ne.jp/thinca/20091208/1260264053
+"
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
+"   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
 " Remark: {{{1
 "   This plugin the feature to determine 'fileencodings' depending on
