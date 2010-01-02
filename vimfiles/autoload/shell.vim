@@ -1,15 +1,12 @@
 " vim autoload file
 " Filename:     shell.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 01.
-" Version:      0.12
+" Last Change:  2010 Jan 03.
+" Version:      0.13
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
-" Remark: {{{1
-"   utility functions about shell
-
 " preparations {{{1
 " reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
