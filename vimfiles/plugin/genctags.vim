@@ -2,7 +2,7 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.13
+" Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -41,8 +41,7 @@ endif
 let loaded_genctags = 1
 
 " check the system has the required command
-let s:version = system('ctags --version')
-if v:shell_error != 0
+if !executable('ctags')
     finish
 endif
 

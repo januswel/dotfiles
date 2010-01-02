@@ -2,7 +2,7 @@
 " Filename:     openwin32explorer.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.46
+" Version:      0.47
 " Dependency:
 "   This plugin needs following files
 "
@@ -44,6 +44,11 @@ let loaded_openwin32explorer = 1
 
 " check vim has required features
 if !(has('win32') && has('multi_byte') && has('modify_fname'))
+    finish
+endif
+
+" check the system has the required command
+if !executable('explorer.exe')
     finish
 endif
 

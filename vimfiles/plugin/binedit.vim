@@ -2,7 +2,7 @@
 " Filename:     binedit.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.15
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -21,8 +21,7 @@ endif
 let loaded_binedit = 1
 
 " check the system has the required command
-let s:version = system('xxd --version')
-if v:shell_error != 0
+if !executable('xxd')
     finish
 endif
 
