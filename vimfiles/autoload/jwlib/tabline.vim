@@ -2,7 +2,7 @@
 " Filename:     tabline.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.15
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -57,7 +57,7 @@ let s:noexts = ['nofile', 'quickfix', 'help']
 lockvar s:noexts
 
 unlockvar s:shortenpattern
-let s:shortenpattern = ':gs?\(\.\.\|[^\\/]\)[^\\/]*\([\\/]\)?\1\2?'
+let s:shortenpattern = ':.:gs?\v(\.\.|[^\\/])[^\\/]*([\\/])?\1\2?'
 lockvar s:shortenpattern
 
 " functions {{{2
