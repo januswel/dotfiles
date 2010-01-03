@@ -64,7 +64,6 @@ lockvar s:shortenpattern
 " tablines {{{3
 function! jwlib#tabline#NormalTabLine(labelfunc)
     let tabpages = []
-    let selected = tabpagenr()
     let nr = 1
     let last = tabpagenr('$')
     while nr <= last
@@ -72,7 +71,6 @@ function! jwlib#tabline#NormalTabLine(labelfunc)
 
         " collect informations of the tabpage
         let info = jwlib#tabline#GetTabpageInfo(nr)
-        let info.selected = nr == selected ? 1 : 0
 
         " set the tabpage number (for mouse clicks)
         call add(tabpage, printf('%%%dT', nr))
@@ -97,7 +95,6 @@ endfunction
 
 function! jwlib#tabline#NoMouseTabLine(labelfunc)
     let tabpages = []
-    let selected = tabpagenr()
     let nr = 1
     let last = tabpagenr('$')
     while nr <= last
@@ -105,7 +102,6 @@ function! jwlib#tabline#NoMouseTabLine(labelfunc)
 
         " collect informations of the tabpage
         let info = jwlib#tabline#GetTabpageInfo(nr)
-        let info.selected = nr == selected ? 1 : 0
 
         " the label is made by the function that is specified
         " a:labelfunc
@@ -123,7 +119,7 @@ endfunction
 
 " tablabels {{{3
 function! jwlib#tabline#FilePathTabLabel(i)
-    let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
+    let highlight = a:i.iscurrent ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
     let filepath = bufname(a:i.bufnr)
     if empty(filepath)
@@ -141,7 +137,7 @@ function! jwlib#tabline#FilePathTabLabel(i)
 endfunction
 
 function! jwlib#tabline#FileNameTabLabel(i)
-    let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
+    let highlight = a:i.iscurrent ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
     let filename = fnamemodify(bufname(a:i.bufnr), ':t')
     if empty(filename)
@@ -157,7 +153,7 @@ function! jwlib#tabline#FileNameTabLabel(i)
 endfunction
 
 function! jwlib#tabline#ExtAndFileTypeTabLabel(i)
-    let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
+    let highlight = a:i.iscurrent ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
 
     let ext = ''
@@ -183,11 +179,14 @@ endfunction
 " helper functions {{{3
 " return a Dictionary has following keys
 "   buflist:    a List of buffers are included by the tabpage
+"   bufnr:      a number of the current buffer in the tabpage
+"   iscurrent:  when the tabpage is     current, return 1
+"                                   not current, return 0
 "   modified:   when the tabpage has a modified buffer, return 1
 "                                   no modified buffer, return 0
-"   bufnr:      a number of the current buffer in the tabpage
 function! jwlib#tabline#GetTabpageInfo(n)
     let buflist = tabpagebuflist(a:n)
+    let iscurrent = a:n == tabpagenr() ? 1 : 0
 
     let modified = 0
     for buf in buflist
@@ -198,9 +197,10 @@ function! jwlib#tabline#GetTabpageInfo(n)
     endfor
 
     return {
-                \ 'buflist':    buflist,
-                \ 'modified':   modified,
-                \ 'bufnr':      buflist[tabpagewinnr(a:n) - 1],
+                \   'buflist':    buflist,
+                \   'bufnr':      buflist[tabpagewinnr(a:n) - 1],
+                \   'iscurrent':  iscurrent,
+                \   'modified':   modified,
                 \ }
 endfunction
 
