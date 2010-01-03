@@ -2,7 +2,7 @@
 " Filename:     tabline.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.13
+" Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -45,12 +45,18 @@
 "
 "       set tabline=%!YourTabLine('jwlib#tabline#FilePathTabLabel')
 
-" variables {{{1
+" preparations {{{1
+" reset the value of 'cpoptions' for portability
+let s:save_cpoptions = &cpoptions
+set cpoptions&vim
+
+" main {{{1
+" variables {{{2
 let s:noexts = ['nofile', 'quickfix', 'help']
 let s:shortenpattern = ':gs?\(\.\.\|[^\\/]\)[^\\/]*\([\\/]\)?\1\2?'
 
-" functions {{{1
-" tablines {{{2
+" functions {{{2
+" tablines {{{3
 function jwlib#tabline#NormalTabLine(labelfunc)
     let tabpages = []
     let selected = tabpagenr()
@@ -110,7 +116,7 @@ function jwlib#tabline#NoMouseTabLine(labelfunc)
     return join(tabpages, '')
 endfunction
 
-" tablabels {{{2
+" tablabels {{{3
 function jwlib#tabline#FilePathTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
@@ -169,7 +175,7 @@ function jwlib#tabline#ExtAndFileTypeTabLabel(i)
                 \ ], '')
 endfunction
 
-" stuff {{{2
+" helper functions {{{3
 " return a Dictionary has following keys
 "   buflist:    a List of buffers are included by the tabpage
 "   modified:   when the tabpage has a modified buffer, return 1
@@ -202,5 +208,10 @@ function! jwlib#tabline#BuildTabpageIndicator(i)
     return join([n, m, space], '')
 endfunction
 
+" post-processings {{{1
+" restore the value of 'cpoptions'
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
+
 " }}}1
-" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=4
