@@ -2,7 +2,7 @@
 " Filename:     tabline.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.16
+" Version:      0.17
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -160,7 +160,7 @@ function! jwlib#tabline#ExtAndFileTypeTabLabel(i)
     let buftype = getbufvar(a:i.bufnr, '&buftype')
     if !(!empty(buftype) && index(s:noexts, buftype) !=# -1)
         let ext = fnamemodify(bufname(a:i.bufnr), ':e')
-        if ext ==# ''
+        if empty(ext)
             let ext = '-'
         endif
     endif
@@ -171,7 +171,7 @@ function! jwlib#tabline#ExtAndFileTypeTabLabel(i)
                 \ highlight, ' ',
                 \ modifier,
                 \ '%<', ext,
-                \ '[', ft ==# '' ? '-' : ft, ']',
+                \ '[', empty(ft) ? '-' : ft, ']',
                 \ ' ',
                 \ ], '')
 endfunction
@@ -190,7 +190,7 @@ function! jwlib#tabline#GetTabpageInfo(n)
 
     let modified = 0
     for buf in buflist
-        if getbufvar(buf, '&modified') ==# 1
+        if getbufvar(buf, '&modified')
             let modified = 1
             break
         endif
