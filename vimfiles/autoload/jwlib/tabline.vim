@@ -7,44 +7,6 @@
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 "
-" Remark: {{{1
-"   This script provides functions to be setted to 'tabline'.  See :help
-"   setting-tabline.
-"
-"   There are 3 kind of functions. The first is for tabline - functions to build
-"   the form of tabline.
-"
-"       * jwlib#tabline#NormalTabLine():  the imitation of default
-"       * jwlib#tabline#NoMouseTabLine(): no identifiers for mouse operation
-"
-"   The second is for tablabel - functions to determine the label of each
-"   tabpages.
-"
-"       * jwlib#tabline#FileNameTabLabel():       filename only
-"       * jwlib#tabline#FilePathTabLabel():       filepath in short form
-"       * jwlib#tabline#ExtAndFileTypeTabLabel(): file extention and filetype
-"
-"   The last is helper functions.
-"
-"       * jwlib#tabline#GetTabpageInfo(): return a Dictionary has following keys
-"           - buflist:  a List of buffers are included by the tabpage
-"           - modified: when the tabpage has a modified buffer, return 1
-"                                           no modified buffer, return 0
-"           - bufnr:    a number of the current buffer in the tabpage
-"       * jwlib#tabline#BuildTabpageIndicator(): return string has following indicators
-"           - a number of buffers that be included a tabpage but when its value
-"             is bigger than 1
-"           - a modifier '+' when the tabpage has a modified buffer
-"
-"   In order to set these functions to 'tabline', write like following codes in
-"   your .vimrc:
-"
-"       set tabline=%!jwlib#tabline#NormalTabLine('jwlib#tabline#FileNameTabLabel')
-"
-"   Of course using the combination of your function and above one is possible.
-"
-"       set tabline=%!YourTabLine('jwlib#tabline#FilePathTabLabel')
-
 " preparations {{{1
 " reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
