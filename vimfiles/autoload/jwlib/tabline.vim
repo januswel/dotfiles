@@ -2,7 +2,7 @@
 " Filename:     tabline.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 03.
-" Version:      0.14
+" Version:      0.15
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -51,13 +51,18 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" variables {{{2
+" constants {{{2
+unlockvar s:noexts
 let s:noexts = ['nofile', 'quickfix', 'help']
+lockvar s:noexts
+
+unlockvar s:shortenpattern
 let s:shortenpattern = ':gs?\(\.\.\|[^\\/]\)[^\\/]*\([\\/]\)?\1\2?'
+lockvar s:shortenpattern
 
 " functions {{{2
 " tablines {{{3
-function jwlib#tabline#NormalTabLine(labelfunc)
+function! jwlib#tabline#NormalTabLine(labelfunc)
     let tabpages = []
     let selected = tabpagenr()
     let nr = 1
@@ -90,7 +95,7 @@ function jwlib#tabline#NormalTabLine(labelfunc)
     return join(tabpages, '')
 endfunction
 
-function jwlib#tabline#NoMouseTabLine(labelfunc)
+function! jwlib#tabline#NoMouseTabLine(labelfunc)
     let tabpages = []
     let selected = tabpagenr()
     let nr = 1
@@ -117,7 +122,7 @@ function jwlib#tabline#NoMouseTabLine(labelfunc)
 endfunction
 
 " tablabels {{{3
-function jwlib#tabline#FilePathTabLabel(i)
+function! jwlib#tabline#FilePathTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
     let filepath = bufname(a:i.bufnr)
@@ -135,7 +140,7 @@ function jwlib#tabline#FilePathTabLabel(i)
                 \], '')
 endfunction
 
-function jwlib#tabline#FileNameTabLabel(i)
+function! jwlib#tabline#FileNameTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
     let filename = fnamemodify(bufname(a:i.bufnr), ':t')
@@ -151,7 +156,7 @@ function jwlib#tabline#FileNameTabLabel(i)
                 \], '')
 endfunction
 
-function jwlib#tabline#ExtAndFileTypeTabLabel(i)
+function! jwlib#tabline#ExtAndFileTypeTabLabel(i)
     let highlight = a:i.selected ? '%#TabLineSel#' : '%#TabLine#'
     let modifier = jwlib#tabline#BuildTabpageIndicator(a:i)
 
