@@ -1,10 +1,10 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.39
+" Last Change:  2010 Jan 04.
+" Version:      0.40
 " Dependency:
-"   This plugin needs following files
+"   This script needs following files
 "
 "   autoload/jwlib/unicode/namelist.vim
 "   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/unicode/namelist.vim
@@ -16,46 +16,6 @@
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This autoload script provides following functions. All functions must be
-"   specified the target string.
-"
-"   * jwlib#unicode#GetUtf8ByteSequence({str})
-"       return the List that has numbers of UTF-8 byte sequence.
-"   * jwlib#unicode#GetUtf8ByteSequenceStr({str})
-"       return the string of UTF-8 byte sequence like the normal command "g8".
-"   * jwlib#unicode#GetUnicodeCodePoint({str})
-"       return the List that has numbers of Unicode code point.
-"   * jwlib#unicode#GetPattern({str}[, {type}])
-"       return the search pattern of the character. See |/\%x| |/\%u| |/\%U|.
-"       {type} can be one of following values:
-"
-"       "x"         A string in form of "\%x.."
-"       "u" or "U"  A string in form of "\%u...." or "\%U........"
-"                 Appropreate one will be chosen.
-"
-"       Calling with no arguments is possible, then return a string in form of
-"       "\%x..".
-"   * jwlib#unicode#GetLiteral({str}[, {type}])
-"       return the literal of the character. See |expr-quote|. {type} can be
-"       one of following values:
-"
-"       "x"         A string in form of "\x.."
-"       "X"         A string in form of "\X.."
-"       "u"         A string in form of "\u...."
-"       "U"         A string in form of "\U...."
-"
-"       Calling with no arguments is possible, then return a string in form of
-"       "\%x..".
-"   * jwlib#unicode#GetName({char})
-"       return the name of the specified character defined by The Unicode
-"       Consortium.
-"       Note: For HAN characters, this function return a empty string because
-"       they don't have unified name. But reading is defined by UNIHAN -
-"       UNICODE HAN DATABASE. See the below page if you are interested:
-"
-"           http://www.unicode.org/reports/tr38/
 
 " preparation {{{1
 " check vim has the required feature
