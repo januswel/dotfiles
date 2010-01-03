@@ -1,36 +1,36 @@
 '*'.expand('%:t').'*'	Plugin for showing example
-                                                Last change: 2010 Jan 03.
+                                                Last change: 2010 Jan 04.
 
-SYNOPSIS						*example-synopsis*
+SYNOPSIS						'*'.expand('%:t:r').'-synopsis*'
 >
 	:Example "It's an example"
 
-DESCRIPTION						*example-description*
+DESCRIPTION						'*'.expand('%:t:r').'-description*'
 
 Write simple descriptions here.
 
-DEPENDENCIES						*example-dependencies*
+DEPENDENCIES						'*'.expand('%:t:r').'-dependencies*'
 
 This plugin require following autoload file[s].
 
 autoload/jwlib/example.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/example.vim
 
-PROVIDES						*example-provides*
+PROVIDES						'*'.expand('%:t:r').'-provides*'
 
 Mappings:
 <Leader>example or      <Plug>Example
-	Descriptions for mappings.
+		Descriptions for mappings.
 
 Commands:
 :Example {word}
-	Descriptions for commands.
+		Descriptions for commands.
 
-SETTINGS						*example-settings*
+SETTINGS						'*'.expand('%:t:r').'-settings*'
 
 This plugin doesn't have any settings.
 
-KOWN ISSUES						*example-knownissues*
+KOWN ISSUES						'*'.expand('%:t:r').'-knownissues*'
 
 There are no issues.
 
