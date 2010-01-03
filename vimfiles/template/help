@@ -26,6 +26,10 @@ Commands:
 :Example {word}
 		Descriptions for commands.
 
+Functions:
+jwlib#Example()
+		Descriptions for functions.
+
 SETTINGS						'*'.expand('%:t:r').'-settings*'
 
 This plugin doesn't have any settings.
