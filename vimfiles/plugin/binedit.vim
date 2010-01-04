@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     binedit.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 04.
-" Version:      0.17
+" Last Change:  2010 Jan 05.
+" Version:      0.18
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -26,7 +26,7 @@ set cpoptions&vim
 " main {{{1
 " functions {{{2
 " after reading binary file
-function! s:BinEditInitialization()
+function s:BinEditInitialization()
     if &binary
         call s:Convert2XXD()
         set filetype=xxd
@@ -34,14 +34,14 @@ function! s:BinEditInitialization()
 endfunction
 
 " before writing binary file
-function! s:BinEditWritePre()
+function s:BinEditWritePre()
     if &binary && &filetype ==# 'xxd'
         call s:Convert2Binary()
     endif
 endfunction
 
 " after writing binary file
-function! s:BinEditWritePost()
+function s:BinEditWritePost()
     if &binary && &filetype ==# 'xxd'
         call s:Convert2XXD()
 
@@ -51,7 +51,7 @@ function! s:BinEditWritePost()
 endfunction
 
 " convert into readable text
-function! s:Convert2XXD()
+function s:Convert2XXD()
     silent %!xxd -g 1
 
     " for win32 environment
@@ -59,7 +59,7 @@ function! s:Convert2XXD()
 endfunction
 
 " convert into binary
-function! s:Convert2Binary()
+function s:Convert2Binary()
     silent %!xxd -r
 endfunction
 

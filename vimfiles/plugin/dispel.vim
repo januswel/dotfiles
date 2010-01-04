@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     dispel.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.45
+" Last Change:  2010 Jan 05.
+" Version:      0.46
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 "
@@ -56,7 +56,7 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" variables {{{2
+" constants {{{2
 " default patterns
 " name:      a unique name
 " pattern:   a pattern string
@@ -79,7 +79,7 @@ lockvar s:patterns_default
 
 " functions {{{2
 " just call function matchadd() and return its returned values
-function! s:AddMatch(patterns)
+function s:AddMatch(patterns)
     let l:matchidlist = []
     for item in a:patterns
         call add(l:matchidlist, matchadd(item.name, item.pattern))
@@ -88,7 +88,7 @@ function! s:AddMatch(patterns)
 endfunction
 
 " delete matchids that is already exist and add match patterns
-function! s:SetMatch()
+function s:SetMatch()
     " check match is already setted or not
     if exists('w:matchidlist')
         return
@@ -98,7 +98,7 @@ function! s:SetMatch()
 endfunction
 
 " define :highlight
-function! s:DefineHighlightGroups(groups)
+function s:DefineHighlightGroups(groups)
     if version >= 508 || !exists('did_dispel_syntax_inits')
         if version < 508
             let did_dispel_syntax_inits = 1
@@ -116,7 +116,7 @@ function! s:DefineHighlightGroups(groups)
 endfunction
 
 " global or script local
-function! s:GetPatterns()
+function s:GetPatterns()
     if exists('g:dispel_patterns')
         return g:dispel_patterns
     endif
