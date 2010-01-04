@@ -1,5 +1,5 @@
 *qfagent.txt*	Plugin for semi-automation about quickfix list
-                                                Last change: 2010 Jan 03.
+                                                Last change: 2010 Jan 05.
 
 DESCRIPTION						*qfagent-description*
 
@@ -14,6 +14,15 @@ This plugin require following autoload file.
 
 autoload/jwlib/shell.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+
+PROVIDES						*qfagent-provides*
+
+Augroups:
+qfagent
+	All of the autocmds provided by this plugin is located in "qfagent".
+	To disable in a certain instance of VIM, hit the following command: >
+
+		:autocmd! qfagent
 
 SETTINGS						*qfagent-settings*
 

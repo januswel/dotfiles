@@ -1,5 +1,5 @@
 *autotmpl.txt*	Plugin for loading a template automatically
-                                                Last change: 2010 Jan 03.
+                                                Last change: 2010 Jan 05.
 
 DESCRIPTION						*autotmpl-description*
 
@@ -12,6 +12,15 @@ This plugin require following autoload file[s].
 
 autoload/jwlib/buf.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf.vim
+
+PROVIDES						*autotmpl-provides*
+
+Augroups:
+autotmpl
+	All of the autocmds provided by this plugin is located in "autotmpl".
+	To disable in a certain instance of VIM, hit the following command: >
+
+		:autocmd! autotmpl
 
 SETTINGS						*autotmpl-settings*
 
