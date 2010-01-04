@@ -26,14 +26,7 @@ autoload/jwlib/tablie.vim
 
 See |setting-tabline| for detail.
 
-In order to set these functions to 'tabline', write like following codes in
-your .vimrc:
-
-    set tabline=%!jwlib#tabline#NormalTabLine('jwlib#tabline#FileNameTabLabel')
-
-Of course using the combination of your function and above one is possible.
-
-    set tabline=%!YourTabLine('jwlib#tabline#FilePathTabLabel')
+In order to set these functions to 'tabline', see |jwlib-synopsis|.
 
 PROVIDES					*jwlib-tabline-provides*
 
