@@ -1,5 +1,5 @@
 *jwlib-shell.txt*	Autoload script about shell
-                                                Last change: 2010 Jan 03.
+                                                Last change: 2010 Jan 05.
 
 SYNOPSIS						*jwlib-shell-synopsis*
 >
@@ -26,24 +26,23 @@ PROVIDES						*jwlib-shell-provides*
 
 Functions:
 jwlib#shell#GetType()
-		Return a String to show type of the 'shell'.  All of returned
-		values are listed below.
+	Return a String to show type of the 'shell'.  All of returned values
+	are listed below.
 
-		value	meaning ~
-		cmd	command prompt in win32
-		csh	C shell or tcsh
-		zsh	Z shell
-		sh	Bourne Shell or Bourne-Again Shell
+	value	meaning ~
+	cmd	command prompt in win32
+	csh	C shell or tcsh
+	zsh	Z shell
+	sh	Bourne Shell or Bourne-Again Shell
 
 jwlib#shell#GetEncoding([{expr}])
-		Return a String to show encoding used by the 'shell'.
-		When there is {expr} and its evaluated value is true, this
-		function may use a risky method to get more exact value.  In
-		particular, changing 'encoding' may happen internally, and
-		this processing may have side effects.
+	Return a String to show encoding used by the 'shell'.  When there is
+	{expr} and its evaluated value is true, this function may use a risky
+	method to get more exact value.  In particular, changing 'encoding'
+	may happen internally, and this processing may have side effects.
 
-		Note that this function falls a long way short of perfection.
-		Don't trust too much.
+	Note that this function falls a long way short of perfection.  Don't
+	trust too much.
 
 
 ==============================================================================

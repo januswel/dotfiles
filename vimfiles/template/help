@@ -1,5 +1,5 @@
 '*'.expand('%:t').'*'	Plugin for showing example
-                                                Last change: 2010 Jan 04.
+                                                Last change: 2010 Jan 05.
 
 SYNOPSIS						'*'.expand('%:t:r').'-synopsis*'
 >
@@ -20,15 +20,15 @@ PROVIDES						'*'.expand('%:t:r').'-provides*'
 
 Mappings:
 <Leader>example or      <Plug>Example
-		Descriptions for mappings.
+	Descriptions for mappings.
 
 Commands:
 :Example {word}
-		Descriptions for commands.
+	Descriptions for commands.
 
 Functions:
 jwlib#Example()
-		Descriptions for functions.
+	Descriptions for functions.
 
 SETTINGS						'*'.expand('%:t:r').'-settings*'
 
