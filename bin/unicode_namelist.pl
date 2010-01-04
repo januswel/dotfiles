@@ -1,14 +1,10 @@
 #!/usr/bin/perl
 
-# preparations {{{1
-# pragmas {{{2
 use strict;
 use warnings;
 
-# main {{{1
 main();
 
-# functions {{{2
 sub main {
     my $codepoint_column = 0;
     my $name_column = 1;
@@ -26,7 +22,6 @@ sub main {
     }
 }
 
-# BEGIN & END {{{2
 BEGIN {
     my $filename = 'unicode#namelist';
     my $varname = 'dict';
@@ -43,7 +38,6 @@ END {
     print '}';
 }
 
-# __END__ {{{1
 __END__
 
 =head1 SYNOPSIS
@@ -104,4 +98,4 @@ Unicode 5.2 Character Code Charts
 
 =cut
 
-vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
+vim: ts=4 sw=4 sts=0 et
