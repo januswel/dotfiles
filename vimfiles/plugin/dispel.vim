@@ -2,7 +2,7 @@
 " Filename:     dispel.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 05.
-" Version:      0.46
+" Version:      0.47
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377
 "
@@ -118,6 +118,9 @@ endfunction
 " global or script local
 function s:GetPatterns()
     if exists('g:dispel_patterns')
+        if exists('g:dispel_add') && g:dispel_add
+            return s:patterns_default + g:dispel_patterns
+        endif
         return g:dispel_patterns
     endif
     return s:patterns_default
@@ -133,6 +136,7 @@ augroup END
 
 " execute codes {{{2
 let s:patterns = s:GetPatterns()
+lockvar s:patterns
 
 " register highlight group name previously, since matchadd() needs defined
 " highlight groups
