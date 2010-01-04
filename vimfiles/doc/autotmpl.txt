@@ -8,7 +8,7 @@ a buffer automatically.
 
 DEPENDENCIES						*autotmpl-dependencies*
 
-This plugin require following autoload file[s].
+This plugin require following autoload file.
 
 autoload/jwlib/buf.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/buf.vim
@@ -27,6 +27,13 @@ SETTINGS						*autotmpl-settings*
 Setting is done with a global variable and template files that have
 appropreate name.
 
+DEFAULT
+
+With the default settings - when "g:autotmpl_tmpls" is undefined, this plugin
+will search "template/**" in 'runtimepath'.  This represents template files
+are all files that exists in each values of 'runtimepath' below "template"
+directory.
+
 Variables:
 g:autotmpl_tmpls
 	The path of template files can be setted with "g:autotmpl_tmpls" like
@@ -37,17 +44,10 @@ g:autotmpl_tmpls
 		let g:autotmpl_tmpls = '/home/mymaster/template/**'
 		let g:autotmpl_tmpls = '%HOMEDRIVE%%HOMEPATH%\template\*'
 
-DEFAULT
-
-With the default settings - g:autotmpl_tmpls is undefined, this plugin will
-search "template/**" in 'runtimepath'. This represents template files are
-all files that exists in each values of 'runtimepath' below "template"
-directory.
-
 TEMPLATE NAME
 
-The name of the template file matter in order to be loaded as intended. You
-must name your template file like "filetype.ext". E.g. the typical template
+The name of the template file matter in order to be loaded as intended.  You
+must name your template file like "filetype.ext".  E.g. the typical template
 file for scripting language perl should be named "perl.pl".
 
 
