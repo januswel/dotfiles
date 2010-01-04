@@ -1,5 +1,5 @@
 *jwlib-fs.txt*	Autoload script about filesystem
-                                                Last change: 2010 Jan 03.
+                                                Last change: 2010 Jan 05.
 
 SYNOPSIS						*jwlib-fs-synopsis*
 >
@@ -20,7 +20,7 @@ PROVIDES						*jwlib-fs-provides*
 
 Functions:
 jwlib#fs#Exists({file})
-	When {file} exists, return not zero.  Otherwise return zero.
+	When {file} exists, return non-zero.  Otherwise return zero.
 	This function is contained in autoload/jwlib/fs.vim
 
 

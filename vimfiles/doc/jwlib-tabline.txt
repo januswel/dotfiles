@@ -74,7 +74,7 @@ jwlib#tabline#GetTabpageInfo({nr})
 	key		meaning ~
 	buflist		A List of buffers that are included by the tabpage.
 	bufnr		A buffer number of the current buffer in the tabpage.
-	iscurrent	When the tabpage is current one, this is not zero.
+	iscurrent	When the tabpage is current one, this is non-zero.
 			Otherwise this is zero.
 	modified	When the tabpage has a modified buffer, this is not
 			zero.  Otherwise this is zero.

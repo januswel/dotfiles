@@ -1,5 +1,5 @@
 *jwlib-buf.txt*	Autoload scripts about buffer
-                                                Last change: 2010 Jan 03.
+                                                Last change: 2010 Jan 05.
 
 SYNOPSIS						*jwlib-buf-synopsis*
 >
@@ -31,7 +31,7 @@ PROVIDES						*jwlib-buf-provides*
 Functions:
 							*jwlib-buf-status*
 jwlib#buf#IsEmpty()
-	When the current buffer has no contents, return not zero.  Otherwise
+	When the current buffer has no contents, return non-zero.  Otherwise
 	return zero.
 	This function is contained in autoload/jwlib/buf.vim.
 
@@ -42,7 +42,7 @@ jwlib#buf#IsModifiable()
 
 jwlib#buf#IsNormalType()
 	When 'buftype' of the current buffer has no value, that is normal
-	type, return not zero.  Otherwise return zero.
+	type, return non-zero.  Otherwise return zero.
 	This function is contained in autoload/jwlib/buf.vim.
 
 							*jwlib-buf-replace*
