@@ -4,7 +4,7 @@
 DESCRIPTION						*qfagent-description*
 
 Plugin for opening a quickfix list window automatically, when you run command
-"make", "vimgrep" or "grep".  Additionally, it's also provided to convert
+|:make|, |:vimgrep| or |:grep|.  Additionally, it's also provided to convert
 results of above commands to bit more readable form - with considering
 encoding and end of line format.
 
