@@ -1,0 +1,79 @@
+*dispel.txt*	Plugin for showing invisible characters
+                                                Last change: 2010 Jan 05.
+
+DESCRIPTION						*dispel-description*
+
+Plugin for showing invisible characters automatically.
+
+PROVIDES						*dispel-provides*
+
+Augroups:
+dispel
+	All of the autocmds provided by this plugin is located in "dispel".
+	To disable in a certain instance of VIM, hit the following command: >
+
+		:autocmd! dispel
+
+SETTINGS						*dispel-settings*
+
+DEFAULT
+
+In the default settings - when "g:dispel_patterns" is undefined - this plugin
+show trailing spaces and U+3000 "IDEOGRAPHIC SPACE" with Error highlighting.
+
+Variables:
+g:dispel_patterns
+	Patterns and highlighting group names of characters to show.  This
+	must be a List has a/some Dictionar(y|ies).  Dictionary must have
+	following keys and values.
+
+	key		meaning ~
+	name		A name of pattern.  Must be unique through all pattern
+			names.
+	pattern		A |pattern|.  Can be written in the form of regular
+			expression.
+	highlight	A name of highlighting group.  Must be the one that
+			exists already.
+
+	Note that overwriting default patterns.  To add patterns newly, use
+	the variable "g:dispel_add" (see below).
+
+	When you wanna show trailing spaces with WarningMsg highlighting,
+	write following codes in your .vimrc: >
+
+		let g:dispel_patterns = [
+		        \   {
+		        \       'name':      'TrailingWhiteSpace',
+		        \       'pattern':   '\s\+$',
+		        \       'highlight': 'WarningMsg'
+		        \   },
+		        \ ]
+
+g:dispel_add
+	When evaluate to non-zero, default patterns are used in addition to
+	specified by "g:dispel_patterns".  Following pattern is useful when
+	writing docs: >
+
+		let g:dispel_add = 1
+		let g:dispel_patterns = [
+		        \   {
+		        \       'name':      'ASpaceBetweenSentences',
+		        \       'pattern':   '\v\.@<= \w@=',
+		        \       'highlight': 'Error'
+		        \   },
+		        \ ]
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2010 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:
