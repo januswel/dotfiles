@@ -26,6 +26,10 @@ Commands:
 :Example {word}
 	Descriptions for commands.
 
+Augroups:
+example
+	Descriptions for augroups.
+
 Functions:
 jwlib#Example()
 	Descriptions for functions.
