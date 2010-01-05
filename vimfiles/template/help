@@ -1,5 +1,5 @@
 printf('*%s*',expand('%:t'))	Plugin for showing example
-                                                Last change: 2010 Jan 05.
+                                                Last change: 2010 Jan 06.
 
 SYNOPSIS						printf('*%s-synopsis*',expand('%:t:r'))
 >
@@ -42,15 +42,16 @@ DISABLES						printf('*%s-disables*',expand('%:t:r'))
 
 Variables:
 printf('g:loaded_%s',expand('%:t:r'))
-	When exists, this plugin do nothing.  Use to disable this plugin.
+	When exists, does nothing.  Use to disable this plugin.
 
 printf('g:no_%s_maps',expand('%:t:r'))
-	When non-zero, this plugin doesn't register any effective mappings.
+	When non-zero, doesn't register any effective mappings.
 
 g:no_plugin_maps
-	When non-zero, this plugin doesn't register any effective mappings.
-	This variable may have an affect on mappings of other plugins.  Use
-	printf('"g:no_%s_maps"',expand('%:t:r')) to disable only mappings of this plugin.
+	When non-zero, doesn't register any effective mappings.  This variable
+	may have an affect on mappings of other plugins.  Use
+	printf('"g:no_%s_maps"',expand('%:t:r')) to disable only mappings of
+	this plugin.
 
 KOWN ISSUES						printf('*%s-knownissues*',expand('%:t:r'))
 

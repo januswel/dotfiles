@@ -1,5 +1,5 @@
 *dispel.txt*	Plugin for showing invisible characters
-                                                Last change: 2010 Jan 05.
+                                                Last change: 2010 Jan 06.
 
 DESCRIPTION						*dispel-description*
 
@@ -67,7 +67,7 @@ DISABLES						*dispel-disables*
 
 Variables:
 g:loaded_dispel
-	When exists, this plugin do nothing.  Use to disable this plugin.
+	When exists, does nothing.  Use to disable this plugin.
 
 
 ==============================================================================

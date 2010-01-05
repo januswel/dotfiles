@@ -56,14 +56,14 @@ DISABLES						*genctags-disables*
 
 Variables:
 g:loaded_genctags
-	When exists, this plugin do nothing.  Use to disable this plugin.
+	When exists, does nothing.  Use to disable this plugin.
 
 g:no_genctags_maps
-	When non-zero, this plugin doesn't register any effective mappings.
+	When non-zero, doesn't register any effective mappings.
 
 g:no_plugin_maps
-	When non-zero, this plugin doesn't register any effective mappings.
-	This variable may have an affect on mappings of other plugins.  Use
+	When non-zero, doesn't register any effective mappings.  This variable
+	may have an affect on mappings of other plugins.  Use
 	"g:no_genctags_maps" to disable only mappings of this plugin.
 
 

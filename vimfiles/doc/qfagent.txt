@@ -1,5 +1,5 @@
 *qfagent.txt*	Plugin for semi-automation about quickfix list
-                                                Last change: 2010 Jan 05.
+                                                Last change: 2010 Jan 06.
 
 DESCRIPTION						*qfagent-description*
 
@@ -32,7 +32,7 @@ DISABLES						*qfagent-disables*
 
 Variables:
 g:loaded_qfagent
-	When exists, this plugin do nothing.  Use to disable this plugin.
+	When exists, does nothing.  Use to disable this plugin.
 
 
 ==============================================================================

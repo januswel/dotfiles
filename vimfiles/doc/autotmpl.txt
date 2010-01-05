@@ -1,5 +1,5 @@
 *autotmpl.txt*	Plugin for loading a template automatically
-                                                Last change: 2010 Jan 05.
+                                                Last change: 2010 Jan 06.
 
 DESCRIPTION						*autotmpl-description*
 
@@ -54,7 +54,7 @@ DISABLES						*autotmpl-disables*
 
 Variables:
 g:loaded_autotmpl
-	When exists, this plugin do nothing.  Use to disable this plugin.
+	When exists, does nothing.  Use to disable this plugin.
 
 
 ==============================================================================

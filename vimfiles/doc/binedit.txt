@@ -1,5 +1,5 @@
 *binedit.txt*	Plugin for editing binary
-                                                Last change: 2010 Jan 05.
+                                                Last change: 2010 Jan 06.
 
 SYNOPSIS						*binedit-synopsis*
 >
@@ -28,7 +28,7 @@ DISABLES						*binedit-disables*
 
 Variables:
 g:loaded_binedit
-	When exists, this plugin do nothing.  Use to disable this plugin.
+	When exists, does nothing.  Use to disable this plugin.
 
 
 ==============================================================================
