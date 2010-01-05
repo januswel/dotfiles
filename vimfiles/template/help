@@ -38,6 +38,20 @@ SETTINGS						printf('*%s-settings*',expand('%:t:r'))
 
 This plugin doesn't have any settings.
 
+DISABLES						printf('*%s-disables*',expand('%:t:r'))
+
+Variables:
+printf('g:loaded_%s',expand('%:t:r'))
+	When exists, this plugin do nothing.  Use to disable this plugin.
+
+printf('g:no_%s_maps',expand('%:t:r'))
+	When non-zero, this plugin doesn't register any effective mappings.
+
+g:no_plugin_maps
+	When non-zero, this plugin doesn't register any effective mappings.
+	This variable may have an affect on mappings of other plugins.  Use
+	printf('"g:no_%s_maps"',expand('%:t:r')) to disable only mappings of this plugin.
+
 KOWN ISSUES						printf('*%s-knownissues*',expand('%:t:r'))
 
 There are no issues.
