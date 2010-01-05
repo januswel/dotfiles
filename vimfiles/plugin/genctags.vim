@@ -2,7 +2,13 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 06.
-" Version:      0.16
+" Version:      0.17
+" Dependency:
+"   This plugin requires following file
+"
+"   autoload/jwlib/shell.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+"
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -120,6 +126,10 @@ function! s:GenerateCtags(bang, targetdir, ...)
 
     " build and execute the command
     let cmd = join(['!', s:exe, join(options), target])
+    let shellenc = jwlib#shell#GetEncoding()
+    if &encoding !=? shellenc
+        let cmd = iconv(cmd, &encoding, shellenc)
+    endif
     execute cmd
 endfunction
 
