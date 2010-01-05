@@ -2,7 +2,7 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 06.
-" Version:      0.17
+" Version:      0.18
 " Dependency:
 "   This plugin requires following file
 "
@@ -109,7 +109,8 @@ function! s:GenerateCtags(bang, targetdir, ...)
     endif
     " excluded directories
     if !empty(a:000)
-        call add(options, s:opt_exclude . join(a:000, ','))
+        let excludes = map(copy(a:000), 's:opt_exclude . v:val')
+        call add(options, join(excludes))
     endif
     " a result file
     let outfile = fnamemodify(a:targetdir . '/' . s:filename, ':p')
