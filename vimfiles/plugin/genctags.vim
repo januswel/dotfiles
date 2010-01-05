@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.14
+" Last Change:  2010 Jan 06.
+" Version:      0.15
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -53,7 +53,8 @@ set cpoptions&vim
 " mappings {{{2
 if !(exists('no_plugin_maps') && no_plugin_maps)
             \ && !(exists('no_genctags_maps') && no_genctags_maps)
-    if !hasmapto('<Plug>GenerateCtags')
+
+    if !hasmapto('<Plug>GenerateCtags', 'n')
         nmap <unique><Leader>gc
                     \ <Plug>GenerateCtags
     endif
