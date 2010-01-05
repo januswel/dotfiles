@@ -2,7 +2,7 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 06.
-" Version:      0.20
+" Version:      0.21
 " Dependency:
 "   This plugin requires following file
 "
@@ -70,7 +70,7 @@ nnoremap <silent><Plug>GenerateCtags
 
 " commands {{{2
 if exists(':GenerateCtags') != 2
-    command -bang -nargs=+ -complete=dir GenerateCtags
+    command -bang -nargs=+ -complete=file GenerateCtags
                 \ call <SID>GenerateCtags('<bang>', <f-args>)
 endif
 
