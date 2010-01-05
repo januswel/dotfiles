@@ -1,25 +1,25 @@
-'*'.expand('%:t').'*'	Plugin for showing example
+printf('*%s*',expand('%:t'))	Plugin for showing example
                                                 Last change: 2010 Jan 05.
 
-SYNOPSIS						'*'.expand('%:t:r').'-synopsis*'
+SYNOPSIS						printf('*%s-synopsis*',expand('%:t:r'))
 >
 	:Example "It's an example"
 
-DESCRIPTION						'*'.expand('%:t:r').'-description*'
+DESCRIPTION						printf('*%s-description*',expand('%:t:r'))
 
 Write simple descriptions here.
 
-DEPENDENCIES						'*'.expand('%:t:r').'-dependencies*'
+DEPENDENCIES						printf('*%s-dependencies*',expand('%:t:r'))
 
 This plugin require following autoload file[s].
 
 autoload/jwlib/example.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/example.vim
 
-PROVIDES						'*'.expand('%:t:r').'-provides*'
+PROVIDES						printf('*%s-provides*',expand('%:t:r'))
 
 Mappings:
-<Leader>example or      <Plug>Example
+<Leader>example or <Plug>Example
 	Descriptions for mappings.
 
 Commands:
@@ -34,11 +34,11 @@ Functions:
 jwlib#Example()
 	Descriptions for functions.
 
-SETTINGS						'*'.expand('%:t:r').'-settings*'
+SETTINGS						printf('*%s-settings*',expand('%:t:r'))
 
 This plugin doesn't have any settings.
 
-KOWN ISSUES						'*'.expand('%:t:r').'-knownissues*'
+KOWN ISSUES						printf('*%s-knownissues*',expand('%:t:r'))
 
 There are no issues.
 
