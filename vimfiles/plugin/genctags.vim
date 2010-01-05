@@ -2,7 +2,7 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 06.
-" Version:      0.19
+" Version:      0.20
 " Dependency:
 "   This plugin requires following file
 "
@@ -103,6 +103,8 @@ function! s:GenerateCtags(bang, targetdir, ...)
     endif
     " }}}3
 
+    " get an absolute path
+    let targetdir = fnamemodify(a:targetdir, ':p')
     " convert the bang to a number
     let recursive = (a:bang ==# '!') ? 1 : 0
 
@@ -118,17 +120,11 @@ function! s:GenerateCtags(bang, targetdir, ...)
         call add(options, join(excludes))
     endif
     " a result file
-    let outfile = fnamemodify(a:targetdir . '/' . s:filename, ':p')
-    let outfile = shellescape(outfile)
     call add(options, s:opt_outfile)
-    call add(options, outfile)
+    call add(options, shellescape(targetdir . s:filename))
 
     " target files or the top of target directory
-    let target = fnamemodify(a:targetdir, ':p')
-    if !recursive
-        let target .= '*'
-    endif
-    let target = shellescape(target)
+    let target = shellescape(recursive ? targetdir : targetdir . '*')
 
     " build and execute the command
     let cmd = join(['!', s:exe, join(options), target])
