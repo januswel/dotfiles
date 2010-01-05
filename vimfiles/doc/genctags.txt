@@ -1,0 +1,82 @@
+*genctags.txt*	Plugin for generating ctags
+                                                Last change: 2010 Jan 06.
+
+SYNOPSIS						*genctags-synopsis*
+>
+	" only specifyied directory
+	:GenerateCtags ~/yourproject/
+
+	" current working directory
+	" hitting <Leader>gc is as same as the under
+	:GenerateCtags .
+
+	" recursive but exclude "doc" and "spell"
+	:GenerateCtags! ~/.vim/ doc spell
+
+DESCRIPTION						*genctags-description*
+
+Plugin for generating the file "tags" that includes tag information, by
+|ctags| program.  This plugin aims to generating a general one simply, so use
+"ctags" command directly to specify various options finely.
+
+DEPENDENCIES					*genctags-dependencies*
+
+This plugin require following autoload file.
+
+autoload/jwlib/shell.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+
+Additionally, external command "ctags" is required.
+	http://ctags.sourceforge.net/
+
+PROVIDES						*genctags-provides*
+
+Mappings:
+<Leader>gc or <Plug>GenerateCtags
+	Generate tags for the current working directory.  "tags" is located in
+	the current working directory.
+
+Commands:
+:GenerateCtags[!] {dir}[ {dir1} ...]
+	Generate tags for {dir}.  "tags" is located in the current working
+	directory.
+	With {dir1} and other following arguments, these are treated as
+	excluded files or directorys.  Use when there is something not to
+	wanna include.
+	With bang ("!"), search recursively.
+
+	Note that the end of each argument is "\", VIM interprets it as an
+	escape character (specifically look out in win32 environment).  E.g.
+	there is one space between {dir} and {dir1}, and "\" exists at the end
+	of {dir}, then the command is treated as {dir} and {dir1} is joined
+	with a space like "{dir} {dir1}".  In order to avoid this trap, just
+	specify a bare name of a directory.
+
+DISABLES						*genctags-disables*
+
+Variables:
+g:loaded_genctags
+	When exists, this plugin do nothing.  Use to disable this plugin.
+
+g:no_genctags_maps
+	When non-zero, this plugin doesn't register any effective mappings.
+
+g:no_plugin_maps
+	When non-zero, this plugin doesn't register any effective mappings.
+	This variable may have an affect on mappings of other plugins.  Use
+	"g:no_genctags_maps" to disable only mappings of this plugin.
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2010 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:
