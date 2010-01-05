@@ -68,6 +68,21 @@ if exists(':GenerateCtags') != 2
                 \ call <SID>GenerateCtags('<bang>', <f-args>)
 endif
 
+" constants {{{2
+" executable command name
+let s:exe = 'ctags'
+lockvar s:exe
+" tags filename
+let s:filename = 'tags'
+lockvar s:filename
+" options
+let s:opt_recursive = '-R'
+lockvar s:opt_recursive
+let s:opt_exclude = '--exclude='
+lockvar s:opt_exclude
+let s:opt_outfile = '-f'
+lockvar s:opt_outfile
+
 " functions {{{2
 function! s:GenerateCtags(bang, targetdir, ...)
     " assertion {{{3
@@ -80,22 +95,22 @@ function! s:GenerateCtags(bang, targetdir, ...)
     " convert the bang to a number
     let recursive = (a:bang ==# '!') ? 1 : 0
 
-    " executable command name
-    let exe = 'ctags'
-
     " options
     let options = []
     " options not to be passed arguments
     if recursive
-        call add(options, '-R')
+        call add(options, s:opt_recursive)
     endif
     " excluded directories
     if !empty(a:000)
-        call add(options, '--exclude=' . join(a:000, ','))
+        call add(options, s:opt_exclude . join(a:000, ','))
     endif
+    " a result file
+    let outfile = fnamemodify(a:targetdir . '/' . s:filename, ':p')
+    let outfile = shellescape(outfile)
+    call add(options, s:opt_outfile)
+    call add(options, outfile)
 
-    " the result file
-    let outfile = '-f ' . shellescape(fnamemodify(a:targetdir . '/tags', ':p'))
     " target files or the top of target directory
     let target = fnamemodify(a:targetdir, ':p')
     if !recursive
@@ -104,7 +119,7 @@ function! s:GenerateCtags(bang, targetdir, ...)
     let target = shellescape(target)
 
     " build and execute the command
-    let cmd = join(['!', exe, join(options), outfile, target])
+    let cmd = join(['!', s:exe, join(options), target])
     execute cmd
 endfunction
 
