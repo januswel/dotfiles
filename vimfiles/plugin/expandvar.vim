@@ -2,7 +2,7 @@
 " Filename:     expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 05.
-" Version:      0.18
+" Version:      0.19
 " Dependency:
 "   This plugin needs following files
 "
@@ -12,30 +12,6 @@
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-
-" Remark: {{{1
-"   This plugin provides the feature to expand variables or evaluate
-"   expressions in the current buffer. When following identifiers in your
-"   current buffer, and then hit <Leader>e for expand() or <Leader>E for eval()
-"   (these are default key mappings) on these:
-"
-"       &encoding
-"       '%:t'
-"       &statusline
-"
-"   Results will be like fllowings:
-"
-"       " with <Leader>e
-"       " Note: Some options are expanded to an irrelevant values. E.g.
-"       "       'statusline'. This is an issue of vim itself.
-"       utf-8
-"       expandvar.vim
-"       vimfiles\plugin\expandvar.vim
-"
-"       " with <Leader>E
-"       utf-8
-"       %:t
-"       %t
 
 " preparations {{{1
 " check if this plugin is already loaded or not
