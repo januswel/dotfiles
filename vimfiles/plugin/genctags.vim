@@ -2,7 +2,7 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 06.
-" Version:      0.15
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -70,11 +70,12 @@ endif
 
 " functions {{{2
 function! s:GenerateCtags(bang, targetdir, ...)
-    " assertion
-    if a:targetdir ==# ''
+    " assertion {{{3
+    if empty(a:targetdir)
         echoerr 'The target directory is empty!!'
         return
     endif
+    " }}}3
 
     " convert the bang to a number
     let recursive = (a:bang ==# '!') ? 1 : 0
@@ -113,4 +114,4 @@ let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
 " }}}1
-" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=4
