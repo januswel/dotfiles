@@ -50,6 +50,12 @@ The name of the template file matter in order to be loaded as intended.  You
 must name your template file like "filetype.ext".  E.g. the typical template
 file for scripting language perl should be named "perl.pl".
 
+DISABLES						*autotmpl-disables*
+
+Variables:
+g:loaded_autotmpl
+	When exists, this plugin do nothing.  Use to disable this plugin.
+
 
 ==============================================================================
 

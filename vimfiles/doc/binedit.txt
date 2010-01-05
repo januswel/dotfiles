@@ -24,6 +24,12 @@ SETTINGS						*binedit-settings*
 
 This plugin doesn't have any settings.
 
+DISABLES						*binedit-disables*
+
+Variables:
+g:loaded_binedit
+	When exists, this plugin do nothing.  Use to disable this plugin.
+
 
 ==============================================================================
 

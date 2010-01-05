@@ -28,6 +28,12 @@ SETTINGS						*qfagent-settings*
 
 This plugin doesn't have any settings.
 
+DISABLES						*qfagent-disables*
+
+Variables:
+g:loaded_qfagent
+	When exists, this plugin do nothing.  Use to disable this plugin.
+
 
 ==============================================================================
 

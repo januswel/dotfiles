@@ -63,6 +63,12 @@ g:dispel_add
 		        \   },
 		        \ ]
 
+DISABLES						*dispel-disables*
+
+Variables:
+g:loaded_dispel
+	When exists, this plugin do nothing.  Use to disable this plugin.
+
 
 ==============================================================================
 
