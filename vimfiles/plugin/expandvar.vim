@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.17
+" Last Change:  2010 Jan 05.
+" Version:      0.18
 " Dependency:
 "   This plugin needs following files
 "
@@ -52,12 +52,12 @@ set cpoptions&vim
 " mappings {{{2
 if !(exists('no_plugin_maps') && no_plugin_maps)
     \ && !(exists('no_expandvar_maps') && no_expandvar_maps)
-    if !hasmapto('<Plug>ExpandVariable')
+    if !hasmapto('<Plug>ExpandVariable', 'n')
         nmap <unique><Leader>ev
                     \ <Plug>ExpandVariable
     endif
 
-    if !hasmapto('<Plug>EvalExpression')
+    if !hasmapto('<Plug>EvalExpression', 'n')
         nmap <unique><Leader>ee
                     \ <Plug>EvalExpression
     endif
