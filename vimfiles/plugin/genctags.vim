@@ -2,7 +2,7 @@
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 06.
-" Version:      0.18
+" Version:      0.19
 " Dependency:
 "   This plugin requires following file
 "
@@ -93,7 +93,12 @@ lockvar s:opt_outfile
 function! s:GenerateCtags(bang, targetdir, ...)
     " assertion {{{3
     if empty(a:targetdir)
-        echoerr 'The target directory is empty!!'
+        echoerr 'The target directory is empty.'
+        return
+    endif
+
+    if !isdirectory(a:targetdir)
+        echoerr 'The target is not directory: ' . a:targetdir
         return
     endif
     " }}}3
