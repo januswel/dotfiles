@@ -18,6 +18,9 @@ This plugin require following autoload file[s].
 autoload/jwlib/example.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/example.vim
 
+The external command "example" is required.
+	http://example.com/
+
 PROVIDES						printf('*%s-provides*',expand('%:t:r'))
 
 Mappings:
@@ -29,8 +32,11 @@ Commands:
 	Descriptions for commands.
 
 Augroups:
-example
-	Descriptions for augroups.
+'%:t:r'
+	All of the autocmds provided by this plugin is located in printf('"%s".',expand('%:t:r'))
+	To disable in a certain instance of VIM, hit the following command: >
+
+		:autocmd! '%:t:r'
 
 Functions:
 jwlib#Example()
