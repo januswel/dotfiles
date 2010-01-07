@@ -2,7 +2,7 @@
 " Filename:     qfagent.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 07.
-" Version:      0.13
+" Version:      0.14
 " Dependency:
 "   This plugin requires following files
 "
@@ -19,6 +19,11 @@ if exists('loaded_qfagent')
     finish
 endif
 let loaded_qfagent = 1
+
+" check vim has required features
+if !has('autocmd')
+    finish
+endif
 
 " reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
