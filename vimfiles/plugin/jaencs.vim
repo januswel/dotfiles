@@ -2,7 +2,7 @@
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 07.
-" Version:      0.18
+" Version:      0.19
 " Acknowledgement:
 "   thinca
 "       He told me the implementation of the value "guess" and show me ropes to
@@ -44,13 +44,16 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main: {{{1
-" variables {{{2
+" constants {{{2
 " default names of encoding
+" Other constant variables s:eucjp and s:jisx are defined in the end of this
+" script.
 let s:cp932 = ['cp932']
-let s:eucjp = ['euc-jp']
-let s:jisx  = ['iso-2022-jp']
+lockvar s:cp932
 let s:bom   = ['ucs-bom']
+lockvar s:bom
 let s:utf   = ['utf-8']
+lockvar s:utf
 
 " functions {{{2
 " check if iconv supports JIS X 0213
@@ -106,6 +109,8 @@ augroup END
 " execute codes {{{2
 " once on ahead
 let [s:eucjp, s:jisx] = s:CheckIconvCapability()
+lockvar s:eucjp
+lockvar s:jisx
 
 " post-processing {{{1
 " restore the value of 'cpoptions'
