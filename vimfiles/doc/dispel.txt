@@ -1,9 +1,13 @@
 *dispel.txt*	Plugin for showing invisible characters
-                                                Last change: 2010 Jan 06.
+                                                Last change: 2010 Jan 07.
 
 DESCRIPTION						*dispel-description*
 
 Plugin for showing invisible characters automatically.
+
+DEPENDENCIES						*dispel-dependencies*
+
+{only available when your VIM has the |+autocmd| feature}
 
 PROVIDES						*dispel-provides*
 

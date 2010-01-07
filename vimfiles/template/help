@@ -1,5 +1,5 @@
 printf('*%s*',expand('%:t'))	Plugin for showing example
-                                                Last change: 2010 Jan 06.
+                                                Last change: 2010 Jan 07.
 
 SYNOPSIS						printf('*%s-synopsis*',expand('%:t:r'))
 >
@@ -10,6 +10,8 @@ DESCRIPTION						printf('*%s-description*',expand('%:t:r'))
 Write simple descriptions here.
 
 DEPENDENCIES						printf('*%s-dependencies*',expand('%:t:r'))
+
+{only available when your VIM has the |+example| feature}
 
 This plugin require following autoload file[s].
 

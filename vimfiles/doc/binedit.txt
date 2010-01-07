@@ -1,5 +1,5 @@
 *binedit.txt*	Plugin for editing binary
-                                                Last change: 2010 Jan 06.
+                                                Last change: 2010 Jan 07.
 
 SYNOPSIS						*binedit-synopsis*
 >
@@ -10,6 +10,10 @@ DESCRIPTION						*binedit-description*
 Plugin for editing binary in the form of "xxd" when you open a file with
 the option 'binary'.  To set the 'binary' with opening a file simultaneously,
 use the |++bin| modifier.  See |using-xxd| about the source of this plugin.
+
+DEPENDENCIES						*binedit-dependencies*
+
+The external command "xxd" is required but this is distributed with VIM.
 
 PROVIDES						*binedit-provides*
 

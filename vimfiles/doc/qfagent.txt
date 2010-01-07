@@ -1,5 +1,5 @@
 *qfagent.txt*	Plugin for semi-automation about quickfix list
-                                                Last change: 2010 Jan 06.
+                                                Last change: 2010 Jan 07.
 
 DESCRIPTION						*qfagent-description*
 
@@ -9,6 +9,8 @@ results of above commands to bit more readable form - with considering
 encoding and end of line format.
 
 DEPENDENCIES						*qfagent-dependencies*
+
+{only available when your VIM has the |+autocmd| feature}
 
 This plugin require following autoload file.
 

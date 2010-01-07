@@ -1,5 +1,5 @@
 *autotmpl.txt*	Plugin for loading a template automatically
-                                                Last change: 2010 Jan 06.
+                                                Last change: 2010 Jan 07.
 
 DESCRIPTION						*autotmpl-description*
 
@@ -7,6 +7,8 @@ Plugin for loading a template file along with the extension or the filetype of
 a buffer automatically.
 
 DEPENDENCIES						*autotmpl-dependencies*
+
+{only available when your VIM has the |+autocmd| and |+modify_fname| feature}
 
 This plugin require following autoload file.
 
