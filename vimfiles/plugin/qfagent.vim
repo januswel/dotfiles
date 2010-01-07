@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     qfagent.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.12
+" Last Change:  2010 Jan 07.
+" Version:      0.13
 " Dependency:
 "   This plugin requires following files
 "
@@ -43,7 +43,7 @@ function s:ConvertEncodingQFList()
     if shellenc !=? &encoding
         let qflist = getqflist()
         for item in qflist
-            let item.text = iconv(item.text, &encoding, shellenc)
+            let item.text = iconv(item.text, shellenc, &encoding)
         endfor
         call setqflist(qflist)
     endif
