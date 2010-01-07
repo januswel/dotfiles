@@ -1,5 +1,5 @@
 *genctags.txt*	Plugin for generating ctags
-                                                Last change: 2010 Jan 06.
+                                                Last change: 2010 Jan 07.
 
 SYNOPSIS						*genctags-synopsis*
 >
@@ -26,7 +26,7 @@ This plugin require following autoload file.
 autoload/jwlib/shell.vim
 http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
 
-Additionally, external command "ctags" is required.
+Additionally, the external command "ctags" is also required.
 	http://ctags.sourceforge.net/
 
 PROVIDES						*genctags-provides*
