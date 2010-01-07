@@ -2,7 +2,7 @@
 " Filename:     qfagent.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 07.
-" Version:      0.14
+" Version:      0.15
 " Dependency:
 "   This plugin requires following files
 "
@@ -36,6 +36,9 @@ set cpoptions&vim
 function s:RemoveCRFromQFList()
     if jwlib#shell#GetType() ==# 'cmd'
         let qflist = getqflist()
+        if empty(qflist)
+            return
+        endif
         for item in qflist
             let item.text = substitute(item.text, '$', '', '')
         endfor
@@ -47,6 +50,9 @@ function s:ConvertEncodingQFList()
     let shellenc = jwlib#shell#GetEncoding()
     if shellenc !=? &encoding
         let qflist = getqflist()
+        if empty(qflist)
+            return
+        endif
         for item in qflist
             let item.text = iconv(item.text, shellenc, &encoding)
         endfor
