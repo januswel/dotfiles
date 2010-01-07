@@ -65,6 +65,8 @@ KOWN ISSUES						printf('*%s-knownissues*',expand('%:t:r'))
 
 There are no issues.
 
+ACKNOWLEDGMENT 						printf('*%s-acknowledgment*',expand('%:t:r'))
+
 
 ==============================================================================
 
