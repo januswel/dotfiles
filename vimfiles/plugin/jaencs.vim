@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.17
+" Last Change:  2010 Jan 07.
+" Version:      0.18
 " Acknowledgement:
 "   thinca
 "       He told me the implementation of the value "guess" and show me ropes to
@@ -35,7 +35,7 @@ endif
 let loaded_jaencs = 1
 
 " check vim has the required feature
-if !(has('iconv') && has('autocmd'))
+if !(has('multi_byte') && has('autocmd'))
     finish
 endif
 
