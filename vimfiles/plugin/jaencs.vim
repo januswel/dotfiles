@@ -2,30 +2,10 @@
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 07.
-" Version:      0.19
-" Acknowledgement:
-"   thinca
-"       He told me the implementation of the value "guess" and show me ropes to
-"       specify characters by using byte codes
-"           - http://d.hatena.ne.jp/thinca/20091208/1260265376
-"           - http://d.hatena.ne.jp/thinca/20091208/1260264053
-"
+" Version:      0.20
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This plugin the feature to determine 'fileencodings' depending on
-"   'encoding' automatically, with Japanese encodings. It is made sure to work
-"   with files that are following encodings.
-"       - utf-8
-"       - cp932
-"       - sjis
-"       - euc-jp
-"       - euc-jisx0213
-"       - eucjp-ms
-"       - iso-2022-jp
-"       - iso-2022-jp-3
 
 " preparation {{{1
 " check if this plugin is already loaded or not
