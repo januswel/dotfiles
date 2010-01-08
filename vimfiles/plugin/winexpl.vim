@@ -2,7 +2,7 @@
 " Filename:     winexpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 08.
-" Version:      0.48
+" Version:      0.49
 " Dependency:
 "   This plugin needs following files
 "
@@ -59,7 +59,7 @@ set cpoptions&vim
 " main {{{1
 " commands {{{2
 if exists(':WinExplorer') != 2
-    command -nargs=? -complete=dir WinExplorer
+    command -nargs=? -complete=file WinExplorer
                 \ call s:WinExplorer('<args>')
 endif
 
@@ -89,15 +89,19 @@ function! s:WinExplorer(...)
             let path = expand('%:p')
             if empty(path)
                 " when buffer name is empty
-                let dir = getcwd()
-                unlet path
+                let path = getcwd()
             endif
         else
-            let dir = fnamemodify(a:1, ':p')
+            let path = fnamemodify(a:1, ':p')
+        endif
+
+        if isdirectory(path)
+            " when path is directory
+            let dir = 1
         endif
 
         if exists('dir')
-            let cmd = '!start explorer ' . shellescape(dir)
+            let cmd = '!start explorer ' . shellescape(path)
         else
             let cmd = '!start explorer /select,' . shellescape(path)
         endif
