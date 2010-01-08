@@ -2,7 +2,7 @@
 " Filename:     winexpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 08.
-" Version:      0.49
+" Version:      0.50
 " Dependency:
 "   This plugin needs following files
 "
@@ -72,7 +72,13 @@ if !(exists('no_plugin_maps') && no_plugin_maps)
     endif
 endif
 nnoremap <silent><Plug>WinExplorer
-    \ :call <SID>WinExplorer()<CR>
+            \ :call <SID>WinExplorer()<CR>
+
+" constants {{{2
+let s:cmd = '!start explorer.exe'
+lockvar s:cmd
+let s:opt = '/select,'
+lockvar s:opt
 
 " functions {{{2
 function! s:WinExplorer(...)
@@ -101,9 +107,9 @@ function! s:WinExplorer(...)
         endif
 
         if exists('dir')
-            let cmd = '!start explorer ' . shellescape(path)
+            let cmd = s:cmd . ' ' . shellescape(path)
         else
-            let cmd = '!start explorer /select,' . shellescape(path)
+            let cmd = s:cmd . ' ' . s:opt . shellescape(path)
         endif
 
         let cmd = iconv(cmd, &encoding, jwlib#shell#GetEncoding())
