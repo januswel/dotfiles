@@ -1,0 +1,79 @@
+*winexpl.txt*	Plugin for opening explorer.exe
+                                                Last change: 2010 Jan 08.
+
+SYNOPSIS						*winexpl-synopsis*
+>
+	" from Ex command
+	:WinExplorer ~/.vim/plugin
+	:WinExplorer ~\_vimrc
+
+	" hit <Leader>we for opening the file in the current buffer
+
+DESCRIPTION						*winexpl-description*
+
+Plugin for opening a directory or a file by "explorer.exe" in |win32|
+enviroment.
+
+DEPENDENCIES						*winexpl-dependencies*
+
+{only available when your VIM is |win32| version and has the |+multi_byte| and
+|+modify_fname| feature}
+
+This plugin require following autoload file.
+
+autoload/jwlib/shell.vim
+http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/shell.vim
+
+The external command "explorer.exe" is required but this is distributed with
+Windows OS.
+
+PROVIDES						*winexpl-provides*
+
+Mappings:
+<Leader>we or <Plug>WinExplorer
+	When the current buffer is a file, open a directory that has it by
+	"explorer.exe" and then select it.  When any directory is shown, just
+	open it.
+
+Commands:
+:WinExplorer
+	Same as <Leader>we or <Plug>WinExplorer.  See above.
+
+:WinExplorer {dir}
+	Open {dir} by "explorer.exe".
+
+:WinExplorer {file}
+	Open a directory that has {file} and then select {file}.
+
+SETTINGS						*winexpl-settings*
+
+This plugin doesn't have any settings.
+
+DISABLES						*winexpl-disables*
+
+Variables:
+g:loaded_winexpl
+	When exists, does nothing.  Use to disable this plugin.
+
+g:no_winexpl_maps
+	When non-zero, doesn't register any effective mappings.
+
+g:no_plugin_maps
+	When non-zero, doesn't register any effective mappings.  This variable
+	may have an affect on mappings of other plugins.  Use
+	"g:no_winexpl_maps" to disable only mappings of this plugin.
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2010 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:

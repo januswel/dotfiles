@@ -2,7 +2,7 @@
 " Filename:     winexpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 08.
-" Version:      0.50
+" Version:      0.51
 " Dependency:
 "   This plugin needs following files
 "
@@ -12,28 +12,6 @@
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This plugin provides the command and mappings to open a directory with
-"   explorer.exe in win32 enviroment.
-"
-"                                                       *:WinExplorer*
-"   :WinExplorer
-"                       Open the current working directory.
-"
-"   :WinExplorer {dir}
-"                       Open {dir} with explorer.exe.
-"
-"                                               *<Plug>WinExplorer*
-"   <Plug>WinExplorer
-"                       An internal mapping to open the file in the current
-"                       buffer with explorer.exe and then point the file in
-"                       normal mode.
-"
-"   <Leader>oe
-"                       When there is no mappings with
-"                       |<Plug>WinExplorer|, this will be mapped to
-"                       <Plug>WinExplorer.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
