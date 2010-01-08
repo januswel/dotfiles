@@ -1,8 +1,8 @@
 " vim plugin file
-" Filename:     openwin32explorer.vim
+" Filename:     winexpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.47
+" Last Change:  2010 Jan 08.
+" Version:      0.48
 " Dependency:
 "   This plugin needs following files
 "
@@ -17,30 +17,30 @@
 "   This plugin provides the command and mappings to open a directory with
 "   explorer.exe in win32 enviroment.
 "
-"                                                       *:OpenWin32Explorer*
-"   :OpenWin32Explorer
+"                                                       *:WinExplorer*
+"   :WinExplorer
 "                       Open the current working directory.
 "
-"   :OpenWin32Explorer {dir}
+"   :WinExplorer {dir}
 "                       Open {dir} with explorer.exe.
 "
-"                                               *<Plug>OpenWin32Explorer*
-"   <Plug>OpenWin32Explorer
+"                                               *<Plug>WinExplorer*
+"   <Plug>WinExplorer
 "                       An internal mapping to open the file in the current
 "                       buffer with explorer.exe and then point the file in
 "                       normal mode.
 "
 "   <Leader>oe
 "                       When there is no mappings with
-"                       |<Plug>OpenWin32Explorer|, this will be mapped to
-"                       <Plug>OpenWin32Explorer.
+"                       |<Plug>WinExplorer|, this will be mapped to
+"                       <Plug>WinExplorer.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
-if exists('loaded_openwin32explorer')
+if exists('loaded_winexpl')
     finish
 endif
-let loaded_openwin32explorer = 1
+let loaded_winexpl = 1
 
 " check vim has required features
 if !(has('win32') && has('multi_byte') && has('modify_fname'))
@@ -58,24 +58,24 @@ set cpoptions&vim
 
 " main {{{1
 " commands {{{2
-if exists(':OpenWin32Explorer') != 2
-    command -nargs=? -complete=dir OpenWin32Explorer
-                \ call s:OpenWin32Explorer('<args>')
+if exists(':WinExplorer') != 2
+    command -nargs=? -complete=dir WinExplorer
+                \ call s:WinExplorer('<args>')
 endif
 
 " mappings {{{2
 if !(exists('no_plugin_maps') && no_plugin_maps)
-    \ && !(exists('no_win32util_maps') && no_example_maps)
+    \ && !(exists('no_winexpl_maps') && no_winexpl_maps)
 
-    if !hasmapto('<Plug>OpenWin32Explorer')
-        nmap <unique><Leader>oe <Plug>OpenWin32Explorer
+    if !hasmapto('<Plug>WinExplorer')
+        nmap <unique><Leader>we <Plug>WinExplorer
     endif
 endif
-nnoremap <silent><Plug>OpenWin32Explorer
-    \ :call <SID>OpenWin32Explorer()<CR>
+nnoremap <silent><Plug>WinExplorer
+    \ :call <SID>WinExplorer()<CR>
 
 " functions {{{2
-function! s:OpenWin32Explorer(...)
+function! s:WinExplorer(...)
     let save_shellslash = &shellslash
     if jwlib#shell#GetType() ==# 'cmd'
         set noshellslash
