@@ -2,7 +2,7 @@
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 09.
-" Version:      0.18
+" Version:      0.19
 " Dependency:
 "   This plugin requires following files
 "
@@ -12,39 +12,6 @@
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This plugin provides the function and the command to profile expressions.
-"
-"   The function TimeExpression() must be specified an expression to measure
-"   execution time. this function return the List that has the executed
-"   expression, the number of trials and the time through all execusions. The
-"   following command:
-"
-"       :echo TimeExpression('abs(-1)')
-"
-"   will echo like ['abs(-1)', 10000, 0.122485].
-"
-"   In default settings, the number of trials is 10000.  In order to change
-"   this value, define the global variable "g:profile_numoftrials". this must
-"   be a positive number. E.g.:
-"
-"       let g:profile_numoftrials = 100000
-"
-"   The command :Profile must be also an expression but no need to quote. The
-"   equivalent command of above instance is following one:
-"
-"       :Profile abs(-1)
-"
-"   Then you will get following display
-"
-"       expression:       abs(-1)
-"       number of trials: 10000
-"       time for all:     0.122485 msec
-"       time for a trial: 0.000012 msec
-"
-"   You may use the command :profile to measure execution time of your function
-"   or script. See :help profile
 
 " preparations {{{1
 " check if this plugin is already loaded or not
