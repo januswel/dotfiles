@@ -2,7 +2,7 @@
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 09.
-" Version:      0.15
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -112,9 +112,10 @@ endfunction
 
 " global or script local
 function! s:GetNumofTrials()
-    if (exists('g:profile_numoftrials')
-                \   && type(g:profile_numoftrials) ==# 0
-                \   && g:profile_numoftrials > 0)
+    if exists('g:profile_numoftrials')
+        if type(g:profile_numoftrials) != 0 || g:profile_numoftrials <= 0
+            throw '"g:profile_numoftrials" must be a positive Number'
+        endif
         return g:profile_numoftrials
     else
         return s:numoftrials_default
