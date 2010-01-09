@@ -2,7 +2,13 @@
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 09.
-" Version:      0.17
+" Version:      0.18
+" Dependency:
+"   This plugin requires following files
+"
+"   autoload/jwlib/profile.vim
+"   http://github.com/januswel/dotfiles/blob/master/vimfiles/autoload/jwlib/profile.vim
+"
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -74,29 +80,12 @@ if exists(':Profile') != 2
 endif
 
 " functions {{{2
-" main
-function! TimeExpression(expression)
-    let evaluated = eval(a:expression)
-    let trials = s:GetNumofTrials()
-    let i = 0
-
-    " measure
-    let start = reltime()
-    while i < trials
-        call eval(a:expression)
-        let i += 1
-    endwhile
-
-    let elapsed = reltime(start)
-    let all = str2float(reltimestr(elapsed))
-    return [a:expression, evaluated, trials, all]
-endfunction
-
-" stuff
 " for display
 function! s:Profile(expression)
     try
-        let [expression, evaluated, trials, all] = TimeExpression(a:expression)
+        let evaluated = eval(a:expression)
+        let trials = s:GetNumofTrials()
+        let time = jwlib#profile#Expression(a:expression, trials)
     catch
         echoerr v:exception
         return
@@ -106,8 +95,8 @@ function! s:Profile(expression)
                 \ a:expression,
                 \ string(evaluated),
                 \ trials,
-                \ all,
-                \ all / trials)
+                \ time,
+                \ time / trials)
 endfunction
 
 " global or script local
