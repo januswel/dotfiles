@@ -2,7 +2,7 @@
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 09.
-" Version:      0.16
+" Version:      0.17
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -69,7 +69,7 @@ unlet s:items
 
 " commands {{{2
 if exists(':Profile') != 2
-    command -nargs=1 -complete=function Profile
+    command -nargs=1 -complete=expression Profile
                 \ call <SID>Profile(<q-args>)
 endif
 
