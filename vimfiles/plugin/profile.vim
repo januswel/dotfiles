@@ -1,8 +1,8 @@
 " vim plugin name
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.14
+" Last Change:  2010 Jan 09.
+" Version:      0.15
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -52,9 +52,20 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" variables {{{2
+" constants {{{2
 let s:numoftrials_default = 10000
 lockvar s:numoftrials_default
+
+let s:items = [
+            \   'expression:       %s',
+            \   'evaluated:        %s',
+            \   'number of trials: %d',
+            \   'time for all:     %f msec',
+            \   'time for a trial: %f msec',
+            \ ]
+let s:template = join(s:items, "\n")
+lockvar s:template
+unlet s:items
 
 " commands {{{2
 if exists(':Profile') != 2
@@ -91,14 +102,7 @@ function! s:Profile(expression)
         return
     endtry
 
-    let template = [
-                \       'expression:       %s',
-                \       'evaluated:        %s',
-                \       'number of trials: %d',
-                \       'time for all:     %f msec',
-                \       'time for a trial: %f msec',
-                \  ]
-    echo printf(join(template, "\n"),
+    echo printf(s:template,
                 \ a:expression,
                 \ string(evaluated),
                 \ trials,
