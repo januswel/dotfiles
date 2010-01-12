@@ -2,27 +2,10 @@
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 12.
-" Version:      0.24
+" Version:      0.25
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This plugin provides to execute ":set readonly" or ":set nomodifiable"
-"   automatically, when opening files in specified paths. Specifying paths is
-"   done by definitions of global variables "g:protec_readonly_paths" or
-"   "g:protec_nomodifiable_paths", like following codes:
-"
-"       let g:protec_readonly_paths = "~/importants/*"
-"       let g:protec_nomodifiable_paths = '~/veryimportants/**'
-"
-"   Or
-"
-"       let g:protec_readonly_paths = "$VIM/**,C:/Perl/lib/**"
-"       let g:protec_nomodifiable_paths = [
-"                                       \    '$VIM/**',
-"                                       \    '/home/mymaster/opened/**',
-"                                       \ ]
 
 " preparation {{{1
 " check if this plugin is already loaded or not
