@@ -2,7 +2,7 @@
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 12.
-" Version:      0.20
+" Version:      0.21
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -59,12 +59,10 @@ endfunction
 
 function! s:Convert2String(src)
     " check the type
-    let t = type(a:src)
-    if t ==# 1
-        " string
+    let typeofsrc = type(a:src)
+    if     typeofsrc ==# 1 " String
         return src
-    elseif t ==# 3
-        " List
+    elseif typeofsrc ==# 3 " List
         return join(a:src, ',')
     endif
 
@@ -82,15 +80,9 @@ function! s:SetProtectorates()
         catch
             continue
         endtry
-        if paths !=# ''
+        if !empty(paths)
             augroup protec
-                execute join([
-                            \ 'autocmd',
-                            \ 'BufReadPost',
-                            \ paths,
-                            \ 'setlocal',
-                            \ opt,
-                            \])
+                execute 'autocmd' 'BufReadPost' paths 'setlocal' opt
             augroup END
         endif
     endfor
