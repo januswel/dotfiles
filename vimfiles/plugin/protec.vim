@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.18
+" Last Change:  2010 Jan 12.
+" Version:      0.19
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -48,26 +48,26 @@ let s:protec_optvars = {
             \ }
 
 " function {{{2
-" stuff
-function! s:Convert2String(srcname)
-    " check the existence
-    if !exists(a:srcname)
-        return ''
+function! s:GetValueOfVar(varname)
+    if !exists(a:varname)
+        throw 'Not exist: ' . a:varname
     endif
 
-    " expand the value
-    execute 'let src = ' . a:srcname
+    return eval(a:varname)
+endfunction
+
+function! s:Convert2String(src)
     " check the type
-    let t = type(src)
+    let t = type(a:src)
     if t ==# 1
         " string
         return src
     elseif t ==# 3
         " List
-        return join(src, ',')
+        return join(a:src, ',')
     endif
 
-    return ''
+    throw 'A String, a List or a Dictionary is required: ' . string(a:src)
 endfunction
 
 function! s:SetProtectorates()
@@ -76,7 +76,11 @@ function! s:SetProtectorates()
     augroup END
 
     for [opt, var] in items(s:protec_optvars)
-        let paths = s:Convert2String(var)
+        try
+            let paths = s:Convert2String(s:GetValueOfVar(var))
+        catch
+            continue
+        endtry
         if paths !=# ''
             augroup protec
                 execute join([
