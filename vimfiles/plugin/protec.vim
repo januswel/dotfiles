@@ -2,7 +2,7 @@
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 12.
-" Version:      0.21
+" Version:      0.22
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -48,6 +48,9 @@ let s:protec_optvars = {
             \ }
 lockvar s:protec_optvars
 
+let s:str_delimiter = '\s*,\s*'
+lockvar s:str_delimiter
+
 " function {{{2
 function! s:GetValueOfVar(varname)
     if !exists(a:varname)
@@ -61,7 +64,7 @@ function! s:Convert2String(src)
     " check the type
     let typeofsrc = type(a:src)
     if     typeofsrc ==# 1 " String
-        return src
+        return join(split(a:src, s:str_delimiter), ',')
     elseif typeofsrc ==# 3 " List
         return join(a:src, ',')
     endif
