@@ -2,7 +2,7 @@
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 12.
-" Version:      0.23
+" Version:      0.24
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -41,6 +41,11 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" commands {{{2
+if exists(':ReProtect') != 2
+    command -nargs=0 ReProtect call <SID>SetProtectorates()
+endif
+
 " constants {{{2
 let s:protec_optvars = {
             \   'readonly':       'g:protec_readonly_paths',
