@@ -2,7 +2,7 @@
 " Filename:     protec.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 12.
-" Version:      0.19
+" Version:      0.20
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -41,11 +41,12 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
-" variables {{{2
+" constants {{{2
 let s:protec_optvars = {
-            \ 'readonly':       'g:protec_readonly_paths',
-            \ 'nomodifiable':   'g:protec_nomodifiable_paths',
+            \   'readonly':       'g:protec_readonly_paths',
+            \   'nomodifiable':   'g:protec_nomodifiable_paths',
             \ }
+lockvar s:protec_optvars
 
 " function {{{2
 function! s:GetValueOfVar(varname)
