@@ -1,5 +1,5 @@
 *dispel.txt*	Plugin for showing invisible characters
-                                                Last change: 2010 Jan 07.
+                                                Last change: 2010 Jan 13.
 
 DESCRIPTION						*dispel-description*
 
@@ -39,9 +39,6 @@ g:dispel_patterns
 	highlight	A name of highlighting group.  Must be the one that
 			exists already.
 
-	Note that overwriting default patterns.  To add patterns newly, use
-	the variable "g:dispel_add" (see below).
-
 	When you wanna show trailing spaces with WarningMsg highlighting,
 	write following codes in your .vimrc: >
 
@@ -52,6 +49,14 @@ g:dispel_patterns
 		        \       'highlight': 'WarningMsg'
 		        \   },
 		        \ ]
+<
+	Note that overwriting default patterns.  To add patterns newly, use
+	the variable "g:dispel_add" (see below).
+
+	Note that when this script is sourced, your configuration become
+	effective.  Thus only changing this variable from command line is no
+	point.  In order to change settings, write new values in .vimrc and
+	restart VIM for now.
 
 g:dispel_add
 	When evaluate to non-zero, default patterns are used in addition to
