@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     resetfenc.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.13
+" Last Change:  2010 Jan 13.
+" Version:      0.14
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -38,8 +38,8 @@ function! s:ResetFileEncoding()
 endfunction
 
 " autocmds
-augroup resetfileencoding
-    autocmd! resetfileencoding
+augroup resetfenc
+    autocmd! resetfenc
 
     autocmd BufReadPost * call s:ResetFileEncoding()
 augroup END
