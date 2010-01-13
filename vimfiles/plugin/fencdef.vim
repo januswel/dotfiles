@@ -1,8 +1,8 @@
 " vim plugin file
-" Filename:     resetfenc.vim
+" Filename:     fencdef.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 13.
-" Version:      0.14
+" Version:      0.15
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -14,10 +14,10 @@
 
 " preparation {{{1
 " check if this plugin is already loaded or not
-if exists('loaded_resetfenc')
+if exists('loaded_fencdef')
     finish
 endif
-let loaded_resetfenc = 1
+let loaded_fencdef = 1
 
 " check vim has required features
 if !(has('autocmd') && has('multi_byte'))
@@ -30,7 +30,7 @@ set cpoptions&vim
 
 " main {{{1
 " functions
-function! s:ResetFileEncoding()
+function! s:ResetFileEncoding2Default()
     if    &fileencoding !=# &encoding
     \  && search('[^\x01-\x7e]', 'n') == 0
         let &fileencoding = &encoding
@@ -38,10 +38,10 @@ function! s:ResetFileEncoding()
 endfunction
 
 " autocmds
-augroup resetfenc
-    autocmd! resetfenc
+augroup fencdef
+    autocmd! fencdef
 
-    autocmd BufReadPost * call s:ResetFileEncoding()
+    autocmd BufReadPost * call s:ResetFileEncoding2Default()
 augroup END
 
 " post-processing {{{1
