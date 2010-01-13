@@ -2,15 +2,10 @@
 " Filename:     fencdef.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 13.
-" Version:      0.16
+" Version:      0.17
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   If a file contains only ASCII characters, set 'fileencoding' to the value
-"   of 'encoding'. Most encodings are compatible with ASCII characters or
-"   superset of it.
 
 " preparation {{{1
 " check if this plugin is already loaded or not
