@@ -2,7 +2,7 @@
 " Filename:     fencdef.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 13.
-" Version:      0.15
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -31,10 +31,26 @@ set cpoptions&vim
 " main {{{1
 " functions
 function! s:ResetFileEncoding2Default()
-    if    &fileencoding !=# &encoding
-    \  && search('[^\x01-\x7e]', 'n') == 0
-        let &fileencoding = &encoding
+    try
+        let def = s:GetDefault()
+    catch
+        echoerr v:exception
+    endtry
+    if               &fileencoding !=# def
+                \ && search('[^\x01-\x7e]', 'n') == 0
+        let &fileencoding = def
     endif
+endfunction
+
+function! s:GetDefault()
+    if exists('g:fencdef_default')
+        if type(g:fencdef_default) == 1
+            return g:fencdef_default
+        else
+            throw 'A String is required: ' . g:fencdef_default
+        endif
+    endif
+    return &encoding
 endfunction
 
 " autocmds
