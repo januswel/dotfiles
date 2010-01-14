@@ -2,14 +2,10 @@
 " Filename:     smrtcmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 14.
-" Version:      0.41
+" Version:      0.42
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   The function that return keys to activate completion depending to the
-"   situation.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
