@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     sweepbuflist.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.20
+" Last Change:  2010 Jan 14.
+" Version:      0.21
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -44,18 +44,10 @@ nnoremap <silent><Plug>SweepBufList
 
 " functions {{{2
 function! s:SweepBufList()
-    let lastbuf = bufnr('$')
-    let targets = []
-    let nr = 1
-    while nr <= lastbuf
-        if buflisted(nr) && !bufloaded(nr)
-            call add(targets, nr)
-        endif
-        let nr += 1
-    endwhile
-
+    let bufs = range(1, bufnr('$'))
+    let targets = filter(bufs, 'buflisted(v:val) && !bufloaded(v:val)')
     if !empty(targets)
-        execute 'bdelete ' . join(targets)
+        execute 'bdelete' join(targets)
     endif
 endfunction
 
