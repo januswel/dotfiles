@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     smrtcmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.40
+" Last Change:  2010 Jan 14.
+" Version:      0.41
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -33,7 +33,7 @@ if !(exists('no_plugin_maps') && no_plugin_maps)
             \ && !(exists('no_smrtcmpl_maps') && no_smrtcmpl_maps)
 
     if !hasmapto('<Plug>SmartCompletion', 'i')
-        if has('gui_running')
+        if has('win32')
             imap <unique><C-Space> <Plug>SmartCompletion
         else
             " <C-@> = <Nul> = <C-Space>
