@@ -2,7 +2,7 @@
 " Filename:     tabshift.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 14.
-" Version:      0.28
+" Version:      0.29
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -39,6 +39,11 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" commands {{{2
+if exists(':TabShift') != 2
+    command -nargs=1 TabShift call <SID>TabShift(<args>)
+endif
+
 " functions {{{2
 function! s:TabShift(delta)
     " assertion
@@ -48,19 +53,16 @@ function! s:TabShift(delta)
         return
     endif
 
-    " calculate overwrap
     let numoftab = tabpagenr('$')
+    " calculate new position with considering overwrap
     let pos = (tabpagenr() + a:delta - 1) % numoftab
     " sign correction
-    let pos = pos >= 0 ? pos : pos + numoftab
+    if pos < 0
+        let pos += numoftab
+    endif
 
     execute 'tabmove' pos
 endfunction
-
-" commands {{{2
-if exists(':TabShift') != 2
-    command -nargs=1 TabShift call <SID>TabShift(<args>)
-endif
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
