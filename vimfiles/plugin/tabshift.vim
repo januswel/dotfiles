@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     tabshift.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.27
+" Last Change:  2010 Jan 14.
+" Version:      0.28
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -42,9 +42,9 @@ set cpoptions&vim
 " functions {{{2
 function! s:TabShift(delta)
     " assertion
-    " suppose the delta is an integer
-    if type(a:delta) !=# 0
-        echoerr 'An integer is required!!'
+    " suppose the delta is a Number
+    if type(a:delta) != 0
+        echoerr 'A Number is required: ' . a:delta
         return
     endif
 
