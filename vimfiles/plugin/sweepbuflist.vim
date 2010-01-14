@@ -2,15 +2,10 @@
 " Filename:     sweepbuflist.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 14.
-" Version:      0.21
+" Version:      0.22
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This plugin provides the command ":SweepBufList", mappings "<Leader>sb" and
-"   "<Plug>SweepBufList" to sweep the buffer list. Deleting buffers are listed
-"   but unloaded ones.
 
 " preparations {{{1
 " check if this plugin is already loaded or not
