@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     tabshift.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 14.
-" Version:      0.29
+" Last Change:  2010 Jan 15.
+" Version:      0.30
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -41,11 +41,12 @@ set cpoptions&vim
 " main {{{1
 " commands {{{2
 if exists(':TabShift') != 2
-    command -nargs=1 TabShift call <SID>TabShift(<args>)
+    command -nargs=1 -bang TabShift
+                \ call <SID>TabShift('<bang>', <args>)
 endif
 
 " functions {{{2
-function! s:TabShift(delta)
+function! s:TabShift(bang, delta)
     " assertion
     " suppose the delta is a Number
     if type(a:delta) != 0
@@ -53,12 +54,23 @@ function! s:TabShift(delta)
         return
     endif
 
+    " calculate new position
     let numoftab = tabpagenr('$')
-    " calculate new position with considering overwrap
-    let pos = (tabpagenr() + a:delta - 1) % numoftab
-    " sign correction
-    if pos < 0
-        let pos += numoftab
+    let pos = tabpagenr() + a:delta - 1
+
+    " fine tunings
+    if a:bang ==# '!'
+        " wrap-around
+        let pos = pos % numoftab
+        if pos < 0
+            let pos += numoftab
+        endif
+    else
+        if pos < 0
+            let pos = 0
+        elseif numoftab <= pos
+            let pos = numoftab - 1
+        endif
     endif
 
     execute 'tabmove' pos
