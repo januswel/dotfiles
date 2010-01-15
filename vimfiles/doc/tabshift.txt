@@ -1,0 +1,59 @@
+*tabshift.txt*	Plugin for shifting a tabpage
+                                                Last change: 2010 Jan 15.
+
+SYNOPSIS						*tabshift-synopsis*
+>
+	" shift rightward
+	:TabShift +1
+	:TabShift 3
+
+	" shift leftward
+	:TabShift -2
+
+	" wrap around
+	:TabShift! +1
+	:TabShift! -2
+
+DESCRIPTION						*tabshift-description*
+
+Plugin to move the current tabpage around, like ":tabm[ove]! +N | -N" of
+Vimperator.
+
+DEPENDENCIES					*tabshift-dependencies*
+
+{only available when your VIM has the |+windows| feature}
+
+PROVIDES						*tabshift-provides*
+
+Commands:
+:TabShift[!] [+]N
+	Move the current tabpage N times rightward.  With bang "!", wrap it
+	around.
+
+:TabShift[!] -N
+	Same as ":TabShift[!] [+]N", but move leftward.
+
+SETTINGS						*tabshift-settings*
+
+This plugin doesn't have any settings.
+
+DISABLES						*tabshift-disables*
+
+Variables:
+g:loaded_tabshift
+	When exists, does nothing.  Use to disable this plugin.
+
+
+==============================================================================
+
+Author
+	janus_wel <janus.wel.3@gmail.com>
+Copyright
+	(c) 2010 by janus_wel
+License
+	This material may be distributed only subject to the terms and
+	conditions set forth in the Open Publication License, v1.0 or later
+	(the latest version is presently available at
+	http://www.opencontent.org/openpub/).
+
+vim:tw=78:ts=8:noet:ft=help:norl:
