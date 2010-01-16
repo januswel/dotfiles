@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.14
+" Last Change:  2010 Jan 16.
+" Version:      0.15
 " Dependency:
 "   This plugin needs following files
 "
@@ -53,7 +53,7 @@ set cpoptions&vim
 " commands {{{2
 if exists(':ViewInHtml') != 2
     command -nargs=0 -range=% ViewInHtml
-                \ <line1>,<line2>call s:ViewInHtmlSS()
+                \ <line1>,<line2>call s:ViewInHtml()
 endif
 
 " mappings {{{2
