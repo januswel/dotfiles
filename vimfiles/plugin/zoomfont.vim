@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.20
+" Version:      0.21
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -82,8 +82,8 @@ nnoremap <silent><Plug>ZoomReset :call <SID>ZoomReset()<CR>
 " Additionally s:size_default may be changed by s:GetDefaults()
 let s:sizes = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 lockvar s:sizes
-let s:size_default = 12
-lockvar s:size_default
+let s:size_default_default = 12
+lockvar s:size_default_default
 
 let s:guifont_delimiter = ','
 lockvar s:guifont_delimiter
@@ -128,15 +128,15 @@ function! s:ChangeFontSize(func, font)
     " a List to save processed results
     let newsettings = []
     for setting in settings
-        try
-            let current = s:GetFontSize(setting)
-        catch '\v^Unknown$'
+        let current = s:GetFontSize(setting)
+        if current == -1
             call add(newsettings, setting)
             continue
-        endtry
-
-        call add(newsettings, s:FormatFontSize(a:func(current)))
+        else
+            call add(newsettings, s:FormatFontSize(a:func(current)))
+        endif
     endfor
+
     return join(newsettings, s:fontset_delimiter)
 endfunction
 
@@ -148,7 +148,7 @@ function! s:GetFontSize(setting)
     elseif a:setting =~# '\v^h\d+\.\d+$'
         return str2float(a:setting[1:])
     endif
-    throw 'Unknown'
+    return -1
 endfunction
 
 " formatting by printf() according to a type of size
@@ -185,12 +185,12 @@ endfunction
 
 " get default settings
 function! s:GetDefaults()
-    let size_user = s:GetFontSizeUser()
-    if !empty(size_user)
-        unlockvar s:size_default
-        let s:size_default = size_user
-        lockvar s:size_default
-    endif
+    try
+        let s:size_default = s:GetFontSizeUser()
+    catch
+        let s:size_default = s:size_default_default
+    endtry
+    lockvar s:size_default
 
     let s:columns_default = &columns
     lockvar s:columns_default
@@ -201,21 +201,13 @@ endfunction
 
 " get the first one of 'guifont'
 function! s:GetFontSizeUser()
-    " assertion
-    if empty(&guifont)
-        return ''
-    endif
-
     let font = split(&guifont, s:guifont_delimiter)[0]
-    for setting in split(font, s:fontset_delimiter)
-        try
-            return s:GetFontSize(setting)
-        catch '^Unknown$'
-            continue
-        endtry
-    endfor
-
-    return ''
+    if !empty(font)
+        let settings = split(font, s:fontset_delimiter)
+        return max(map(settings, 's:GetFontSize(v:val)'))
+    else
+        throw 'I do not know.'
+    endif
 endfunction
 
 " autocmds {{{2
