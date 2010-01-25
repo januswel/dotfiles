@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.17
+" Version:      0.18
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -94,17 +94,9 @@ lockvar s:fontset_delimiter
 " 'guifont' example: MS_Gothic:h12:cSHIFTJIS,MS_Mincho:h12:cSHIFTJIS
 function! s:Zoom(operator)
     try
-        " get the value of 'guifont' and make ready
         let fonts = split(&guifont, s:guifont_delimiter)
-
-        let newfonts = []
-        for font in fonts
-            let font = s:ChangeFontSize(a:operator, font)
-            call add(newfonts, font)
-        endfor
-
-        " set a new value to 'guifont'
-        let &guifont = join(newfonts, s:guifont_delimiter)
+        call map(fonts, 's:ChangeFontSize(a:func, v:val)')
+        let &guifont = join(fonts, s:guifont_delimiter)
         " this is additional but make you happy
         if a:operator ==# '&'
             let &lines = s:lines_default
