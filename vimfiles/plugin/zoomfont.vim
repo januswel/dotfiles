@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.22
+" Version:      0.23
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -79,11 +79,12 @@ nnoremap <silent><Plug>ZoomReset :call <SID>ZoomReset()<CR>
 " constants {{{2
 " Following script local variables are also defined by the function
 " s:GetDefaults()
+"   s:sizes
 "   s:size_default
 "   s:lines_default
 "   s:columns_default
-let s:sizes = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
-lockvar s:sizes
+let s:sizes_default = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
+lockvar s:sizes_default
 let s:size_default_default = 12
 lockvar s:size_default_default
 
@@ -187,6 +188,23 @@ endfunction
 
 " get default settings
 function! s:GetDefaults()
+    " s:sizes
+    if exists('g:zoomfont_sizes') && type(g:zoomfont_sizes) == 3
+        let sizes = filter(
+                    \   copy(g:zoomfont_sizes),
+                    \   'type(v:val) == 0 || type(v:val) == 5'
+                    \ )
+        if len(sizes) == len(g:zoomfont_sizes)
+            let s:sizes = sizes
+        else
+            echoerr 'Contents of g:zoomfont_sizes must be Number or Float.'
+            let s:sizes = s:sizes_default
+        endif
+    else
+        let s:sizes = s:sizes_default
+    endif
+    lockvar s:sizes
+
     " s:size_default
     try
         let s:size_default = s:GetFontSizeUser()
