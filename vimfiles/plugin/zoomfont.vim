@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.19
+" Version:      0.20
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -48,13 +48,13 @@ set cpoptions&vim
 " main {{{1
 " commands {{{2
 if exists(':ZoomIn') != 2
-    command -nargs=0 ZoomIn    call <SID>Zoom('+')
+    command -nargs=0 ZoomIn    call <SID>ZoomIn()
 endif
 if exists(':ZoomOut') != 2
-    command -nargs=0 ZoomOut   call <SID>Zoom('-')
+    command -nargs=0 ZoomOut   call <SID>ZoomOut()
 endif
 if exists(':ZoomReset') != 2
-    command -nargs=0 ZoomReset call <SID>Zoom('&')
+    command -nargs=0 ZoomReset call <SID>ZoomReset()
 endif
 
 " mappings {{{2
@@ -72,9 +72,9 @@ if !(exists('no_plugin_maps') && no_plugin_maps)
     endif
 endif
 
-nnoremap <silent><Plug>ZoomIn    :call <SID>Zoom('+')<CR>
-nnoremap <silent><Plug>ZoomOut   :call <SID>Zoom('-')<CR>
-nnoremap <silent><Plug>ZoomReset :call <SID>Zoom('&')<CR>
+nnoremap <silent><Plug>ZoomIn    :call <SID>ZoomIn()<CR>
+nnoremap <silent><Plug>ZoomOut   :call <SID>ZoomOut()<CR>
+nnoremap <silent><Plug>ZoomReset :call <SID>ZoomReset()<CR>
 
 " varialbles {{{2
 " Other script local variables, s:lines_default and s:columns_default are
@@ -91,17 +91,27 @@ let s:fontset_delimiter = ':'
 lockvar s:fontset_delimiter
 
 " functions {{{2
+function! s:ZoomIn()
+    call s:Zoom(function('s:IncreaseSize'))
+endfunction
+
+function! s:ZoomOut()
+    call s:Zoom(function('s:DecreaseSize'))
+endfunction
+
+function! s:ZoomReset()
+    call s:Zoom(function('s:ResetSize'))
+    " also reset 'lines' and 'columns'
+    let &lines = s:lines_default
+    let &columns = s:columns_default
+endfunction
+
 " 'guifont' example: MS_Gothic:h12:cSHIFTJIS,MS_Mincho:h12:cSHIFTJIS
-function! s:Zoom(operator)
+function! s:Zoom(func)
     try
         let fonts = split(&guifont, s:guifont_delimiter)
         call map(fonts, 's:ChangeFontSize(a:func, v:val)')
         let &guifont = join(fonts, s:guifont_delimiter)
-        " this is additional but make you happy
-        if a:operator ==# '&'
-            let &lines = s:lines_default
-            let &columns = s:columns_default
-        endif
     catch '^\(max\|min\)imum$'
         echohl WarningMsg
         echo 'The font size is already ' . v:exception
@@ -110,7 +120,7 @@ function! s:Zoom(operator)
 endfunction
 
 " stuff
-function! s:ChangeFontSize(operator, font)
+function! s:ChangeFontSize(func, font)
     " seek the setting of font size and modify it
     " prepair
     let settings = split(a:font, s:fontset_delimiter)
@@ -125,8 +135,7 @@ function! s:ChangeFontSize(operator, font)
             continue
         endtry
 
-        let new = s:GetNewSize(a:operator, current)
-        call add(newsettings, s:FormatFontSize(new))
+        call add(newsettings, s:FormatFontSize(a:func(current)))
     endfor
     return join(newsettings, s:fontset_delimiter)
 endfunction
@@ -152,19 +161,6 @@ function! s:FormatFontSize(size)
     throw 'Unknown'
 endfunction
 
-" just delegate
-function! s:GetNewSize(operator, current)
-    " determine new size
-    if a:operator ==# '+'
-        return s:IncreaseSize(a:current)
-    elseif a:operator ==# '-'
-        return s:DecreaseSize(a:current)
-    elseif a:operator ==# '&'
-        return s:size_default
-    endif
-    return a:current
-endfunction
-
 function! s:IncreaseSize(current)
     let bigger = filter(copy(s:sizes), 'a:current < v:val')
     if !empty(bigger)
@@ -181,6 +177,10 @@ function! s:DecreaseSize(current)
     else
         throw 'minimum'
     endif
+endfunction
+
+function! s:ResetSize(current)
+    return s:size_default
 endfunction
 
 " get default settings
