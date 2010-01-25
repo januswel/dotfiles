@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.21
+" Version:      0.22
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -76,10 +76,12 @@ nnoremap <silent><Plug>ZoomIn    :call <SID>ZoomIn()<CR>
 nnoremap <silent><Plug>ZoomOut   :call <SID>ZoomOut()<CR>
 nnoremap <silent><Plug>ZoomReset :call <SID>ZoomReset()<CR>
 
-" varialbles {{{2
-" Other script local variables, s:lines_default and s:columns_default are
-" defined by the function s:GetDefaults().
-" Additionally s:size_default may be changed by s:GetDefaults()
+" constants {{{2
+" Following script local variables are also defined by the function
+" s:GetDefaults()
+"   s:size_default
+"   s:lines_default
+"   s:columns_default
 let s:sizes = [8 , 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 lockvar s:sizes
 let s:size_default_default = 12
@@ -106,23 +108,22 @@ function! s:ZoomReset()
     let &columns = s:columns_default
 endfunction
 
+" stuff functions
 " 'guifont' example: MS_Gothic:h12:cSHIFTJIS,MS_Mincho:h12:cSHIFTJIS
 function! s:Zoom(func)
     try
         let fonts = split(&guifont, s:guifont_delimiter)
         call map(fonts, 's:ChangeFontSize(a:func, v:val)')
         let &guifont = join(fonts, s:guifont_delimiter)
-    catch '^\(max\|min\)imum$'
+    catch '\v^%(max|min)imum$'
         echohl WarningMsg
         echo 'The font size is already ' . v:exception
         echohl None
     endtry
 endfunction
 
-" stuff
+" seek the setting of font size and modify it
 function! s:ChangeFontSize(func, font)
-    " seek the setting of font size and modify it
-    " prepair
     let settings = split(a:font, s:fontset_delimiter)
 
     " a List to save processed results
@@ -143,7 +144,7 @@ endfunction
 " in win32, font size is given in the form of 'hxx'
 " pick out font size and convert it into number
 function! s:GetFontSize(setting)
-    if a:setting =~# '\v^h\d+$'
+    if     a:setting =~# '\v^h\d+$'
         return str2nr(a:setting[1:], 10)
     elseif a:setting =~# '\v^h\d+\.\d+$'
         return str2float(a:setting[1:])
@@ -153,12 +154,13 @@ endfunction
 
 " formatting by printf() according to a type of size
 function! s:FormatFontSize(size)
-    if type(a:size) == 0
+    let typeofsize = type(a:size)
+    if     typeofsize == 0 " Number
         return printf('h%d', a:size)
-    elseif type(a:size) == 5
+    elseif typeofsize == 5 " Float
         return printf('h%f', a:size)
     endif
-    throw 'Unknown'
+    throw 'Unknown issue: s:FormatFontSize() with ' . string(a:size)
 endfunction
 
 function! s:IncreaseSize(current)
@@ -185,6 +187,7 @@ endfunction
 
 " get default settings
 function! s:GetDefaults()
+    " s:size_default
     try
         let s:size_default = s:GetFontSizeUser()
     catch
@@ -192,9 +195,11 @@ function! s:GetDefaults()
     endtry
     lockvar s:size_default
 
+    " s:columns_default
     let s:columns_default = &columns
     lockvar s:columns_default
 
+    " s:lines_default
     let s:lines_default = &lines
     lockvar s:lines_default
 endfunction
