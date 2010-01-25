@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
-" Version:      0.15
+" Last Change:  2010 Jan 25.
+" Version:      0.16
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -169,29 +169,21 @@ function! s:GetNewSize(operator, current)
 endfunction
 
 function! s:IncreaseSize(current)
-    " search bigger one
-    for size in s:sizes
-        if size > a:current
-            return size
-        endif
-    endfor
-    throw 'maximum'
+    let bigger = filter(copy(s:sizes), 'a:current < v:val')
+    if !empty(bigger)
+        return bigger[0]
+    else
+        throw 'maximum'
+    endif
 endfunction
 
 function! s:DecreaseSize(current)
-    " cache smaller one than current
-    if a:current == s:sizes[0]
+    let smaller = filter(copy(s:sizes), 'v:val < a:current')
+    if !empty(smaller)
+        return smaller[-1]
+    else
         throw 'minimum'
     endif
-
-    let prev = s:sizes[0]
-    for size in s:sizes
-        if size >= a:current
-            return prev
-        endif
-        " cache
-        let prev = size
-    endfor
 endfunction
 
 " get default settings
