@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.16
+" Version:      0.17
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -85,12 +85,17 @@ lockvar s:sizes
 let s:size_default = 12
 lockvar s:size_default
 
+let s:guifont_delimiter = ','
+lockvar s:guifont_delimiter
+let s:fontset_delimiter = ':'
+lockvar s:fontset_delimiter
+
 " functions {{{2
 " 'guifont' example: MS_Gothic:h12:cSHIFTJIS,MS_Mincho:h12:cSHIFTJIS
 function! s:Zoom(operator)
     try
         " get the value of 'guifont' and make ready
-        let fonts = split(&guifont, ',')
+        let fonts = split(&guifont, s:guifont_delimiter)
 
         let newfonts = []
         for font in fonts
@@ -99,7 +104,7 @@ function! s:Zoom(operator)
         endfor
 
         " set a new value to 'guifont'
-        let &guifont = join(newfonts, ',')
+        let &guifont = join(newfonts, s:guifont_delimiter)
         " this is additional but make you happy
         if a:operator ==# '&'
             let &lines = s:lines_default
@@ -116,7 +121,7 @@ endfunction
 function! s:ChangeFontSize(operator, font)
     " seek the setting of font size and modify it
     " prepair
-    let settings = split(a:font, ':')
+    let settings = split(a:font, s:fontset_delimiter)
 
     " a List to save processed results
     let newsettings = []
@@ -131,7 +136,7 @@ function! s:ChangeFontSize(operator, font)
         let new = s:GetNewSize(a:operator, current)
         call add(newsettings, s:FormatFontSize(new))
     endfor
-    return join(newsettings, ':')
+    return join(newsettings, s:fontset_delimiter)
 endfunction
 
 " in win32, font size is given in the form of 'hxx'
@@ -209,8 +214,8 @@ function! s:GetFontSizeUser()
         return ''
     endif
 
-    let font = split(&guifont, ',')[0]
-    for setting in split(font, ':')
+    let font = split(&guifont, s:guifont_delimiter)[0]
+    for setting in split(font, s:fontset_delimiter)
         try
             return s:GetFontSize(setting)
         catch '^Unknown$'
