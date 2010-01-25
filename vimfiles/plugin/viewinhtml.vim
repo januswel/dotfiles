@@ -1,8 +1,8 @@
 " vim plugin file
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 16.
-" Version:      0.15
+" Last Change:  2010 Jan 25.
+" Version:      0.16
 " Dependency:
 "   This plugin needs following files
 "
@@ -67,29 +67,6 @@ endif
 nnoremap <silent><Plug>ViewInHtml
             \ :%call <SID>ViewInHtml()<CR>
 
-" constants {{{2
-" g:html_font
-"   set your favorite font
-" g:html_ignore_folding
-"   expand fold and convert
-" g:html_no_pre
-"   use br elements instead of pre elements
-" g:html_number_lines
-"   if this variable is undefined, the value of 'number' is used.
-"   force to display line number
-" g:html_use_encoding
-"   set the same encoding as 'fileencoding'
-let s:defaults = {
-            \   'g:html_font':            '"VL Gothic"',
-            \   'g:html_ignore_folding':  1,
-            \   'g:html_no_pre':          1,
-            \   'g:html_number_lines':    1,
-            \   'g:html_use_css':         1,
-            \   'g:html_use_encoding':    '&encoding',
-            \   'g:use_xhtml':            1,
-            \ }
-lockvar s:defaults
-
 " functions {{{2
 " main function
 " wrapper function
@@ -106,12 +83,8 @@ function! s:ViewInHtml() range
     endif
 
     try
-        " setup
-        let unletvars = s:SetupTOhtmlVariables(s:defaults)
         " generate html
         execute printf('%d,%dTOhtml', a:firstline, a:lastline)
-        " clean up
-        call s:CleanupTOhtmlVariables(unletvars)
 
         " if generating html is succeeded, current window will be the one that
         " has generated html.
@@ -137,27 +110,6 @@ function! s:ViewInHtml() range
     finally
         let &shellslash = save_shellslash
     endtry
-endfunction
-
-" settings for :TOhtml
-function! s:SetupTOhtmlVariables(defaults)
-    let unletvars = []
-    for name in keys(a:defaults)
-        if !exists(name)
-            call add(unletvars, name)
-            execute 'let' name '=' a:defaults[name]
-        endif
-    endfor
-    return unletvars
-endfunction
-
-" unlet variables that are defined by this script
-function! s:CleanupTOhtmlVariables(vars)
-    for var in a:vars
-        if exists(var)
-            execute 'unlet' var
-        endif
-    endfor
 endfunction
 
 " post-processings {{{1
