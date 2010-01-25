@@ -2,7 +2,7 @@
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.18
+" Version:      0.19
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -61,20 +61,20 @@ endif
 if !(exists('no_plugin_maps') && no_plugin_maps)
             \ && !(exists('no_zoomfont_maps') && no_zoomfont_maps)
 
-    if !hasmapto('<Plug>ZoomFontIn', 'n')
-        nmap <unique><Leader>+ <Plug>ZoomFontIn
+    if !hasmapto('<Plug>ZoomIn', 'n')
+        nmap <unique><Leader>+ <Plug>ZoomIn
     endif
-    if !hasmapto('<Plug>ZoomFontOut', 'n')
-        nmap <unique><Leader>- <Plug>ZoomFontOut
+    if !hasmapto('<Plug>ZoomOut', 'n')
+        nmap <unique><Leader>- <Plug>ZoomOut
     endif
-    if !hasmapto('<Plug>ZoomFontReset', 'n')
-        nmap <unique><Leader>& <Plug>ZoomFontReset
+    if !hasmapto('<Plug>ZoomReset', 'n')
+        nmap <unique><Leader>& <Plug>ZoomReset
     endif
 endif
 
-nnoremap <silent><Plug>ZoomFontIn    :call <SID>Zoom('+')<CR>
-nnoremap <silent><Plug>ZoomFontOut   :call <SID>Zoom('-')<CR>
-nnoremap <silent><Plug>ZoomFontReset :call <SID>Zoom('&')<CR>
+nnoremap <silent><Plug>ZoomIn    :call <SID>Zoom('+')<CR>
+nnoremap <silent><Plug>ZoomOut   :call <SID>Zoom('-')<CR>
+nnoremap <silent><Plug>ZoomReset :call <SID>Zoom('&')<CR>
 
 " varialbles {{{2
 " Other script local variables, s:lines_default and s:columns_default are
