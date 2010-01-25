@@ -2,7 +2,7 @@
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " Last Change:  2010 Jan 25.
-" Version:      0.16
+" Version:      0.17
 " Dependency:
 "   This plugin needs following files
 "
@@ -68,15 +68,15 @@ nnoremap <silent><Plug>ViewInHtml
             \ :%call <SID>ViewInHtml()<CR>
 
 " functions {{{2
-" main function
-" wrapper function
 function! s:ViewInHtml() range
+    " assertion
     if exists(':TOhtml') != 2
         throw 'command ":TOhtml" is required'
     endif
 
     let save_shellslash = &shellslash
     if jwlib#shell#GetType() ==# 'cmd'
+        " with "cmd.exe", dir delimiter is "\"
         set noshellslash
     else
         set shellslash
@@ -86,14 +86,14 @@ function! s:ViewInHtml() range
         " generate html
         execute printf('%d,%dTOhtml', a:firstline, a:lastline)
 
-        " if generating html is succeeded, current window will be the one that
-        " has generated html.
+        " when generating html is succeeded, current window will be the one
+        " that has generated html.
         if &filetype =~? 'html'
             " change file path and write it
             let tempfile = tempname() . '.html'
             silent execute 'saveas!' tempfile
 
-            " browse html with default UA
+            " browse html with default http user agent
             let filename = iconv(
                         \   tempfile,
                         \   &encoding,
@@ -102,12 +102,13 @@ function! s:ViewInHtml() range
             let filename = shellescape(filename)
             silent call system(filename)
 
-            " delete the buffer and comb out it from buffer list
+            " delete the buffer and comb out it from the buffer list
             bdelete
         endif
     catch
         echoerr v:exception
     finally
+        " be sure and restore the value of 'shellslash'
         let &shellslash = save_shellslash
     endtry
 endfunction
