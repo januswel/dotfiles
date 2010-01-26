@@ -1,33 +1,11 @@
 " vim plugin file
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 25.
-" Version:      0.23
+" Last Change:  2010 Jan 27.
+" Version:      0.24
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
-"
-" Remark: {{{1
-"   This plugin provides the feature to zoom up and down by changing a font
-"   size. This works with only win32 environment.
-"
-"   Following mappings are provided:
-"
-"       <Leader>+               zoom in
-"       <Leader>-               zoom out
-"       <Leader>&               reset to default
-"
-"   Also internal mappings are:
-"
-"       <Plug>ZoomFontIn        zoom in
-"       <Plug>ZoomFontOut       zoom out
-"       <Plug>ZoomFontReset     reset to default
-"
-"   Additionally following commands are available:
-"
-"       :ZoomIn                 zoom in
-"       :ZoomOut                zoom out
-"       :ZoomReset              reset to default
 
 " preparations {{{1
 " check if this plugin is already loaded or not
