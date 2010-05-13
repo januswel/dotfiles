@@ -2,7 +2,7 @@
 " Filename:     '%:t'
 " Language:     <Example>
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Jan 05.
 " Version:      0.10
 " Dependency:
 "   This plugin requires following files
@@ -20,6 +20,12 @@ if exists('loaded_example')
     finish
 endif
 let loaded_example = 1
+
+" check if this ftplugin is already loaded or not
+if exists("b:did_ftplugin")
+  finish
+endif
+let b:did_ftplugin = 1
 
 " check vim has required features
 if !(has('win32') && exists('&guifont'))
