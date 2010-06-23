@@ -85,10 +85,10 @@ let b:enctable = {
             \   'shiftjis':   'sjis',
             \ }
 
-let b:bypassedtags = [
-            \ 'DOCTYPE', 'xml',
-            \ 'area', 'base', 'br', 'hr', 'img',
-            \ 'input', 'link', 'meta', 'param',
+let b:ignoredtags = [
+            \   'DOCTYPE', 'xml',
+            \   'area', 'base', 'br', 'hr', 'img',
+            \   'input', 'link', 'meta', 'param',
             \ ]
 
 " functions {{{2
@@ -218,7 +218,7 @@ if !exists('*s:InsertXhtmlCloseTag')
             if matchstr(getline('.'), '.', col('.') - 1) ==# '/'
                 " skip this element, thus this is a closing tag
                 call search('<' . tag, 'bW', 1)
-            elseif index(b:bypassedtags, tag) >= 0
+            elseif index(b:ignoredtags, tag) >= 0
                 " ignore this element
                 normal! h
             else
