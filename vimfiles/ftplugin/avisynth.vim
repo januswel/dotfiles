@@ -36,6 +36,16 @@ if !(exists('no_plugin_maps') && no_plugin_maps)
         nmap <unique><buffer><LocalLeader>xn
                     \ <Plug>X264Nico
     endif
+
+    if !hasmapto('<Plug>LameCBR192', 'n')
+        nmap <unique><buffer><LocalLeader>lc
+                    \ <Plug>LameCBR192
+    endif
+
+    if !hasmapto('<Plug>LameV2', 'n')
+        nmap <unique><buffer><LocalLeader>lv
+                    \ <Plug>LameVBR190
+    endif
 endif
 
 nnoremap <script><silent><buffer><Plug>VirtualDub
@@ -44,6 +54,10 @@ nnoremap <script><silent><buffer><Plug>X264YouTube
             \ :silent !start x264_2pass_youtube.bat "%"<CR>
 nnoremap <script><silent><buffer><Plug>X264Nico
             \ :silent !start x264_2pass_nico.bat "%"<CR>
+nnoremap <script><silent><buffer><Plug>LameCBR192
+            \ :silent !start lame_cbr_192.bat "%"<CR>
+nnoremap <script><silent><buffer><Plug>LameVBR190
+            \ :silent !start lame_vbr_190.bat "%"<CR>
 
 " options {{{2
 " AviSynth recognize only cp932 and CRLF
