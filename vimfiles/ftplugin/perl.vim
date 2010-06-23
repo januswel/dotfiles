@@ -54,8 +54,6 @@ setlocal foldcolumn=3
 compiler perl
 
 " kludge
-" TODO: make the patch and send it to the maintainer of perl compiler plugin
-"
 " A file path may contain spaces (e.g. "C:\Documents and Settings"), thus %
 " needs to be tucked by double quotations like "%", in win32 (with cmd.exe).
 " And there is no need to specify a target file at the compiler plugin,
