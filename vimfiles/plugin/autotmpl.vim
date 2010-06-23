@@ -1,7 +1,7 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Jan 10.
 " Version:      0.43
 " Dependency:
 "   This plugin requires following file[s].
@@ -114,15 +114,27 @@ endfunction
 
 " return List
 function s:GetTemplateFiles()
-    let files = ''
+    let files = []
     if exists('g:autotmpl_tmpls') && !empty(g:autotmpl_tmpls)
-        let files = glob(g:autotmpl_tmpls)
+        let typeofpaths = type(g:autotmpl_tmpls)
+        if     typeofpaths == 1 " String
+            let paths = split(g:autotmpl_tmpls, '\s*,\s*')
+        elseif typeofpaths == 3 " List
+            let paths = g:autotmpl_tmpls
+        elseif typeofpaths == 4 " Dictionary
+            let paths = values(g:autotmpl_tmpls)
+        endif
+
+        for path in paths
+            let line = glob(path)
+            let files += split(line, '\n')
+        endfor
     else
         " default
-        let files = globpath(&runtimepath, s:tmpls_default)
+        let files = split(globpath(&runtimepath, s:tmpls_default), '\n')
     endif
 
-    return split(files, '\n')
+    return files
 endfunction
 
 " read the specified file to the buffer
