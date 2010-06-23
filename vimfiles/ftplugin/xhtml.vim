@@ -2,7 +2,7 @@
 " Filename:     xhtml.vim
 " Language:     xhtml
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Jun 23.
 " Version:      0.54
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
@@ -17,10 +17,6 @@ let b:did_ftplugin = 1
 " reset the value of 'cpoptions' for portability
 let b:save_cpoptions = &cpoptions
 set cpoptions&vim
-
-" undo commands
-let b:undo_ftplugin = 'setlocal shiftwidth< tabstop<'
-            \ . '| unlet! b:tidyopt b:tidyenc_default b:enctable b:bypassedtags'
 
 " main {{{1
 " mappings {{{2
@@ -236,6 +232,10 @@ if !exists('*s:InsertXhtmlCloseTag')
         normal! a=c
     endfunction
 endif
+
+" undo {{{2
+let b:undo_ftplugin = 'setlocal shiftwidth< tabstop<'
+            \ . '| unlet! b:tidyopt b:tidyenc_default b:enctable b:ignoredtags'
 
 " post-processing {{{1
 " restore the value of 'cpoptions'

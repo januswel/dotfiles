@@ -2,7 +2,7 @@
 " Filename:     avisynth.vim
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Jun 23.
 " Version:      0.16
 " License:      New BSD License
 "   See under URL.  Note that redistribution is permitted with LICENSE.
@@ -13,8 +13,6 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
-let b:undo_ftplugin = 'setlocal fenc< ff< fo< cin< cino< com<'
-
 " AviSynth recognize only cp932 and CRLF
 setlocal fileencoding=cp932
 setlocal fileformat=dos
@@ -24,5 +22,8 @@ setlocal formatoptions=croql
 setlocal cindent
 setlocal cinoptions=(0,u0,W4,m1
 setlocal comments=s1:[*,mb:*,ex:*],s1:/*,mb:*,ex:*/,:#
+
+" undo {{{2
+let b:undo_ftplugin = 'setlocal fenc< ff< fo< cin< cino< com<'
 
 " vim: ts=4 sw=4 sts=0 et
