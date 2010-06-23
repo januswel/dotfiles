@@ -2,18 +2,24 @@
 " Filename:     perl.vim
 " Language:     Perl
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Jun 23.
 " Version:      0.14
-" License:      New BSD License
+" License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
+" preparations {{{1
 if exists('b:did_ftplugin')
     finish
 endif
 let b:did_ftplugin = 1
 
-" for make
+" reset the value of 'cpoptions' for portability
+let s:save_cpoptions = &cpoptions
+set cpoptions&vim
+
+" main {{{1
+" compiler {{{2
 compiler perl
 
 " kludge
@@ -25,4 +31,10 @@ compiler perl
 " so I remove % from 'makeprg'.
 let &l:makeprg = substitute(&l:makeprg, '%', '', 'g')
 
-" vim: ts=4 sw=4 sts=0 et
+" post-processings {{{1
+" restore the value of 'cpoptions'
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
+
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
