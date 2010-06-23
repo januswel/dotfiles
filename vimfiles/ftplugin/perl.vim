@@ -19,6 +19,37 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" fold {{{2
+function! PerlFoldLevel(lnum)
+    let line = getline(a:lnum)
+
+    " modeline
+    if line =~# '\v^#\s*<vim>'
+        return 0
+    endif
+
+    " __END__
+    if line =~# '\v\C^__END__$'
+        return '>1'
+    endif
+
+    " sub routine
+    if line =~# '\v\s*<%(sub|BEGIN|END)>'
+        return '>1'
+    endif
+
+    " POD
+    if line =~# '\v\C^\=<%(head\d|over|pod|begin)>'
+        return '>2'
+    endif
+
+    return '='
+endfunction
+
+setlocal foldmethod=expr
+setlocal foldexpr=PerlFoldLevel(v:lnum)
+setlocal foldcolumn=3
+
 " compiler {{{2
 compiler perl
 
