@@ -1,12 +1,13 @@
 " vim colors file
 " Filename:     Janus.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.36
-" License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
+" Last Change:  2010 Jan 03.
+" Version:      0.37
+" License:      New BSD License {{{1
+"   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
+" preparations {{{1
 " restore default colors
 hi clear
 set background=dark
@@ -24,16 +25,17 @@ if exists('&t_Co') && (&t_Co == 8 || &t_Co == 16)
     finish
 endif
 
-" for line continueing
+" reset the value of 'cpoptions' for portability
 let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
-" base
+" main {{{1
+" base {{{2
 hi Normal       term=none
             \   cterm=none  ctermfg=15      ctermbg=236
             \   gui=none    guifg=#ffffff   guibg=#333333
 
-" cursor
+" cursor {{{2
 hi Cursor                   ctermfg=0       ctermbg=10
             \               guifg=#000000   guibg=#00ff00
 hi CursorIM                 ctermfg=0       ctermbg=214
@@ -43,7 +45,7 @@ hi CursorColumn                             ctermbg=241
 hi CursorLine                               ctermbg=241
             \                               guibg=#666666
 
-" C language and compatibles
+" C language and compatibles {{{2
 " :help group-name
 hi Comment                  ctermfg=214
             \               guifg=#ffa500
@@ -53,20 +55,20 @@ hi Constant                 ctermfg=216
             \               guifg=#ffa07a
 " identifiers
 " base of Function
-hi Identifier               ctermfg=77
-            \               guifg=#60dd60
+hi Identifier   cterm=bold  ctermfg=77
+            \   gui=bold    guifg=#60dd60
 " statements
 " base of Conditional, Repeat, Label, Operator, Keyword, Exception
 hi Statement                ctermfg=99
             \               guifg=#7b68ee
 " preprocessors
 " base of Include, Define, Macro, PreCondit
-hi PreProc                  ctermfg=71
-            \               guifg=#3cb371
+hi PreProc      cterm=bold  ctermfg=205
+            \   gui=bold    guifg=#ff69b4
 " types
 " base of StorageClass, Structure, Typedef
-hi Type                     ctermfg=170
-            \               guifg=#da70d6
+hi Type                     ctermfg=120
+            \               guifg=#98fb98
 " specials
 " base of SpecialChar, Tag, Delimiter, SpecialComment, Debug
 hi Special                  ctermfg=184
@@ -81,64 +83,70 @@ hi Error                    ctermfg=15      ctermbg=202
 hi ToDo                     ctermfg=80      ctermbg=236
             \               guifg=#40e0d0   guibg=#333333
 
-" default highlighting groups
+" default highlighting groups {{{2
 " :help highlight-groups
-" modes
+" modes {{{3
 hi Visual                   ctermfg=15      ctermbg=61
             \               guifg=#ffffff   guibg=#5562bf
 
-" searches
+" searches {{{3
 hi Search       cterm=none  ctermfg=0       ctermbg=11
             \   gui=none    guifg=#000000   guibg=#ffff00
-hi IncSearch                ctermfg=11      ctermbg=4
+hi IncSearch                ctermfg=11      ctermbg=21
             \               guifg=#ffff00   guibg=#0000ff
 hi MatchParen               ctermfg=0       ctermbg=152
             \               guifg=#000000   guibg=#add8e6
 
-" specials
+" specials {{{3
 hi NonText                  ctermfg=11
             \               guifg=#ffff00
 hi SpecialKey               ctermfg=11
             \               guifg=#ffff00
-hi WarningMsg               ctermfg=9       ctermbg=15
-            \               guifg=#ff0000   guibg=#ffffff
+hi WarningMsg   cterm=bold  ctermfg=9       ctermbg=15
+            \   gui=bold    guifg=#ff0000   guibg=#ffffff
 
-" statusline
+" statusline {{{3
 hi StatusLine   term=none
-            \   cterm=none  ctermfg=0       ctermbg=251
+            \   cterm=none  ctermfg=0       ctermbg=252
             \   gui=bold    guifg=#000000   guibg=#cccccc
 hi StatusLineNC term=bold
-            \   cterm=bold  ctermfg=0       ctermbg=251
+            \   cterm=bold  ctermfg=0       ctermbg=252
             \   gui=none    guifg=#000000   guibg=#cccccc
-hi VertSplit    cterm=none  ctermfg=251     ctermbg=251
+hi VertSplit    cterm=none  ctermfg=252     ctermbg=252
             \   gui=none    guifg=#cccccc   guibg=#cccccc
 
-" tabline
+" tabline {{{3
 hi TabLineSel   cterm=bold  ctermfg=11      ctermbg=236
             \   gui=bold    guifg=#ffff00   guibg=#333333
-hi TabLine      cterm=none  ctermfg=0       ctermbg=251
+hi TabLine      cterm=none  ctermfg=0       ctermbg=252
             \   gui=none    guifg=#000000   guibg=#cccccc
-hi TabLineFill  cterm=none                  ctermbg=251
+hi TabLineFill  cterm=none                  ctermbg=252
             \   gui=none                    guibg=#cccccc
 
-" popup menu
-hi PMenu                    ctermfg=0       ctermbg=251
+" popup menu {{{3
+hi PMenu                    ctermfg=0       ctermbg=252
             \               guifg=#000000   guibg=#cccccc
 hi PMenuSel                 ctermfg=0       ctermbg=48
             \               guifg=#000000   guibg=#00ff7f
-hi PMenuSbar                                ctermbg=8
+hi PMenuSbar                                ctermbg=244
             \                               guibg=#808080
 hi PMenuThumb               ctermfg=15
             \               guifg=#ffffff
 
-" fold
-hi Folded                   ctermfg=15      ctermbg=145
+" fold {{{3
+hi Folded                   ctermfg=15      ctermbg=248
             \               guifg=#ffffff   guibg=#a9a9a9
 hi FoldColumn               ctermfg=15      ctermbg=236
             \               guifg=#ffffff   guibg=#333333
 
-" restore &cpoptions
+" others {{{3
+hi Title                    ctermfg=99
+            \               guifg=#7b68ee
+
+" post-processings {{{1
+" restore the value of 'cpoptions'
 let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions
 
-" vim: ts=4 sw=4 sts=0 et
+" }}}1
+" vim: ts=4 sw=4 sts=0 et fdm=marker fdc=4
