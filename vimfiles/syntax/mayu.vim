@@ -2,10 +2,10 @@
 " Filename:     mayu.vim
 " Language:     mayu
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2009 Dec 31.
-" Version:      0.32
+" Last Change:  2010 Jun 23.
+" Version:      0.33
 " License:      New BSD License
-"   See LICENSE.  Note that redistribution is permitted with this file.
+"   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 
