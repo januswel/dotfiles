@@ -45,6 +45,7 @@ nnoremap <script><silent><buffer><Plug>ModifyByHTMLTidy
 " about tab spaces
 setlocal shiftwidth=2
 setlocal tabstop=2
+setlocal omnifunc=htmlcomplete#CompleteTags
 
 " compiler {{{2
 " for make
