@@ -53,35 +53,36 @@ compiler xhtml
 
 " variables {{{2
 let b:tidyopt = {
-            \ '--add-xml-decl':     'yes',
-            \ '--char-encoding':    'utf8',
-            \ '--clean':            'yes',
-            \ '--indent':           'auto',
-            \ '--join-classes':     'yes',
-            \ '--output-xhtml':     'yes',
-            \ '--quiet':            'yes',
-            \ '--show-warnings':    'no',
-            \ '--tab-size':         '2',
-            \ '--tidy-mark':        'no',
-            \ '--wrap':             '0',
+            \   '--add-xml-decl':   'yes',
+            \   '--char-encoding':  'utf8',
+            \   '--clean':          'yes',
+            \   '--doctype':        'strict',
+            \   '--indent':         'auto',
+            \   '--join-classes':   'yes',
+            \   '--output-xhtml':   'yes',
+            \   '--quiet':          'yes',
+            \   '--show-warnings':  'no',
+            \   '--tab-size':       '2',
+            \   '--tidy-mark':      'no',
+            \   '--wrap':           '0',
             \ }
 
 let b:tidyenc_default = 'ascii'
 
 let b:enctable = {
-            \ 'ascii':      'ascii',
-            \ 'latin0':     'latin9',
-            \ 'latin1':     'latin1',
-            \ 'utf8':       'utf-8',
-            \ 'iso2022':    'iso-2022-jp',
-            \ 'mac':        'macroman',
-            \ 'win1252':    'cp1252',
-            \ 'ibm858':     'cp858',
-            \ 'utf16le':    'utf-16le',
-            \ 'utf16be':    'utf-16',
-            \ 'utf16':      'utf-16',
-            \ 'big5':       'big5',
-            \ 'shiftjis':   'sjis',
+            \   'ascii':      'ascii',
+            \   'latin0':     'latin9',
+            \   'latin1':     'latin1',
+            \   'utf8':       'utf-8',
+            \   'iso2022':    'iso-2022-jp',
+            \   'mac':        'macroman',
+            \   'win1252':    'cp1252',
+            \   'ibm858':     'cp858',
+            \   'utf16le':    'utf-16le',
+            \   'utf16be':    'utf-16',
+            \   'utf16':      'utf-16',
+            \   'big5':       'big5',
+            \   'shiftjis':   'sjis',
             \ }
 
 let b:bypassedtags = [
