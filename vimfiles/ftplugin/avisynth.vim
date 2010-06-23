@@ -56,6 +56,10 @@ setlocal cindent
 setlocal cinoptions=(0,u0,W4,m1
 setlocal comments=s1:[*,mb:*,ex:*],s1:/*,mb:*,ex:*/,:#
 
+" compiler {{{2
+" for make
+compiler avisynth
+
 " undo {{{2
 let b:undo_ftplugin = 'setlocal fenc< ff< fo< cin< cino< com<'
 
