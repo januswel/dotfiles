@@ -19,6 +19,32 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+            \ && !(exists('no_ftavisynth_maps') && no_example_maps)
+    if !hasmapto('<Plug>VirtualDub', 'n')
+        nmap <unique><buffer><LocalLeader>v
+                    \ <Plug>VirtualDub
+    endif
+
+    if !hasmapto('<Plug>X264YouTube', 'n')
+        nmap <unique><buffer><LocalLeader>xy
+                    \ <Plug>X264YouTube
+    endif
+
+    if !hasmapto('<Plug>X264Nico', 'n')
+        nmap <unique><buffer><LocalLeader>xn
+                    \ <Plug>X264Nico
+    endif
+endif
+
+nnoremap <script><silent><buffer><Plug>VirtualDub
+            \ :silent !start virtualdub "%"<CR>
+nnoremap <script><silent><buffer><Plug>X264YouTube
+            \ :silent !start x264_2pass_youtube.bat "%"<CR>
+nnoremap <script><silent><buffer><Plug>X264Nico
+            \ :silent !start x264_2pass_nico.bat "%"<CR>
+
 " options {{{2
 " AviSynth recognize only cp932 and CRLF
 setlocal fileencoding=cp932
