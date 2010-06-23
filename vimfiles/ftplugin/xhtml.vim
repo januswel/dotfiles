@@ -24,11 +24,11 @@ if !(exists('no_plugin_maps') && no_plugin_maps)
             \ && !(exists('no_ftxhtml_maps') && no_example_maps)
 
     " hasmapto() and <unique> are required to avoid overlap
-    if !hasmapto('<Plug>InsertXhtmlCloseTag')
+    if !hasmapto('<Plug>InsertXhtmlCloseTag', 'i')
         imap <unique><buffer><C-b>
                     \ <Plug>InsertXhtmlCloseTag
     endif
-    if !hasmapto('<Plug>ModifyByHTMLTidy')
+    if !hasmapto('<Plug>ModifyByHTMLTidy', 'n')
         nmap <unique><buffer><LocalLeader>m
                     \ <Plug>ModifyByHTMLTidy
     endif
