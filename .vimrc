@@ -400,7 +400,7 @@ nmap <silent><Leader>c  <Plug>GenerateCtags
 
 " openwin32explorer.vim and viewinhtml.vim
 if has('win32')
-    nmap <Leader>f <Plug>OpenWin32Explorer
+    nmap <Leader>f <Plug>WinExplorer
     nmap <Leader><S-v> <Plug>ViewInHtml
 endif
 
