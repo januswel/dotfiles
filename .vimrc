@@ -198,6 +198,9 @@ let autodate_format = '%Y %3m %d'
 let protec_readonly_paths = '$VIM/**'
 let protec_nomodifiable_paths = '$VIM/**'
 
+" plugin: zoomfont.vim
+let zoomfont_sizes = [8, 9, 10, 11, 12, 14, 24, 28]
+
 " disable plugin {{{2
 " settings for Kaoriya version
 if has('kaoriya')
