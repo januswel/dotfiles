@@ -375,6 +375,8 @@ vnoremap <Leader>q <Esc>`>a<lt>/q><Esc>`<i<lt>q><Esc>`[
 vnoremap <Leader>w <Esc>`>a <C-q>uff5e<Esc>`<i<C-q>uff5e <Esc>`[
 " U+300C LEFT CORNER BRACKET and U+300D RIGHT CORNER BRACKET
 vnoremap <Leader>b <Esc>`>a<C-q>u300d<Esc>`<i<C-q>u300c<Esc>`[
+" C style comment
+vnoremap <Leader><S-c> <Esc>`>a*/<Esc>`<i/*<Esc>
 
 " completion {{{2
 inoremap <expr><Tab>    pumvisible() ? "\<C-n>" : "\<Tab>"
