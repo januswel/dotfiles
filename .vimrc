@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Jul 28.
 
 " options {{{1
 " general {{{2
@@ -160,6 +160,13 @@ if has('printer')
     if has('win32')
         set printfont=VL_Gothic:h12:cSHIFTJIS
     endif
+endif
+
+" C/Migemo
+" this settings influence only Kaoriya version
+if has('migemo')
+    set migemo
+    set migemodict=$VIM/dict/utf-8.d/migemo-dict
 endif
 
 
