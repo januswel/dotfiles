@@ -201,6 +201,15 @@ let protec_nomodifiable_paths = '$VIM/**'
 " plugin: zoomfont.vim
 let zoomfont_sizes = [8, 9, 10, 11, 12, 14, 24, 28]
 
+" for :TOhtml
+let g:html_font = 'VL Gothic'
+"let g:html_ignore_folding = 1
+let g:html_no_pre = 1
+let g:html_number_lines = 1
+let g:html_use_css = 1
+let g:html_use_encoding = &encoding
+let g:use_xhtml = 1
+
 " disable plugin {{{2
 " settings for Kaoriya version
 if has('kaoriya')
