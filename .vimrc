@@ -407,15 +407,17 @@ endif
 
 " abbreviation {{{1
 " fix typo
-abbreviate retrun   return
-abbreviate cosnt    const
-abbreviate scirpt   script
-abbreviate cludge   kludge
-abbreviate hlep     help
-abbreviate parcent  percent
-abbreviate persent  percent
-abbreviate parsent  percent
-abbreviate tilda    tilde
+abbreviate retrun          return
+abbreviate cosnt           const
+abbreviate scirpt          script
+abbreviate cludge          kludge
+abbreviate hlep            help
+abbreviate parcent         percent
+abbreviate persent         percent
+abbreviate parsent         percent
+abbreviate tilda           tilde
+abbreviate appropreate     appropriate
+abbreviate acknowledgement acknowledgment
 
 
 " script {{{1
