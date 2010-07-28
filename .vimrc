@@ -308,8 +308,8 @@ nnoremap <C-l> gt
 
 " move a tabpage around
 " plugin: TabShift.vim
-nnoremap <silent><C-p> :TabShift -1<CR>
-nnoremap <silent><C-n> :TabShift +1<CR>
+nnoremap <silent><C-p> :TabShift! -1<CR>
+nnoremap <silent><C-n> :TabShift! +1<CR>
 
 " searches {{{2
 " put matched word in the top of the screen
