@@ -2,7 +2,7 @@
 " Filename:     hatena.vim
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jun 23.
+" Last Change:  2010 Jul 28.
 " Version:      0.13
 " License:      New BSD License
 "   See under URL.  Note that redistribution is permitted with LICENSE.
@@ -216,7 +216,7 @@ syn match   hatenaKeywordIdInner        /\[\@<=k:id:/ contains=hatenaIdPreDelimi
 syn match   hatenaIdDelimiter   /[:#]/ contained
 syn match   hatenaId            /id:/ contains=hatenaIdDelimiter nextgroup=hatenaIdName
 syn match   hatenaIdInner       /\[\@<=id:/ contains=hatenaIdDelimiter nextgroup=hatenaIdName containedin=hatenaBracket
-syn match   hatenaIdName        /[^w]\+/ contains=hatenaIdDelimiter contained nextgroup=hatenaIdDate,hatenaIdMonth,hatenaIdArchive,hatenaIdOthers
+syn match   hatenaIdName        /[\w]\+/ contains=hatenaIdDelimiter contained nextgroup=hatenaIdDate,hatenaIdMonth,hatenaIdArchive,hatenaIdOthers
 syn match   hatenaIdMonth       /:\d\{6}/ contains=hatenaIdDelimiter,hatenaIntegerInner contained
 syn match   hatenaIdDate        /:\d\{8}/ contains=hatenaIdDelimiter,hatenaIntegerInner contained nextgroup=hatenaIdTime
 syn match   hatenaIdTime        /[:#]\d\{10}/ contains=hatenaIdDelimiter,hatenaIntegerInner contained
