@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jul 28.
+" Last Change:  2010 Aug 02.
 
 " options {{{1
 " general {{{2
@@ -21,10 +21,18 @@ set notimeout       " don't make me hurry
 set nottimeout      " once agein, don't
 
 " backup {{{2
-" The "backup" directory that be found in runtime path at first,
-" is backupdir.
-let s:backupdir = globpath(&runtimepath, 'backup')
-" Backup feature is enable when the backupdir exists.
+" The directories that are named as "backup" and found in runtime-paths are
+" setted in 'backupdir'.
+let s:candidates = split(globpath(&runtimepath, 'backup'), '\n')
+let s:backupdirs = []
+for s:candidate in s:candidates
+    if isdirectory(s:candidate)
+        call add(s:backupdirs, s:candidate)
+    endif
+endfor
+" Backup feature is enabled when there are one or more directories that suit
+" above conditions exist.
+let s:backupdir = escape(join(map(s:backupdirs, 'fnamemodify(v:val, ":~")'), ','), ' ')
 if s:backupdir != ''
     set backup          " backup feature on
     set writebackup     " make a backup file before overwriting a file
@@ -32,7 +40,7 @@ if s:backupdir != ''
     set backupext=~     " trailing character of backup file
     let &backupdir = s:backupdir . ',' . &backupdir
 endif
-unlet s:backupdir
+unlet s:candidates s:backupdirs s:candidate s:backupdir
 
 " display & information {{{2
 set showtabline=2   " show tab bar always
