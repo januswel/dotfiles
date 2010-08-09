@@ -1,7 +1,7 @@
 " vim colors file
 " Filename:     Janus.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 03.
+" Last Change:  2010 Aug 09.
 " Version:      0.37
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
@@ -142,6 +142,8 @@ hi FoldColumn               ctermfg=15      ctermbg=236
 " others {{{3
 hi Title                    ctermfg=99
             \               guifg=#7b68ee
+hi MoreMsg                  ctermfg=11
+            \               guifg=#ffff00
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
