@@ -1,6 +1,6 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Aug 02.
+" Last Change:  2010 Aug 09.
 
 " options {{{1
 " general {{{2
@@ -32,7 +32,7 @@ for s:candidate in s:candidates
 endfor
 " Backup feature is enabled when there are one or more directories that suit
 " above conditions exist.
-let s:backupdir = escape(join(map(s:backupdirs, 'fnamemodify(v:val, ":~")'), ','), ' ')
+let s:backupdir = join(s:backupdirs, ',')
 if s:backupdir != ''
     set backup          " backup feature on
     set writebackup     " make a backup file before overwriting a file
