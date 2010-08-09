@@ -54,6 +54,7 @@ set showmatch       " show pair parentheses, brackets and so on
 set scrolloff=3     " above and below cursor number is 3 line
 set showcmd         " show entered and partial command
 set nolist          " don't show space characters (tab, line break)
+set confirm         " confirm me before quitting modified buffers
 
 " statusline {{{2
 " %3(%m%)                   : modified flag (bracketed, fixed)
