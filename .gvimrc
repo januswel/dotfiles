@@ -26,7 +26,7 @@ endif
 
 " for East Asian Width Class Ambiguous
 if exists('&ambiwidth')
-    set ambiwidth=auto
+    set ambiwidth=double
 endif
 
 " syntax highlight {{{1
