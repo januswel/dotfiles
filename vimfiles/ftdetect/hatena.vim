@@ -9,7 +9,7 @@
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
 " from vimperator
-autocmd BufRead */vimperator-d.hatena.ne.jp.tmp setfiletype hatena
+autocmd BufRead */vimperator-*.hatena.ne.jp*.tmp setfiletype hatena
 
 " local editing
 autocmd BufRead,BufNewFile *.hnt    setfiletype hatena
