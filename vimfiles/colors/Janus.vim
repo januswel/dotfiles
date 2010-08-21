@@ -139,6 +139,16 @@ hi Folded                   ctermfg=15      ctermbg=248
 hi FoldColumn               ctermfg=15      ctermbg=236
             \               guifg=#ffffff   guibg=#333333
 
+" diff {{{3
+hi DiffAdd                  ctermfg=0       ctermbg=120     cterm=bold
+            \               guifg=#000000   guibg=#98fb98   gui=bold
+hi DiffChange               ctermfg=0       ctermbg=134
+            \               guifg=#000000   guibg=#ba55d3
+hi DiffText                 ctermfg=fg      ctermbg=134     cterm=underline,bold
+            \               guifg=fg        guibg=#ba55d3   gui=underline,bold
+hi DiffDelete               ctermfg=209     ctermbg=209
+            \               guifg=#fa8072   guibg=#fa8072
+
 " others {{{3
 hi Title                    ctermfg=99
             \               guifg=#7b68ee

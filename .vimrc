@@ -108,6 +108,10 @@ set ignorecase  " use ignore case normally
 set smartcase   " but use match case when capital character is contained
 set wrapscan    " search wrap around the end of the file
 
+" diff {{{2
+set diffopt=filler,context:5    " show filler lines
+                                " and use a context of 5 lines
+
 " window {{{2
 set splitbelow      " make a new window at the below of the current window
 set splitright      " make a new window at the right of the current window
