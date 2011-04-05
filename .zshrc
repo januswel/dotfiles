@@ -3,8 +3,8 @@
 # Last Change:  2009/12/02 16:14:27.
 
 # environment variables
-export CPLUS_INCLUDE_PATH=/usr/local/include
-export LD_LIBRARY_PATH=/usr/local/lib
+export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # Add paths for Mac OS X
 if [ "Darwin" = `uname` ]; then
