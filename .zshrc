@@ -1,6 +1,5 @@
 # zsh RC file
-# Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/12/02 16:14:27.
+# janus_wel <janus.wel.3@gmail.com>
 
 # environment variables
 export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
