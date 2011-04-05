@@ -1,6 +1,5 @@
-# .zshenv
-# Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/11/11 04:09:15.
+# .zprofile
+# janus_wel <janus.wel.3@gmail.com>
 
 # environment variables
 export EDITOR="/usr/bin/vim"
