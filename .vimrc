@@ -25,6 +25,7 @@ set nottimeout      " once agein, don't
 " setted in 'backupdir'.
 let s:candidates = split(globpath(&runtimepath, 'backup'), '\n')
 let s:backupdirs = []
+let s:candidate = ''
 for s:candidate in s:candidates
     if isdirectory(s:candidate)
         call add(s:backupdirs, s:candidate)
