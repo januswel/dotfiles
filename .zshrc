@@ -2,6 +2,10 @@
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
 # Last Change:  2009/12/02 16:14:27.
 
+# environment variables
+export CPLUS_INCLUDE_PATH=/usr/local/include
+export LD_LIBRARY_PATH=/usr/local/lib
+
 # Add MacPorts path when OS is Mac
 if [ "Darwin" = `uname` ]; then
     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
