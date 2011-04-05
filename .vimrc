@@ -125,8 +125,8 @@ set nrformats=hex,alpha
 
 " completion {{{2
 " command-line mode
-set wildmenu            " command-line completion on
-set wildmode=list:full  " list all candidates and complete full words
+set wildmenu                " command-line completion on
+set wildmode=list:longest   " list all candidates and complete longest matched
 
 " insert mode
 " scanning places (and order) by keyword completion
