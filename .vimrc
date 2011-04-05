@@ -304,6 +304,9 @@ nnoremap <silent><C-k> :wincmd W<CR>
 " move the window to a new tab page
 nnoremap <silent><Leader>w :wincmd T<CR>
 
+" adjust heights and widths of all visible windows equally
+nnoremap <silent><Leader>= :wincmd =<CR>
+
 " open the result of looking up a keyword under the cursor in new tabpage
 nnoremap <silent><S-k> K:wincmd T<CR>
 
