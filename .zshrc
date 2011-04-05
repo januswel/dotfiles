@@ -35,3 +35,12 @@ alias ls="ls --color=auto"
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
+
+# Japanize console if available
+export LANG="C"
+
+JA_JP_UTF8=`locale -a | grep ja_JP | grep -i utf`
+if [ $JA_JP_UTF8 ] ; then
+    export LANG=$JA_JP_UTF8
+fi
+unset JA_JP_UTF8
