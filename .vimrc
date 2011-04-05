@@ -208,8 +208,8 @@ let autodate_format = '%Y %3m %d'
 
 " plugin: protec.vim
 " runtime file is untouchable
-let protec_readonly_paths = '$VIM/**'
-let protec_nomodifiable_paths = '$VIM/**'
+let protec_readonly_paths = '$VIM/**,$INCLUDE/**'
+let protec_nomodifiable_paths = '$VIM/**,$INCLUDE/**'
 
 " plugin: zoomfont.vim
 let zoomfont_sizes = [8, 9, 10, 11, 12, 14, 24, 28]
