@@ -434,6 +434,11 @@ abbreviate acknowledgement acknowledgment
 
 
 " script {{{1
+augroup numof_scroll
+    autocmd! numof_scroll
+
+    autocmd! WinEnter * set scroll=3
+augroup END
 
 
 " }}}1
