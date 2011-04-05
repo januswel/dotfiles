@@ -73,7 +73,7 @@ set confirm         " confirm me before quitting modified buffers
 " %L                        : lines count
 " %{strtrans(matchstr(getline("."),".",col(".")-1))} : chars under the cursor
 " 0x%04B                    : hexadecimal octets
-" %4P                       : percentage through file of displayed window
+" %3P                       : percentage through file of displayed window
 let s:statusline = [
             \ '%3(%m%) %<%3n %t %y',
             \ '[%{&fenc!=#""?&fenc:&enc}:%{&ff}]',
@@ -83,7 +83,7 @@ let s:statusline = [
             \ '[%v:%l/%L]',
             \ '[%2(%{strtrans(matchstr(getline("."),".",col(".")-1))}%)',
             \ ' 0x%04B]',
-            \ '[%4P]',
+            \ '[%3P]',
             \ ]
 let &statusline = join(s:statusline, '')
 unlet s:statusline
