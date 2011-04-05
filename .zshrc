@@ -5,12 +5,23 @@
 export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-# Add paths for Mac OS X
+# for aliases
+LS_COMMAND="ls"
+CP_COMMAND="cp"
+MV_COMMAND="mv"
+RM_COMMAND="rm"
+
+# settings for Mac OS X
 if [ "Darwin" = `uname` ]; then
     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
     export MANPATH=/opt/local/share/man:$MANPATH
     export CPLUS_INCLUDE_PATH=/opt/local/include:$CPLUS_INCLUDE_PATH
     export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
+
+    LS_COMMAND="gls"
+    CP_COMMAND="gcp"
+    MV_COMMAND="gmv"
+    RM_COMMAND="grm"
 fi
 
 # completions
@@ -36,10 +47,10 @@ PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
 # aliases
-alias ls="ls --color=auto"
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
+alias ls="$LS_COMMAND --color=auto"
+alias cp="$CP_COMMAND -i"
+alias mv="$MV_COMMAND -i"
+alias rm="$RM_COMMAND -i"
 
 # Japanize console if available
 export LANG="C"
