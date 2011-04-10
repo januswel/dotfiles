@@ -126,7 +126,9 @@ key C-h = BackSpace
 
 # cmd.exe {{{2
 window CMD /ConsoleWindowClass/ : Global
-key Tab     = C-f
+key Tab = C-f
+key C-l = c l s Enter
+key C-d = e x i t Enter
 
 # Mp3tag {{{2
 window Mp3tag /Mp3tag\.exe:Afx:00400000:b:00010011:00000006:0024061E:AfxControlBar90su:Afx:00400000:8:00010011:0110005B:00000000:#32770/ : Global
