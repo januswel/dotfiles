@@ -161,6 +161,10 @@ key C-l     = LeftAlt v n
 key C-e     = C-Down
 key C-y     = C-Up
 
+# Google Chrome {{{2
+window GoogleChrome /chrome\.exe/ : Global
+key C-h = BackSpace
+
 
 # }}}1
 # vim: ft=mayu ts=4 sw=4 sts=0 et fdm=marker fdc=3
