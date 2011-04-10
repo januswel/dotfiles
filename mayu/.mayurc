@@ -191,6 +191,29 @@ key S-a = F2 End                    # edit file / directory name (at last charac
 key r   = F5                        # reload
 key g   = &Prefix(TaggedFrogg)
 
+# Rekisa {{{2
+window Rekisa /Rekisa\.exe/ : Global
+key j       = Down
+key k       = Up
+key h       = Left
+key l       = Right
+key S-j     = S-Down
+key S-k     = S-Up
+key S-h     = S-Left
+key S-l     = S-Right
+key _0      = Home
+key Caret   = Home
+key S-_4    = End
+key g       = C-Home
+key S-g     = C-End
+key n       = F3
+key S-n     = S-F3
+key r       = F5
+key C-h     = LeftAlt v p
+key C-l     = LeftAlt v n
+key C-e     = C-Down
+key C-y     = C-Up
+
 
 # }}}1
 # vim: ft=mayu ts=4 sw=4 sts=0 et fdm=marker fdc=3
