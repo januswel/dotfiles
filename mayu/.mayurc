@@ -1,10 +1,7 @@
-# .mayu
+# .mayurc
 # setting file for mayu
-#
-# Maintainer:       janus_wel <janus.wel.3@gmail.com>
-# Last Change:      2009/11/12 06:08:27.
-# Initial Written:  2008/07/30
-# Refer:            http://mayu.sourceforge.net/
+# janus_wel <janus.wel.3@gmail.com>
+# refer: http://mayu.sourceforge.net/
 
 # general {{{1
 # include files
