@@ -138,20 +138,6 @@ key C-h = BackSpace
 window VisualStudio /(vcsexpress|VCExpress)\.exe/ : Global
 key C-h = BackSpace
 
-# TaggedFrog {{{2
-keymap2 TaggedFrogg
-key g = Home    # jump first file
-
-window TaggedFrog /TaggedFrog\.exe:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.Window\.8\.app\.0\.33c0d9d:WindowsForms10\.SysListView32\.app\.0\.33c0d9d/ : Global
-key *j  = *Down
-key *k  = *Up
-key *h  = *Left
-key *l  = *Right
-key S-g = End                       # jump last file
-key S-a = F2 End                    # edit file / directory name (at last character)
-key r   = F5                        # reload
-key g   = &Prefix(TaggedFrogg)
-
 # Rekisa {{{2
 window Rekisa /Rekisa\.exe/ : Global
 key j       = Down
