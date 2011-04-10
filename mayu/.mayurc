@@ -124,30 +124,6 @@ key S-g = End
 window TortoiseSVNCommitComment /TortoiseProc\.exe:#\d+:Scintilla/ : Global
 key C-h = BackSpace
 
-# Tween {{{2
-window TweenOpenURL /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a/ : Global
-key j = Down
-key k = Up
-
-window TweenCommandLine /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.EDIT\.app\.0\.378734a/ : Global
-key C-h = BackSpace
-key j   = j
-key k   = k
-
-keymap2 TweenExtendedHintMode
-key h = C-s
-key p = C-e
-
-window TweenLogList /Tween\.exe:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.SysTabControl32\.app\.0\.378734a:WindowsForms10\.Window\.8\.app\.0\.378734a:WindowsForms10\.SysListView32\.app\.0\.378734a/ : Global
-key y           = S-C-c
-key S-y         = C-c
-key Solidus     = C-f
-key n           = F3
-key S-n         = S-F3
-key r           = F5
-key d           = C-d
-key Semicolon   = &Prefix(TweenExtendedHintMode)
-
 # cmd.exe {{{2
 window CMD /ConsoleWindowClass/ : Global
 key Tab     = C-f
