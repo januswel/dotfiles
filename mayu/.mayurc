@@ -85,9 +85,6 @@ key S-j = PageDown
 key S-k = PageUp
 
 # STEP {{{2
-keymap2 STEPg
-key g = Home
-
 window STEP /SuperTagEditor\.exe:Afx:[\da-f]{6}:[\da-f]:[\da-f]{5}:[\da-f]:[\da-f]+:AfxFrameOrView42s:SysListView32$/ : Global
 key *j  = *Down
 key *k  = *Up
@@ -97,7 +94,7 @@ key d   = Delete
 key i   = F2
 key S-i = F2 Home
 key S-a = F2 End
-key g   = &Prefix(STEPg)
+key g   = Home
 key S-g = End
 
 # foobar2000 {{{2
