@@ -12,9 +12,8 @@ keymap Global
 
 # modifiers {{{2
 # add "Caps Lock" to modifier as "ctrl"
-# set one-shot-modifire "Esc"
-mod ctrl += !!Eisuu
-def subst *Eisuu = *Esc
+mod ctrl += Eisuu
+def subst *Eisuu = *LeftControl
 
 # set left ctrl to "Caps Lock"
 mod ctrl -= LeftControl
