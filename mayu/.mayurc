@@ -84,10 +84,6 @@ key d = Delete
 key S-j = PageDown
 key S-k = PageUp
 
-# Windows Live {{{2
-window WindowsLive /msnmsgr\.exe:IMWindowClass:DirectUIHWND$/ : Global
-key C-h = BackSpace
-
 # STEP {{{2
 keymap2 STEPg
 key g = Home
