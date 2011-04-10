@@ -101,6 +101,8 @@ key S-g = End
 window foobar2000 /foobar2000\.exe:\{E7076D1C-A7BF-4f39-B771-BCBE88F2A2A8\}:\{DA9A1375-A411-48a9-AF74-4AC29FF9BE9C\}:\{77653A44-66D1-49e0-9A7A-1C71898C0441\}:foo_ui_columns_splitter_panel_child_container:\{72FACC90-BB7E-4733-8449-D7537232AD26\}:foo_ui_columns_splitter_panel_child_container:NGLV/ : Global
 key *j      = *Down
 key *k      = *Up
+key *l      = *Right
+key *h      = *Left
 key S-g     = End   # jump last of playlist
 key g       = Home  # jump first of playlist
 key Colon   = Applications  # show context menu
