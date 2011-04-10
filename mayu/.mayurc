@@ -111,20 +111,6 @@ key Colon   = Applications  # show context menu
 window notepad /notepad\.exe:Notepad:Edit$/ : Global
 key C-h = BackSpace
 
-# Adobe Reader {{{2
-keymap2 AdobeReaderg
-key g = Home
-
-window AdobeReader /AcroRd32\.exe:AcrobatSDIWindow:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView:AVL_AVView/ : Global
-key j   = Down
-key k   = Up
-key h   = Left
-key l   = Right
-key S-j = PageDown
-key S-k = PageUp
-key g   = &Prefix(AdobeReaderg)
-key S-g = End
-
 # slide show on Power Point {{{2
 keymap2 PowerPointSlideShowg
 key g = Home
