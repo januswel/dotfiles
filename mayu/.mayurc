@@ -11,7 +11,7 @@ include "109.mayu"
 keymap Global
 
 # modifiers {{{2
-# add "Caps Lock" to modifier as "ctrl"
+# add "Caps Lock" to modifier "ctrl"
 mod ctrl += Eisuu
 def subst *Eisuu = *LeftControl
 
@@ -25,11 +25,11 @@ def subst *LeftControl = *Eisuu
 def subst *Hiragana = *Applications
 
 # toggle IME with "NonConvert"
-# "NonConvert" lies to the right of left "Alt"
+# "NonConvert" lies to the left of "Space"
 def subst *NonConvert = *$ToggleIME
 
 # set "Convert" to "Tab"
-# "Convert" lies to the left of "Space"
+# "Convert" lies to the right of "Space"
 def subst *Convert = *Tab
 
 # window operation {{{2
