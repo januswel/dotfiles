@@ -24,9 +24,9 @@ def subst *LeftControl = *Eisuu
 # "Hiragana" lies to the left of right "Alt"
 def subst *Hiragana = *Applications
 
-# toggle IME with "NonConvert"
+# set "NonConvert" to "Esc"
 # "NonConvert" lies to the left of "Space"
-def subst *NonConvert = *$ToggleIME
+def subst *NonConvert = *Esc
 
 # set "Convert" to "Tab"
 # "Convert" lies to the right of "Space"
