@@ -41,7 +41,6 @@ key C-A-i = &WindowMinimize     # m(I)nimize
 key C-A-a = &WindowMaximize     # m(A)ximize
 
 # moving window
-key C-A-n = &WindowMoveVisibly  # (N)ormalize
 # with feeling to use vim
 key C-A-k = &WindowMove(0, -16) # move up 16 dots
 key C-A-j = &WindowMove(0, 16)  # move down 16 dots
