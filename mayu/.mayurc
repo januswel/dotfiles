@@ -30,7 +30,10 @@ def subst *NonConvert = *Esc
 
 # set "Convert" to "Tab"
 # "Convert" lies to the right of "Space"
-def subst *Convert = *Tab
+def subst ~C-*Convert = *Tab
+
+# toggle IME with "Ctrl+Convert"
+key C-Convert = $ToggleIME
 
 # window operation {{{2
 # maximize & minimize
