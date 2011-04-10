@@ -112,15 +112,12 @@ window notepad /notepad\.exe:Notepad:Edit$/ : Global
 key C-h = BackSpace
 
 # slide show on Power Point {{{2
-keymap2 PowerPointSlideShowg
-key g = Home
-
 window PowerPointSlideShow /POWERPNT\.EXE:screenClass:paneClassDC/ : Global
 key j   = Down
 key k   = Up
 key h   = Left
 key l   = Right
-key g   = &Prefix(PowerPointSlideShowg)
+key g   = Home
 key S-g = End
 
 # comment textarea on commit dialog of TortoiseSVN {{{2
