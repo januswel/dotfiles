@@ -23,6 +23,16 @@ if has('win32')
     set nomousefocus
     set mousehide
 endif
+if has('mac')
+    " When VL Gothic isn't found in the system, use MS Gothic.
+    set guifont=VL_Gothic:h16
+    set linespace=0
+
+    " no way to use a mouse
+    set mouse=
+    set nomousefocus
+    set mousehide
+endif
 
 " for East Asian Width Class Ambiguous
 if exists('&ambiwidth')
