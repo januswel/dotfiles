@@ -30,4 +30,12 @@
         <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::Z, VK_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+        <name>Use PC Style Select All</name>
+        <appendix>(Control+A to Command_L+A)</appendix>
+        <appendix>(Except in Vi, Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
+        <identifier>remap.select_all_winstyle_no_term_vi</identifier>
+        <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+        <autogen>--KeyToKey-- KeyCode::A, VK_CONTROL, KeyCode::A, ModifierFlag::COMMAND_L</autogen>
+    </item>
 </root>
