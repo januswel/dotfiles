@@ -22,4 +22,12 @@
         <autogen>--KeyToKey-- KeyCode::V, VK_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
         <autogen>--KeyToKey-- KeyCode::X, VK_CONTROL, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+        <name>Use PC Style Undo</name>
+        <appendix>(Control+Z to Command_L+Z)</appendix>
+        <appendix>(Except in Vi, Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
+        <identifier>remap.undo_winstyle_no_term_vim</identifier>
+        <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+        <autogen>--KeyToKey-- KeyCode::Z, VK_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+    </item>
 </root>
