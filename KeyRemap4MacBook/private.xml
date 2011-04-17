@@ -16,7 +16,7 @@
         <appendix>(Control+V to Command_L+V)</appendix>
         <appendix>(Control+X to Command_L+X)</appendix>
         <appendix>(Except in Vi Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
-        <identifier>remap.copy_paste_winstyle_no_term_vim</identifier>
+        <identifier>remap.copy_paste_winstyle_no_term_vi</identifier>
         <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::C, VK_CONTROL, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
         <autogen>--KeyToKey-- KeyCode::V, VK_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
@@ -26,7 +26,7 @@
         <name>Use PC Style Undo</name>
         <appendix>(Control+Z to Command_L+Z)</appendix>
         <appendix>(Except in Vi, Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
-        <identifier>remap.undo_winstyle_no_term_vim</identifier>
+        <identifier>remap.undo_winstyle_no_term_vi</identifier>
         <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::Z, VK_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
     </item>
