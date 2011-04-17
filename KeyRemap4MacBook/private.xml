@@ -38,4 +38,12 @@
         <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::A, VK_CONTROL, KeyCode::A, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+        <name>Use PC Style Save</name>
+        <appendix>(Control+S to Command_L+S)</appendix>
+        <appendix>(Except in Vi, Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
+        <identifier>remap.save_winstyle_no_term_vi</identifier>
+        <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+        <autogen>--KeyToKey-- KeyCode::S, VK_CONTROL, KeyCode::S, ModifierFlag::COMMAND_L</autogen>
+    </item>
 </root>
