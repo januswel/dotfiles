@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>Control+KANA to toggle IME</name>
+        <identifier>remap.control_jis_kana2toggle_ime</identifier>
+        <autogen>--KeyToKey-- KeyCode::JIS_KANA, VK_CONTROL, KeyCode::VK_JIS_TOGGLE_EISUU_KANA</autogen>
+    </item>
+    <item>
+        <name>KANA to Tab</name>
+        <identifier>remap.jis_kana2tab</identifier>
+        <autogen>--KeyToKey-- KeyCode::JIS_KANA, KeyCode::TAB</autogen>
+    </item>
+    <item>
+        <name>Use PC Style Copy/Paste</name>
+        <appendix>(Control+C to Command_L+C)</appendix>
+        <appendix>(Control+V to Command_L+V)</appendix>
+        <appendix>(Control+X to Command_L+X)</appendix>
+        <appendix>(Except in Vi Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
+        <identifier>remap.copy_paste_winstyle_no_term_vim</identifier>
+        <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+        <autogen>--KeyToKey-- KeyCode::C, VK_CONTROL, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::V, VK_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::X, VK_CONTROL, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+    </item>
+</root>
