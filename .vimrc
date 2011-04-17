@@ -123,6 +123,8 @@ set helpheight=0    " a height of help window is half of the current window
 set backspace=indent,eol,start
 " <C-A> and <C-X> affect also hexadecimal number and single alphabet
 set nrformats=hex,alpha
+" use IM
+set noimdisable
 
 " completion {{{2
 " command-line mode
