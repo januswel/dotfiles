@@ -46,4 +46,12 @@
         <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::S, VK_CONTROL, KeyCode::S, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+        <name>Use PC Style Find</name>
+        <appendix>(Control+F to Command_L+F)</appendix>
+        <appendix>(Except in Terminal, Vi, VM, RDC, Emacs, X11, Eclipse)</appendix>
+        <identifier>remap.find_winstyle_no_term_vi</identifier>
+        <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+        <autogen>--KeyToKey-- KeyCode::F, VK_CONTROL, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+    </item>
 </root>
