@@ -26,8 +26,8 @@
         <name>Use PC Style Undo</name>
         <appendix>(Control+Z to Command_L+Z)</appendix>
         <appendix>(Except in Vi, Terminal, VM, RDC, Emacs, X11, Eclipse)</appendix>
-        <identifier>remap.undo_winstyle_no_term_vi</identifier>
-        <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+        <identifier>remap.undo_winstyle_no_term_vi_firefox</identifier>
+        <not>VI, FIREFOX, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::Z, VK_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
     </item>
     <item>
