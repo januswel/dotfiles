@@ -1,8 +1,7 @@
 " vim plugin file
 " Filename:     zoomfont.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 27.
-" Version:      0.24
+" Version:      0.25
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
@@ -15,7 +14,7 @@ endif
 let loaded_zoomfont = 1
 
 " check vim has required features
-if !(has('gui') && exists('&guifont') && has('win32'))
+if !(has('gui') && exists('&guifont') && (has('win32')) || has('mac'))
     finish
 endif
 
