@@ -54,4 +54,10 @@
         <not>VI, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::F, VK_CONTROL, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+        <name>Hide window</name>
+        <appendix>(Control+Command_L+I to Command_L+H)</appendix>
+        <identifier>remap.hide_window_global</identifier>
+        <autogen>--KeyToKey-- KeyCode::I, VK_CONTROL | VK_COMMAND, KeyCode::H, ModifierFlag::COMMAND_L</autogen>
+    </item>
 </root>
