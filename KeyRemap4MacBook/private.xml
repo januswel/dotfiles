@@ -60,4 +60,10 @@
         <identifier>remap.hide_window_global</identifier>
         <autogen>--KeyToKey-- KeyCode::I, VK_CONTROL | VK_COMMAND, KeyCode::H, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+        <name>Show dock</name>
+        <appendix>(Control+Command_L+T to Control+F3)</appendix>
+        <identifier>remap.show_dock_global</identifier>
+        <autogen>--KeyToKey-- KeyCode::T, VK_CONTROL | VK_COMMAND, KeyCode::F3, ModifierFlag::CONTROL_L</autogen>
+    </item>
 </root>
