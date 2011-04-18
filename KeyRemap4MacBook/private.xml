@@ -1,6 +1,18 @@
 <?xml version="1.0"?>
 <root>
     <item>
+        <name>Hide window</name>
+        <appendix>(Control+Command_L+I to Command_L+H)</appendix>
+        <identifier>remap.hide_window_global</identifier>
+        <autogen>--KeyToKey-- KeyCode::I, VK_CONTROL | VK_COMMAND, KeyCode::H, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+        <name>Show dock</name>
+        <appendix>(Control+Command_L+T to Control+F3)</appendix>
+        <identifier>remap.show_dock_global</identifier>
+        <autogen>--KeyToKey-- KeyCode::T, VK_CONTROL | VK_COMMAND, KeyCode::F3, ModifierFlag::CONTROL_L</autogen>
+    </item>
+    <item>
         <name>Control+KANA to toggle IME</name>
         <identifier>remap.control_jis_kana2toggle_ime</identifier>
         <autogen>--KeyToKey-- KeyCode::JIS_KANA, VK_CONTROL, KeyCode::VK_JIS_TOGGLE_EISUU_KANA</autogen>
@@ -53,17 +65,5 @@
         <identifier>remap.find_winstyle_no_term_vi_firefox</identifier>
         <not>VI, FIREFOX, EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
         <autogen>--KeyToKey-- KeyCode::F, VK_CONTROL, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
-    </item>
-    <item>
-        <name>Hide window</name>
-        <appendix>(Control+Command_L+I to Command_L+H)</appendix>
-        <identifier>remap.hide_window_global</identifier>
-        <autogen>--KeyToKey-- KeyCode::I, VK_CONTROL | VK_COMMAND, KeyCode::H, ModifierFlag::COMMAND_L</autogen>
-    </item>
-    <item>
-        <name>Show dock</name>
-        <appendix>(Control+Command_L+T to Control+F3)</appendix>
-        <identifier>remap.show_dock_global</identifier>
-        <autogen>--KeyToKey-- KeyCode::T, VK_CONTROL | VK_COMMAND, KeyCode::F3, ModifierFlag::CONTROL_L</autogen>
     </item>
 </root>
