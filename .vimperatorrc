@@ -35,8 +35,8 @@ set newtab=all
 " don't focus any "input" elements automatically when open pages.
 set focuscontent
 
-" show right and bottom scroll bar
-set guioptions=rb
+" show tabbar only
+set gui=none,tabs
 
 " don't start new vim
 javascript<<EOL
