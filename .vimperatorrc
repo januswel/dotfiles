@@ -41,10 +41,6 @@ set wildoptions=auto,sort
 " don't focus any "input" elements automatically when open pages.
 set focuscontent
 
-" HTTP header(request/response), cookie
-" move to autocmd (below)
-"set pageinfo=gmchH
-
 " show right and bottom scroll bar
 set guioptions=rb
 
