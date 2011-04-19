@@ -39,7 +39,14 @@ set focuscontent
 set guioptions=rb
 
 " don't start new vim
-set editor=gvim\ -f\ --remote-tab-wait-silent
+javascript<<EOL
+if (liberator.has('MacUnix')) {
+    liberator.modules.options.editor='/Applications/MacVim.app/Contents/MacOS/MacVim -f --remote-tab-wait-silent';
+}
+else if (liberator.has('Win32')) {
+    liberator.modules.options.editor='gvim -f --remote-tab-wait-silent';
+}
+EOL
 
 
 " preferences ( Firefox about:config ) {{{1
