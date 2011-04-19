@@ -32,12 +32,6 @@ set followhints=1
 " addons + downloads + help + javascript + prefs
 set newtab=all
 
-" display tab-bar anytime
-set showtabline=2
-
-" show sorted completions automatically
-set wildoptions=auto,sort
-
 " don't focus any "input" elements automatically when open pages.
 set focuscontent
 
