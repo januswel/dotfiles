@@ -82,7 +82,6 @@ set! dom.popup_maximum=100
 
 " activate spell-check textarea/input
 set! layout.spellcheckDefault=2
-set! spellchecker.dictionary=en-US
 
 " don't select trailing spaces, when select words.
 set! layout.word_select.eat_space_to_next_word=false
