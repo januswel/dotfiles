@@ -63,10 +63,6 @@ set! browser.tabs.closeButtons=2
 " open tab in the background
 set! browser.tabs.loadDivertedInBackground=true
 
-" tab width is 24px
-set! browser.tabs.tabMaxWidth=24
-set! browser.tabs.tabMinWidth=24
-
 " miscs {{{2
 " case-sensitive when find
 set! accessibility.typeaheadfind.casesensitive=1
@@ -220,6 +216,11 @@ let image_extender_skip_prompt='false'
 " plugin: hidecritter.js
 let hidecritter_mapping='H'
 let hatena_star_hint_mapping='h'
+
+
+" styles {{{1
+style -name tab-size chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; }
+style -name tab-label-size chrome://* .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; }
 
 
 " source extra resources {{{1
