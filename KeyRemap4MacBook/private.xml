@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <root>
     <item>
+        <name>Command_R to Control+LeftClick</name>
+        <appendix>(Command_R to Control_L+LeftClick)</appendix>
+        <identifier>remap.command_r2control_leftclick</identifier>
+        <autogen>--KeyToPointingButton-- KeyCode::COMMAND_R, PointingButton::LEFT, ModifierFlag::CONTROL_L</autogen>
+    </item>
+    <item>
         <name>Hide window</name>
         <appendix>(Control+Command_L+I to Command_L+H)</appendix>
         <identifier>remap.hide_window_global</identifier>
