@@ -104,16 +104,6 @@ noremap <C-l> gt
 noremap <C-p> :tabmove! -1<CR>
 noremap <C-n> :tabmove! +1<CR>
 
-" we love echo
-noremap e :echo<Space>
-
-" pageinfo short-cut
-noremap I :pageinfo<CR>
-
-" scrooooooooll
-noremap J <C-d>
-noremap K <C-u>
-
 " fuckups
 noremap p <Nop>
 noremap <C-k> <Nop>
@@ -148,8 +138,6 @@ noremap <F11> <C-v><F11>
 
 " better safe than sorry
 inoremap <C-h> <BS>
-noremap <Leader>B :javascript content.document.body.focus();<CR>
-noremap <Leader>d :redraw<CR>
 
 " sourcing .vimperatorrc
 noremap <Leader>r :source ~/.vimperatorrc<CR>
