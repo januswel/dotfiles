@@ -112,21 +112,31 @@ noremap <C-k> <Nop>
 noremap <C-w> <C-a>
 noremap <C-e> <C-x>
 
-" Windows keybind {{{2
-noremap <C-a> <C-v><C-a>
-noremap <C-c> <C-v><C-c>
-noremap <C-s> <C-v><C-s>
+" commands like win32 {{{2
+javascript<<EOL
+let modifier = 'C';
+let redo_key = '<C-y>';
+if (liberator.has('MacUnix')) {
+    modifier = 'M';
+    redo_key = '<S-M-z>';
+}
 
-inoremap <C-x> <C-v><C-x>
-inoremap <C-v> <C-v><C-v>
-inoremap <C-z> <C-v><C-z>
-inoremap <C-y> <C-v><C-y>
+liberator.execute('noremap <C-a> <C-v><' + modifier + '-a>', null, true);
+liberator.execute('noremap <C-c> <C-v><' + modifier + '-c>', null, true);
+liberator.execute('noremap <C-s> <C-v><' + modifier + '-s>', null, true);
 
-cnoremap <C-x> <C-v><C-x>
-cnoremap <C-v> <C-v><C-v>
-cnoremap <C-z> <C-v><C-z>
-cnoremap <C-y> <C-v><C-y>
+liberator.execute('inoremap <C-x> <C-v><' + modifier + '-x>', null, true);
+liberator.execute('inoremap <C-v> <C-v><' + modifier + '-v>', null, true);
+liberator.execute('inoremap <C-z> <C-v><' + modifier + '-z>', null, true);
+liberator.execute('inoremap <C-y> <C-v>' + redo_key, null, true);
 
+liberator.execute('cnoremap <C-x> <C-v><' + modifier + '-x>', null, true);
+liberator.execute('cnoremap <C-v> <C-v><' + modifier + '-v>', null, true);
+liberator.execute('cnoremap <C-z> <C-v><' + modifier + '-z>', null, true);
+liberator.execute('cnoremap <C-y> <C-v>' + redo_key, null, true);
+EOL
+
+" miscs {{{2
 " fullscreen
 noremap <F11> <C-v><F11>
 
