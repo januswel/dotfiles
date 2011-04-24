@@ -36,7 +36,7 @@ set newtab=all
 set focuscontent
 
 " show tabbar only
-set gui=none,tabs
+set gui=none,tabs,addons
 
 " don't start new vim
 javascript<<EOL
