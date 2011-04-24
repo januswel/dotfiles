@@ -98,21 +98,21 @@ mapclear
 cmapclear
 imapclear
 
-" tab operation
+" tab operation {{{2
 noremap <C-h> gT
 noremap <C-l> gt
 noremap <C-p> :tabmove! -1<CR>
 noremap <C-n> :tabmove! +1<CR>
 
-" fuckups
+" fuckups {{{2
 noremap p <Nop>
 noremap <C-k> <Nop>
 
-" escape <C-a> / <C-x>
+" escape keys {{{2
 noremap <C-w> <C-a>
 noremap <C-e> <C-x>
 
-" Windows keybind
+" Windows keybind {{{2
 noremap <C-a> <C-v><C-a>
 noremap <C-c> <C-v><C-c>
 noremap <C-s> <C-v><C-s>
