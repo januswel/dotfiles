@@ -91,12 +91,12 @@ set! browser.download.manager.showWhenStarting=false
 let mapleader=','
 
 " plugins {{{2
-" plugin: direct_bookmark.js
+" direct_bookmark.js
 " use service: delicious, はてなブックマーク
 let direct_sbm_use_services_by_post='dh'
 let direct_sbm_use_services_by_tag='dh'
 
-" plugin: imageextender.js
+" imageextender.js
 let image_extender_skip_prompt='false'
 
 
