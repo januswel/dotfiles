@@ -169,7 +169,7 @@ noremap A :mr<Space>answers<Space>
 
 " styles {{{1
 " minimize tab size
-style -name tab-iconize chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; } .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; }
+style -name iconize-tab chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; } .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; }
 
 
 " source extra resources {{{1
