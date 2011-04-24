@@ -3,12 +3,13 @@
 
 // options {{{1
 // don't start new vim {{{2
+let options = ' -f --remote-tab-wait-silent';
+let editor = 'gvim';
 if (liberator.has('MacUnix')) {
-    liberator.modules.options.editor='/Applications/MacVim.app/Contents/MacOS/MacVim -f --remote-tab-wait-silent';
+    editor = '/Applications/MacVim.app/Contents/MacOS/MacVim';
 }
-else if (liberator.has('Win32')) {
-    liberator.modules.options.editor='gvim -f --remote-tab-wait-silent';
-}
+
+liberator.modules.options.editor = editor + options;
 
 
 // mappings {{{1
