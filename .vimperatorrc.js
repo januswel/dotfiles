@@ -1,7 +1,5 @@
 // .vimperator.js
-// author: janus_wel <janus.wel.3@gmail.com>
-// for 2.0pre
-// Last Change: 2009/02/08 10:56:06.
+// janus_wel <janus.wel.3@gmail.com>
 
 // key mappings for video services
 // plugin : nnp_cooperation.js
