@@ -183,11 +183,11 @@ noremap <Leader>r :source ~/.vimperatorrc<CR>
 
 
 " plugins {{{2
-" plugin: noscript.js
+" noscript.js
 noremap <Leader>s :noscript toggletemp<CR>
 noremap <Leader>S :noscript toggleperm<CR>
 
-" plugin: multi_requester.js
+" multi_requester.js
 noremap E :mr<Space>alc<Space>
 noremap W :mr<Space>goo<Space>
 noremap A :mr<Space>answers<Space>
