@@ -179,9 +179,6 @@ style -name iconize-tab chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28
 " javascript
 source ~/.vimperatorrc.js
 
-" css
-"source ~/.vimperatorrc.css
-
 
 " autocmd {{{1
 " clear all autocmds to avoid troubles from loading rc fle several times
