@@ -38,16 +38,6 @@ set focuscontent
 " show tabbar only
 set gui=none,tabs,addons
 
-" don't start new vim
-javascript<<EOL
-if (liberator.has('MacUnix')) {
-    liberator.modules.options.editor='/Applications/MacVim.app/Contents/MacOS/MacVim -f --remote-tab-wait-silent';
-}
-else if (liberator.has('Win32')) {
-    liberator.modules.options.editor='gvim -f --remote-tab-wait-silent';
-}
-EOL
-
 
 " preferences ( Firefox about:config ) {{{1
 " tabs {{{2
@@ -120,30 +110,6 @@ noremap <C-k> <Nop>
 " escape keys {{{2
 noremap <C-w> <C-a>
 noremap <C-e> <C-x>
-
-" commands like win32 {{{2
-javascript<<EOL
-let modifier = 'C';
-let redo_key = '<C-y>';
-if (liberator.has('MacUnix')) {
-    modifier = 'M';
-    redo_key = '<S-M-z>';
-}
-
-liberator.execute('noremap <C-a> <C-v><' + modifier + '-a>', null, true);
-liberator.execute('noremap <C-c> <C-v><' + modifier + '-c>', null, true);
-liberator.execute('noremap <C-s> <C-v><' + modifier + '-s>', null, true);
-
-liberator.execute('inoremap <C-x> <C-v><' + modifier + '-x>', null, true);
-liberator.execute('inoremap <C-v> <C-v><' + modifier + '-v>', null, true);
-liberator.execute('inoremap <C-z> <C-v><' + modifier + '-z>', null, true);
-liberator.execute('inoremap <C-y> <C-v>' + redo_key, null, true);
-
-liberator.execute('cnoremap <C-x> <C-v><' + modifier + '-x>', null, true);
-liberator.execute('cnoremap <C-v> <C-v><' + modifier + '-v>', null, true);
-liberator.execute('cnoremap <C-z> <C-v><' + modifier + '-z>', null, true);
-liberator.execute('cnoremap <C-y> <C-v>' + redo_key, null, true);
-EOL
 
 " miscs {{{2
 " fullscreen
