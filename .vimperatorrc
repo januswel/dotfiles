@@ -150,10 +150,6 @@ source ~/.vimperatorrc.js
 " clear all autocmds to avoid troubles from loading rc fle several times
 autocmd!
 
-" define key mappings for video sites
-" defined by .vimperatorrc.js
-autocmd LocationChange .* :js liberator.plugins.nicomap()
-
 " fmap {{{2
 " all clear
 autocmd LocationChange .* :fmapc
@@ -189,10 +185,6 @@ autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\
 autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap a n k j i h m
 " list switch
 autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap <C-H>,<C-S-Left> <C-L>,<C-S-Right>
-
-" Mitter
-" w/q for Mitter kbd raging changer
-autocmd LocationChange http://mitter\\.jp/[^/]+/videos :fmap w q
 
 
 " set {{{2
