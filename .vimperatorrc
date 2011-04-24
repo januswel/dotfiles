@@ -90,6 +90,41 @@ set! browser.download.manager.showWhenStarting=false
 " this must be set before map operation, otherwise use default value.
 let mapleader=','
 
+" plugins {{{2
+" plugin: direct_bookmark.js
+" use service: delicious, はてなブックマーク
+let direct_sbm_use_services_by_post='dh'
+let direct_sbm_use_services_by_tag='dh'
+
+" plugin: matanico.js
+let matanico_watch_servicename='またニコ'
+let matanico_watch_format='$SERVICENAME : $COMMENT [$SUBJECT]($PLAYTIME) - $URL'
+let matanico_tag_servicename='またニコタグ'
+let matanico_tag_format='$SERVICENAME : $COMMENT [$TAG]($NUMOFVIDEOS件) - $URL'
+let matanico_related_tag_servicename='またニコタグ(キーワード)'
+let matanico_related_tag_format='$SERVICENAME : $COMMENT [$KEYWORD]($NUMOFTAGS件) - $URL'
+
+" plugin: reading.js
+let reading_servicename='reading'
+let reading_format='$SERVICENAME : $COMMENT [$TITLE] $URL $SELECTED'
+
+" plugin: nnp_cooperation.js
+let nnp_coop_numoflist='7'
+
+" plugin: ime_controller.js
+let ex_ime_mode='inactive'
+let textarea_ime_mode='inactive'
+
+" plugin: clock.js
+let clock_format='[%t %d]'
+
+" plugin: imageextender.js
+let image_extender_skip_prompt='false'
+
+" plugin: hidecritter.js
+let hidecritter_mapping='H'
+let hatena_star_hint_mapping='h'
+
 
 " mappings {{{1
 " clear all key mappings
@@ -147,7 +182,7 @@ inoremap <C-h> <BS>
 noremap <Leader>r :source ~/.vimperatorrc<CR>
 
 
-" plugins {{{1
+" plugins {{{2
 " plugin: direct_bookmark.js
 " move to .vimperatorrc.js
 noremap B :sbm<Space>
@@ -174,40 +209,6 @@ noremap <Leader>l :toggleldrizecooperation<CR>
 noremap E :mr<Space>alc<Space>
 noremap W :mr<Space>goo<Space>
 noremap A :mr<Space>answers<Space>
-
-" plugin: direct_bookmark.js
-" use service: delicious, はてなブックマーク
-let direct_sbm_use_services_by_post='dh'
-let direct_sbm_use_services_by_tag='dh'
-
-" plugin: matanico.js
-let matanico_watch_servicename='またニコ'
-let matanico_watch_format='$SERVICENAME : $COMMENT [$SUBJECT]($PLAYTIME) - $URL'
-let matanico_tag_servicename='またニコタグ'
-let matanico_tag_format='$SERVICENAME : $COMMENT [$TAG]($NUMOFVIDEOS件) - $URL'
-let matanico_related_tag_servicename='またニコタグ(キーワード)'
-let matanico_related_tag_format='$SERVICENAME : $COMMENT [$KEYWORD]($NUMOFTAGS件) - $URL'
-
-" plugin: reading.js
-let reading_servicename='reading'
-let reading_format='$SERVICENAME : $COMMENT [$TITLE] $URL $SELECTED'
-
-" plugin: nnp_cooperation.js
-let nnp_coop_numoflist='7'
-
-" plugin: ime_controller.js
-let ex_ime_mode='inactive'
-let textarea_ime_mode='inactive'
-
-" plugin: clock.js
-let clock_format='[%t %d]'
-
-" plugin: imageextender.js
-let image_extender_skip_prompt='false'
-
-" plugin: hidecritter.js
-let hidecritter_mapping='H'
-let hatena_star_hint_mapping='h'
 
 
 " styles {{{1
