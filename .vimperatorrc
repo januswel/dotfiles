@@ -168,6 +168,9 @@ noremap A :mr<Space>answers<Space>
 
 
 " styles {{{1
+" inactivate IME when enter the command-line
+style -name inactivate-ime-commandline chrome://* #liberator-commandline-command input { ime-mode: inactive; }
+
 " minimize tab size
 style -name iconize-tab chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; } .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; }
 
