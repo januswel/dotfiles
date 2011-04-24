@@ -5,4 +5,4 @@
 // finished
 liberator.echo('.vimperator.js sourced.');
 
-// vim: sw=4 sts=4 ts=4 et
+// vim: ts=4 sw=4 sts=4 et fdm=marker fdc=3
