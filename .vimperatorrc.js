@@ -28,6 +28,7 @@
     liberator.execute('noremap <C-c> <C-v><' + modifier + '-c>', null, true);
     liberator.execute('noremap <C-s> <C-v><' + modifier + '-s>', null, true);
 
+    liberator.execute('inoremap <C-a> <C-v><' + modifier + '-a>', null, true);
     liberator.execute('inoremap <C-x> <C-v><' + modifier + '-x>', null, true);
     liberator.execute('inoremap <C-v> <C-v><' + modifier + '-v>', null, true);
     liberator.execute('inoremap <C-z> <C-v><' + modifier + '-z>', null, true);
