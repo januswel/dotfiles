@@ -159,25 +159,6 @@ autocmd LocationChange .* :fmapc
 " pass through default keybinds
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap j k s a p o q w r <Del>
 autocmd LocationChange http://fastladder\\.com/reader/ :fmap J,<Space> K,<S-Space> <,> >,< /,f
-" LDR Full Feed
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap v,g V,G
-" LDR + Tombloo
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap B,T
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap g,t G,b z,Z
-" Hatena Bookmark Comment
-autocmd LocationChange http://fastladder\\.com/reader/ :fmap c,C C,F S
-
-" livedoor Reader
-" pass through default keybinds
-autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap j k s a p o q w r <Del>
-autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap J,<Space> K,<S-Space> <,> >,< /,f
-" LDR Full Feed
-autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap v,g V,G
-" LDR + Tombloo
-autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap B,T
-autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap g,t G,b z,Z
-" Hatena Bookmark Comment
-autocmd LocationChange http://reader\\.livedoor\\.com/reader/ :fmap c,C C,F S
 
 " Remember the Milk
 " add / complete / edit / delete tasks
