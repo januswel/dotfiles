@@ -166,7 +166,7 @@ autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\
 " select tasks / tab switch / multiple mode
 autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap a n k j i h m
 " list switch
-autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap <C-H>,<C-S-Left> <C-L>,<C-S-Right>
+autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap <C-S-h>,<C-S-Left> <C-S-l>,<C-S-Right>
 
 
 " finish {{{1
