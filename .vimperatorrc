@@ -121,7 +121,6 @@ inoremap <C-h> <BS>
 " sourcing .vimperatorrc
 noremap <Leader>r :source ~/.vimperatorrc<CR>
 
-
 " plugins {{{2
 " noscript.js
 noremap <Leader>s :noscript toggletemp<CR>
@@ -147,11 +146,11 @@ source ~/.vimperator/options.js
 source ~/.vimperator/mappings.js
 
 
-" autocmd {{{1
+" autocmds {{{1
 " clear all autocmds to avoid troubles from loading rc fle several times
 autocmd!
 
-" fmap {{{2
+" fmaps {{{2
 autocmd VimperatorEnter .* :source ~/.vimperator/fmaps.vimp
 
 
