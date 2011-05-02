@@ -4,6 +4,7 @@
 # environment variables
 export EDITOR="/usr/bin/vim"
 export SHELL="/bin/zsh"
+export LESS="-gj5"
 
 if [ "Darwin" = `uname` ]; then
     export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
