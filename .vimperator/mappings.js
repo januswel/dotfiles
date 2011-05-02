@@ -12,6 +12,16 @@ liberator.execute('noremap <C-a> <C-v><' + modifier + '-a>', null, true);
 liberator.execute('noremap <C-c> <C-v><' + modifier + '-c>', null, true);
 liberator.execute('noremap <C-s> <C-v><' + modifier + '-s>', null, true);
 
+liberator.execute('noremap <C-1> <C-v><' + modifier + '-1>', null, true);
+liberator.execute('noremap <C-2> <C-v><' + modifier + '-2>', null, true);
+liberator.execute('noremap <C-3> <C-v><' + modifier + '-3>', null, true);
+liberator.execute('noremap <C-4> <C-v><' + modifier + '-4>', null, true);
+liberator.execute('noremap <C-5> <C-v><' + modifier + '-5>', null, true);
+liberator.execute('noremap <C-6> <C-v><' + modifier + '-6>', null, true);
+liberator.execute('noremap <C-7> <C-v><' + modifier + '-7>', null, true);
+liberator.execute('noremap <C-8> <C-v><' + modifier + '-8>', null, true);
+liberator.execute('noremap <C-9> <C-v><' + modifier + '-9>', null, true);
+
 liberator.execute('inoremap <C-a> <C-v><' + modifier + '-a>', null, true);
 liberator.execute('inoremap <C-x> <C-v><' + modifier + '-x>', null, true);
 liberator.execute('inoremap <C-v> <C-v><' + modifier + '-v>', null, true);
