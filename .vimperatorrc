@@ -188,12 +188,6 @@ autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\
 autocmd LocationChange https?://www\\.rememberthemilk\\.com/home/[^/]+/#section\\.tasks :fmap <C-H>,<C-S-Left> <C-L>,<C-S-Right>
 
 
-" set {{{2
-" option c/h/H is defined by plugin,
-" the timing ':set pageinfo' is at the ready of vimperator
-autocmd VimperatorEnter .* :set pageinfo=gmchH
-
-
 " finish {{{1
 echo "GET READY!!"
 
