@@ -10,3 +10,5 @@
 	smtpserver = /usr/bin/msmtp
 [alias]
 	co = checkout
+[core]
+	pager = less -R
