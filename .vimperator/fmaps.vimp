@@ -3,7 +3,7 @@
 
 fmapc
 
-fmaps -u='(fastladder|livedoor)\.com/reader' j k s a p o q w r <Del> <C-d>,<Space> <C-d>,<S-Space> <,> >,< /,f
+fmaps -u='(fastladder|livedoor)\.com/reader' j k s a p o q w r <Del> <C-d>,<Space> <C-u>,<S-Space> <,> >,< /,f
 fmaps -u='https?://www\.rememberthemilk\.com/home/' j k a n i h C,t c V,p v,d w,f q,g s Q,u W,l S,y I,r U,z <C-1>,1 <C-2>,2 <C-3>,3 <C-0>,4 <Del> <C-S-h>,<C-S-Left> <C-S-l>,<C-S-Right>
 
 " vim: ft=vimperator ts=4 sw=4 sts=0 et fdm=marker fdc=3
