@@ -8,19 +8,19 @@ if (liberator.has('MacUnix')) {
     redo_key = '<S-M-z>';
 }
 
-liberator.execute('noremap <C-a> <C-v><' + modifier + '-a>', null, true);
-liberator.execute('noremap <C-c> <C-v><' + modifier + '-c>', null, true);
-liberator.execute('noremap <C-s> <C-v><' + modifier + '-s>', null, true);
+liberator.execute('noremap <C-a> i<' + modifier + '-a>', null, true);
+liberator.execute('noremap <C-c> i<' + modifier + '-c>', null, true);
+liberator.execute('noremap <C-s> i<' + modifier + '-s>', null, true);
 
-liberator.execute('noremap <C-1> <C-v><' + modifier + '-1>', null, true);
-liberator.execute('noremap <C-2> <C-v><' + modifier + '-2>', null, true);
-liberator.execute('noremap <C-3> <C-v><' + modifier + '-3>', null, true);
-liberator.execute('noremap <C-4> <C-v><' + modifier + '-4>', null, true);
-liberator.execute('noremap <C-5> <C-v><' + modifier + '-5>', null, true);
-liberator.execute('noremap <C-6> <C-v><' + modifier + '-6>', null, true);
-liberator.execute('noremap <C-7> <C-v><' + modifier + '-7>', null, true);
-liberator.execute('noremap <C-8> <C-v><' + modifier + '-8>', null, true);
-liberator.execute('noremap <C-9> <C-v><' + modifier + '-9>', null, true);
+liberator.execute('noremap <C-1> i<' + modifier + '-1>', null, true);
+liberator.execute('noremap <C-2> i<' + modifier + '-2>', null, true);
+liberator.execute('noremap <C-3> i<' + modifier + '-3>', null, true);
+liberator.execute('noremap <C-4> i<' + modifier + '-4>', null, true);
+liberator.execute('noremap <C-5> i<' + modifier + '-5>', null, true);
+liberator.execute('noremap <C-6> i<' + modifier + '-6>', null, true);
+liberator.execute('noremap <C-7> i<' + modifier + '-7>', null, true);
+liberator.execute('noremap <C-8> i<' + modifier + '-8>', null, true);
+liberator.execute('noremap <C-9> i<' + modifier + '-9>', null, true);
 
 liberator.execute('inoremap <C-a> <' + modifier + '-a>', null, true);
 liberator.execute('inoremap <C-c> <' + modifier + '-c>', null, true);
