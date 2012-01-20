@@ -181,6 +181,13 @@ endif
 
 
 
+# startmenu {{{1
+window startmenu /(?!TrayNotifyWnd)Shell_TrayWnd/ : Global
+key j   = Down
+key k   = Up
+key h   = Left
+key l   = Right
+
 # tasktray {{{1
 window tasktray /Explorer\.EXE:Shell_TrayWnd:TrayNotifyWnd:SysPager:ToolbarWindow32/ : Global
 key j   = Right Right Right # 3 items in raw
