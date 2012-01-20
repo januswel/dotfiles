@@ -68,6 +68,7 @@ key ~L9-~L8-r       = F5                # reload
 key ~L9-~L8-u       = C-z               # undo
 key ~L9-~L8-C-g     = A-Enter           # display property dialog
 key ~L9-~L8-S-g     = End               # jump to last file
+key ~L9-~L8-Colon   = Applications      # show context menu
 key ~L9-~L8-g       = &Prefix(Afterg)   # see keymap2 Afterg
 key ~L9-~L8-Esc     = &Default          # send "escape" key to Windows
 
@@ -140,6 +141,7 @@ key ~L9-~L8-r       = F5                # reload
 key ~L9-~L8-u       = C-z               # undo
 key ~L9-~L8-C-g     = A-Enter           # display property dialog
 key ~L9-~L8-S-g     = End               # jump to last file
+key ~L9-~L8-Colon   = Applications      # show context menu
 key ~L9-~L8-g       = &Prefix(Afterg)   # see keymap2 Afterg
 key ~L9-~L8-Esc     = &Default          # send "escape" key to Windows
 
