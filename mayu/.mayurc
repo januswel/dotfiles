@@ -60,10 +60,6 @@ key C-A-t = W-b                 # focus (T)asktray
 key C-A-r = &LoadSetting    # (R)eload
 key C-A-w = &WindowIdentify # (W)indow research
 
-# Launchy
-key C-A-Solidus = W-Space   # activate
-
-
 # app-specific key mappings {{{1
 # controlling Windows like vim
 include "Windows-vim.mayu"
