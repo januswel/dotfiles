@@ -3,7 +3,6 @@
 # key mappings about Windows feature like vim (vimperator)
 #
 # Maintainer:   janus <janus.wel.3@gmail.com>
-# Last Change:  2009/11/13 10:02:36.
 # Remarks:      Transition Diagram
 #                   insert <--> normal(default) <--> visual
 #                                     ||
