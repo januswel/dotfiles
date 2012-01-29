@@ -13,4 +13,8 @@ fi
 # available my utility tools
 export PATH=~/bin:$PATH
 
+# for Android development
+export ANDROID_HOME=~/android-sdks
+export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/
+
 # vim: ts=4 sw=4 sts=0 et
