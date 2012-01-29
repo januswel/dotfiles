@@ -10,4 +10,7 @@ if [ "Darwin" = `uname` ]; then
     export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
+# available my utility tools
+export PATH=~/bin:$PATH
+
 # vim: ts=4 sw=4 sts=0 et
