@@ -367,6 +367,8 @@ vnoremap <Leader><Space> <Esc>`>a <Esc>`<i <Esc>
 " U+0027 APOSTROPHE and U+0022 QUOTATION MARK
 vnoremap <Leader>' <Esc>`>a'<Esc>`<i'<Esc>
 vnoremap <Leader>" <Esc>`>a"<Esc>`<i"<Esc>
+" U+0060 GRAVE ACCENT
+vnoremap <Leader>` <Esc>`>a`<Esc>`<i`<Esc>
 " parentheses, curly, square and angle brackets
 vnoremap <Leader>( <Esc>`>a)<Esc>`<i(<Esc>
 vnoremap <Leader>{ <Esc>`>a}<Esc>`<i{<Esc>
