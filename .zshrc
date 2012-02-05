@@ -60,3 +60,9 @@ if [ $JA_JP_UTF8 ] ; then
     export LANG=$JA_JP_UTF8
 fi
 unset JA_JP_UTF8
+
+# for Java
+if [ "Darwin" = `uname` ]; then
+    alias java="java -Dfile.encoding=UTF-8"
+    alias javac="javac -J-Dfile.encoding=UTF-8"
+fi
