@@ -74,3 +74,12 @@ DIRCOLORS_SETTINGS=~/.dir_colors
 if [ -f $DIRCOLORS_SETTINGS ]; then
     eval `$DIRCOLORS_COMMAND $DIRCOLORS_SETTINGS -b`
 fi
+
+# clean up
+unset LS_COMMAND
+unset CP_COMMAND
+unset MV_COMMAND
+unset RM_COMMAND
+unset DIRCOLORS_COMMAND
+unset DIRCOLORS_SETTINGS
+
