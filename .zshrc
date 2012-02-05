@@ -10,6 +10,7 @@ LS_COMMAND="ls"
 CP_COMMAND="cp"
 MV_COMMAND="mv"
 RM_COMMAND="rm"
+DIRCOLORS_COMMAND="dircolors"
 
 # settings for Mac OS X
 if [ "Darwin" = `uname` ]; then
@@ -22,6 +23,7 @@ if [ "Darwin" = `uname` ]; then
     CP_COMMAND="gcp"
     MV_COMMAND="gmv"
     RM_COMMAND="grm"
+    DIRCOLORS_COMMAND="gdircolors"
 fi
 
 # completions
@@ -65,4 +67,10 @@ unset JA_JP_UTF8
 if [ "Darwin" = `uname` ]; then
     alias java="java -Dfile.encoding=UTF-8"
     alias javac="javac -J-Dfile.encoding=UTF-8"
+fi
+
+# colors for "ls"
+DIRCOLORS_SETTINGS=~/.dir_colors
+if [ -f $DIRCOLORS_SETTINGS ]; then
+    eval `$DIRCOLORS_COMMAND $DIRCOLORS_SETTINGS -b`
 fi
