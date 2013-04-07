@@ -22,8 +22,7 @@ set activate=
 " scroll height of <C-d> / <C-u>
 set scroll=3
 
-" use custom matching feature (XUL/Migemo by migemo_hint.js) in hints mode
-set hintmatching=custom
+set hintmatching=contains
 
 " need <CR> anytime in hints mode
 set followhints=1
