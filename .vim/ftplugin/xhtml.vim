@@ -52,18 +52,20 @@ compiler xhtml
 
 " variables {{{2
 let b:tidyopt = {
-            \   '--add-xml-decl':   'yes',
-            \   '--char-encoding':  'utf8',
-            \   '--clean':          'yes',
-            \   '--doctype':        'strict',
-            \   '--indent':         'auto',
-            \   '--join-classes':   'yes',
-            \   '--output-xhtml':   'yes',
-            \   '--quiet':          'yes',
-            \   '--show-warnings':  'no',
-            \   '--tab-size':       '2',
-            \   '--tidy-mark':      'no',
-            \   '--wrap':           '0',
+            \   '--add-xml-decl':           'yes',
+            \   '--char-encoding':          'raw',
+            \   '--clean':                  'yes',
+            \   '--doctype':                'html5',
+            \   '--indent':                 'auto',
+            \   '--join-classes':           'yes',
+            \   '--output-xhtml':           'yes',
+            \   '--quiet':                  'yes',
+            \   '--new-blocklevel-tags':    'svg,circle',
+            \   '--replace-color':          'yes',
+            \   '--show-warnings':          'no',
+            \   '--tab-size':               '2',
+            \   '--tidy-mark':              'no',
+            \   '--wrap':                   '0',
             \ }
 
 let b:tidyenc_default = 'ascii'
