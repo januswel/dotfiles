@@ -7,4 +7,4 @@
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   http://github.com/januswel/dotfiles/vimfiles/LICENSE
 
-autocmd BufNewFile,BufRead *.html :set filetype=xhtml
+autocmd BufNewFile,BufRead *.xhtml :set filetype=xhtml
