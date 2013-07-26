@@ -89,3 +89,9 @@ unset RM_COMMAND
 unset DIRCOLORS_COMMAND
 unset DIRCOLORS_SETTINGS
 
+# for Mac OS X bug
+if [ "Darwin" = `uname` ]; then
+    unset LD_LIBRARY_PATH
+    unset DYLD_LIBRARY_PATH
+fi
+
