@@ -19,6 +19,23 @@ set noautowriteall  " make my wish to vim thoroughly
 set notimeout       " don't make me hurry
 set nottimeout      " once agein, don't
 
+" neobundle {{{2
+filetype off
+filetype plugin indent off
+
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle
+    set runtimepath+=~/vimfiles/bundle
+    call neobundle#rc(expand('~/.vim/bundle'))
+endif
+
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'januswel/jwlib'
+NeoBundle 'januswel/autotmpl.vim'
+
 " backup {{{2
 " The directories that are named as "backup" and found in runtime-paths are
 " setted in 'backupdir'.
