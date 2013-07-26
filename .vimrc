@@ -1,6 +1,5 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Aug 09.
 
 " options {{{1
 " general {{{2
