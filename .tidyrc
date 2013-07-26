@@ -1,13 +1,16 @@
 # config file of HTML Tidy
 # Maintainer:   janus_wel <janus.wel.3@gmail.com>
-# Last Change:  2009/11/17 04:16:12.
 
 add-xml-decl:yes
 char-encoding:raw
 clean:yes
+doctype:html5
 indent:auto
-output-xhtml:yes
+join-classes:yes
 quiet:yes
+new-blocklevel-tags: svg,circle
 replace-color:yes
+show-warnings:no
+tab-size:2
 tidy-mark:no
 wrap:0
