@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     dispel.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 05.
 " Version:      0.48
 " Refer:        http://vim-users.jp/2009/07/hack40/
 "               http://d.hatena.ne.jp/thinca/20091121/1258748377

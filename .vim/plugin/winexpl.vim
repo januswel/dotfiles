@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     winexpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 08.
 " Version:      0.51
 " Dependency:
 "   This plugin needs following files

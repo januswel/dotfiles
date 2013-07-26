@@ -1,7 +1,6 @@
 " vim colors file
 " Filename:     Janus.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Aug 09.
 " Version:      0.37
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.

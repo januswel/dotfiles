@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     genctags.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 06.
 " Version:      0.22
 " Dependency:
 "   This plugin requires following file

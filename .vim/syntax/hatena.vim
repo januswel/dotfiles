@@ -2,7 +2,6 @@
 " Filename:     hatena.vim
 " Language:     hatena notation
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jul 28.
 " Version:      0.13
 " License:      New BSD License
 "   See under URL.  Note that redistribution is permitted with LICENSE.

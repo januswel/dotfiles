@@ -3,7 +3,6 @@
 " Compiler:     avslint
 " Language:     AviSynth
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jun 23.
 " Version:      0.10
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.

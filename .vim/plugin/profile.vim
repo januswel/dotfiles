@@ -1,7 +1,6 @@
 " vim plugin name
 " Filename:     profile.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 09.
 " Version:      0.19
 " Dependency:
 "   This plugin requires following files

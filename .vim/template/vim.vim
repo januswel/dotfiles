@@ -2,7 +2,6 @@
 " Filename:     '%:t'
 " Language:     <Example>
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 05.
 " Version:      0.10
 " Dependency:
 "   This plugin requires following files

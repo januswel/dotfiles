@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     uniconv.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 15.
 " Version:      0.20
 " Dependency:
 "   This plugin needs following files

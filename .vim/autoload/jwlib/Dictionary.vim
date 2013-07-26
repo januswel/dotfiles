@@ -1,7 +1,6 @@
 " vim autoload file
 " Filename:     Dictionary.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 10.
 " Version:      0.10
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.

@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     jaencs.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 07.
 " Version:      0.20
 " License:      New BSD License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.

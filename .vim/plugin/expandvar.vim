@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     expandvar.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 05.
 " Version:      0.19
 " Dependency:
 "   This plugin needs following files

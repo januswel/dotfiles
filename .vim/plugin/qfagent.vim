@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     qfagent.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 07.
 " Version:      0.15
 " Dependency:
 "   This plugin requires following files

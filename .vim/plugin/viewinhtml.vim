@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     viewinhtml.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 25.
 " Version:      0.18
 " Dependency:
 "   This plugin needs following files

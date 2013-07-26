@@ -1,7 +1,6 @@
 " vim plugin file
 " Filename:     autotmpl.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 10.
 " Version:      0.43
 " Dependency:
 "   This plugin requires following file[s].

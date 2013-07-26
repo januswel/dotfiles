@@ -1,7 +1,6 @@
 " vim autoload file
 " Filename:     unicode.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Jan 04.
 " Version:      0.40
 " Dependency:
 "   This script needs following files
