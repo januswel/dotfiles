@@ -38,6 +38,12 @@ if exists('&ambiwidth')
     set ambiwidth=double
 endif
 
+" turn off disabling IM at entering input mode
+if exists('&imdisableactivate')
+    set noimdisableactivate
+endif
+
+
 " syntax highlight {{{1
 syntax enable       " use syntax highlight
 
