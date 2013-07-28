@@ -30,9 +30,6 @@ if has('vim_starting')
 endif
 
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'basyura/TweetVim'
 NeoBundle 'januswel/jwlib'
 NeoBundle 'januswel/autotmpl.vim'
 
