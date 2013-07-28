@@ -1,7 +1,6 @@
 " vim rc file for GUI
 " Filename:     .gvimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Last Change:  2010 Aug 09.
 " Remark:       This file must contains only visual settings for GUI.
 "               Use with .vimrc.
 
