@@ -12,6 +12,7 @@ set guioptions=c        " show no GUI components
 set laststatus=2        " show status line always
 set cmdheight=1         " height of command-line is 1 row
 set langmenu=ja.utf-8   " language and encoding of menu
+set noimdisable         " use IM
 if has('win32')
     " When VL Gothic isn't found in the system, use MS Gothic.
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
