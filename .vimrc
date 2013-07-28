@@ -32,6 +32,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'januswel/jwlib'
 NeoBundle 'januswel/autotmpl.vim'
+NeoBundle 'januswel/html5.vim'
 
 " backup {{{2
 " The directories that are named as "backup" and found in runtime-paths are
