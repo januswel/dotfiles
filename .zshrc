@@ -21,6 +21,9 @@ if [ "Darwin" = `uname` ]; then
     # for MySQL
     export PATH=$PATH:/usr/local/mysql/bin
 
+    # for Ruby
+    export PATH=/usr/local/opt/ruby/bin:$PATH
+
     # my utilities
     export PATH=~/bin:$PATH
 
