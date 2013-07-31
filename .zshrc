@@ -14,12 +14,12 @@ DIRCOLORS_COMMAND="dircolors"
 
 # settings for Mac OS X
 if [ "Darwin" = `uname` ]; then
-    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-    export PATH=~/bin:$PATH
-
     # for Android development
     export ANDROID_HOME=~/android-sdks
     export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/
+
+    # my utilities
+    export PATH=~/bin:$PATH
 
     export MANPATH=/opt/local/share/man:$MANPATH
     export CPLUS_INCLUDE_PATH=/opt/local/include:$CPLUS_INCLUDE_PATH
