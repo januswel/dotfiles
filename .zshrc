@@ -27,9 +27,9 @@ if [ "Darwin" = `uname` ]; then
     # my utilities
     export PATH=~/bin:$PATH
 
-    export MANPATH=/opt/local/share/man:$MANPATH
-    export CPLUS_INCLUDE_PATH=/opt/local/include:$CPLUS_INCLUDE_PATH
-    export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
+    # for HomeBrew
+    export MANPATH=/usr/local/share/man:$MANPATH
+    export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 
     LS_COMMAND="gls"
     CP_COMMAND="gcp"
