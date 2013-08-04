@@ -31,6 +31,10 @@ if [ "Darwin" = `uname` ]; then
     export MANPATH=/usr/local/share/man:$MANPATH
     export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 
+    # for Mac OS X bug
+    unset LD_LIBRARY_PATH
+    unset DYLD_LIBRARY_PATH
+
     LS_COMMAND="gls"
     CP_COMMAND="gcp"
     MV_COMMAND="gmv"
@@ -94,10 +98,4 @@ unset MV_COMMAND
 unset RM_COMMAND
 unset DIRCOLORS_COMMAND
 unset DIRCOLORS_SETTINGS
-
-# for Mac OS X bug
-if [ "Darwin" = `uname` ]; then
-    unset LD_LIBRARY_PATH
-    unset DYLD_LIBRARY_PATH
-fi
 
