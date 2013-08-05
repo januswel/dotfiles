@@ -15,6 +15,7 @@ if has('vim_starting')
 endif
 
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'januswel/jwlib'
 NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/html5.vim'
