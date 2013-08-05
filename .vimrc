@@ -1,25 +1,10 @@
 " .vimrc
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 
-" options {{{1
-" general {{{2
+" basic options {{{1
 set nocompatible    " compatible mode off
 
-" viminfo
-set viminfo+=%      " save and restore the buffer list
-
-" path setting
-set path^=~/bin/    " prepend my bin to 'path'
-
-" timing to write
-set noautowrite     " disable writing files automatically
-set noautowriteall  " make my wish to vim thoroughly
-
-" wait till input is determined
-set notimeout       " don't make me hurry
-set nottimeout      " once agein, don't
-
-" neobundle {{{2
+" NeoBundle {{{1
 filetype off
 filetype plugin indent off
 
@@ -33,6 +18,22 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'januswel/jwlib'
 NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/html5.vim'
+
+" options {{{1
+" general {{{2
+" viminfo
+set viminfo+=%      " save and restore the buffer list
+
+" path setting
+set path^=~/bin/    " prepend my bin to 'path'
+
+" timing to write
+set noautowrite     " disable writing files automatically
+set noautowriteall  " make my wish to vim thoroughly
+
+" wait till input is determined
+set notimeout       " don't make me hurry
+set nottimeout      " once agein, don't
 
 " backup {{{2
 " The directories that are named as "backup" and found in runtime-paths are
