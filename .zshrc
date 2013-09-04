@@ -13,7 +13,7 @@ RM_COMMAND="rm"
 DIRCOLORS_COMMAND="dircolors"
 
 # settings for Mac OS X
-if [ "Darwin" = `uname` ]; then
+if [ "Darwin" = $(uname) ]; then
     # for Android development
     export ANDROID_HOME=~/android-sdks
     export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/
@@ -73,14 +73,14 @@ alias rm="$RM_COMMAND -i"
 # Japanize console if available
 export LANG="C"
 
-JA_JP_UTF8=`locale -a | grep ja_JP | grep -i utf`
+JA_JP_UTF8=$(locale -a | grep ja_JP | grep -i utf)
 if [ $JA_JP_UTF8 ] ; then
     export LANG=$JA_JP_UTF8
 fi
 unset JA_JP_UTF8
 
 # for Java
-if [ "Darwin" = `uname` ]; then
+if [ "Darwin" = $(uname) ]; then
     alias java="java -Dfile.encoding=UTF-8"
     alias javac="javac -J-Dfile.encoding=UTF-8"
 fi
@@ -88,7 +88,7 @@ fi
 # colors for "ls"
 DIRCOLORS_SETTINGS=~/.dir_colors
 if [ -f $DIRCOLORS_SETTINGS ]; then
-    eval `$DIRCOLORS_COMMAND $DIRCOLORS_SETTINGS -b`
+    eval $($DIRCOLORS_COMMAND $DIRCOLORS_SETTINGS -b)
 fi
 
 # clean up
