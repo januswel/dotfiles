@@ -84,8 +84,8 @@ fi
 unset JA_JP_UTF8
 
 # colors for "ls"
-DIRCOLORS_SETTINGS=~/.dir_colors
-if [ -f $DIRCOLORS_SETTINGS ]; then
+DIRCOLORS_SETTINGS="~/.dir_colors"
+if [ -f "$DIRCOLORS_SETTINGS" ]; then
     eval $($DIRCOLORS_COMMAND $DIRCOLORS_SETTINGS -b)
 fi
 
