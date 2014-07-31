@@ -404,6 +404,8 @@ vnoremap <Leader>' <Esc>`>a'<Esc>`<i'<Esc>
 vnoremap <Leader>" <Esc>`>a"<Esc>`<i"<Esc>
 " U+0060 GRAVE ACCENT
 vnoremap <Leader>` <Esc>`>a`<Esc>`<i`<Esc>
+" U+002A ASTERISK
+vnoremap <Leader>* <Esc>`>a*<Esc>`<i*<Esc>
 " parentheses, curly, square and angle brackets
 vnoremap <Leader>( <Esc>`>a)<Esc>`<i(<Esc>
 vnoremap <Leader>{ <Esc>`>a}<Esc>`<i{<Esc>
