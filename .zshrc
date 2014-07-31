@@ -40,6 +40,11 @@ if [ "Darwin" = $(uname) ]; then
     alias java="java -Dfile.encoding=UTF-8"
     alias javac="javac -J-Dfile.encoding=UTF-8"
 
+    # for rbenv
+    if which rbenv > /dev/null; then
+        eval "$(rbenv init -)";
+    fi
+
     LS_COMMAND="gls"
     CP_COMMAND="gcp"
     MV_COMMAND="gmv"
