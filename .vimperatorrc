@@ -126,9 +126,9 @@ noremap <Leader>s :noscript toggletemp<CR>
 noremap <Leader>S :noscript toggleperm<CR>
 
 " multi_requester.js
-noremap E :mr<Space>alc<Space>
-noremap W :mr<Space>goo<Space>
-noremap A :mr<Space>answers<Space>
+noremap A :mr<Space>alc<Space>
+noremap E :mr<Space>oxford<Space>
+noremap C :mr<Space>cambridge<Space>
 
 
 " styles {{{1
