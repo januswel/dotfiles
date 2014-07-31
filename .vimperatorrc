@@ -81,9 +81,9 @@ let mapleader=','
 
 " plugins {{{2
 " direct_bookmark.js
-" use service: delicious, はてなブックマーク
-let direct_sbm_use_services_by_post='dh'
-let direct_sbm_use_services_by_tag='dh'
+" use service: はてなブックマーク
+let direct_sbm_use_services_by_post='h'
+let direct_sbm_use_services_by_tag='h'
 
 " imageextender.js
 let image_extender_skip_prompt='false'
