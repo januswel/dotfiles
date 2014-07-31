@@ -28,6 +28,7 @@ if [ "Darwin" = $(uname) ]; then
     export PATH=~/bin:$PATH
 
     # for HomeBrew
+    export PATH=$PATH:/usr/local/sbin
     export MANPATH=/usr/local/share/man:$MANPATH
     export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 
