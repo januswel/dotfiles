@@ -16,7 +16,7 @@ DIRCOLORS_COMMAND="dircolors"
 if [ "Darwin" = $(uname) ]; then
     # for Android development
     export ANDROID_HOME=~/android-sdks
-    export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/
+    export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
     # for MySQL
     export PATH=$PATH:/usr/local/mysql/bin
