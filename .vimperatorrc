@@ -16,6 +16,9 @@ set suggestengines=google
 " bookmarks, suggestions, awesome bar
 set complete=bSl
 
+" a max number of listing items
+set maxitems=10
+
 " don't focus the new opened tab automatically
 set activate=
 
