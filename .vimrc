@@ -60,6 +60,26 @@ if s:backupdir != ''
 endif
 unlet s:candidates s:backupdirs s:candidate s:backupdir
 
+" undo {{{2
+if has('persistent_undo')
+    " The directories that are named as "undo" and found in runtime-paths are
+    " set in 'undodir'.
+    let s:candidates = split(globpath(&runtimepath, 'undo'), '\n')
+    let s:undodirs = []
+    let s:candidate = ''
+    for s:candidate in s:candidates
+        if isdirectory(s:candidate)
+            call add(s:undodirs, s:candidate)
+        endif
+    endfor
+
+    let s:undodir = join(s:undodirs, ',')
+    if s:undodir != ''
+        let &undodir = s:undodir . ',' . &undodir
+    endif
+    unlet s:candidates s:undodirs s:candidate s:undodir
+endif
+
 " display & information {{{2
 set showtabline=2   " show tab bar always
 set number          " show line numbers
