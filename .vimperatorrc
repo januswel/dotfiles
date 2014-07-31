@@ -139,6 +139,10 @@ style -name inactivate-ime-commandline chrome://* #liberator-commandline-command
 style -name iconize-tab chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; } .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; }
 
 
+" colorscheme {{{1
+colorscheme janus
+
+
 " source extra resources {{{1
 " javascript
 source ~/.vimperator/options.js
