@@ -27,7 +27,7 @@ hi! PromptText color: #e0e0e0; background-color: #395475;
 " messages
 hi! ErrorMsg font-size: 12pt; font-weight: bold; color: #ffffff; background-color: #ff6600;
 hi! InfoMsg font-size: 12pt; color: #ffff66; background-color: #395475;
-hi! ModeMsg font-size: 12pt; color: #395475; background-color: #ffffff;
+hi! ModeMsg font-size: 12pt; color: #ffffff; background-color: #395475;
 hi! MoreMsg font-size: 12pt; color: #ffff66; background-color: #395475;
 hi! WarningMsg font-size: 12pt; color: #ffffff; background-color: #395475;
 
