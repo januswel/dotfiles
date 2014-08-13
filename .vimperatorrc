@@ -139,7 +139,7 @@ noremap C :mr<Space>cambridge<Space>
 style -name inactivate-ime-commandline chrome://* #liberator-commandline-command input { ime-mode: inactive; }
 
 " minimize tab size
-style -name iconize-tab chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; } .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; }
+style -name iconize-tab chrome://* .tabbrowser-tab:not([pinned]) { min-width: 28px !important; max-width: 28px !important; } .tabbrowser-tab:not([pinned]) .tab-label { display: none !important; } .tab-close-button { display: none; }
 
 
 " colorscheme {{{1
