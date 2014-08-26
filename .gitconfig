@@ -9,5 +9,6 @@
 [alias]
     co = checkout
     graph = log --graph --all --oneline --decorate
+    overwrite = push --force-with-lease
 [core]
     pager = less -R
