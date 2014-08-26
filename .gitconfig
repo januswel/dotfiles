@@ -1,14 +1,14 @@
 [user]
-	name = janus_wel
-	email = janus.wel.3@gmail.com
+    name = janus_wel
+    email = janus.wel.3@gmail.com
 [color]
-	pager = true
-	status = auto
-	branch = auto
-	diff = auto
+    pager = true
+    status = auto
+    branch = auto
+    diff = auto
 [sendemail]
-	smtpserver = /usr/bin/msmtp
+    smtpserver = /usr/bin/msmtp
 [alias]
-	co = checkout
+    co = checkout
 [core]
-	pager = less -R
+    pager = less -R
