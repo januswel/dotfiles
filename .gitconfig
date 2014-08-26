@@ -6,8 +6,6 @@
     status = auto
     branch = auto
     diff = auto
-[sendemail]
-    smtpserver = /usr/bin/msmtp
 [alias]
     co = checkout
 [core]
