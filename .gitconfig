@@ -12,3 +12,4 @@
     overwrite = push --force-with-lease
 [core]
     pager = less -R
+    excludesfile = ~/.gitignore
