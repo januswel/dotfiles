@@ -20,6 +20,7 @@ NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'januswel/jwlib'
 NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/html5.vim'
+NeoBundle 'januswel/filer.vim'
 
 " options {{{1
 " general {{{2
