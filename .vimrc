@@ -18,8 +18,9 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'januswel/visualiz.vim'
-NeoBundle 'januswel/jwlib'
+NeoBundle 'januswel/jwlib.vim'
 NeoBundle 'januswel/autotmpl.vim'
+NeoBundle 'januswel/expand.vim'
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/filer.vim'
 
@@ -451,7 +452,7 @@ nnoremap <silent><Leader>u :lcd ../<CR>:pwd<CR>
 " sweepbuflist.vim
 nmap <silent><Leader><S-b> <Plug>SweepBufList|:buffers<CR>
 " expandvar.vim
-nmap <silent><Leader>e <Plug>ExpandVariable
+nmap <silent><Leader>e <Plug>ExpandExpression
 nmap <silent><Leader><S-e> <Plug>EvalExpression
 nmap <silent><Leader>c  <Plug>GenerateCtags
 
