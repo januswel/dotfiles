@@ -17,6 +17,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'januswel/protect.vim'
 NeoBundle 'januswel/visualiz.vim'
 NeoBundle 'januswel/jwlib.vim'
 NeoBundle 'januswel/autotmpl.vim'
@@ -246,11 +247,6 @@ let maplocalleader = ';'
 " plugin: autodate.vim
 " date format to insert automatically
 let autodate_format = '%Y %3m %d'
-
-" plugin: protec.vim
-" runtime file is untouchable
-let protec_readonly_paths = '$VIM/**,$INCLUDE/**'
-let protec_nomodifiable_paths = '$VIM/**,$INCLUDE/**'
 
 " for :TOhtml
 let g:html_font = 'VL Gothic'
