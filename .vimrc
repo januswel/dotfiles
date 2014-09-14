@@ -19,6 +19,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'januswel/protect.vim'
 NeoBundle 'januswel/visualiz.vim'
+NeoBundle 'januswel/zoomfont.vim'
 NeoBundle 'januswel/jwlib.vim'
 NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/expand.vim'
@@ -451,6 +452,10 @@ nmap <silent><Leader><S-b> <Plug>SweepBufList|:buffers<CR>
 nmap <silent><Leader>e <Plug>ExpandExpression
 nmap <silent><Leader><S-e> <Plug>EvalExpression
 nmap <silent><Leader>c  <Plug>GenerateCtags
+" zoomfont.vim
+nmap <silent>+ <Plug>ZoomIn
+nmap <silent>- <Plug>ZoomOut
+nmap <silent>& <Plug>ZoomReset
 
 " openwin32explorer.vim and viewinhtml.vim
 if has('win32')
