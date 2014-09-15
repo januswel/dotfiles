@@ -25,6 +25,7 @@ NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/expand.vim'
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/filer.vim'
+NeoBundle 'januswel/uniconv.vim'
 
 " options {{{1
 " general {{{2
