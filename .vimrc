@@ -18,6 +18,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'januswel/protect.vim'
+NeoBundle 'januswel/sweepbuf.vim'
 NeoBundle 'januswel/tabshift.vim'
 NeoBundle 'januswel/visualiz.vim'
 NeoBundle 'januswel/zoomfont.vim'
@@ -449,7 +450,7 @@ nnoremap <silent><Leader>u :lcd ../<CR>:pwd<CR>
 
 " plugin {{{2
 " sweepbuflist.vim
-nmap <silent><Leader><S-b> <Plug>SweepBufList|:buffers<CR>
+nmap <silent><Leader><S-b> :SweepBuffers<CR>:buffers<CR>
 " expandvar.vim
 nmap <silent><Leader>e <Plug>ExpandExpression
 nmap <silent><Leader><S-e> <Plug>EvalExpression
