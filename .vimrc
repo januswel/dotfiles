@@ -17,6 +17,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'januswel/fencdefault.vim'
 NeoBundle 'januswel/protect.vim'
 NeoBundle 'januswel/sweepbuf.vim'
 NeoBundle 'januswel/tabshift.vim'
