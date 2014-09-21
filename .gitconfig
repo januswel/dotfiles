@@ -11,6 +11,7 @@
     d = diff
     f = fetch
     r = rebase
+    s = status
     pom = push origin master
     co = checkout
     graph = log --graph --all --oneline --decorate
