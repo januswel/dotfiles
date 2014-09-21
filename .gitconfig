@@ -7,6 +7,11 @@
     branch = auto
     diff = auto
 [alias]
+    c = commit
+    d = diff
+    f = fetch
+    r = rebase
+    pom = push origin master
     co = checkout
     graph = log --graph --all --oneline --decorate
     overwrite = push --force-with-lease

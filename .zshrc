@@ -73,6 +73,7 @@ alias ls="$LS_COMMAND --color=auto"
 alias cp="$CP_COMMAND -i"
 alias mv="$MV_COMMAND -i"
 alias rm="$RM_COMMAND -i"
+alias g="git"
 
 # Japanize console if available
 export LANG="C"
