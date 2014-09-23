@@ -196,12 +196,11 @@ set completeopt=menu,menuone,preview
 " 'fileencodings' is setted by plugin "jaencs.vim"
 if has('win32')
     if has('gui')
+        let &termencoding = &encoding
         set encoding=utf-8
     else
         set encoding=cp932
     endif
-else
-    set encoding=utf-8
 endif
 
 " end-of-line format
