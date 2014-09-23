@@ -121,7 +121,7 @@ window TortoiseSVNCommitComment /TortoiseProc\.exe:#\d+:Scintilla/ : Global
 key C-h = BackSpace
 
 # cmd.exe {{{2
-window CMD /ConsoleWindowClass/ : Global
+window CMD (/ConsoleWindowClass/ && /.*\bcmd\b.*/) : Global
 key Tab = C-f
 key C-l = c l s Enter
 key C-d = e x i t Enter
