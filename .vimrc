@@ -489,8 +489,20 @@ abbreviate acknowledgement acknowledgment
 augroup numof_scroll
     autocmd! numof_scroll
 
-    autocmd! WinEnter * set scroll=3
+    autocmd! BufEnter * call s:SetScroll(3)
 augroup END
+
+" escape to get an error about the specified 'scroll' value is less than the
+" window height.
+function! s:SetScroll(new_value)
+    let height = winheight(0)
+    if height < a:new_value
+        let scroll_height = 0
+    else
+        let scroll_height = a:new_value
+    endif
+    let &l:scroll = scroll_height
+endfunction
 
 
 " }}}1
