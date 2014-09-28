@@ -29,6 +29,7 @@ NeoBundle 'januswel/zoomfont.vim'
 
 NeoBundle 'januswel/jwlib.vim'
 NeoBundle 'januswel/autotmpl.vim'
+NeoBundle 'januswel/count.vim'
 NeoBundle 'januswel/expand.vim'
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/filer.vim'
