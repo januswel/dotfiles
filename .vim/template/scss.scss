@@ -1,0 +1,17 @@
+body {
+    color: white;
+    background-color: hsl(0, 0, 10%);
+
+    article {
+        margin: 6px;
+    }
+
+    nav {
+        width: 120px;
+        float: right;
+    }
+
+    &:after {
+        clear: both;
+    }
+}

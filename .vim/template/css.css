@@ -1,0 +1,182 @@
+/*
+ * "%:t"
+ *  remarks
+ * */
+
+@import url("./reset.css");
+
+/* body */
+body {
+    margin: 2em;
+    color:  black;
+    background-color: white;
+
+    font-family: sans-serif;
+}
+
+/* header of the document */
+body > header {
+    border-left: 8px solid black;
+    border-bottom: 1px solid black;
+    padding-left: 1em;
+    margin-bottom: 2em;
+}
+body > header h1,
+body > header h2 {
+    font-size: 2em;
+}
+body > header h1 {
+    float: left;
+}
+body > header h1:after {
+    content: "-";
+    margin: 0 8px;
+    display: inline;
+}
+body > header:after {
+    content: "";
+    display: none;
+    clear: left;
+}
+
+/* article */
+article {
+    width: 80%;
+    margin: 0 0 1em 20%;
+    border: 1px solid black;
+    padding: -4px;
+}
+article header {
+    position: relative;
+    margin-bottom: 1em;
+}
+article header h1 {
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: -10px;
+    background-color: white;
+    margin-left: 4px;
+    padding: 0 3px;
+}
+
+/* section */
+article section {
+    width: 90%;
+    margin: 0 auto 1em;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    counter-increment: section;
+}
+article section h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+article section h1:before {
+    content: counter(section) ". ";
+}
+article section p {
+    text-indent: 1em;
+    margin-bottom: 1em;
+}
+
+/* footer of the articles */
+article footer {
+    text-align: right;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+article footer address {
+    display: inline;
+}
+
+/* time */
+time:before {
+    display: inline;
+    content: "Posted at " attr(datetime);
+}
+
+/* svg */
+svg {
+    border: 1px solid black;
+    margin: 0 auto 1em;
+    display: table;
+}
+
+/*
+ * table
+ *  even row is gray
+ *  even col is gray
+ *  even row and even col is black
+ * */
+table {
+    border: 1px solid black;
+    margin: 0 auto 1em;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 2px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    color: white;
+    background-color: gray;
+}
+td:nth-child(even) {
+    color: white;
+    background-color: gray;
+}
+tr:nth-child(even) td:nth-child(even) {
+    color: white;
+    background-color: black;
+}
+
+/*
+ * lists that is table like
+ *  4 items per line
+ * */
+ul {
+    margin-bottom: 1em;
+}
+
+.table-like-list {
+    overflow: hidden;
+    list-style: none;
+    margin: 0 auto 1em;
+    display: table;
+}
+.table-like-list:after {
+    content: none;
+    clear: left;
+}
+.table-like-list li {
+    margin: 2px;
+    float: left;
+}
+.table-like-list li:nth-child(4n+1) {
+    clear: left;
+}
+
+/* footer of the document */
+body > footer {
+    position: fixed;
+    top: 96px;
+    left: 5%;
+
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+/* nav */
+nav ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+

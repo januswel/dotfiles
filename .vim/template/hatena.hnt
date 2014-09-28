@@ -1,0 +1,20 @@
+*[tag] '%:t:r'
+
+- ul
+++ ol
+
+|*table|*th|
+|td|td|
+
+<!-- comment -->
+
+sentence []deny auto-link[].
+<del>deleted</del>, <ins>inserted</ins> text.
+<kbd>from keyborad</kbd> and <code>codes</code>.
+id:janus_wel is id call.
+
+>|html|
+<p>This is Super Pre notation</p>
+||<
+
+<a href=""><img src="" class="thumbnail" /></a>
