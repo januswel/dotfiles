@@ -21,10 +21,12 @@ NeoBundle 'januswel/binedit.vim'
 NeoBundle 'januswel/fencdefault.vim'
 NeoBundle 'januswel/fencja.vim'
 NeoBundle 'januswel/protect.vim'
+NeoBundle 'januswel/setscroll.vim'
 NeoBundle 'januswel/sweepbuf.vim'
 NeoBundle 'januswel/tabshift.vim'
 NeoBundle 'januswel/visualiz.vim'
 NeoBundle 'januswel/zoomfont.vim'
+
 NeoBundle 'januswel/jwlib.vim'
 NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/expand.vim'
@@ -487,23 +489,6 @@ abbreviate acknowledgement acknowledgment
 
 
 " script {{{1
-augroup numof_scroll
-    autocmd! numof_scroll
-
-    autocmd! BufEnter * call s:SetScroll(3)
-augroup END
-
-" escape to get an error about the specified 'scroll' value is less than the
-" window height.
-function! s:SetScroll(new_value)
-    let height = winheight(0)
-    if height < a:new_value
-        let scroll_height = 0
-    else
-        let scroll_height = a:new_value
-    endif
-    let &l:scroll = scroll_height
-endfunction
 
 
 " }}}1
