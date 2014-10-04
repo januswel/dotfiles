@@ -58,8 +58,8 @@ hi Identifier   cterm=bold  ctermfg=77
             \   gui=bold    guifg=#60dd60
 " statements
 " base of Conditional, Repeat, Label, Operator, Keyword, Exception
-hi Statement                ctermfg=99
-            \               guifg=#7b68ee
+hi Statement    cterm=bold  ctermfg=11
+            \   gui=bold    guifg=#ffff00
 " preprocessors
 " base of Include, Define, Macro, PreCondit
 hi PreProc      cterm=bold  ctermfg=205
@@ -149,8 +149,8 @@ hi DiffDelete               ctermfg=209     ctermbg=209
             \               guifg=#fa8072   guibg=#fa8072
 
 " others {{{3
-hi Title                    ctermfg=99
-            \               guifg=#7b68ee
+hi Title        cterm=bold  ctermfg=11
+            \   gui=bold    guifg=#ffff00
 hi MoreMsg                  ctermfg=11
             \               guifg=#ffff00
 
