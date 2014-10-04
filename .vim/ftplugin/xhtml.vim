@@ -58,7 +58,6 @@ let b:tidyopt = {
             \   '--doctype':                'html5',
             \   '--indent':                 'auto',
             \   '--join-classes':           'yes',
-            \   '--output-xhtml':           'yes',
             \   '--quiet':                  'yes',
             \   '--new-blocklevel-tags':    'svg,circle',
             \   '--replace-color':          'yes',
