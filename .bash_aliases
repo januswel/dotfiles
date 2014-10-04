@@ -21,5 +21,7 @@ alias cp="$CP_COMMAND -i"
 alias mv="$MV_COMMAND -i"
 alias rm="$RM_COMMAND -i"
 alias dircolors="$DIRCOLORS_COMMAND"
+alias g="git"
+alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 
 # vim: ts=4 sw=4 sts=0 et ft=sh
