@@ -3,6 +3,10 @@
 
 # Vim
 *.swp
+.netrwhist
+.vim/backup/*
+.vim/undo/*
+.vim/bundle/*
 
 # Vimperator
 .vimperator/info
