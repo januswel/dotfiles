@@ -1,4 +1,4 @@
-# zsh RC file
+# .zshrc file
 # janus_wel <janus.wel.3@gmail.com>
 
 # environment variables
