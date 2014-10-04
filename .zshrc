@@ -44,6 +44,7 @@ if [ "Darwin" = $(uname) ]; then
     MV_COMMAND="gmv"
     RM_COMMAND="grm"
     DIRCOLORS_COMMAND="gdircolors"
+    VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
 
 # completions
@@ -87,6 +88,10 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 alias tmux="tmux -2"
+
+if [ -x "${VIM_COMMAND}" ]; then
+    alias vim="${VIM_COMMAND}"
+fi
 
 # Japanize console if available
 export LANG="C"
