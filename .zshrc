@@ -63,9 +63,17 @@ bindkey -v
 setopt prompt_subst
 autoload -U colors
 colors
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%b)'
+zstyle ':vcs_info:*' actionformats '(%b|%a)'
+precmd() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    psvar[1]=$vcs_info_msg_0_
+}
 
 PROMPT="%B%{$fg[green]%}${USER}@%m${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}%b"
-RPROMPT="%B%{$fg[cyan]%}[%~]%{$reset_color%}%b"
+RPROMPT="%B%{$fg[cyan]%}[%~%1v]%{$reset_color%}%b"
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
