@@ -3,3 +3,7 @@
 
 # Vim
 *.swp
+
+# Vimperator
+.vimperator/info
+.vimperator/plugin/*
