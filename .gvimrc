@@ -1,8 +1,5 @@
-" vim rc file for GUI
-" Filename:     .gvimrc
-" Maintainer:   janus_wel <janus.wel.3@gmail.com>
-" Remark:       This file must contains only visual settings for GUI.
-"               Use with .vimrc.
+" .gvimrc
+" janus_wel <janus.wel.3@gmail.com>
 
 " options {{{1
 " display & information

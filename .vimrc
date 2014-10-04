@@ -1,5 +1,5 @@
 " .vimrc
-" Maintainer:   janus_wel <janus.wel.3@gmail.com>
+" janus_wel <janus.wel.3@gmail.com>
 
 " basic options {{{1
 set nocompatible    " compatible mode off

@@ -1,5 +1,6 @@
+# .tidyrc
 # config file of HTML Tidy
-# Maintainer:   janus_wel <janus.wel.3@gmail.com>
+# janus_wel <janus.wel.3@gmail.com>
 
 add-xml-decl:yes
 char-encoding:raw
