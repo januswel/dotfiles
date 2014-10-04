@@ -14,9 +14,7 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'januswel/binedit.vim'
 NeoBundle 'januswel/fencdefault.vim'
 NeoBundle 'januswel/fencja.vim'
