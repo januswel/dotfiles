@@ -75,6 +75,7 @@ alias mv="$MV_COMMAND -i"
 alias rm="$RM_COMMAND -i"
 alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
+alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 
 # Japanize console if available
 export LANG="C"
