@@ -64,7 +64,7 @@ setopt prompt_subst
 autoload -U colors
 colors
 
-PROMPT="%B%{$fg[yellow]%}${USER}@%m${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}%b"
+PROMPT="%B%{$fg[cyan]%}${USER}@%m${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}%b"
 RPROMPT="%B%{$fg[cyan]%}[%~]%{$reset_color%}%b"
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
