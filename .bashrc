@@ -44,17 +44,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-
-    # move to .bash_aliases
-    #alias ls='ls --color=auto'
-
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -69,4 +58,12 @@ fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# colors
+DIRCOLORS_SETTINGS=".dir_colors"
+if [ "$TERM" != "dumb" ]; then
+    if [ -r $DIRCOLORS_SETTINGS ]; then
+        eval "`dircolors $DIRCOLORS_SETTINGS -b`"
+    fi
 fi
