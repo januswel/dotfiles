@@ -23,6 +23,12 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
+" check if this indent file is already loaded or not
+if exists("b:did_indent")
+  finish
+endif
+let b:did_indent = 1
+
 " check vim has required features
 if !(has('win32') && exists('&guifont'))
     finish
@@ -48,6 +54,43 @@ let s:var = {
             \   'b': 'foo',
             \ }
 lockvar s:var
+
+" options {{{2
+" for indent files
+setlocal tabstop<
+setlocal shiftwidth<
+setlocal expandtab
+setlocal softtabstop=0
+
+setlocal nocindent
+setlocal autoindent
+setlocal nosmartindent
+"setlocal indentkeys+=0)
+"setlocal indentexpr=GetFiletypeIndent()
+
+if exists("*GetFiletypeIndent")
+  finish
+endif
+
+" for ftplugin files
+setlocal formatoptions-=t
+setlocal formatoptions+=rol
+
+setlocal comments=sr:<#,mb:*,ex:#>,:#
+
+" variables {{{2
+let b:undo_indent = 'setlocal ' . join([
+            \   'tabstop<',
+            \   'shiftwidth<',
+            \   'expandtab<',
+            \   'softtabstop<',
+            \   'cindent<',
+            \   'autoindent<',
+            \   'smartindent<',
+            \   'indentkeys<',
+            \   'indentexpr<',
+            \ ])
+
 " commands {{{2
 " use exists() to check the command is already defined or not
 " return value 2 tells that the command matched completely exists
