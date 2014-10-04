@@ -7,9 +7,12 @@
     branch = auto
     diff = auto
 [alias]
+    a = add
+    b = branch
     c = commit
     d = diff
     f = fetch
+    l = log
     r = rebase
     s = status
     pom = push origin master
