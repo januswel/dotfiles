@@ -13,33 +13,21 @@ export HISTCONTROL=ignoreboth
 # of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+if [ "Darwin" = $(uname) ]; then
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# prompt
 case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+screen|xterm-256color)
+    PS1='\[\033]0;\w$(__git_ps1)\007\]\[\033[1;36m\][\w$(__git_ps1)]\n\[\033[1;32m\]\u@\h\[\033[00m\]$ '
+    ;;
+cygwin)
+    PS1='\[\033]0;\w$(__git_ps1)\007\]\[\033[1;32m\]\u@\h\[\033[00m\]$ '
     ;;
 *)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
+    PS1='\[\033]0;\w\007\]\[\033[1;32m\]\u@\h\[\033[00m\]$ '
     ;;
 esac
 
