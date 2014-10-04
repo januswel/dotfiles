@@ -47,6 +47,7 @@ if [ "Darwin" = $(uname) ]; then
 fi
 
 # completions
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle :compinstall filename '/home/janus/.zshrc'
 
