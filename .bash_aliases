@@ -23,5 +23,6 @@ alias rm="$RM_COMMAND -i"
 alias dircolors="$DIRCOLORS_COMMAND"
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
+alias tmux="tmux -2"
 
 # vim: ts=4 sw=4 sts=0 et ft=sh
