@@ -73,6 +73,7 @@ alias ls="$LS_COMMAND --color=auto"
 alias cp="$CP_COMMAND -i"
 alias mv="$MV_COMMAND -i"
 alias rm="$RM_COMMAND -i"
+alias dircolors="$DIRCOLORS_COMMAND"
 alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
@@ -87,9 +88,11 @@ fi
 unset JA_JP_UTF8
 
 # colors for "ls"
-DIRCOLORS_SETTINGS="~/.dir_colors"
-if [ -f "$DIRCOLORS_SETTINGS" ]; then
-    eval $($DIRCOLORS_COMMAND $DIRCOLORS_SETTINGS -b)
+DIRCOLORS_SETTINGS=".dir_colors"
+if [ "$TERM" != "dumb" ]; then
+    if [ -r "$DIRCOLORS_SETTINGS" ]; then
+        eval $(dircolors $DIRCOLORS_SETTINGS -b)
+    fi
 fi
 
 # clean up
