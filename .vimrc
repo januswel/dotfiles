@@ -468,12 +468,6 @@ nmap <silent>+ <Plug>ZoomIn
 nmap <silent>- <Plug>ZoomOut
 nmap <silent>& <Plug>ZoomReset
 
-" openwin32explorer.vim and viewinhtml.vim
-if has('win32')
-    nmap <Leader>f <Plug>WinExplorer
-    nmap <Leader><S-v> <Plug>ViewInHtml
-endif
-
 
 " abbreviation {{{1
 " fix typo
