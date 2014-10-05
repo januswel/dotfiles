@@ -4,6 +4,7 @@
 fmapc
 
 fmaps -u='(fastladder|reader\.livedoor)\.com/reader' j k s a p o q w r <Del> <C-d>,<Space> <C-u>,<S-Space> <,> >,< /,f
+fmaps -u='https?://feedly\.com/' ? j k s,J a,K r v m
 fmaps -u='https?://www\.rememberthemilk\.com/home/' j k a n i h C,t c V,p v,d w,f q,g s Q,u W,l S,y I,r U,z <C-1>,1 <C-2>,2 <C-3>,3 <C-0>,4 <Del> <C-S-h>,<C-S-Left> <C-S-l>,<C-S-Right>
 fmaps -u='^https://twitter\.com/' j k r,. ? gf,f <Return>
 
