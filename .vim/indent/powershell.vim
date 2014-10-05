@@ -27,6 +27,7 @@ setlocal nocindent
 setlocal autoindent
 setlocal nosmartindent
 setlocal indentkeys+=0)
+setlocal indentkeys-=0#
 setlocal indentexpr=GetPowerShellIndent()
 
 if exists("*GetPowerShellIndent")
