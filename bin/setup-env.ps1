@@ -18,6 +18,10 @@ $targets = @(
 )
 
 # functions
+function GetScriptDir() {
+    return Split-Path (& {$MyInvocation.ScriptName}) -Parent
+}
+
 function IsDir($path) {
     return Test-Path $path -PathType Container
 }
@@ -44,7 +48,10 @@ function CreateSymLink($src, $dst) {
 }
 
 # main
-$src_dir = '..'
+$cur_dir = GetScriptDir
+Set-Location $cur_dir
+
+$src_dir = Convert-Path (Join-Path $cur_dir '..')
 $dst_dir = [Environment]::GetEnvironmentVariable('HOME')
 if ($dst_dir -eq '') {
     echo 'Set the environment variable "HOME"'
