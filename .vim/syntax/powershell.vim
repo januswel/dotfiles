@@ -23,6 +23,8 @@ syntax keyword  ps1Statements
             \ return exit
             \ try catch trap throw
 
+syntax match    ps1Operator /\%(+\|-\|\*\|\/\|%\|-\%(eq\|ne\|gt\|lt\|ge\|le\|not\|and\|or\|xor\|bnot\|band\|bor\|bxor\|is\|isnot\|as\)\)\>/   contains=ps1OperatorName
+
 " variables {{{2
 syntax match    ps1Variables    /\$\w\+\>/
 
@@ -50,6 +52,7 @@ if version >= 508 || !exists("did_mayu_syntax_inits")
     endif
 
     HiLink ps1Statements            Statement
+    HiLink ps1Operator              Operator
 
     HiLink ps1NumberDecimal         Number
 
