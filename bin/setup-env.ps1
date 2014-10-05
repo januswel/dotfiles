@@ -72,7 +72,8 @@ foreach ($target in $targets) {
             CreateSymLink $src $dst
         }
         default {
-            throw 'too many colons'
+            $msg = 'Too many colons: ' + $target
+            throw $msg
         }
     }
 }
