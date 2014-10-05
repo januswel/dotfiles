@@ -48,7 +48,7 @@ let b:undo_indent = 'setlocal ' . join([
             \ ])
 
 " functions {{{2
-function! GetPowerShellIndent()
+function GetPowerShellIndent()
     let lnum = prevnonblank(v:lnum - 1)
     if lnum ==# 0
         return 0
