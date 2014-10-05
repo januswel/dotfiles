@@ -26,7 +26,7 @@ syntax keyword  ps1Statements
 syntax match    ps1Operator /\%(+\|-\|\*\|\/\|%\|-\%(eq\|ne\|gt\|lt\|ge\|le\|not\|and\|or\|xor\|bnot\|band\|bor\|bxor\|is\|isnot\|as\)\)\>/   contains=ps1OperatorName
 
 " variables {{{2
-syntax match    ps1Variables    /\$\w\+\>/
+syntax match    ps1Variables    /\$\%(\w\+\|\$\|\^\|?\|_\)\>/
 
 " numbers {{{2
 syntax match    ps1NumberDecimal    /[+-]\=\<\d\+\%(\.\d\+\)\=\>/ display
