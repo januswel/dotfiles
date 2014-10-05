@@ -15,9 +15,13 @@ let b:current_syntax = "powershell"
 
 " syntax {{{1
 " statements {{{2
-syntax keyword    ps1Statements
-            \ if elseif else switch case break
+syntax keyword  ps1Statements
+            \ if elseif else switch case break default
             \ for foreach while do
+            \ echo cmd
+            \ function
+            \ return exit
+            \ try catch trap throw
 
 " variables {{{2
 syntax match    ps1Variables    /\$\w\+\>/
