@@ -21,7 +21,7 @@ set cpoptions&vim
 setlocal tabstop<
 setlocal shiftwidth<
 setlocal expandtab
-setlocal softtabstop=0
+setlocal softtabstop<
 
 setlocal nocindent
 setlocal autoindent
