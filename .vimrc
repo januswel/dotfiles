@@ -15,6 +15,10 @@ if has('vim_starting')
 endif
 
 NeoBundle 'mattn/emmet-vim'
+
+" plugins
+NeoBundle 'januswel/jwlib.vim'
+
 NeoBundle 'januswel/binedit.vim'
 NeoBundle 'januswel/fencdefault.vim'
 NeoBundle 'januswel/fencja.vim'
@@ -26,15 +30,16 @@ NeoBundle 'januswel/tabshift.vim'
 NeoBundle 'januswel/visualiz.vim'
 NeoBundle 'januswel/zoomfont.vim'
 
-NeoBundle 'januswel/jwlib.vim'
 NeoBundle 'januswel/autotmpl.vim'
 NeoBundle 'januswel/count.vim'
 NeoBundle 'januswel/expand.vim'
-NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/filer.vim'
 NeoBundle 'januswel/profile.vim'
 NeoBundle 'januswel/sendbrowser.vim'
 NeoBundle 'januswel/uniconv.vim'
+
+" filetype settings
+NeoBundle 'januswel/html5.vim'
 
 " options {{{1
 " general {{{2
