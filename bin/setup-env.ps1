@@ -1,5 +1,6 @@
 # definitions
 $targets = @(
+    "bin",
     ".bash_aliases",
     ".bash_profile",
     ".bashrc",
