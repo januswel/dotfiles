@@ -7,11 +7,29 @@ BAR="buz"
 COMMAND_NAME=$(basename $0)
 
 # functions
-absolute_path()
-{
-    CURRENT=$(dirname ".")
-    echo $(cd $(dirname "$1") && pwd)/$(basename "$1")
-    cd $CURRENT
+function get_script_dir() {
+    echo "$(dirname "${BASH_SOURCE:-$0}")"
+    return 0
+}
+
+function absolute_dir() {
+    if [ $# -ne 1 ]; then
+        echo 'Usage: absolute_dir DIR' 1>&2
+        return 1
+    fi
+
+    echo "$(cd "$1"; pwd)"
+    return 0
+}
+
+function absolute_leaf() {
+    if [ $# -ne 1 ]; then
+        echo 'Usage: absolute_dir FILE' 1>&2
+        return 1
+    fi
+
+    echo ""$(absolute_dir "$(dirname "$1")")"/"$(basename "$1")""
+    return 0
 }
 
 # options
