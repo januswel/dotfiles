@@ -40,6 +40,7 @@ NeoBundle 'januswel/uniconv.vim'
 
 " filetype settings
 NeoBundle 'januswel/html5.vim'
+NeoBundle 'januswel/powershell.vim'
 
 " options {{{1
 " general {{{2
