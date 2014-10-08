@@ -88,7 +88,10 @@ func main() {
         }
 
         fmt.Printf("Creating symlink %s => %s\n", src, dst)
-        os.Symlink(src, dst)
+        err := os.Symlink(src, dst)
+        if err != nil {
+            panic(err)
+        }
     }
 }
 
