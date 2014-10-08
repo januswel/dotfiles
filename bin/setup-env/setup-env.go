@@ -42,12 +42,16 @@ func main() {
     if err != nil {
         panic(err)
     }
+    fmt.Printf("source directory: %s\n", srcDir)
+    fmt.Printf("destination directory: %s\n", dstDir)
 
     targets_file, err := TargetsFile()
     if err != nil {
         panic(err)
     }
     fmt.Printf("config file: %s\n", targets_file)
+
+    fmt.Printf("\n")
 
     fp, err := os.Open(targets_file)
     if err != nil {
