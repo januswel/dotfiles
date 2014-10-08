@@ -34,3 +34,39 @@ func envVars() map[string]string {
     }
     return items
 }
+
+func execute() (string, error) {
+    // search execution file
+    _, err := exec.LookPath("git")
+    if err != nil {
+        return "", err
+    }
+
+    // command to execute
+    cmd := exec.Command("git", "rev-parse", "--show-toplevel")
+
+    stdoutpipe, err := cmd.StdoutPipe()
+    if err != nil {
+        return "", err
+    }
+    defer stdoutpipe.Close()
+
+    err = cmd.Start()
+    if err != nil {
+        return "", err
+    }
+
+    stdout, err := ioutil.ReadAll(stdoutpipe)
+    if err != nil {
+        return "", err
+    }
+
+    err = cmd.Wait()
+    if err != nil {
+        return "", err
+    }
+
+    dir := strings.TrimRight(string(stdout[:len(stdout)]), "\n")
+
+    return dir, nil
+}
