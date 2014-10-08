@@ -29,7 +29,12 @@ func main() {
         panic(err)
     }
     os.Chdir(exeDir)
-    srcDir, err := SrcDir()
+
+    path := ""
+    if len(os.Args) >= 2 {
+        path = os.Args[1]
+    }
+    srcDir, err := SrcDir(path)
     if err != nil {
         panic(err)
     }
@@ -83,16 +88,17 @@ func main() {
     }
 }
 
-func SrcDir() (string, error) {
+func SrcDir(path string) (string, error) {
     exeDir, err := ExeDir()
     if err != nil {
         return "", err
     }
 
-    dir, err := filepath.Abs(filepath.Join(exeDir, "..", ".."))
+    dir, err := filepath.Abs(filepath.Join(exeDir, path))
     if err != nil {
         return "", err
     }
+
     return dir, nil
 }
 
