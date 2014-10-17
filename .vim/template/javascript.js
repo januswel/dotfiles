@@ -22,6 +22,8 @@ var require = {
     }
 };
 
+(function () {
+
 // define module
 define(['jquery'], function () {
 });
@@ -32,3 +34,5 @@ require(['jquery', 'jQuery.UI'], function ($) {
         $('input.datepicker').datepicker();
     });
 });
+
+})();
