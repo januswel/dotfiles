@@ -1,4 +1,4 @@
-'use strinct';
+'use strict';
 
 // RequireJS config
 var require = {
