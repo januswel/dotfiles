@@ -35,4 +35,32 @@ require(['jquery', 'jQuery.UI'], function ($) {
     });
 });
 
+// AngularJS
+// create app
+var app = angular.module('app-name', ['ngResource']);
+
+// load app
+var app = angular.module('app-name');
+
+// factory
+app.factory('resources', [
+    '$resource',
+    function ($resource) {
+        return {
+            users: $resource('/api/users/:id'),
+            articles: $resource('/api/articles/:id'),
+        };
+    }
+]);
+
+// controller
+app.controller('controller-name', [
+    '$scope',
+    'resources',
+    'other-requirements',
+    function ($scope, resources, otherRequirements) {
+        this.user = resources.users.get(7321);
+    }
+]);
+
 })();
