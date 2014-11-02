@@ -159,9 +159,6 @@ autocmd!
 " fmaps {{{2
 autocmd VimperatorEnter .* :source ~/.vimperator/fmaps.vimp
 
-" Gunosy {{{2
-autocmd LocationChange http://gunosy.com/janus_wel/.+ open http://gunosy.com/janus_wel/
-
 
 " finish {{{1
 echo "GET READY!!"
