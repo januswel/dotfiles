@@ -22,3 +22,5 @@
 [core]
     pager = less -R
     excludesfile = ~/.gitignore
+[merge]
+	ff = false
