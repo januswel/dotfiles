@@ -1,5 +1,3 @@
-'use strict';
-
 // RequireJS config
 var require = {
     baseUrl: './scripts',
@@ -23,6 +21,8 @@ var require = {
 };
 
 (function () {
+    'use strict';
+
     // define module
     define(['jquery'], function () {
     });
