@@ -123,6 +123,9 @@ inoremap <C-h> <BS>
 " sourcing .vimperatorrc
 noremap <Leader>r :source ~/.vimperatorrc<CR>
 
+" searching {{{2
+noremap <Leader>h :nohlsearch<CR>
+
 " plugins {{{2
 " noscript.js
 noremap <Leader>s :noscript toggletemp<CR>
