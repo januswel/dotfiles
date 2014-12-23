@@ -23,44 +23,42 @@ var require = {
 };
 
 (function () {
-
-// define module
-define(['jquery'], function () {
-});
-
-// script
-require(['jquery', 'jQuery.UI'], function ($) {
-    $(document).ready(function () {
-        $('input.datepicker').datepicker();
+    // define module
+    define(['jquery'], function () {
     });
-});
 
-// AngularJS
-// create app
-var app = angular.module('app-name', ['ngResource']);
+    // script
+    require(['jquery', 'jQuery.UI'], function ($) {
+        $(document).ready(function () {
+            $('input.datepicker').datepicker();
+        });
+    });
 
-// load app
-var app = angular.module('app-name');
+    // AngularJS
+    // create app
+    var app = angular.module('app-name', ['ngResource']);
 
-// factory
-app.factory('resources', [
-    '$resource',
-    function ($resource) {
-        return {
-            users: $resource('/api/users/:id'),
-            articles: $resource('/api/articles/:id'),
-        };
-    }
-]);
+    // load app
+    var app = angular.module('app-name');
 
-// controller
-app.controller('controller-name', [
-    '$scope',
-    'resources',
-    'other-requirements',
-    function ($scope, resources, otherRequirements) {
-        this.user = resources.users.get(7321);
-    }
-]);
+    // factory
+    app.factory('resources', [
+        '$resource',
+        function ($resource) {
+            return {
+                users: $resource('/api/users/:id'),
+                articles: $resource('/api/articles/:id'),
+            };
+        }
+    ]);
 
+    // controller
+    app.controller('controller-name', [
+        '$scope',
+        'resources',
+        'other-requirements',
+        function ($scope, resources, otherRequirements) {
+            this.user = resources.users.get(7321);
+        }
+    ]);
 })();
