@@ -365,8 +365,8 @@ nnoremap t :tabnew<Space>
 " open the buffer in a new tab page from the buffer list
 nnoremap <S-t> :tab sbuffer<Space>
 
-" open the tag under the cursor in a new tabpage
-nnoremap <silent><C-]> :tab wincmd ]<CR>
+" shows list if there are more than one candidates, when jump over tags
+nnoremap <silent><C-]> g]
 
 " switch between tabpages
 nnoremap <C-h> gT
