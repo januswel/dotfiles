@@ -136,6 +136,14 @@ noremap A :mr<Space>alc<Space>
 noremap E :mr<Space>oxford<Space>
 noremap C :mr<Space>cambridge<Space>
 
+" page specific {{{2
+" nico {{{3
+" with stella.js
+nnoremap -urls='^http://www\.nicovideo\.jp/watch/' p :stplay<CR>
+nnoremap -urls='^http://www\.nicovideo\.jp/watch/' > :stseek! 30<CR>
+nnoremap -urls='^http://www\.nicovideo\.jp/watch/' < :stseek! -30<CR>
+
+
 
 " styles {{{1
 " inactivate IME when enter the command-line
