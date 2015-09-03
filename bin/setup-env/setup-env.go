@@ -1,3 +1,12 @@
+/*
+ * tool for setup env
+ *
+ * build
+ *  GOOS=darwin go build -o setup-env.darwin setup-env.go
+ *  GOOS=windows GOARCH=386 go build -o setup-env.386.exe setup-env.go
+ *  GOOS=windows GOARCH=x64 go build -o setup-env.x64.exe setup-env.go
+ * */
+
 package main
 
 import (
