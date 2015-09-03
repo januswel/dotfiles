@@ -109,12 +109,3 @@ if [ "$TERM" != "dumb" ]; then
         eval $(dircolors $DIRCOLORS_SETTINGS -b)
     fi
 fi
-
-# clean up
-unset LS_COMMAND
-unset CP_COMMAND
-unset MV_COMMAND
-unset RM_COMMAND
-unset DIRCOLORS_COMMAND
-unset DIRCOLORS_SETTINGS
-
