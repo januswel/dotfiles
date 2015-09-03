@@ -11,7 +11,7 @@ filetype plugin indent off
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     set runtimepath+=~/vimfiles/bundle/neobundle.vim/
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
 NeoBundle 'mattn/emmet-vim'
@@ -41,6 +41,8 @@ NeoBundle 'januswel/uniconv.vim'
 " filetype settings
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/powershell.vim'
+
+call neobundle#end()
 
 " options {{{1
 " general {{{2
