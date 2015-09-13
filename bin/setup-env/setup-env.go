@@ -2,9 +2,11 @@
  * tool for setup env
  *
  * build
- *  GOOS=darwin go build -o setup-env.darwin setup-env.go
- *  GOOS=windows GOARCH=386 go build -o setup-env.386.exe setup-env.go
- *  GOOS=windows GOARCH=x64 go build -o setup-env.x64.exe setup-env.go
+ *  GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -o setup-env.amd64.darwin setup-env.go
+ *  GOOS=windows GOARCH=386 CGO_ENABLED=0 go build -o setup-env.386.exe setup-env.go
+ *  GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o setup-env.amd64.exe setup-env.go
+ *  GOOS=linux GOARCH=386 CGO_ENABLED=0 go build -o setup-env.386.linux setup-env.go
+ *  GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o setup-env.amd64.linux setup-env.go
  * */
 
 package main
