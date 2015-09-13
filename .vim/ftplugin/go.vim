@@ -1,5 +1,6 @@
 " vim ftplugin file
 " Filename:     go.vim
+" Language:     golang
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " License:      MIT License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
@@ -11,6 +12,10 @@ if exists("b:did_ftplugin")
   finish
 endif
 let b:did_ftplugin = 1
+
+" reset the value of 'cpoptions' for portability
+let s:save_cpoptions = &cpoptions
+set cpoptions&vim
 
 " main {{{1
 " options {{{2
