@@ -11,6 +11,7 @@ CP_COMMAND="cp"
 MV_COMMAND="mv"
 RM_COMMAND="rm"
 DIRCOLORS_COMMAND="dircolors"
+CTAGS_COMMAND="ctags"
 
 # settings for Mac OS X
 if [ "Darwin" = $(uname) ]; then
@@ -45,6 +46,7 @@ if [ "Darwin" = $(uname) ]; then
     RM_COMMAND="grm"
     DIRCOLORS_COMMAND="gdircolors"
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
+    CTAGS_COMMAND="`brew --prefix`/bin/ctags"
 fi
 
 # completions
