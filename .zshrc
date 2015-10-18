@@ -28,8 +28,8 @@ if [ "Darwin" = $(uname) ]; then
     export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 
     # for Mac OS X bug
-    unset LD_LIBRARY_PATH
-    unset DYLD_LIBRARY_PATH
+    #unset LD_LIBRARY_PATH
+    #unset DYLD_LIBRARY_PATH
 
     # for Java
     alias java="java -Dfile.encoding=UTF-8"
@@ -110,4 +110,12 @@ if [ "$TERM" != "dumb" ]; then
     if [ -r "$DIRCOLORS_SETTINGS" ]; then
         eval $(dircolors $DIRCOLORS_SETTINGS -b)
     fi
+fi
+
+# openssl
+OPENSSL_HOME=/usr/local/opt/openssl
+if [ -d ${OPENSSL_HOME} ]; then
+    export PATH=${OPENSSL_HOME}/bin${PATH:+:}${PATH}
+    export LD_LIBRARY_PATH=${OPENSSL_HOME}/lib${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
+    export CPATH=${OPENSSL_HOME}/include:${CPATH:+:}${CPATH}
 fi
