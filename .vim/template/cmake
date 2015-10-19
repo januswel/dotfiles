@@ -1,0 +1,89 @@
+cmake_minimum_required(VERSION 2.8)
+
+## settings for C++
+project(MyProject CXX)
+
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -pedantic -Wcast-align -Wcast-qual -Wconversion -Wdisabled-optimization -Wendif-labels -Wfloat-equal -Winit-self -Winline -Wlogical-op -Wmissing-include-dirs -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wshadow -Wsign-promo -Wswitch-default -Wswitch-enum -Wunsafe-loop-optimizations -Wvariadic-macros -Wwrite-strings ")
+set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0 -pg")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -s -DNDEBUG -march=native")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g3 -Og -pg")
+set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -s -DNDEBUG -march=native")
+
+## include sub directories
+add_subdirectory(exe)
+add_subdirectory(lib)
+
+## build library
+add_library(my-lib
+    my-class.cpp
+    )
+
+## build executable
+add_executable(my-exe
+    main.cpp
+    )
+
+target_link_libraries(my-exe
+    my-lib)
+
+## enable test
+if(NOT without-test)
+    enable_testing()
+    include(cmake/gtest.cmake)
+    add_subdirectory(test)
+endif()
+
+## test
+add_executable(my-test main.cpp)
+target_link_libraries(my-test
+    gtest
+    gtest_main
+    pthread
+    my-lib
+    )
+
+add_test(
+    NAME MyTest
+    COMMAND $<TARGET_FILE:my-test>
+    )
+# test with sudo
+# http://qiita.com/janus_wel/items/3760b314e80266a47617
+add_test(
+    NAME MyTest
+    COMMAND ${CMAKE_SOURCE_DIR}/cmake/sudo.sh $<TARGET_FILE:my-test>
+    )
+
+# run with: ctest -L lib
+set_property(
+    TEST MyTest
+    PROPERTY LABELS lib
+    )
+
+## gtest.cmake
+cmake_minimum_required(VERSION 2.8)
+
+# Google Test settings
+include(ExternalProject)
+
+ExternalProject_Add(
+    GoogleTest
+    URL https://googletest.googlecode.com/files/gtest-1.7.0.zip
+    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/lib
+    INSTALL_COMMAND ""
+    LOG_DOWNLOAD ON
+    )
+
+ExternalProject_Get_Property(GoogleTest source_dir)
+include_directories(${source_dir}/include)
+
+ExternalProject_Get_Property(GoogleTest binary_dir)
+add_library(gtest STATIC IMPORTED)
+set_property(
+    TARGET gtest
+    PROPERTY IMPORTED_LOCATION ${binary_dir}/libgtest.a
+    )
+add_library(gtest_main STATIC IMPORTED)
+set_property(
+    TARGET gtest_main
+    PROPERTY IMPORTED_LOCATION ${binary_dir}/libgtest_main.a
+    )
