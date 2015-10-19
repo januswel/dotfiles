@@ -10,9 +10,9 @@
 #define substitute(substitute(expand('%:t'),'\.','_',''),'.*','\U\0','')
 
 namespace util {
-    namespace "%:t:r" {
-    }
-}
+namespace "%:t:r" {
+}  // namespace "%:t:r"
+}  // namespace util
 
-#endif // substitute(substitute(expand('%:t'),'\.','_',''),'.*','\U\0','')
+#endif  // substitute(substitute(expand('%:t'),'\.','_',''),'.*','\U\0','')
 
