@@ -119,3 +119,6 @@ if [ -d ${OPENSSL_HOME} ]; then
     export LD_LIBRARY_PATH=${OPENSSL_HOME}/lib${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
     export CPATH=${OPENSSL_HOME}/include:${CPATH:+:}${CPATH}
 fi
+
+# suppress suspend by ctrl-s
+stty stop undef
