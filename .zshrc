@@ -46,7 +46,7 @@ if [ "Darwin" = $(uname) ]; then
     RM_COMMAND="grm"
     DIRCOLORS_COMMAND="gdircolors"
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
-    CTAGS_COMMAND="`brew --prefix`/bin/ctags"
+    CTAGS_COMMAND=$(brew --prefix)"/bin/ctags"
 fi
 
 # completions
