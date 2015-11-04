@@ -95,3 +95,6 @@ set_property(
     TARGET gtest_main
     PROPERTY IMPORTED_LOCATION ${binary_dir}/libgtest_main.a
     )
+
+## install
+set(CMAKE_INSTALL_PREFIX "/usr/local")
