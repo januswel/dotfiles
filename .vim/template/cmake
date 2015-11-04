@@ -18,8 +18,8 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g3 -Og -pg")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -s -DNDEBUG -march=native")
 
 ## include sub directories
-add_subdirectory(exe)
 add_subdirectory(lib)
+add_subdirectory(exe)
 
 ## build library
 add_library(my-lib
