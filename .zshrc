@@ -130,6 +130,3 @@ stty stop undef
 # history operations
 bindkey '^R' history-beginning-search-backward
 bindkey '^S' history-beginning-search-forward
-
-# for docker-toolbox
-source ./bin/docker-toolbox.sh
