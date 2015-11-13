@@ -73,10 +73,13 @@ precmd() {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     psvar[1]=$vcs_info_msg_0_
+    if [ ${DOCKER_MACHINE_NAME} ]; then
+        psvar[2]="{${DOCKER_MACHINE_NAME}}"
+    fi
 }
 
 PROMPT="%B%{$fg[green]%}${USER}@%m${WINDOW:+"[$WINDOW]"}%(!.#.$) %{$reset_color%}%b"
-RPROMPT="%B%{$fg[cyan]%}[%~%1v]%{$reset_color%}%b"
+RPROMPT="%B%{$fg[cyan]%}[%~%1v%2v]%{$reset_color%}%b"
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
