@@ -492,6 +492,10 @@ abbreviate acknowledgement acknowledgment
 
 " script {{{1
 
+augroup tags
+    autocmd!
+    autocmd BufNewFile,BufRead *.h,*.hpp,*.c,*.cpp set tags+=~/tags
+augroup END
 
 " }}}1
 " vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
