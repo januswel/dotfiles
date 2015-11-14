@@ -1,4 +1,3 @@
-bin
 .bash_aliases
 .bash_profile
 .bashrc
@@ -7,10 +6,7 @@ bin
 .gitignore
 .gvimrc
 .tidyrc
-.tmux.conf
 .vim:vimfiles
 .vimperator:vimperator
 .vimperatorrc
 .vimrc
-.zprofile
-.zshrc"
