@@ -24,3 +24,5 @@
     excludesfile = ~/.gitignore
 [merge]
 	ff = false
+[diff]
+    renames = true
