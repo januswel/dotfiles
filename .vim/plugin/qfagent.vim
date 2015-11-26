@@ -62,10 +62,10 @@ endfunction
 " autocmds {{{2
 " for make, internal grep, external grep
 augroup qfagent
-    autocmd QuickfixCmdPost make,vimgrep,grep   call s:RemoveCRFromQFList()
-    autocmd QuickfixCmdPost make,vimgrep,grep   call s:ConvertEncodingQFList()
+    autocmd QuickfixCmdPost make,vimgrep,grep,helpgrep  call s:RemoveCRFromQFList()
+    autocmd QuickfixCmdPost make,vimgrep,grep,helpgrep  call s:ConvertEncodingQFList()
     " show quickfix window automatically
-    autocmd QuickFixCmdPost make,vimgrep,grep   cwindow
+    autocmd QuickFixCmdPost make,vimgrep,grep,helpgrep  cwindow
 augroup END
 
 " post-processings {{{1
