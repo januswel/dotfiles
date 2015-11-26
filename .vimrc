@@ -38,6 +38,8 @@ NeoBundle 'januswel/profile.vim'
 NeoBundle 'januswel/sendbrowser.vim'
 NeoBundle 'januswel/uniconv.vim'
 
+NeoBundle 'januswel/rlhelp.vim'
+
 " filetype settings
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/powershell.vim'
