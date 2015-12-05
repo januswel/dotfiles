@@ -239,11 +239,6 @@ if exists('&ambiwidth')
     set ambiwidth=double
 endif
 
-" turn off disabling IM at entering input mode
-if exists('&imdisableactivate')
-    set noimdisableactivate
-endif
-
 " clipboard is used as unnamed register
 if has('gui') || has('xterm_clipboard')
     set clipboard=unnamed
