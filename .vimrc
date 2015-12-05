@@ -64,7 +64,7 @@ set nottimeout      " once agein, don't
 
 " backup {{{2
 " The directories that are named as "backup" and found in runtime-paths are
-" setted in 'backupdir'.
+" set in 'backupdir'.
 let s:candidates = split(globpath(&runtimepath, 'backup'), '\n')
 let s:backupdirs = []
 let s:candidate = ''
@@ -163,7 +163,7 @@ let &tabline =  '%!jwlib#tabline#NoMouseTabLine('
 set tabstop=4       " tab width
 set shiftwidth=4    " number of spaces inserted by cindent, <<, >> and so on
 " number of spaces inserted by <Tab> or deleted by <BS> (enterd by user)
-set softtabstop=0   " when this is setted to 0, use content of 'tabstop'
+set softtabstop=0   " when this is set to 0, use content of 'tabstop'
 set expandtab       " expand tab to spaces
 set autoindent      " auto indent on
 
@@ -213,7 +213,7 @@ set complete=.,w,b,t,i
 set completeopt=menu,menuone,preview
 
 " encoding & format {{{2
-" 'fileencodings' is setted by plugin "jaencs.vim"
+" 'fileencodings' is set by plugin "jaencs.vim"
 if has('win32')
     if has('gui')
         let &termencoding = &encoding
