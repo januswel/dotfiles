@@ -264,6 +264,9 @@ endif
 if has('migemo')
     set migemo
     set migemodict=$VIM/dict/utf-8.d/migemo-dict
+    if has('mac')
+        set migemodict=$VIMRUNTIME/dict/migemo-dict
+    endif
 endif
 
 
@@ -413,6 +416,9 @@ nnoremap *  *zvzt
 nnoremap #  #zvzt
 nnoremap g* g*zvzt
 nnoremap g# g#zvzt
+
+" use migemo
+nnoremap /  g/
 
 " stop the highlighting matched texts
 nnoremap <silent><Leader>h :nohlsearch<CR>
