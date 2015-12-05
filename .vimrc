@@ -219,6 +219,11 @@ if has('win32')
     endif
 endif
 
+" language and encoding of menu
+if has('menu') && has('multi_lang')
+    set langmenu=ja.utf-8
+endif
+
 " end-of-line format
 " candidates of EOL format for exist files
 " first one is used as new file's EOL format
