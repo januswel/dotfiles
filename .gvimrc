@@ -6,7 +6,6 @@
 set lines=25            " typical
 set columns=90          " margin for 'number' and 'foldcolumn'
 set guioptions=c        " show no GUI components
-set noimdisable         " use IM
 if has('win32')
     " When VL Gothic isn't found in the system, use MS Gothic.
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
@@ -31,11 +30,6 @@ endif
 " for East Asian Width Class Ambiguous
 if exists('&ambiwidth')
     set ambiwidth=double
-endif
-
-" turn off disabling IM at entering input mode
-if exists('&imdisableactivate')
-    set noimdisableactivate
 endif
 
 

@@ -188,6 +188,10 @@ set helpheight=0    " a height of help window is half of the current window
 set backspace=indent,eol,start
 " <C-A> and <C-X> affect also hexadecimal number and single alphabet
 set nrformats=hex,alpha
+" use IM
+if has('xim') || has('multi_byte_ime') || has('global-ime')
+    set noimdisable
+endif
 
 " completion {{{2
 " command-line mode
@@ -230,6 +234,11 @@ endif
 set fileformats=unix,dos
 
 " platform specific {{{2
+" turn off disabling IM at entering input mode
+if exists('&imdisableactivate')
+    set noimdisableactivate
+endif
+
 " clipboard is used as unnamed register
 if has('gui') || has('xterm_clipboard')
     set clipboard=unnamed
