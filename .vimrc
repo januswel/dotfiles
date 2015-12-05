@@ -151,6 +151,9 @@ let s:statusline = [
 let &statusline = join(s:statusline, '')
 unlet s:statusline
 
+" show status line always
+set laststatus=2
+
 " tabline {{{2
 let &tabline =  '%!jwlib#tabline#NoMouseTabLine('
             \ .     '"jwlib#tabline#ExtAndFileTypeTabLabel"'

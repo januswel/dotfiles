@@ -6,7 +6,6 @@
 set lines=25            " typical
 set columns=90          " margin for 'number' and 'foldcolumn'
 set guioptions=c        " show no GUI components
-set laststatus=2        " show status line always
 set cmdheight=1         " height of command-line is 1 row
 set langmenu=ja.utf-8   " language and encoding of menu
 set noimdisable         " use IM
