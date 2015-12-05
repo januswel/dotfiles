@@ -215,7 +215,7 @@ set completeopt=menu,menuone,preview
 " encoding & format {{{2
 " 'fileencodings' is set by plugin "jaencs.vim"
 if has('win32')
-    if has('gui')
+    if has('gui_running')
         let &termencoding = &encoding
         set encoding=utf-8
     else
