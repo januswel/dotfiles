@@ -18,8 +18,7 @@ if has('win32')
     " When VL Gothic isn't found in the system, use MS Gothic.
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
     set linespace=0
-endif
-if has('mac')
+elseif has('mac')
     set guifont=VL_Gothic:h16
     set linespace=0
 endif
