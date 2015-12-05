@@ -23,11 +23,6 @@ if has('mac')
     set linespace=0
 endif
 
-" for East Asian Width Class Ambiguous
-if exists('&ambiwidth')
-    set ambiwidth=double
-endif
-
 
 " syntax highlight {{{1
 syntax enable       " use syntax highlight

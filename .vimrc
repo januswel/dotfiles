@@ -234,6 +234,11 @@ endif
 set fileformats=unix,dos
 
 " platform specific {{{2
+" for East Asian Width Class Ambiguous
+if exists('&ambiwidth')
+    set ambiwidth=double
+endif
+
 " turn off disabling IM at entering input mode
 if exists('&imdisableactivate')
     set noimdisableactivate
