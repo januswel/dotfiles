@@ -193,6 +193,8 @@ if has('xim') || has('multi_byte_ime') || has('global-ime')
     set noimdisable
 endif
 
+set spelllang=en
+
 " completion {{{2
 " command-line mode
 set wildmenu                " command-line completion on
