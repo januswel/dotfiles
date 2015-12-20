@@ -192,8 +192,8 @@ set nrformats=hex,alpha
 if has('xim') || has('multi_byte_ime') || has('global-ime')
     set noimdisable
 endif
-
-set spelllang=en
+" ignore CJK characters when spell checking
+set spelllang=cjk,en
 
 " completion {{{2
 " command-line mode
