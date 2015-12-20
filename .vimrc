@@ -184,7 +184,7 @@ set splitright      " make a new window at the right of the current window
 set helpheight=0    " a height of help window is half of the current window
 
 " editing {{{2
-" allow backspacing over autoindent, line breakes, start of insert
+" allow backspacing over autoindent, line breaks, start of insert
 set backspace=indent,eol,start
 " <C-A> and <C-X> affect also hexadecimal number and single alphabet
 set nrformats=hex,alpha
