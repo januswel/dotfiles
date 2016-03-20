@@ -330,22 +330,10 @@ endif
 " general {{{2
 " make
 nnoremap <silent><Leader>m :update<CR>:make! "%"<CR>
-" source
-nnoremap <silent><Leader><S-s> :source ~/.vimrc<CR>:source ~/.gvimrc<CR>
-" jump to the tag under the cursor
-nnoremap <silent><Leader>p :execute ':ptag ' . expand('<cword>')<CR>
-" toggle 'paste'
-nnoremap <silent><Leader><S-p> :setlocal paste!<CR>:setlocal paste?<CR>
 " show buffer list
 nnoremap <silent><Leader>b :buffers<CR>
 " yank all lines of the buffer
 nnoremap <silent><Leader>y :%yank<CR>
-" generate tags for help
-if has('win32')
-    nnoremap <silent><Leader>gh :helptags ~/vimfiles/doc<CR>
-else
-    nnoremap <silent><Leader>gh :helptags ~/.vim/doc<CR>
-endif
 " toggle spell check
 if has('spell') && has('syntax')
     nnoremap <silent><Leader>s :setlocal spell!<CR>:setlocal spell?<CR>
@@ -374,15 +362,6 @@ vnoremap ; <Nop>
 " move cursor among windows, to next one and to previous one
 nnoremap <silent><C-j> :wincmd w<CR>
 nnoremap <silent><C-k> :wincmd W<CR>
-
-" move the window to a new tab page
-nnoremap <silent><Leader>w :wincmd T<CR>
-
-" adjust heights and widths of all visible windows equally
-nnoremap <silent><Leader>= :wincmd =<CR>
-
-" open the result of looking up a keyword under the cursor in new tabpage
-nnoremap <silent><S-k> K:wincmd T<CR>
 
 " :tabnew is hard to complete
 nnoremap t :tabnew<Space>
@@ -431,10 +410,7 @@ nnoremap <silent><Leader>t :match Error /\t/<CR>
 nnoremap <S-s> i<CR><Esc>
 
 " to upper case
-nnoremap g<S-l> gU
 inoremap <C-u> <Esc>gUiw`]a
-" to lower case
-nnoremap gl gu
 " to camel case
 inoremap <C-c> <Esc>bgUllgue`]a
 
