@@ -391,8 +391,10 @@ nnoremap #  #zvzt
 nnoremap g* g*zvzt
 nnoremap g# g#zvzt
 
-" use migemo
-nnoremap /  g/
+if has('migemo')
+    " use migemo
+    nnoremap /  g/
+endif
 
 " stop the highlighting matched texts
 nnoremap <silent><Leader>h :nohlsearch<CR>
