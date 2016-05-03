@@ -135,6 +135,9 @@ stty stop undef
 bindkey '^R' history-beginning-search-backward
 bindkey '^S' history-beginning-search-forward
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
