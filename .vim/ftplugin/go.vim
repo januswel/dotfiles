@@ -18,6 +18,35 @@ let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
 " main {{{1
+" mappings {{{2
+if !(exists('no_plugin_maps') && no_plugin_maps)
+            \ && !(exists('no_ftgo_maps') && no_example_maps)
+
+    " hasmapto() and <unique> are required to avoid overlap
+    if !hasmapto('<Plug>(run-by-go-run)', 'n')
+        nmap <unique><buffer><LocalLeader>r
+                    \ <Plug>(run-by-go-run)
+    endif
+endif
+
+nnoremap <script><silent><buffer><Plug>(run-by-go-run)
+            \ :call <SID>RunByGoRun()<CR>
+
+" functions {{{2
+if !exists('*s:RunByGoRun')
+    function s:RunByGoRun()
+        let s:target = expand('%:p')
+        try
+            silent execute 'new +1,$!go\ run\ ' . s:target
+            silent execute 'setlocal buftype=nofile'
+            silent execute 'setlocal bufhidden=hide'
+            silent execute 'setlocal noswapfile'
+        catch
+            echoerr v:exception
+        endtry
+    endfunction
+endif
+
 " options {{{2
 " for ftplugin files
 setlocal formatoptions-=t
