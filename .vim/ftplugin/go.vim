@@ -32,6 +32,9 @@ endif
 nnoremap <script><silent><buffer><Plug>(run-by-go-run)
             \ :call <SID>RunByGoRun()<CR>
 
+" compiler {{{2
+compiler go
+
 " functions {{{2
 if !exists('*s:RunByGoRun')
     function s:RunByGoRun()
