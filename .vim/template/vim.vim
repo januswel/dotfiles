@@ -6,9 +6,12 @@
 "
 "   - https://github.com/januswel/jwlib.git
 "       - autoload/jwlib/buf/shell.vim
+"
+" }}}1
 " License:      MIT License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
 "   https://raw.githubusercontent.com/januswel/<repo name>/master/LICENSE
+" }}}1
 
 " preparations {{{1
 " check if this plugin is already loaded or not
