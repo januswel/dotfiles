@@ -97,6 +97,7 @@ alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 alias tmux="tmux -2"
 alias d="docker"
+alias n="npm"
 
 if [ -x "${VIM_COMMAND}" ]; then
     alias vim="${VIM_COMMAND}"
@@ -133,3 +134,7 @@ stty stop undef
 # history operations
 bindkey '^R' history-beginning-search-backward
 bindkey '^S' history-beginning-search-forward
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
