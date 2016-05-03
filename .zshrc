@@ -15,6 +15,9 @@ CTAGS_COMMAND="ctags"
 
 # settings for Mac OS X
 if [ "Darwin" = $(uname) ]; then
+    # for git
+    export PATH=$(brew --prefix git)/bin:${PATH}
+
     # for Android development
     export ANDROID_HOME=~/android-sdks
     export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
