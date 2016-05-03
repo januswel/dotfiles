@@ -36,6 +36,46 @@ nnoremap <script><silent><buffer><Plug>(run-by-go-run)
 compiler go
 
 " functions {{{2
+" save cursor and screen positions
+" pair up this function with s:RestorePositions
+if !exists('*s:SavePositions')
+    function s:SavePositions()
+        " cursor pos
+        let cursor = getpos('.')
+
+        " screen pos
+        normal! H
+        let screen = getpos('.')
+
+        return [screen, cursor]
+    endfunction
+endif
+
+" restore cursor and screen positions
+" pair up this function with s:SavePositions
+if !exists('*s:RestorePositions')
+    function s:RestorePositions(pos)
+        " screen
+        call setpos('.', a:pos[0])
+
+        " cursor
+        normal! zt
+        call setpos('.', a:pos[1])
+    endfunction
+endif
+
+if !exists('*s:ModifyByGoFmt')
+    function s:ModifyByGoFmt()
+        let pos = s:SavePositions()
+        try
+            silent execute '1,$!gofmt'
+            call s:RestorePositions(pos)
+        catch
+            echoerr v:exception
+        endtry
+    endfunction
+endif
+
 if !exists('*s:RunByGoRun')
     function s:RunByGoRun()
         let s:target = expand('%:p')
@@ -54,6 +94,11 @@ endif
 " for ftplugin files
 setlocal formatoptions-=t
 setlocal formatoptions+=rol
+
+augroup go
+    autocmd!
+    autocmd BufWritePre *.go call <SID>ModifyByGoFmt()
+augroup END
 
 " post-processings {{{1
 " restore the value of 'cpoptions'
