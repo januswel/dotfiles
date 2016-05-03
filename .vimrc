@@ -43,6 +43,7 @@ NeoBundle 'januswel/rlhelp.vim'
 " filetype settings
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/powershell.vim'
+NeoBundle 'januswel/go.vim'
 
 NeoBundle 'kchmck/vim-coffee-script'
 
