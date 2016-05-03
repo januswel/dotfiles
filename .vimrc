@@ -44,6 +44,8 @@ NeoBundle 'januswel/rlhelp.vim'
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/powershell.vim'
 
+NeoBundle 'kchmck/vim-coffee-script'
+
 call neobundle#end()
 
 " options {{{1
