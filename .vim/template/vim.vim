@@ -8,7 +8,7 @@
 "       - autoload/jwlib/buf/shell.vim
 " License:      MIT License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
-"   https://github.com/januswel/<VIMREPO>/blob/master/LICENSE
+"   https://raw.githubusercontent.com/januswel/<repo name>/master/LICENSE
 
 " preparations {{{1
 " check if this plugin is already loaded or not
