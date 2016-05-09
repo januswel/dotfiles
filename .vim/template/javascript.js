@@ -1,7 +1,7 @@
 'use strict';
 
-var solver = function (input) {
-    var answer = input;
+var solver = function (lines) {
+    var answer = lines;
     return answer;
 };
 
