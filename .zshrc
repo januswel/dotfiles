@@ -97,7 +97,6 @@ alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 alias tmux="tmux -2"
 alias d="docker"
-alias n="npm"
 
 if [ -x "${VIM_COMMAND}" ]; then
     alias vim="${VIM_COMMAND}"
