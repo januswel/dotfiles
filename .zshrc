@@ -137,10 +137,6 @@ bindkey '^S' history-beginning-search-forward
 # direnv
 eval "$(direnv hook zsh)"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
 # golang
 export GOPATH=${HOME}/work/dev/lang/golang
 export PATH=${PATH}:${GOPATH}/bin
