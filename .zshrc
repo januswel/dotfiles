@@ -140,3 +140,6 @@ eval "$(direnv hook zsh)"
 # golang
 export GOPATH=${HOME}/work/dev/lang/golang
 export PATH=${PATH}:${GOPATH}/bin
+
+# avn
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
