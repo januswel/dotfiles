@@ -143,3 +143,8 @@ export PATH=${PATH}:${GOPATH}/bin
 
 # avn
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
+
+# pyenv
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+fi
