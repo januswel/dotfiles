@@ -12,13 +12,29 @@
     c = commit
     d = diff
     f = fetch
+    h = help
     l = log
-    r = rebase
     s = status
-    pom = push origin master
     co = checkout
+    pom = push origin master
+
     graph = log --graph --all --oneline --decorate
+
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+
+    interactive = add -p
+    edit = rebase -i
+
+    unstage = reset HEAD --
+    discard = checkout --
+    discardall = reset --hard
+    uncommit = reset HEAD~
+
     overwrite = push --force-with-lease
+
 [core]
     pager = less -R
     excludesfile = ~/.gitignore
