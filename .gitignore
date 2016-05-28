@@ -11,3 +11,6 @@
 # Vimperator
 .vimperator/info
 .vimperator/plugin/*
+
+# Python
+.python-version
