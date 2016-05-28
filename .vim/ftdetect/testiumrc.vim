@@ -1,5 +1,5 @@
 " vim ftdetect file
-" Filename:     .testiumrc.vim
+" Filename:     testiumrc.vim
 " Maintainer:   janus_wel <janus.wel.3@gmail.com>
 " License:      MIT License {{{1
 "   See under URL.  Note that redistribution is permitted with LICENSE.
