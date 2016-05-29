@@ -21,7 +21,6 @@ NeoBundle 'januswel/jwlib.vim'
 
 NeoBundle 'januswel/binedit.vim'
 NeoBundle 'januswel/fencdefault.vim'
-NeoBundle 'januswel/fencja.vim'
 NeoBundle 'januswel/protect.vim'
 NeoBundle 'januswel/setscroll.vim'
 NeoBundle 'januswel/smrtcmpl.vim'
