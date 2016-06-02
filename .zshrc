@@ -96,6 +96,7 @@ alias ctags="${CTAGS_COMMAND}"
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 alias d="docker"
+alias node="node --use_strict"
 
 if [ -x "${VIM_COMMAND}" ]; then
     alias vim="${VIM_COMMAND}"
