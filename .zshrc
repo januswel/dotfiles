@@ -95,7 +95,6 @@ alias dircolors="$DIRCOLORS_COMMAND"
 alias ctags="${CTAGS_COMMAND}"
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
-alias tmux="tmux -2"
 alias d="docker"
 
 if [ -x "${VIM_COMMAND}" ]; then
