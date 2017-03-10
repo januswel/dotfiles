@@ -126,7 +126,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # openssl
-OPENSSL_HOME=/usr/local/opt/openssl
+OPENSSL_HOME=/usr/local/opt/openssl@1.1
 if [ -d ${OPENSSL_HOME} ]; then
     export PATH=${OPENSSL_HOME}/bin${PATH:+:}${PATH}
     export LD_LIBRARY_PATH=${OPENSSL_HOME}/lib${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
