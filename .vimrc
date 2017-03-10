@@ -49,6 +49,8 @@ NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'isRuslan/vim-es6'
 
+NeoBundle 'rust-lang/rust.vim'
+
 call neobundle#end()
 
 " options {{{1
@@ -303,6 +305,10 @@ let g:html_number_lines = 1
 let g:html_use_css = 1
 let g:html_use_encoding = &encoding
 let g:use_xhtml = 1
+
+" ftplugin {{{2
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 
 " disable plugin {{{2
 " settings for Kaoriya version

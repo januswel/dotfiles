@@ -43,6 +43,9 @@ if [ "Darwin" = $(uname) ]; then
         eval "$(rbenv init -)";
     fi
 
+    # for Rust
+    source ${HOME}/.cargo/env
+
     LS_COMMAND="gls"
     CP_COMMAND="gcp"
     MV_COMMAND="gmv"
