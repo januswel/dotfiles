@@ -37,6 +37,8 @@ if [ "Darwin" = $(uname) ]; then
     # for Java
     alias java="java -Dfile.encoding=UTF-8"
     alias javac="javac -J-Dfile.encoding=UTF-8"
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    export PATH=${PATH}:${JAVA_HOME}/bin
 
     # for rbenv
     if which rbenv > /dev/null; then
