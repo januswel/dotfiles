@@ -47,6 +47,7 @@ NeoBundle 'januswel/go.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'isRuslan/vim-es6'
 
 call neobundle#end()
 
