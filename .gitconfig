@@ -11,7 +11,7 @@
     b = branch
     c = commit
     d = diff
-    f = fetch
+    f = fetch --prune
     h = help
     l = log
     s = status
