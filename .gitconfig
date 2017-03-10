@@ -33,6 +33,10 @@
     discardall = reset --hard
     uncommit = reset HEAD~
 
+    newbranch = checkout -b
+
+    deletetracking = branch -d -r --
+
     overwrite = push --force-with-lease
 
 [core]
