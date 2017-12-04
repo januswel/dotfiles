@@ -422,6 +422,11 @@ inoremap <C-u> <Esc>gUiw`]a
 " to camel case
 inoremap <C-c> <Esc>bgUllgue`]a
 
+" camelCase to kebabu-case
+vnoremap <Leader>ck :s/\<\@!\([A-Z]\)/-\l\1/g<CR>
+" kebabu-case to camelCase 
+vnoremap <Leader>cc :s/-\([a-z]\)/\u\1/g<CR>
+
 " tuck it
 " U+0020 SPACE
 vnoremap <Leader><Space> <Esc>`>a <Esc>`<i <Esc>
