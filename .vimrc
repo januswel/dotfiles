@@ -449,6 +449,8 @@ vnoremap <Leader>_ <Esc>`>a_<Esc>`<i_<Esc>
 " U+007C VERTICAL LINE
 " see :help map_bar
 vnoremap <Leader>| <Esc>`>a|<Esc>`<i|<Esc>
+" U+003A COLON
+vnoremap <Leader>: <Esc>`>a:<Esc>`<i:<Esc>
 " entity references, less and greater than sign
 vnoremap <Leader>a <Esc>`>a&gt;<Esc>`<i&lt;<Esc>`[
 " xhtml inline tags
