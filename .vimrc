@@ -43,6 +43,7 @@ NeoBundle 'januswel/rlhelp.vim'
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/powershell.vim'
 NeoBundle 'januswel/go.vim'
+NeoBundle 'januswel/javascript.vim'
 
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'cespare/vim-toml'
