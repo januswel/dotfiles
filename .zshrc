@@ -147,8 +147,9 @@ bindkey '^S' history-beginning-search-forward
 eval "$(direnv hook zsh)"
 
 # golang
+export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=${HOME}/work/dev/lang/golang
-export PATH=${PATH}:${GOPATH}/bin
+export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
 
 # avn
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
