@@ -14,3 +14,6 @@
 
 # Python
 .python-version
+
+# IntelliJ IDEA
+.idea
