@@ -157,4 +157,5 @@ export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
 # pyenv
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
