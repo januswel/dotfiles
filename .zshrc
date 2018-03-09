@@ -46,6 +46,7 @@ if [ "Darwin" = $(uname) ]; then
 
     # for Rust
     source ${HOME}/.cargo/env
+    export PATH=$HOME/.cargo/bin:$PATH
 
     # for AWS
     export PATH=${PATH}:~/Library/Python/2.7/bin
