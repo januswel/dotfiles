@@ -15,6 +15,10 @@ CTAGS_COMMAND="ctags"
 
 # settings for Mac OS X
 if [ "Darwin" = $(uname) ]; then
+    # for anyenv
+    export PATH=${HOME}/.anyenv/bin:${PATH}
+    eval "$(anyenv init -)"
+
     # for git
     export PATH=$(brew --prefix git)/bin:${PATH}
 
@@ -39,11 +43,6 @@ if [ "Darwin" = $(uname) ]; then
     alias javac="javac -J-Dfile.encoding=UTF-8"
     export JAVA_HOME=$(/usr/libexec/java_home)
     export PATH=${PATH}:${JAVA_HOME}/bin
-
-    # for rbenv
-    if which rbenv > /dev/null; then
-        eval "$(rbenv init -)";
-    fi
 
     # for Rust
     source ${HOME}/.cargo/env
@@ -150,12 +149,3 @@ eval "$(direnv hook zsh)"
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=${HOME}/work/dev/lang/golang
 export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
-
-# avn
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
-
-# pyenv
-if which pyenv > /dev/null; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
