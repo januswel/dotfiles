@@ -48,6 +48,11 @@ if [ "Darwin" = $(uname) ]; then
     source ${HOME}/.cargo/env
     export PATH=$HOME/.cargo/bin:$PATH
 
+    # golang
+    export GOROOT=/usr/local/opt/go/libexec
+    export GOPATH=${HOME}/work/dev/lang/golang
+    export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
+
     # for AWS
     export PATH=${PATH}:~/Library/Python/2.7/bin
 
@@ -145,8 +150,3 @@ bindkey '^S' history-beginning-search-forward
 
 # direnv
 eval "$(direnv hook zsh)"
-
-# golang
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=${HOME}/work/dev/lang/golang
-export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
