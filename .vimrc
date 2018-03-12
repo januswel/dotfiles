@@ -425,9 +425,13 @@ inoremap <C-u> <Esc>gUiw`]a
 inoremap <C-c> <Esc>bgUllgue`]a
 
 " camelCase to kebabu-case
-vnoremap <Leader>ck :s/\<\@!\([A-Z]\)/-\l\1/g<CR>
-" kebabu-case to camelCase 
-vnoremap <Leader>cc :s/-\([a-z]\)/\u\1/g<CR>
+vnoremap <Leader>cck :s/\<\@!\([A-Z]\)/-\l\1/g<CR>:nohlsearch<CR>
+" kebabu-case to camelCase
+vnoremap <Leader>ckc :s/-\([a-z]\)/\u\1/g<CR>:nohlsearch<CR>
+" camelCase to SNAKE_CASE
+vnoremap <Leader>ccs :s/\<\@!\([A-Z]\)/_\1/g<CR>:nohlsearch<CR>gUiw
+" SNAKE_CASE to camelCase
+vnoremap <Leader>csc gugv:s/_\([a-z]\)/\U\1/g<CR>:nohlsearch<CR>
 
 " tuck it
 " U+0020 SPACE
