@@ -39,6 +39,8 @@ NeoBundle 'januswel/uniconv.vim'
 
 NeoBundle 'januswel/rlhelp.vim'
 
+NeoBundle 'w0rp/ale'
+
 " filetype settings
 NeoBundle 'januswel/html5.vim'
 NeoBundle 'januswel/powershell.vim'
@@ -307,6 +309,9 @@ let g:html_number_lines = 1
 let g:html_use_css = 1
 let g:html_use_encoding = &encoding
 let g:use_xhtml = 1
+
+" plugin {{{2
+let g:ale_sign_column_always = 1
 
 " ftplugin {{{2
 let g:rustfmt_autosave = 1
