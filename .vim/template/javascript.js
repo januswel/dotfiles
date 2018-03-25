@@ -1,19 +1,19 @@
-'use strict';
+// @flow
 
-var solver = function (lines) {
-    var answer = lines;
-    return answer;
-};
+const solver = lines => {
+    const answer = lines
+    return answer
+}
 
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
+process.stdin.resume()
+process.stdin.setEncoding('utf8')
 
-var input = '';
-process.stdin.on('data', function (chunk) {
-    input += chunk;
-});
-process.stdin.on('end', function () {
-    var lines = input.trim().split('\n');
-    var answer = solver(lines);
-    console.log(answer);
-});
+let input = ''
+process.stdin.on('data', chunk => {
+    input += chunk
+})
+process.stdin.on('end', () => {
+    const lines = input.trim().split('\n')
+    const answer = solver(lines)
+    console.log(answer)
+})
