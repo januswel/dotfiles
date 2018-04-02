@@ -40,6 +40,7 @@ NeoBundle 'januswel/uniconv.vim'
 NeoBundle 'januswel/rlhelp.vim'
 
 NeoBundle 'w0rp/ale'
+NeoBundle 'junegunn/vader.vim'
 
 " filetype settings
 NeoBundle 'januswel/html5.vim'
