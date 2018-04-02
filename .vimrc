@@ -53,6 +53,7 @@ NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'posva/vim-vue'
+NeoBundle 'leafgarland/typescript-vim'
 
 NeoBundle 'rust-lang/rust.vim'
 
