@@ -22,10 +22,6 @@ if [ "Darwin" = $(uname) ]; then
     # for git
     export PATH=$(brew --prefix git)/bin:${PATH}
 
-    # for Android development
-    export ANDROID_HOME=${HOME}/Library/Android/sdk
-    export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
     # my utilities
     export PATH=~/bin:$PATH
 
@@ -48,6 +44,10 @@ if [ "Darwin" = $(uname) ]; then
     export GOROOT=/usr/local/opt/go/libexec
     export GOPATH=${HOME}/work/dev/lang/golang
     export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
+
+     # for Android development
+     export ANDROID_HOME=${HOME}/Library/Android/sdk
+     export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
     # for AWS
     export PATH=${PATH}:~/Library/Python/2.7/bin
