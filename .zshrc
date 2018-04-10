@@ -34,10 +34,6 @@ if [ "Darwin" = $(uname) ]; then
     export MANPATH=/usr/local/share/man:$MANPATH
     export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 
-    # for Mac OS X bug
-    #unset LD_LIBRARY_PATH
-    #unset DYLD_LIBRARY_PATH
-
     # for Java
     alias java="java -Dfile.encoding=UTF-8"
     alias javac="javac -J-Dfile.encoding=UTF-8"
