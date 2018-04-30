@@ -1,58 +1,65 @@
 [user]
-    name = janus_wel
-    email = janus.wel.3@gmail.com
-[color]
-    pager = true
-    status = auto
-    branch = auto
-    diff = auto
-[alias]
-    a = add
-    b = branch
-    c = commit
-    d = diff
-    f = fetch --prune
-    h = help
-    l = log
-    s = status
-    co = checkout
-    pom = push origin master
-
-    graph = log --graph --all --oneline --decorate
-
-    branches = branch -a
-    tags = tag
-    stashes = stash list
-    remotes = remote -v
-
-    interactive = add -p
-    edit = rebase -i
-
-    unstage = reset HEAD --
-    discard = checkout --
-    discardall = reset --hard
-    uncommit = reset HEAD~
-
-    newbranch = checkout -b
-
-    deletetracking = branch -d -r --
-
-    overwrite = push --force-with-lease
+  name = Takagi Kensuke
+  email = janus.wel.3@gmail.com
 
 [core]
-    pager = less -R
-    excludesfile = ~/.gitignore
+  pager = less -R
+  excludesfile = ~/.gitignore
+
+[color]
+  pager = true
+  status = auto
+  branch = auto
+  diff = auto
+
+[alias]
+  a = add
+  b = branch
+  c = commit
+  d = diff
+  f = fetch --prune
+  h = help
+  l = log
+  s = status
+  co = checkout
+  pom = push origin master
+
+  graph = log --graph --all --oneline --decorate
+
+  branches = branch -a
+  tags = tag
+  stashes = stash list
+  remotes = remote -v
+
+  interactive = add -p
+  edit = rebase -i
+
+  unstage = reset HEAD --
+  discard = checkout --
+  discardall = reset --hard
+  uncommit = reset HEAD~
+
+  newbranch = checkout -b
+
+  deletetracking = branch -d -r --
+
+  overwrite = push --force-with-lease
+
 [merge]
-	ff = false
+  ff = false
+
 [diff]
-    renames = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  renames = true
+
 [pager]
-    branch = false
+  branch = false
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
 [filter "ignore-npmrc"]
-    smudge = cat
-    clean = sed '/^\\/\\/registry\\.npmjs\\.org\\/:_authToken/d'
+  smudge = cat
+  clean = sed '/^\\/\\/registry\\.npmjs\\.org\\/:_authToken/d'
