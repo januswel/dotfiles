@@ -6,6 +6,9 @@
   pager = less -R
   excludesfile = ~/.gitignore
 
+[commit]
+  template = ~/.gitmessage.md
+
 [color]
   pager = true
   status = auto
