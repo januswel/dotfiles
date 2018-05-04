@@ -11,7 +11,6 @@ CP_COMMAND="cp"
 MV_COMMAND="mv"
 RM_COMMAND="rm"
 DIRCOLORS_COMMAND="dircolors"
-CTAGS_COMMAND="ctags"
 
 # settings for Mac OS X
 if [ "Darwin" = $(uname) ]; then
@@ -58,7 +57,6 @@ if [ "Darwin" = $(uname) ]; then
     RM_COMMAND="grm"
     DIRCOLORS_COMMAND="gdircolors"
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
-    CTAGS_COMMAND=$(brew --prefix)"/bin/ctags"
 fi
 
 # completions
@@ -101,7 +99,6 @@ alias cp="$CP_COMMAND -i"
 alias mv="$MV_COMMAND -i"
 alias rm="$RM_COMMAND -i"
 alias dircolors="$DIRCOLORS_COMMAND"
-alias ctags="${CTAGS_COMMAND}"
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 alias d="docker"

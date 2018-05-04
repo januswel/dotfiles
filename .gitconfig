@@ -57,6 +57,9 @@
 [pager]
   branch = false
 
+[init]
+  templatedir = ~/.git-template
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

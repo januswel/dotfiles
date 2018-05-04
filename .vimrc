@@ -41,6 +41,7 @@ NeoBundle 'januswel/rlhelp.vim'
 
 NeoBundle 'w0rp/ale'
 NeoBundle 'junegunn/vader.vim'
+NeoBundle 'tpope/vim-fugitive'
 
 " filetype settings
 NeoBundle 'januswel/html5.vim'
