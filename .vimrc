@@ -68,6 +68,9 @@ set viminfo+=%      " save and restore the buffer list
 " path setting
 set path^=~/bin/    " prepend my bin to 'path'
 
+" disable bell
+set belloff=all
+
 " timing to write
 set noautowrite     " disable writing files automatically
 set noautowriteall  " make my wish to vim thoroughly
