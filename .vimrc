@@ -14,8 +14,6 @@ if has('vim_starting')
     call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
-NeoBundle 'mattn/emmet-vim'
-
 " plugins
 NeoBundle 'januswel/jwlib.vim'
 
