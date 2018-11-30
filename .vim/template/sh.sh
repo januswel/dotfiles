@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eux
+
 # default settings
 BAR="buz"
 
