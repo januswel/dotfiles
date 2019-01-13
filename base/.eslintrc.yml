@@ -1,0 +1,171 @@
+env:
+  browser: true
+  es6: true
+  node: true
+  jest/globals: true
+extends: 'eslint:recommended'
+parser: typescript-eslint-parser
+parserOptions:
+  jsx: true
+  useJSXTextNode: true
+plugins:
+  - jest
+  - typescript
+rules:
+  # https://eslint.org/docs/rules/
+  # Don't write rules covered by recommended and Prettier
+  # Write rules you wanna disable explicitly
+
+  # possible errors
+  no-async-promise-executor: error
+  no-await-in-loop: error
+  no-extra-parens: off
+  no-misleading-character-class: error
+  no-prototype-builtins: off
+  no-template-curly-in-string: error
+  require-atomic-updates: error
+
+  # best practices
+  accessor-pairs: off
+  array-callback-return: error
+  block-scoped-var: error
+  class-methods-use-this: error
+  complexity:
+    - error
+    - 8
+  consistent-return: error
+  curly: error
+  default-case: error
+  dot-location:
+    - error
+    - property
+  dot-notation:
+    - error
+    - allowKeywords: true
+  eqeqeq:
+    - error
+    - always
+    - null: ignore
+  guard-for-in: error
+  max-classes-per-file: off
+  no-alert: error
+  no-caller: error
+  no-div-regex: error
+  no-else-return:
+    - error
+    - allowElseIf: true
+  no-empty-function: error
+  no-eq-null: off
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-extra-label: error
+  no-floating-decimal: error
+  no-global-assign: error
+  no-implicit-coercion: error
+  no-implicit-globals: error
+  no-implied-eval: error
+  no-invalid-this: error
+  no-iterator: error
+  no-labels: error
+  no-lone-blocks: error
+  no-loop-func: error
+  no-magic-numbers:
+    - warn
+    - ignore:
+        - 0
+      enforceConst: true
+      ignoreArrayIndexes: true
+  no-multi-spaces: error
+  no-multi-str: error
+  no-new: error
+  no-new-func: error
+  no-new-wrappers: error
+  no-octal-escape: error
+  no-param-reassign: error
+  no-proto: error
+  no-restricted-properties: error
+  no-return-assign: error
+  no-return-await: error
+  no-script-url: error
+  no-self-compare: error
+  no-sequences: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions: error
+  no-useless-call: error
+  no-useless-catch: error
+  no-useless-concat: error
+  no-useless-return: error
+  no-void: error
+  no-warning-comments: warn
+  no-with: error
+  prefer-promise-reject-errors: error
+  radix: error
+  require-await: error
+  require-unicode-regexp: error
+  vars-on-top: error
+  wrap-iife: error
+  yoda: off
+
+  # strict mode
+  strict: off
+
+  # variables
+  init-declarations: error
+  no-label-var: error
+  no-restricted-globals: error
+  no-shadow: error
+  no-shadow-restricted-names: error
+  no-undef-init: error
+  no-undefined: error
+  no-unused-vars: off
+  no-use-before-define: error
+
+  # stylistic issues
+
+  # EcmaScript 2015
+  no-duplicate-imports: error
+  no-restricted-imports: error
+  no-useless-constructor: error
+  object-shorthand: error
+  prefer-arrow-callback: error
+  prefer-const: error
+  prefer-destructuring: error
+  prefer-numeric-literals: error
+  prefer-rest-params: error
+  prefer-spread: error
+  prefer-template: error
+  sort-imports:
+    - error
+    - ignoreDeclarationSort: true
+  symbol-description: error
+
+  # for typescript
+  typescript/adjacent-overload-signatures: error
+  typescript/class-name-casing: error
+  typescript/explicit-function-return-type: off
+  typescript/explicit-member-accessibility: warn
+  typescript/generic-type-naming: off
+  typescript/interface-name-prefix: off
+  typescript/member-delimiter-style: off
+  typescript/member-naming: off
+  typescript/member-ordering: off
+  typescript/no-angle-bracket-type-assertion: error
+  typescript/no-array-constructor: error
+  typescript/no-empty-interface: error
+  typescript/no-explicit-any: off
+  typescript/no-inferrable-types: off
+  typescript/no-namespace: error
+  typescript/no-non-null-assertion: off
+  typescript/no-parameter-properties:
+    - error
+    - allows:
+        - readonly
+  typescript/no-triple-slash-reference: error
+  typescript/no-type-alias: off
+  typescript/no-unused-vars: off
+  typescript/no-use-before-define: error
+  typescript/no-var-requires: error
+  typescript/prefer-namespace-keyword: off
+  typescript/type-annotation-spacing: off

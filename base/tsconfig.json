@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "charset": "utf8",
+    "target": "es2018",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "newLine": "LF",
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules", "dist"]
+}
