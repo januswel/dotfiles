@@ -2,7 +2,7 @@
 # https://prettier.io/docs/en/options.html
 
 # specify correct parser
-parser: babylon
+parser: babel
 filepath: ''
 
 # main settings
