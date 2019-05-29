@@ -53,6 +53,8 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'januswel/plantuml-syntax', 'add-command-to-preview'
+NeoBundle 'kylef/apiblueprint.vim'
 
 NeoBundle 'rust-lang/rust.vim'
 
