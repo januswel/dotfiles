@@ -11,9 +11,11 @@ tabWidth: 2
 useTabs: false
 semi: false
 singleQuote: true
+quoteProps: as-needed
 trailingComma: all
 bracketSpacing: true
 jsxBracketSameLine: false
+jsxSingleQuote: false
 arrowParens: avoid
 endOfLine: lf
 
