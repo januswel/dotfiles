@@ -52,6 +52,11 @@ if [ "Darwin" = "$(uname)" ]; then
     # for AWS
     export PATH=${PATH}:~/Library/Python/2.7/bin
 
+    # for google-cloud-sdk
+    if [ -d "${HOME}/google-cloud-sdk/bin" ]; then
+      export PATH=${PATH}:~/google-cloud-sdk/bin
+    fi
+
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
     LS_COMMAND="gls"
     CP_COMMAND="gcp"
