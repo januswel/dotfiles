@@ -5,13 +5,6 @@
 export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-# for aliases
-LS_COMMAND="ls"
-CP_COMMAND="cp"
-MV_COMMAND="mv"
-RM_COMMAND="rm"
-DIRCOLORS_COMMAND="dircolors"
-
 # settings for Mac OS X
 if [ "Darwin" = "$(uname)" ]; then
     # for anyenv
@@ -57,20 +50,16 @@ if [ "Darwin" = "$(uname)" ]; then
       export PATH=${PATH}:~/google-cloud-sdk/bin
     fi
 
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
-    LS_COMMAND="gls"
-    CP_COMMAND="gcp"
-    MV_COMMAND="gmv"
-    RM_COMMAND="grm"
-    DIRCOLORS_COMMAND="gdircolors"
 fi
 
 if [ -x "${VIM_COMMAND}" ]; then
     alias vim=${VIM_COMMAND}
 fi
 
-alias ls="${LS_COMMAND} --color=auto"
-alias cp="${CP_COMMAND} -i"
-alias mv="${MV_COMMAND} -i"
-alias rm="${RM_COMMAND} -i"
-alias dircolors="${DIRCOLORS_COMMAND}"
+alias ls="ls --color=auto"
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
