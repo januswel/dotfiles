@@ -17,3 +17,5 @@ fi
 
 # set EDITOR
 export EDITOR="/usr/bin/vim"
+
+export PATH="$HOME/.cargo/bin:$PATH"
