@@ -31,8 +31,10 @@ if [ "Darwin" = "$(uname)" ]; then
     export PATH=${PATH}:${JAVA_HOME}/bin
 
     # for Rust
-    source "${HOME}/.cargo/env"
-    export PATH=$HOME/.cargo/bin:$PATH
+    if [ -x "${HOME}/.cargo/env" ]; then
+      source "${HOME}/.cargo/env"
+      export PATH=$HOME/.cargo/bin:$PATH
+    fi
 
     # golang
     export GOPATH=${HOME}/work/dev/lang/golang
