@@ -44,6 +44,10 @@ if [ "Darwin" = "$(uname)" ]; then
     export ANDROID_HOME=${HOME}/Library/Android/sdk
     export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
+    # for Flutter
+    export FLUTTER_HOME=${HOME}/lib/flutter
+    export PATH=${PATH}:${FLUTTER_HOME}/bin
+
     # for AWS
     export PATH=${PATH}:~/Library/Python/2.7/bin
 
