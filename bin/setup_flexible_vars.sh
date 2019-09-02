@@ -40,9 +40,9 @@ if [ "Darwin" = "$(uname)" ]; then
     export GOPATH=${HOME}/work/dev/lang/golang
     export PATH=${PATH}:${GOPATH}/bin
 
-     # for Android development
-     export ANDROID_HOME=${HOME}/Library/Android/sdk
-     export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    # for Android development
+    export ANDROID_HOME=${HOME}/Library/Android/sdk
+    export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
     # for AWS
     export PATH=${PATH}:~/Library/Python/2.7/bin
