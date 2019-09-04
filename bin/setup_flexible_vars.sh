@@ -9,7 +9,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 if [ "Darwin" = "$(uname)" ]; then
     # for anyenv
     export PATH=${HOME}/.anyenv/bin:${PATH}
-    eval "$(anyenv init -)"
+    eval "$(anyenv init - zsh)"
 
     # for git
     PATH=$(brew --prefix git)/bin:${PATH}
