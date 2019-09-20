@@ -3,6 +3,7 @@ env:
   browser: true
   es6: true
   node: true
+  jest/globals: true
 extends: 'eslint:recommended'
 parser: '@typescript-eslint/parser'
 parserOptions:
@@ -14,6 +15,7 @@ parserOptions:
   ecmaFeatures:
     modules: true
 plugins:
+  - jest
   - '@typescript-eslint'
 rules:
   # https://eslint.org/docs/rules/
@@ -324,7 +326,8 @@ rules:
   '@typescript-eslint/class-name-casing': error
   '@typescript-eslint/consistent-type-assertions':
     - error
-    - assertionStyle: never
+    - assertionStyle: as
+      objectLiteralTypeAssertions: allow
   '@typescript-eslint/consistent-type-definitions':
     - error
     - interface
@@ -347,7 +350,10 @@ rules:
   '@typescript-eslint/no-floating-promises': error
   '@typescript-eslint/no-for-in-array': error
   '@typescript-eslint/no-inferrable-types': error
-  '@typescript-eslint/no-magic-numbers': error
+  '@typescript-eslint/no-magic-numbers':
+    - error
+    - ignore:
+        - 1
   '@typescript-eslint/no-misused-new': error
   '@typescript-eslint/no-namespace': error
   '@typescript-eslint/no-non-null-assertion': error
