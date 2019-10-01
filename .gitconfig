@@ -24,7 +24,7 @@
   h = help
   l = log
   s = status
-  co = checkout
+  sw = switch
   pom = push origin master
 
   graph = log --graph --all --oneline --decorate
@@ -37,13 +37,13 @@
   interactive = add -p
   edit = rebase -i
 
-  unstage = reset HEAD --
-  discard = checkout --
-  discardall = reset --hard
+  unstage = restore --staged --
+  unstageall = restore --staged :/
+  discard = restore --
+  discardall = restore :/
   uncommit = reset HEAD~
 
-  newbranch = checkout -b
-
+  newbranch = switch -c
   deletetracking = branch -d -r --
 
   overwrite = push --force-with-lease
