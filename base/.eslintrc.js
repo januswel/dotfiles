@@ -9,7 +9,7 @@ const searchRootDir = p => {
   if (fs.existsSync(path.join(p, 'package.json'))) {
     return p
   }
-  return searchConfigFilePath(path.normalize(path.join(p, '..')))
+  return searchRootDir(path.normalize(path.join(p, '..')))
 }
 
 const main = () => {
