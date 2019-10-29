@@ -56,6 +56,9 @@ if [ "Darwin" = "$(uname)" ]; then
       export PATH=${PATH}:~/google-cloud-sdk/bin
     fi
 
+    # MySQL
+    export PATH=${PATH}:$(brew --prefix mysql-client)/bin
+
     export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
 
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
