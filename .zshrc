@@ -93,3 +93,12 @@ typeset -U CPLUS_INCLUDE_PATH
 typeset -U JAVA_HOME
 typeset -U GOPATH
 typeset -U ANDROID_HOME
+
+GCP_SDK_PATH_FILE=~/lib/google-cloud-sdk/path.zsh.inc
+if [ -f ${GCP_SDK_PATH_FILE} ]; then
+  . ${GCP_SDK_PATH_FILE}
+fi
+GCP_SDK_COMPLETE_FILE=~/lib/google-cloud-sdk/completion.zsh.inc
+if [ -f ${GCP_SDK_COMPLETE_FILE} ]; then
+  . ${GCP_SDK_COMPLETE_FILE}
+fi
