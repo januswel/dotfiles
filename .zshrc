@@ -4,6 +4,7 @@
 source ~/bin/setup_flexible_vars.sh
 
 # completions
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle :compinstall filename '/home/janus/.zshrc'
