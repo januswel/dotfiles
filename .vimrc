@@ -53,11 +53,22 @@ NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'posva/vim-vue'
-NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'januswel/plantuml-syntax', 'add-command-to-preview'
 NeoBundle 'kylef/apiblueprint.vim'
-
 NeoBundle 'rust-lang/rust.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+
+NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'leafgarland/typescript-vim'
 
 call neobundle#end()
 
