@@ -17,3 +17,6 @@
 
 # IntelliJ IDEA
 .idea
+
+# TypeScript
+*.tsbuildinfo
