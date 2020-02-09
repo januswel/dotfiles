@@ -26,7 +26,7 @@ if [ "Darwin" = "$(uname)" ]; then
     # for Java
     alias java="java -Dfile.encoding=UTF-8"
     alias javac="javac -J-Dfile.encoding=UTF-8"
-    JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_222)
+    JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
     export JAVA_HOME
     export PATH=${PATH}:${JAVA_HOME}/bin
 
