@@ -5,12 +5,11 @@ source ~/bin/setup_flexible_vars.sh
 
 # completions
 FPATH=${HOME}/bin/zsh/site-functions:${FPATH}
-FPATH=$(brew --prefix)/share/zsh/site-functions:${FPATH}
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:${FPATH}
+  FPATH=$(brew --prefix)/share/zsh/site-functions:${FPATH}
 
-  if [ "$(brew list | grep git | wc -l)" -ge 1 ]; then
-    FPATH=$(brew --prefix git)/share/zsh/site-functions:${FPATH}
+  if [ "$(brew list | grep zsh-completions | wc -l)" -ge 1 ]; then
+    FPATH=$(brew --prefix)/share/zsh-completions:${FPATH}
   fi
 fi
 
