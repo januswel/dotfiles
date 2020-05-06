@@ -4,14 +4,27 @@
 source ~/bin/setup_flexible_vars.sh
 
 # completions
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle :compinstall filename '/home/janus/.zshrc'
+FPATH=${HOME}/bin/zsh/site-functions:${FPATH}
+FPATH=$(brew --prefix)/share/zsh/site-functions:${FPATH}
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:${FPATH}
+
+  if [ "$(brew list | grep git | wc -l)" -ge 1 ]; then
+    FPATH=$(brew --prefix git)/share/zsh/site-functions:${FPATH}
+  fi
+fi
 
 autoload -U compinit
 compinit
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+zstyle :compinstall filename '/home/janus/.zshrc'
 
 # use vi like keybind
 # press <Esc> to enter normal mode

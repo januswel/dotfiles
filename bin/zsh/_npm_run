@@ -1,0 +1,25 @@
+_npm_completion() {
+  local si=$IFS
+  local cur=${words[-1]}
+
+  if [ "${cur}" = 'run' ] ; then
+   _values \
+     'scripts' \
+      $(COMP_CWORD=$((CURRENT-1)) \
+      COMP_LINE=$BUFFER \
+      COMP_POINT=0 \
+      npm completion -- "${words[@]}" \
+      2>/dev/null)
+   else
+    _values \
+      'subcommands' \
+       $(COMP_CWORD=$((CURRENT-1)) \
+       COMP_LINE=$BUFFER \
+       COMP_POINT=0 \
+       npm completion -- "${words[@]}" \
+       2>/dev/null)
+  fi
+
+  IFS=$si
+}
+compdef _npm_completion npm
