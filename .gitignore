@@ -4,13 +4,10 @@
 # Vim
 *.swp
 .netrwhist
-.vim/backup/*
-.vim/undo/*
-.vim/bundle/*
-
-# Vimperator
-.vimperator/info
-.vimperator/plugin/*
+.vim/backup
+.vim/undo
+.vim/bundle
+.vim/view
 
 # Python
 .python-version
