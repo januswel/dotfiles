@@ -24,9 +24,9 @@ requirePragma: false
 insertPragma: false
 
 # for Markdown
-# proseWrap: preserve
+proseWrap: preserve
 # for HTML
-# htmlWhitespaceSensitivity: css
+htmlWhitespaceSensitivity: css
 
 overrides:
   - files: '*.json'
