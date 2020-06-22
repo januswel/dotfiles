@@ -39,5 +39,3 @@ default:
 windows:
     - source: .vim
       target: vimfiles
-    - source: .vimperator
-      target: vimperator
