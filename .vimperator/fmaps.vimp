@@ -1,9 +1,0 @@
-" fmaps.vimp
-" janus_wel <janus.wel.3@gmail.com>
-
-fmapc
-
-fmaps -u='reader\.livedwango\.com/reader' j k s a p o q w r <Del> <C-d>,<Space> <C-u>,<S-Space> <,> >,< /,f
-fmaps -u='^https://twitter\.com/' j k r,. ? gf,f <Return>
-
-" vim: ft=vimperator ts=4 sw=4 sts=0 et fdm=marker fdc=3
