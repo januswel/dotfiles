@@ -1,8 +1,6 @@
-1st level header
-================
+# 1st level header
 
-2nd level header
-----------------
+## 2nd level header
 
 ### 3rd level header
 
@@ -60,7 +58,7 @@ Add indents to blockquotes or codes in list item
 
 escape . with \ to avoid ordered listing
 
-2013\.07 was heavy month.
+2013\.07, it was very hard for me.
 
 
 ### codes
@@ -76,7 +74,7 @@ indent to write code block.
 
     var date = $('#date').val(),
         year = (date.split('/'))[0];
-    
+
     $('#year').val(year);
 
 
@@ -84,11 +82,11 @@ indent to write code block.
 
 > blockquotes
 > > nested blockquotes
-> 
+>
 > lists in blockquotes
 > 1. first item
 > 2. second item
-> 
+>
 > codes in blockquotes
 >     <p class="line">To be or not to be, that is the question</p>
 
