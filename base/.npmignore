@@ -6,7 +6,3 @@ node_modules
 .prettierrc*
 .eslintrc*
 .yangpao.toml
-tsconfig.json
-tsconfig.build.json
-jest.config.js
-__mocks__
