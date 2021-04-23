@@ -8,7 +8,7 @@ FPATH=${HOME}/bin/zsh/site-functions:${FPATH}
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:${FPATH}
 
-  if [ "$(brew list | grep zsh-completions | wc -l)" -ge 1 ]; then
+  if [ "$(brew list --formula | grep zsh-completions | wc -l)" -ge 1 ]; then
     FPATH=$(brew --prefix)/share/zsh-completions:${FPATH}
   fi
 fi
