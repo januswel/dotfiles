@@ -4,10 +4,9 @@
 
 [core]
   pager = less -R
-  excludesfile = ~/.gitignore
 
 [commit]
-  template = ~/.gitmessage.md
+  template = ~/.config/git/message.md
 
 [color]
   pager = true
@@ -58,7 +57,7 @@
   branch = false
 
 [init]
-  templatedir = ~/.git-template
+  templatedir = ~/.config/git/templates
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
