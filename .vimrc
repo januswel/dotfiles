@@ -15,62 +15,64 @@ if has('vim_starting')
 endif
 
 " plugins
-NeoBundle 'januswel/jwlib.vim'
+if !exists('g:vscode')
+    NeoBundle 'januswel/jwlib.vim'
 
-NeoBundle 'januswel/binedit.vim'
-NeoBundle 'januswel/fencdefault.vim'
-NeoBundle 'januswel/protect.vim'
-NeoBundle 'januswel/setscroll.vim'
-NeoBundle 'januswel/smrtcmpl.vim'
-NeoBundle 'januswel/sweepbuf.vim'
-NeoBundle 'januswel/tabshift.vim'
-NeoBundle 'januswel/visualiz.vim'
-NeoBundle 'januswel/zoomfont.vim'
+    NeoBundle 'januswel/binedit.vim'
+    NeoBundle 'januswel/fencdefault.vim'
+    NeoBundle 'januswel/protect.vim'
+    NeoBundle 'januswel/setscroll.vim'
+    NeoBundle 'januswel/smrtcmpl.vim'
+    NeoBundle 'januswel/sweepbuf.vim'
+    NeoBundle 'januswel/tabshift.vim'
+    NeoBundle 'januswel/visualiz.vim'
+    NeoBundle 'januswel/zoomfont.vim'
 
-NeoBundle 'januswel/autotmpl.vim'
-NeoBundle 'januswel/count.vim'
-NeoBundle 'januswel/expand.vim'
-NeoBundle 'januswel/filer.vim'
-NeoBundle 'januswel/profile.vim'
-NeoBundle 'januswel/sendbrowser.vim'
-NeoBundle 'januswel/uniconv.vim'
+    NeoBundle 'januswel/autotmpl.vim'
+    NeoBundle 'januswel/count.vim'
+    NeoBundle 'januswel/expand.vim'
+    NeoBundle 'januswel/filer.vim'
+    NeoBundle 'januswel/profile.vim'
+    NeoBundle 'januswel/sendbrowser.vim'
+    NeoBundle 'januswel/uniconv.vim'
 
-NeoBundle 'januswel/rlhelp.vim'
+    NeoBundle 'januswel/rlhelp.vim'
 
-NeoBundle 'w0rp/ale'
-NeoBundle 'junegunn/vader.vim'
-NeoBundle 'tpope/vim-fugitive'
+    NeoBundle 'w0rp/ale'
+    NeoBundle 'junegunn/vader.vim'
+    NeoBundle 'tpope/vim-fugitive'
 
-" filetype settings
-NeoBundle 'januswel/html5.vim'
-NeoBundle 'januswel/powershell.vim'
-NeoBundle 'januswel/go.vim'
-NeoBundle 'januswel/prettier.vim'
-NeoBundle 'januswel/sql.vim'
+    " filetype settings
+    NeoBundle 'januswel/html5.vim'
+    NeoBundle 'januswel/powershell.vim'
+    NeoBundle 'januswel/go.vim'
+    NeoBundle 'januswel/prettier.vim'
+    NeoBundle 'januswel/sql.vim'
 
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'cespare/vim-toml'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'isRuslan/vim-es6'
-NeoBundle 'posva/vim-vue'
-NeoBundle 'januswel/plantuml-syntax', 'add-command-to-preview'
-NeoBundle 'kylef/apiblueprint.vim'
-NeoBundle 'rust-lang/rust.vim'
+    NeoBundle 'kchmck/vim-coffee-script'
+    NeoBundle 'cespare/vim-toml'
+    NeoBundle 'editorconfig/editorconfig-vim'
+    NeoBundle 'isRuslan/vim-es6'
+    NeoBundle 'posva/vim-vue'
+    NeoBundle 'januswel/plantuml-syntax', 'add-command-to-preview'
+    NeoBundle 'kylef/apiblueprint.vim'
+    NeoBundle 'rust-lang/rust.vim'
 
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+    NeoBundle 'Shougo/vimproc.vim', {
+                \ 'build' : {
+                    \     'windows' : 'tools\\update-dll-mingw',
+                    \     'cygwin' : 'make -f make_cygwin.mak',
+                    \     'mac' : 'make -f make_mac.mak',
+                    \     'linux' : 'make',
+                    \     'unix' : 'gmake',
+                    \    },
+                    \ }
 
-NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'leafgarland/typescript-vim'
+    NeoBundle 'Quramy/tsuquyomi'
+    NeoBundle 'leafgarland/typescript-vim'
 
-call neobundle#end()
+    call neobundle#end()
+endif
 
 " options {{{1
 " general {{{2
@@ -541,6 +543,12 @@ augroup tags
     autocmd!
     autocmd BufNewFile,BufRead *.h,*.hpp,*.c,*.cpp set tags+=~/tags
 augroup END
+
+augroup TypeScript
+autocmd FileType typescript nmap <buffer> <Leader>t :
+		\ <C-u>echo tsuquyomi#hint()<CR>
+augroup END
+
 
 " }}}1
 " vim: ts=4 sw=4 sts=0 et fdm=marker fdc=3
