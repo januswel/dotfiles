@@ -58,6 +58,7 @@
 
 [init]
   templatedir = ~/.config/git/templates
+  defaultBranch = main
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
