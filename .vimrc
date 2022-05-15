@@ -68,6 +68,7 @@ if !exists('g:vscode')
 
     NeoBundle 'Quramy/tsuquyomi'
     NeoBundle 'leafgarland/typescript-vim'
+    NeoBundle 'lepture/vim-velocity'
 
     call neobundle#end()
 endif
