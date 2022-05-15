@@ -49,13 +49,11 @@ if !exists('g:vscode')
     NeoBundle 'januswel/prettier.vim'
     NeoBundle 'januswel/sql.vim'
 
-    NeoBundle 'kchmck/vim-coffee-script'
     NeoBundle 'cespare/vim-toml'
     NeoBundle 'editorconfig/editorconfig-vim'
     NeoBundle 'isRuslan/vim-es6'
     NeoBundle 'posva/vim-vue'
     NeoBundle 'januswel/plantuml-syntax', 'add-command-to-preview'
-    NeoBundle 'kylef/apiblueprint.vim'
     NeoBundle 'rust-lang/rust.vim'
 
     NeoBundle 'Shougo/vimproc.vim', {
