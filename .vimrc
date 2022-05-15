@@ -267,8 +267,10 @@ set fileformats=unix,dos
 
 " platform specific {{{2
 " for East Asian Width Class Ambiguous
-if exists('&ambiwidth')
-    set ambiwidth=double
+if !exists('g:vscode')
+    if exists('&ambiwidth')
+        set ambiwidth=double
+    endif
 endif
 
 " clipboard is used as unnamed register
