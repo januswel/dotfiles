@@ -5,9 +5,14 @@ _npm() {
 
   if [ "${words[-1]}" = 'run' -o "${words[-2]}" = 'run' ]; then
     if [ -r package.json ]; then
-      _values \
-        'scripts' \
-          $(cat package.json | jq -r '.scripts | keys[]')
+      cat package.json | jq --exit-status -r '.scripts' > /dev/null
+      if [ $? = 0 ]; then
+        _values \
+          'scripts' \
+            $(cat package.json | jq -r '.scripts | keys[]')
+      else
+        _message 'project has no scripts'
+      fi
     else
       _message 'not npm project'
     fi
