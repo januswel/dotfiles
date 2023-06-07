@@ -65,7 +65,3 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-
-[filter "ignore-npmrc"]
-  smudge = cat
-  clean = sed '/^\\/\\/registry\\.npmjs\\.org\\/:_authToken/d'
