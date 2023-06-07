@@ -13,7 +13,7 @@ export HISTCONTROL=ignoreboth
 # of LINES and COLUMNS.
 shopt -s checkwinsize
 
-if [ "Darwin" = $(uname) ]; then
+if [ "Darwin" = "$(uname)" ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
@@ -33,18 +33,21 @@ esac
 
 # completions
 if [ -f /etc/bash_completion ]; then
+    # shellcheck source=/dev/null
     . /etc/bash_completion
 fi
 
 # aliases
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f "$HOME"/.bash_aliases ]; then
+    . "$HOME"/.bash_aliases
 fi
 
 # colors
 DIRCOLORS_SETTINGS=".dir_colors"
 if [ "$TERM" != "dumb" ]; then
     if [ -r $DIRCOLORS_SETTINGS ]; then
-        eval "`dircolors $DIRCOLORS_SETTINGS -b`"
+      eval "$(dircolors $DIRCOLORS_SETTINGS -b)"
     fi
 fi
+
+. "$HOME/.cargo/env"
