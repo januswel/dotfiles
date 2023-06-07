@@ -5,67 +5,70 @@
 export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-# settings for Mac OS X
+# settings for macOS
 if [ "Darwin" = "$(uname)" ]; then
+    # for HomeBrew
+    export PATH=${PATH}:/usr/local/sbin
+    export MANPATH=${MANPATH}:/usr/local/share/man
+    export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:/usr/local/include
+
+    # coreutils
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+
     # for anyenv
     export PATH=${HOME}/.anyenv/bin:${PATH}
     eval "$(anyenv init - zsh)"
 
     # for git
-    PATH=$(brew --prefix git)/bin:${PATH}
-    export PATH
-
-    # my utilities
-    export PATH=~/bin:$PATH
-
-    # for HomeBrew
-    export PATH=$PATH:/usr/local/sbin
-    export MANPATH=/usr/local/share/man:$MANPATH
-    export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH
+    GIT_PATH=$(brew --prefix git)
+    export PATH=${PATH}:${GIT_PATH}/bin
 
     # for Java
-    alias java="java -Dfile.encoding=UTF-8"
-    alias javac="javac -J-Dfile.encoding=UTF-8"
     JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
     export JAVA_HOME
     export PATH=${PATH}:${JAVA_HOME}/bin
+    alias java="java -Dfile.encoding=UTF-8"
+    alias javac="javac -J-Dfile.encoding=UTF-8"
 
     # for Rust
-    if [ -x "${HOME}/.cargo/env" ]; then
-      source "${HOME}/.cargo/env"
-      export PATH=$HOME/.cargo/bin:$PATH
+    if [ -d "${HOME}/.cargo/bin" ]; then
+      export PATH=${PATH}:${HOME}/.cargo/bin
     fi
 
     # golang
-    export GOPATH=${HOME}/work/dev/lang/golang
-    export PATH=${PATH}:${GOPATH}/bin
+    export GOLANG_PATH=${HOME}/work/dev/lang/golang
+    export PATH=${PATH}:${GOLANG_PATH}/bin
 
     # for Android development
     export ANDROID_HOME=${HOME}/Library/Android/sdk
-    export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+    ANDROID_EMULATOR=${ANDROID_HOME}/emulator
+    ANDROID_TOOLS=${ANDROID_HOME}/tools
+    ANDROID_BIN=${ANDROID_HOME}/tools/bin
+    ANDROID_PLATFORM_TOOLS=${ANDROID_HOME}/platform-tools
+    export PATH=${PATH}:${ANDROID_EMULATOR}:${ANDROID_TOOLS}:${ANDROID_BIN}:${ANDROID_PLATFORM_TOOLS}
 
     # for Flutter
     export FLUTTER_HOME=${HOME}/lib/flutter
     export PATH=${PATH}:${FLUTTER_HOME}/bin
 
-    # for AWS
-    export PATH=${PATH}:~/Library/Python/2.7/bin
-
     # for google-cloud-sdk
     if [ -d "${HOME}/google-cloud-sdk/bin" ]; then
-      export PATH=${PATH}:~/google-cloud-sdk/bin
+      export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
     fi
 
     # MySQL
-    export PATH=${PATH}:$(brew --prefix mysql-client)/bin
+    MYSQL_PATH=$(brew --prefix mysql-client)
+    export PATH=${PATH}:${MYSQL_PATH}/bin
 
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
-
+    # editor
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+    # my utilities
+    export PATH=~/bin:$PATH
 fi
 
 if [ -x "${VIM_COMMAND}" ]; then
-    alias vim=${VIM_COMMAND}
+    alias vim="${VIM_COMMAND}"
 fi
 
 alias ls="ls --color=auto"
