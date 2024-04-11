@@ -17,7 +17,6 @@ if [ "Darwin" = "$(uname)" ]; then
     export PATH=${COREUTILS_PATH}/libexec/gnubin:${PATH}
 
     # for anyenv
-    export PATH=${HOME}/.anyenv/bin:${PATH}
     eval "$(anyenv init - zsh)"
 
     # for git
