@@ -56,6 +56,10 @@ if [ "Darwin" = "$(uname)" ]; then
     MYSQL_PATH=$(brew --prefix mysql-client)
     export PATH=${PATH}:${MYSQL_PATH}/bin
 
+    # PostgreSQL
+    LIBPQ_PATH=$(brew --prefix libpq)
+    export PATH=${PATH}:${LIBPQ_PATH}/bin
+
     # editor
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
 
