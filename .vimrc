@@ -274,7 +274,7 @@ if !exists('g:vscode')
 endif
 
 " clipboard is used as unnamed register
-if has('gui') || has('xterm_clipboard')
+if has('clipboard')
     set clipboard=unnamed
 endif
 
@@ -392,10 +392,10 @@ vnoremap ^ g^
 vnoremap $ g$
 
 " disable "," and ";" to use as mapleader and maplocalleader
-nnoremap , <Nop>
-nnoremap ; <Nop>
-vnoremap , <Nop>
-vnoremap ; <Nop>
+nmap , <Nop>
+nmap ; <Nop>
+vmap , <Nop>
+vmap ; <Nop>
 
 " window & tabpage {{{2
 " move cursor among windows, to next one and to previous one
