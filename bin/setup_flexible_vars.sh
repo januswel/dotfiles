@@ -66,7 +66,7 @@ if [ "Darwin" = "$(uname)" ]; then
     export PATH=${PATH}:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
 
     # my utilities
-    export PATH=~/bin:$PATH
+    export PATH=~/bin:${PATH}
 fi
 
 if [ -x "${VIM_COMMAND}" ]; then
