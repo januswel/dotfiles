@@ -63,6 +63,8 @@ if [ "Darwin" = "$(uname)" ]; then
     # editor
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
 
+    export PATH=${PATH}:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
+
     # my utilities
     export PATH=~/bin:$PATH
 fi
