@@ -24,7 +24,7 @@ if [ "Darwin" = "$(uname)" ]; then
     export PATH=${PATH}:${GIT_PATH}/bin
 
     # for Java
-    JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    JAVA_HOME=$(/usr/libexec/java_home -v 17)
     export JAVA_HOME
     export PATH=${PATH}:${JAVA_HOME}/bin
     alias java="java -Dfile.encoding=UTF-8"
