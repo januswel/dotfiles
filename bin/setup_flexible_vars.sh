@@ -13,7 +13,8 @@ if [ "Darwin" = "$(uname)" ]; then
     export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:/usr/local/include
 
     # coreutils
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+    COREUTILS_PATH=$(brew --prefix coreutils)
+    export PATH=${COREUTILS_PATH}/libexec/gnubin:${PATH}
 
     # for anyenv
     export PATH=${HOME}/.anyenv/bin:${PATH}
