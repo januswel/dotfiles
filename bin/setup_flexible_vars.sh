@@ -35,10 +35,6 @@ if [ "Darwin" = "$(uname)" ]; then
       export PATH=${PATH}:${HOME}/.cargo/bin
     fi
 
-    # golang
-    export GOLANG_PATH=${HOME}/work/dev/lang/golang
-    export PATH=${PATH}:${GOLANG_PATH}/bin
-
     # for Android development
     export ANDROID_HOME=${HOME}/Library/Android/sdk
     ANDROID_EMULATOR=${ANDROID_HOME}/emulator
