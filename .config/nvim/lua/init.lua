@@ -16,16 +16,31 @@ if vim.g.vscode then
     end
   end
 
+  local table = {
+    up = 'k',
+    down = 'j',
+    wrappedLineStart = '0',
+    wrappedLineFirstNonWhitespaceCharacter = '^',
+    wrappedLineEnd = '$',
+  }
+
   local function moveCursorInVisualMode(to)
     return function()
       local mode = vim.api.nvim_get_mode()
-      if mode.mode == 'V' or mode.mode == 'CTRL-V' then
-        if to == 'up' then
-          vscode.action('cursorColumnSelectUp')
-        else if to == 'down' then
-          vscode.action('cursorColumnSelectDown')
-        end
+      if mode.mode == 'V' or mode.mode == '' then
+        return table[to]
       end
+
+      vscode.action('cursorMove', {
+        args = {
+          {
+            to = to,
+            by = 'wrappedLine',
+            value = vim.v.count1,
+            select = true
+          },
+        },
+      })
       return '<Ignore>'
     end
   end
@@ -38,7 +53,9 @@ if vim.g.vscode then
 
   vim.keymap.set('v', 'k', moveCursorInVisualMode('up', true), { expr = true })
   vim.keymap.set('v', 'j', moveCursorInVisualMode('down', true), { expr = true })
-  vim.keymap.set('v', '0', moveCursor('wrappedLineStart', true), { expr = true })
-  vim.keymap.set('v', '^', moveCursor('wrappedLineFirstNonWhitespaceCharacter', true), { expr = true })
-  vim.keymap.set('v', '$', moveCursor('wrappedLineEnd', true), { expr = true })
+  vim.keymap.set('v', '0', moveCursorInVisualMode('wrappedLineStart', true), { expr = true })
+  vim.keymap.set('v', '^', moveCursorInVisualMode('wrappedLineFirstNonWhitespaceCharacter', true), { expr = true })
+  vim.keymap.set('v', '$', moveCursorInVisualMode('wrappedLineEnd', true), { expr = true })
 end
+
+vim.notify('initialization complated')
