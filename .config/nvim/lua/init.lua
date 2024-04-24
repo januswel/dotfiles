@@ -35,11 +35,11 @@ if vim.g.vscode then
   vim.keymap.set('n', '^', moveCursor('wrappedLineFirstNonWhitespaceCharacter'), { expr = true })
   vim.keymap.set('n', '$', moveCursor('wrappedLineEnd'), { expr = true })
 
-  vim.keymap.set('v', 'k', moveCursorIn('up', true), { expr = true })
-  vim.keymap.set('v', 'j', moveCursorIn('down', true), { expr = true })
-  vim.keymap.set('v', '0', moveCursorIn('wrappedLineStart', true), { expr = true })
-  vim.keymap.set('v', '^', moveCursorIn('wrappedLineFirstNonWhitespaceCharacter', true), { expr = true })
-  vim.keymap.set('v', '$', moveCursorIn('wrappedLineEnd', true), { expr = true })
+  vim.keymap.set('v', 'k', moveCursor('up', true), { expr = true })
+  vim.keymap.set('v', 'j', moveCursor('down', true), { expr = true })
+  vim.keymap.set('v', '0', moveCursor('wrappedLineStart', true), { expr = true })
+  vim.keymap.set('v', '^', moveCursor('wrappedLineFirstNonWhitespaceCharacter', true), { expr = true })
+  vim.keymap.set('v', '$', moveCursor('wrappedLineEnd', true), { expr = true })
 end
 
 vim.notify('initialization complated')
