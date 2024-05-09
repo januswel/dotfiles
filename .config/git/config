@@ -5,14 +5,33 @@
 [core]
   pager = less -R
 
+[diff]
+  renames = true
+
 [commit]
   template = ~/.config/git/message.md
+
+[merge]
+  ff = false
+
+[branch]
+  sort = -committerdate
+
+[pager]
+  branch = false
+
+[column]
+  ui = auto
 
 [color]
   pager = true
   status = auto
   branch = auto
   diff = auto
+
+[init]
+  templatedir = ~/.config/git/templates
+  defaultBranch = main
 
 [alias]
   a = add
@@ -25,6 +44,7 @@
   s = status
   sw = switch
   pom = push origin master
+  stash = stash --all
 
   graph = log --graph --all --oneline --decorate
 
@@ -47,21 +67,6 @@
 
   overwrite = push --force-with-lease
 
-[merge]
-  ff = false
+[maintenance]
+  repo = /Users/janus/work/dev/github/zenn-contents
 
-[diff]
-  renames = true
-
-[pager]
-  branch = false
-
-[init]
-  templatedir = ~/.config/git/templates
-  defaultBranch = main
-
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
