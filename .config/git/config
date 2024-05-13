@@ -8,9 +8,6 @@
 [diff]
   renames = true
 
-[commit]
-  template = ~/.config/git/message.md
-
 [merge]
   ff = false
 
