@@ -18,9 +18,6 @@ if [ "Darwin" = "$(uname)" ]; then
     COREUTILS_PATH=$(brew --prefix coreutils)
     export PATH="${COREUTILS_PATH}/libexec/gnubin":"${PATH}"
 
-    # for anyenv
-    eval "$(anyenv init - zsh)"
-
     # for git
     GIT_PATH=$(brew --prefix git)
     export PATH="${GIT_PATH}/bin":"${PATH}"
@@ -67,6 +64,9 @@ if [ "Darwin" = "$(uname)" ]; then
 
     # my utilities
     export PATH=~/bin:"${PATH}"
+
+    # for anyenv
+    eval "$(anyenv init - zsh)"
 fi
 
 if [ -x nvim ]; then
