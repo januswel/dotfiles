@@ -2,3 +2,10 @@
 .vim/bundle
 .vim/view
 .config/nvim/bundle
+
+bin/docker
+bin/docker-compose
+bin/docker-credential-osxkeychain
+bin/kubectl
+bin/orb
+bin/orbctl

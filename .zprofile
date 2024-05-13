@@ -13,3 +13,6 @@ if [ "Darwin" = `uname` ]; then
 fi
 
 # vim: ts=4 sw=4 sts=0 et
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
