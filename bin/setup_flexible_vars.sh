@@ -58,6 +58,10 @@ if [ "Darwin" = "$(uname)" ]; then
     LIBPQ_PATH=$(brew --prefix libpq)
     export PATH="${LIBPQ_PATH}/bin":"${PATH}"
 
+    # Python binaries
+    PYTHON_BINARIES=~/.local/bin
+    export PATH=${PYTHON_BINARIES}:"${PATH}"
+
     # editor
     VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
 
