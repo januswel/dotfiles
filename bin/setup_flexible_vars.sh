@@ -62,19 +62,15 @@ if [ "Darwin" = "$(uname)" ]; then
     PYTHON_BINARIES=~/.local/bin
     export PATH=${PYTHON_BINARIES}:"${PATH}"
 
-    # editor
-    VIM_COMMAND='/Applications/MacVim.app/Contents/MacOS/Vim'
-
     vscode=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
     export PATH="${vscode}":"${PATH}"
 
     # my utilities
     export PATH=~/bin:"${PATH}"
-
 fi
 
-if [ -x "${VIM_COMMAND}" ]; then
-    alias vim="${VIM_COMMAND}"
+if [ -x nvim ]; then
+    alias vim=nvim
 fi
 
 alias ls="ls --color=auto"
