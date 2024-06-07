@@ -1,8 +1,6 @@
 # .zshrc file
 # janus_wel <janus.wel.3@gmail.com>
 
-source ~/bin/setup_flexible_vars.sh
-
 # completions
 FPATH=${HOME}/bin/zsh/site-functions:${FPATH}
 if type brew &>/dev/null; then
