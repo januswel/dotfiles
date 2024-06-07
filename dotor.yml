@@ -13,21 +13,16 @@ default:
     - .dir_colors
 
     # git
-    - .gitconfig
-    - .gitignore
-    - .gitmessage.md
-    - .git-template
+    - .config/git
 
     # tmux
     - .tmux.conf
-
-    # HTML Tidy
-    - .tidyrc
 
     # vim
     - .vim
     - .vimrc
     - .gvimrc
+    - .config/nvim
 
     # npm
     - .npmrc
