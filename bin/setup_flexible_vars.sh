@@ -53,14 +53,15 @@ if [ "Darwin" = "$(uname)" ]; then
 
     # PostgreSQL
     LIBPQ_PATH=$(brew --prefix libpq)
-    export PATH="${LIBPQ_PATH}/bin":"${PATH}"
+    export PATH="${LIBPQ_PATH}/bin:${PATH}"
 
     # Python binaries
     PYTHON_BINARIES=~/.local/bin
-    export PATH=${PYTHON_BINARIES}:"${PATH}"
+    export PATH="${PYTHON_BINARIES}:${PATH}"
 
-    vscode=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
-    export PATH="${vscode}":"${PATH}"
+    VSCODE_BIN=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
+    export PATH="${VSCODE_BIN}:${PATH}"
+
 
     # my utilities
     export PATH=~/bin:"${PATH}"
