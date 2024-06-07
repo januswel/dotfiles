@@ -62,6 +62,11 @@ if [ "Darwin" = "$(uname)" ]; then
     VSCODE_BIN=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
     export PATH="${VSCODE_BIN}:${PATH}"
 
+    # Golang
+    GO_PATH=$(brew --prefix go)
+    export PATH="${GO_PATH}/bin:${PATH}"
+    GOPATH=$(go env GOPATH)
+    export PATH="${GOPATH}/bin:${PATH}"
 
     # my utilities
     export PATH=~/bin:"${PATH}"
