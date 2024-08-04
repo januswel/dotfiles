@@ -10,9 +10,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:"${LD_LIBRARY_PATH}"
 # settings for macOS
 if [ "Darwin" = "$(uname)" ]; then
     # for HomeBrew
-    export PATH="${PATH}":/usr/local/sbin
-    export MANPATH="${MANPATH}":/usr/local/share/man
-    export CPLUS_INCLUDE_PATH="${CPLUS_INCLUDE_PATH}":/usr/local/include
+    eval $(/opt/homebrew/bin/brew shellenv)
 
     # coreutils
     COREUTILS_PATH=$(brew --prefix coreutils)
@@ -63,10 +61,12 @@ if [ "Darwin" = "$(uname)" ]; then
     export PATH="${VSCODE_BIN}:${PATH}"
 
     # Golang
-    GO_PATH=$(brew --prefix go)
-    export PATH="${GO_PATH}/bin:${PATH}"
-    GOPATH=$(go env GOPATH)
-    export PATH="${GOPATH}/bin:${PATH}"
+    if [ -e go ]; then
+      GO_PATH=$(brew --prefix go)
+      export PATH="${GO_PATH}/bin:${PATH}"
+      GOPATH=$(go env GOPATH)
+      export PATH="${GOPATH}/bin:${PATH}"
+    fi
 
     # my utilities
     export PATH=~/bin:"${PATH}"

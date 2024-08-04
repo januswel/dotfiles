@@ -2,6 +2,8 @@
 .vim/bundle
 .vim/view
 .config/nvim/bundle
+.config/anyenv
+.config/karabiner/automatic_backups
 
 bin/docker
 bin/docker-compose
