@@ -4,6 +4,7 @@
 
 [core]
   pager = less -R
+  ignorecase = false
 
 [diff]
   renames = true
@@ -50,19 +51,21 @@
   stashes = stash list
   remotes = remote -v
 
-  interactive = add -p
-  edit = rebase -i
+  stage-interactive = add -p
+  edit-history = rebase -i
 
   unstage = restore --staged --
-  unstageall = restore --staged :/
+  unstage-all = restore --staged :/
   discard = restore --
-  discardall = restore :/
+  discard-all = restore :/
   uncommit = reset HEAD~
 
-  newbranch = switch -c
-  deletetracking = branch -d -r --
+  create-branch = switch -c
+  delete-tracking = branch -d -r --
 
   overwrite = push --force-with-lease
+
+  modified-files-in-this-branch = diff main HEAD --name-only
 
 [maintenance]
   repo = /Users/janus/work/dev/github/zenn-contents

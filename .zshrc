@@ -52,8 +52,11 @@ SPROMPT="%r is correct? [n,y,a,e]: "
 alias g="git"
 alias gs="find . -type d -depth 1 ! -name '.*' -exec zsh -c 'cd \"{}\"; pwd; git status -s;' \;"
 alias d="docker"
+alias dc="docker-compose"
 alias node="node --use_strict"
-alias y="yarn"
+alias h="brew"
+alias n="npm"
+alias p="pnpm"
 
 # Japanize console if available
 export LANG="C"
