@@ -12,7 +12,4 @@ if [ "Darwin" = `uname` ]; then
     export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
-# Added by OrbStack: command-line tools and integration
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
-
 # vim: ts=4 sw=4 sts=0 et

@@ -10,7 +10,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:"${LD_LIBRARY_PATH}"
 # settings for macOS
 if [ "Darwin" = "$(uname)" ]; then
     # for HomeBrew
-    eval $(/opt/homebrew/bin/brew shellenv)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 
     # coreutils
     COREUTILS_PATH=$(brew --prefix coreutils)
