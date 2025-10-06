@@ -9,74 +9,55 @@ export LD_LIBRARY_PATH=/usr/local/lib:"${LD_LIBRARY_PATH}"
 
 # settings for macOS
 if [ "Darwin" = "$(uname)" ]; then
-    # for HomeBrew
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  # HomeBrew
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    # coreutils
-    COREUTILS_PATH=$(brew --prefix coreutils)
-    export PATH="${COREUTILS_PATH}/libexec/gnubin":"${PATH}"
+  # coreutils
+  COREUTILS_PATH=$(brew --prefix coreutils)
+  export PATH="${COREUTILS_PATH}/libexec/gnubin":"${PATH}"
 
-    # for git
-    GIT_PATH=$(brew --prefix git)
-    export PATH="${GIT_PATH}/bin":"${PATH}"
+  # mise
+  eval "$(mise activate zsh)"
 
-    # for Java
-    JAVA_HOME=$(/usr/libexec/java_home -v 21)
-    export JAVA_HOME
-    export PATH="${JAVA_HOME}/bin":"${PATH}"
-    alias java="java -Dfile.encoding=UTF-8"
-    alias javac="javac -J-Dfile.encoding=UTF-8"
+  # Git
+  GIT_PATH=$(brew --prefix git)
+  export PATH="${GIT_PATH}/bin":"${PATH}"
 
-    # for Rust
-    if [ -d "${HOME}/.cargo/bin" ]; then
-      export PATH="${HOME}/.cargo/bin":"${PATH}"
-    fi
+  # Java
+  JAVA_HOME=$(/usr/libexec/java_home -v 25)
+  export JAVA_HOME
+  export PATH="${JAVA_HOME}/bin":"${PATH}"
+  alias java="java -Dfile.encoding=UTF-8"
+  alias javac="javac -J-Dfile.encoding=UTF-8"
 
-    # for Android development
-    export ANDROID_HOME="${HOME}/Library/Android/sdk"
-    ANDROID_EMULATOR=${ANDROID_HOME}/emulator
-    ANDROID_TOOLS=${ANDROID_HOME}/tools
-    ANDROID_BIN=${ANDROID_HOME}/tools/bin
-    ANDROID_PLATFORM_TOOLS=${ANDROID_HOME}/platform-tools
-    export PATH="${ANDROID_EMULATOR}":"${ANDROID_TOOLS}":"${ANDROID_BIN}":"${ANDROID_PLATFORM_TOOLS}":"${PATH}"
+  # Android development
+  export ANDROID_HOME="${HOME}/Library/Android/sdk"
+  ANDROID_EMULATOR=${ANDROID_HOME}/emulator
+  ANDROID_TOOLS=${ANDROID_HOME}/tools
+  ANDROID_BIN=${ANDROID_HOME}/tools/bin
+  ANDROID_PLATFORM_TOOLS=${ANDROID_HOME}/platform-tools
+  export PATH="${ANDROID_EMULATOR}":"${ANDROID_TOOLS}":"${ANDROID_BIN}":"${ANDROID_PLATFORM_TOOLS}":"${PATH}"
 
-    # for google-cloud-sdk
-    if [ -d "${HOME}/google-cloud-sdk/bin" ]; then
-      export PATH="${HOME}/google-cloud-sdk/bin":"${PATH}"
-    fi
+  # VSCode
+  VSCODE_BIN=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
+  export PATH="${VSCODE_BIN}:${PATH}"
 
-    # MySQL
-    MYSQL_PATH=$(brew --prefix mysql-client)
-    export PATH="${MYSQL_PATH}/bin":"${PATH}"
+  # Google Cloud
+  GCP_SDK_PATH_FILE=~/lib/google-cloud-sdk/path.zsh.inc
+  if [ -f ${GCP_SDK_PATH_FILE} ]; then
+    . ${GCP_SDK_PATH_FILE}
+  fi
+  GCP_SDK_COMPLETE_FILE=~/lib/google-cloud-sdk/completion.zsh.inc
+  if [ -f ${GCP_SDK_COMPLETE_FILE} ]; then
+    . ${GCP_SDK_COMPLETE_FILE}
+  fi
 
-    # PostgreSQL
-    LIBPQ_PATH=$(brew --prefix libpq)
-    export PATH="${LIBPQ_PATH}/bin:${PATH}"
-
-    # Python binaries
-    PYTHON_BINARIES=~/.local/bin
-    export PATH="${PYTHON_BINARIES}:${PATH}"
-
-    VSCODE_BIN=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
-    export PATH="${VSCODE_BIN}:${PATH}"
-
-    # Golang
-    if [ -e go ]; then
-      GO_PATH=$(brew --prefix go)
-      export PATH="${GO_PATH}/bin:${PATH}"
-      GOPATH=$(go env GOPATH)
-      export PATH="${GOPATH}/bin:${PATH}"
-    fi
-
-    # my utilities
-    export PATH=~/bin:"${PATH}"
-
-    # for anyenv
-    eval "$(anyenv init - zsh)"
+  # my utilities
+  export PATH=~/bin:"${PATH}"
 fi
 
 if [ -x nvim ]; then
-    alias vim=nvim
+  alias vim=nvim
 fi
 
 alias ls="ls --color=auto"
