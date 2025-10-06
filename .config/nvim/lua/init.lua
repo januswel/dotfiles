@@ -42,4 +42,4 @@ if vim.g.vscode then
   vim.keymap.set('v', '$', moveCursor('wrappedLineEnd', true), { expr = true })
 end
 
-vim.notify('initialization complated')
+vim.notify('mappings are completed')
