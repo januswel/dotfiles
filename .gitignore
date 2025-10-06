@@ -1,14 +1,10 @@
 .vim/backup
 .vim/bundle
 .vim/view
+
 .config/nvim/bundle
 .config/anyenv
 .config/karabiner/automatic_backups
 .config/gh/hosts.yml
-
-bin/docker
-bin/docker-compose
-bin/docker-credential-osxkeychain
-bin/kubectl
-bin/orb
-bin/orbctl
+.config/.pyxel
+.config/configstore
