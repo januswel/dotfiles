@@ -1,13 +1,24 @@
 #!/bin/sh
 
+readonly COMMIT_MSG_FILE="$1"
+readonly COMMIT_SOURCE="$2"
+
+# merge, squash, amend etc
+if [ -n "${COMMIT_SOURCE}" ]; then
+  exit 0
+fi
+
+# cherry-pick
+if [ -f .git/CHERRY_PICK_HEAD ]; then
+  exit 0
+fi
+
 GITMOJI_CLI=$(which gitmoji)
 
 if [ ! -x "${GITMOJI_CLI}" ]; then
   echo "gitmoji-cli is not installed. Install it if you want template for commit messages."
   exit 0;
 fi
-
-readonly COMMIT_MSG_FILE="$1"
 
 cat << __DOC__ >> "${COMMIT_MSG_FILE}"
 # gitmoji template to complete
