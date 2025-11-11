@@ -23,8 +23,8 @@ if [ "Darwin" = "$(uname)" ]; then
   GIT_PATH=$(brew --prefix git)
   export PATH="${GIT_PATH}/bin":"${PATH}"
 
-  # Java
-  JAVA_HOME=$(/usr/libexec/java_home -v 25)
+  # Java for React Native Android
+  JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
   export JAVA_HOME
   export PATH="${JAVA_HOME}/bin":"${PATH}"
   alias java="java -Dfile.encoding=UTF-8"
