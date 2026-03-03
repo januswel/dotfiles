@@ -1,10 +1,13 @@
 .config/.pyxel
 .config/anyenv
+.config/cagent
 .config/configstore
+.config/gcloud
 .config/gh/hosts.yml
 .config/karabiner/automatic_backups
 .config/nvim/bundle
 .config/op
+.config/stripe
 
 .vim/backup
 .vim/bundle
