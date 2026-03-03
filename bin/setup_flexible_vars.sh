@@ -3,10 +3,6 @@
 # shellcheck disable=SC2139
 # shellcheck disable=SC1090
 
-# environment variables
-export CPLUS_INCLUDE_PATH=/usr/local/include:"${CPLUS_INCLUDE_PATH}"
-export LD_LIBRARY_PATH=/usr/local/lib:"${LD_LIBRARY_PATH}"
-
 # settings for macOS
 if [ "Darwin" = "$(uname)" ]; then
   # HomeBrew
@@ -51,6 +47,15 @@ if [ "Darwin" = "$(uname)" ]; then
   if [ -f ${GCP_SDK_COMPLETE_FILE} ]; then
     . ${GCP_SDK_COMPLETE_FILE}
   fi
+
+  # PostgreSQL
+  PG_HOME=$(brew --prefix libpq)
+  export PATH="${PG_HOME}/bin:$PATH"
+  export PG_LIB_DIR="${PG_HOME}/lib"
+  export PKG_CONFIG_PATH="${PG_HOME}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+
+  # Claude Code
+  export PATH="${HOME}/.local/bin:${PATH}"
 
   # my utilities
   export PATH=~/bin:"${PATH}"

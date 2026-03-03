@@ -2,17 +2,19 @@
 # janus_wel <janus.wel.3@gmail.com>
 
 # completions
-FPATH=${HOME}/bin/zsh/site-functions:${FPATH}
+fpath=(${HOME}/bin/zsh/site-functions $fpath)
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:${FPATH}
-
   if [ "$(brew list --formula | grep zsh-completions | wc -l)" -ge 1 ]; then
-    FPATH=$(brew --prefix)/share/zsh-completions:${FPATH}
+    fpath=($(brew --prefix)/share/zsh-completions $fpath)
   fi
 fi
 
-autoload -U compinit
-compinit
+if [ -e ${HOME}/.docker/completions ]; then
+  fpath=(${HOME}/.docker/completions $fpath)
+fi
+
+autoload -Uz compinit
+compinit -u
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
