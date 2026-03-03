@@ -6,6 +6,9 @@
   pager = less -R
   ignorecase = false
 
+[log]
+	showSignature = true
+
 [diff]
   renames = true
 
@@ -66,7 +69,3 @@
   overwrite = push --force-with-lease
 
   modified-files-in-this-branch = diff main HEAD --name-only
-
-[maintenance]
-  repo = /Users/janus/work/dev/github/zenn-contents
-
