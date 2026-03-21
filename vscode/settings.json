@@ -1,0 +1,120 @@
+{
+  // #region workbench
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  // #endregion
+
+  // #region editor
+  // #region font
+  "editor.fontFamily": "UDEV Gothic JPDOC",
+  "editor.fontSize": 12.5,
+  "editor.lineHeight": 1.4,
+  // #endregion
+
+  // #region autoedit
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingComments": "never",
+  "editor.autoClosingDelete": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoSurround": "never",
+  // #endregion
+
+  // #region format
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.organizeImports": "explicit",
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  // #endregion
+
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  // #endregion
+
+  // #region explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  // #endregion
+
+  // #region file associations
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    ".env*": "properties",
+  },
+  // #endregion
+
+  // #region git
+  "git.openRepositoryInParentFolders": "never",
+  // #endregion
+
+  // #region terminal
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.suggest.enabled": false,
+  // #endregion
+
+  // #region languages
+  // #region JavaScript / TypeScript
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.preferences.useAliasesForRenames": false,
+  "js/ts.autoClosingTags.enabled": false,
+  // #endregion
+
+  // #region HTML
+  "html.autoClosingTags": false,
+  // #endregion
+
+  // #region Rust
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "rust-analyzer.cargo.buildScripts.enable": true,
+  "rust-analyzer.checkOnSave": true,
+  "rust-analyzer.hover.actions.implementations.enable": true,
+  "rust-analyzer.hover.actions.references.enable": true,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.lens.implementations.enable": true,
+  "rust-analyzer.lens.references.adt.enable": true,
+  "rust-analyzer.lens.references.method.enable": true,
+  "rust-analyzer.lens.references.trait.enable": true,
+  "rust-analyzer.procMacro.attributes.enable": true,
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.references.excludeImports": false,
+  "rust-analyzer.rustfmt.overrideCommand": [
+    "rustfmt",
+    "--emit=stdout"
+  ],
+  // #endregion
+
+  // #endregion
+
+  // #region extensions
+  // #region vscode-neovim
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1,
+  },
+  // #endregion
+
+  // #region biome
+  "biome.suggestInstallingGlobally": false,
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://biomejs.dev": true,
+  },
+  // #endregion
+
+  // #region Claude Code
+  "claudeCode.preferredLocation": "panel",
+  // #endregion
+  // #endregion
+}
