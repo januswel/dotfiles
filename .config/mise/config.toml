@@ -1,5 +1,9 @@
 [tools]
 node = "24"
-python = "latest"
-rust = "latest"
+"npm:gitmoji-cli" = "latest"
 pnpm = "latest"
+
+rust = "latest"
+
+[settings.npm]
+package_manager = "pnpm"
