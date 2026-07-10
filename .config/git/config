@@ -69,3 +69,6 @@
   overwrite = push --force-with-lease
 
   modified-files-in-this-branch = diff main HEAD --name-only
+
+[filter "karabiner"]
+	clean = jq --indent 4 'del(.machine_specific)'
