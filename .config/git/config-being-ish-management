@@ -1,0 +1,10 @@
+[user]
+  name = TAKAGI Kensuke
+  email = takagi.kensuke@being-i.sh
+  signingkey = 14A01D981DDE27D3
+
+[commit]
+  gpgsign = true
+
+[log]
+  showSignature = true

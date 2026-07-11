@@ -6,9 +6,6 @@
   pager = less -R
   ignorecase = false
 
-[log]
-	showSignature = true
-
 [diff]
   renames = true
 
@@ -72,3 +69,8 @@
 
 [filter "karabiner"]
 	clean = jq --indent 4 'del(.machine_specific)'
+
+[includeIf "hasconfig:remote.*.url:git@github.com:being-ish/management*"]
+  path = config-being-ish-management
+[includeIf "hasconfig:remote.*.url:https://github.com/being-ish/management*"]
+  path = config-being-ish-management
