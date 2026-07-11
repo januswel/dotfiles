@@ -7,3 +7,13 @@ trim_trailing_whitespace = true
 charset = utf-8
 indent_style = space
 indent_size = 2
+
+# ネストしたリストは親のマーカー幅以上のインデントが必要
+#
+# https://spec.commonmark.org/current/#list-items
+#
+# 次の理由で 4 個にする
+# - ol をネストしたいとき 2 個では不足するため
+# - `100. ` は 5 個必要だが 100 個もリストを書かないため
+[*.md]
+indent_size = 4
