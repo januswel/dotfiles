@@ -16,6 +16,7 @@ items='
 .zshrc
 .dir_colors
 .tmux.conf
+bin
 .vim
 .vimrc
 .gvimrc
