@@ -1,0 +1,81 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ide__getDiagnostics",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(git merge*)",
+      "Bash(git rebase*)",
+      "Bash(git reset*)",
+      "Bash(git revert*)",
+      "Bash(git cherry-pick*)",
+      "Bash(git tag*)",
+      "Bash(git stash*)",
+      "Bash(git checkout*)",
+      "Bash(git restore*)",
+      "Bash(git clean*)"
+    ],
+    "ask": [],
+    "defaultMode": "auto"
+  },
+  "model": "opusplan",
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/bin/claude-statusline.sh"
+  },
+  "enabledPlugins": {
+    "skill-creator@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "plan-tasks@being-ish": true,
+    "dev-docs@being-ish": true,
+    "ja-markdown-style@being-ish": true
+  },
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    },
+    "being-ish": {
+      "source": {
+        "source": "github",
+        "repo": "being-ish/agent-skills"
+      }
+    }
+  },
+  "language": "日本語",
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false
+  },
+  "effortLevel": "low",
+  "advisorModel": "fable",
+  "promptSuggestionEnabled": false,
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": false,
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "switchModelsOnFlag": false,
+  "remoteControlAtStartup": false,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command // \"\"' | grep -qE '(^|[;&|(`[:space:]])git([[:space:]]+-[^[:space:]]+)*[[:space:]]+(commit|push|merge|rebase|reset|revert|cherry-pick|tag|stash|checkout|restore|clean|am|apply)\\b' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"git は参照系のみ実行可。更新系はユーザーが実行する\"}}' || true"
+          }
+        ]
+      }
+    ]
+  }
+}
