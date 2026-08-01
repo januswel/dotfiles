@@ -17,9 +17,9 @@
     "source.fixAll": "never",
     "source.organizeImports": "never"
   },
-  "editor.fontFamily": "UDEV Gothic JPDOC",
-  "editor.fontSize": 12.5,
-  "editor.lineHeight": 1.4,
+  "editor.fontFamily": "HackGen",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.2,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
