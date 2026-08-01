@@ -43,7 +43,6 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^org\\.vim\\.MacVim$"
                                         ],
@@ -73,7 +72,6 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^org\\.vim\\.MacVim$"
                                         ],
@@ -103,7 +101,6 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^org\\.vim\\.MacVim$"
                                         ],
@@ -133,7 +130,6 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^org\\.vim\\.MacVim$"
                                         ],
