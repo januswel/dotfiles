@@ -58,6 +58,7 @@ if [ "Darwin" = "$(uname)" ]; then
   export PATH="${HOME}/.local/bin:${PATH}"
   # with `/model opusplan`
   export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-fable-5'
+  export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-opus-5'
 
   # my utilities
   export PATH=~/bin:"${PATH}"
