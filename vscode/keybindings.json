@@ -1,0 +1,71 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "cmd+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "-editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+cmd+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+cmd+j",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+cmd+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated && terminalSplitPaneActive || terminalFocus && terminalProcessSupported && terminalSplitPaneActive"
+  },
+  {
+    "key": "ctrl+cmd+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated && terminalSplitPaneActive || terminalFocus && terminalProcessSupported && terminalSplitPaneActive"
+  },
+  {
+    "key": "ctrl+cmd+h",
+    "command": "workbench.action.previousEditor",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+cmd+l",
+    "command": "workbench.action.nextEditor",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+]",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal.] && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+  {
+    "key": "ctrl+]",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "z c",
+    "command": "editor.fold",
+    "when": "editorTextFocus && foldingEnabled && neovim.mode != 'insert'"
+  },
+  {
+    "key": "z o",
+    "command": "editor.unfold",
+    "when": "editorTextFocus && foldingEnabled && neovim.mode != 'insert'"
+  }
+]
