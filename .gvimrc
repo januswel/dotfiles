@@ -19,7 +19,7 @@ if has('win32')
     set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
     set linespace=0
 elseif has('mac')
-    set guifont=VL_Gothic:h16
+    set guifont=VL_Gothic:h24
     set linespace=0
 endif
 
