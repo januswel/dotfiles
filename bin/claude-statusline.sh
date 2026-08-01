@@ -3,6 +3,7 @@
 input=$(cat)
 echo "$input" > /tmp/statusline-input.json
 MODEL=$(echo "$input" | jq -r '.model.id // .model.display_name')
+EFFORT=$(echo "$input" | jq -r '.effort.level // "-"')
 CTX=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
 
 H5=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // 0' | cut -d. -f1)
@@ -17,4 +18,4 @@ else
   LEFT="-"
 fi
 
-echo "[$MODEL] used ${CTX}% | 5h ${H5}% (reset ${LEFT}) / 7d ${D7}%"
+echo "[$MODEL/$EFFORT] used ${CTX}% | 5h ${H5}% (reset ${LEFT}) / 7d ${D7}%"
