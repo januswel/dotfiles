@@ -43,6 +43,8 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.suggest.enabled": false,
+  "terminal.integrated.fontFamily": "HackGen",
+  "terminal.integrated.fontSize": 14,
 
   // git
   "git.openRepositoryInParentFolders": "never",
@@ -82,4 +84,10 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   }
+
+
+  // PROFILE SPECIFICS
+  // extensions
+
+  // languages
 }
