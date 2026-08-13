@@ -2,6 +2,7 @@
 # janus_wel <janus.wel.3@gmail.com>
 
 source ~/bin/setup_flexible_vars.sh
+source ~/bin/utils.sh
 
 # environment variables
 export EDITOR="/usr/bin/vim"
