@@ -70,7 +70,7 @@ fi
 unset JA_JP_UTF8
 
 # colors for "ls"
-DIRCOLORS_SETTINGS=".dir_colors"
+DIRCOLORS_SETTINGS="$HOME/.config/dircolors"
 if [ "$TERM" != "dumb" ]; then
     if [ -r "$DIRCOLORS_SETTINGS" ]; then
         eval $(dircolors $DIRCOLORS_SETTINGS -b)
@@ -96,7 +96,7 @@ bindkey '^S' history-beginning-search-forward
 eval "$(direnv hook zsh)"
 
 # history
-export HISTFILE=${HOME}/.zsh_history
+export HISTFILE=${ZDOTDIR}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
 setopt extended_history
