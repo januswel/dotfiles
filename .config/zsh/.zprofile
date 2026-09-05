@@ -8,6 +8,7 @@ source ~/bin/utils.sh
 export EDITOR="/usr/bin/vim"
 export SHELL="/bin/zsh"
 export LESS="-gj5"
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 
 if [ "Darwin" = `uname` ]; then
     export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
