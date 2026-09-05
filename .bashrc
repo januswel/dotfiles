@@ -43,7 +43,7 @@ if [ -f "$HOME"/.bash_aliases ]; then
 fi
 
 # colors
-DIRCOLORS_SETTINGS=".dir_colors"
+DIRCOLORS_SETTINGS="$HOME/.config/dircolors"
 if [ "$TERM" != "dumb" ]; then
     if [ -r $DIRCOLORS_SETTINGS ]; then
       eval "$(dircolors $DIRCOLORS_SETTINGS -b)"
