@@ -1,9 +1,12 @@
 [tools]
-node = "24"
+node = "26"
 "npm:gitmoji-cli" = "latest"
 pnpm = "latest"
 
 rust = "latest"
+
+[settings]
+minimum_release_age = "3d"
 
 [settings.npm]
 package_manager = "pnpm"
